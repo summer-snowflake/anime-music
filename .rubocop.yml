@@ -1,0 +1,23 @@
+AllCops:
+  Include:
+    - '**/config.ru'
+  Exclude:
+    - 'test/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+# クラスにコメントを残さない
+Documentation:
+  Enabled: false
+
+# ABCサイズをMAX20に緩和
+Metrics/AbcSize:
+  Enabled: true
+  Max: 20
