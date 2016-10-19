@@ -1,0 +1,36 @@
+box: ruby
+services:
+  - id: postgres
+
+build:
+  steps:
+    - bundle-install
+
+test:
+  steps:
+    - bundle-install
+    - rails-database-yml
+    - script:
+      name: Set up DB
+      code: RAILS_ENV=test bundle exec rake db:schema:load
+    - script:
+      name: Test using Rspec
+      code: RAILS_ENV=test bundle exec rspec
+    - script:
+      name: Check rubocop
+      code: RAILS_ENV=test bundle exec rubocop app spec lib
+  after-steps:
+    - wantedly/pretty-slack-notify:
+      webhook_url: "$SLACK_WEBHOOK_URL"
+      channel: notify
+
+deploy:
+  steps:
+    - heroku-deploy:
+      install-toolbelt: true
+      app-name: $APP_NAME
+      key-name: HEROKU_SSH_KEY
+  after-steps:
+    - wantedly/pretty-slack-notify:
+      webhook_url: "$SLACK_WEBHOOK_URL"
+      channel: dev
