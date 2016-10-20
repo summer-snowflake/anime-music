@@ -3,4 +3,4 @@
 
 window.React = require('react');
 window.ReactDOM = require('react-dom');
-window.Widgets = require('./components/Widgets.jsx');
+window.Widgets = require('./components/widgets.jsx');
