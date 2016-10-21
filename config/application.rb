@@ -16,6 +16,10 @@ module AnimeMusic
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     # config.api_only = true
-    config.browserify_rails.commandline_options = '--transform reactify'
+    config.browserify_rails.commandline_options = [
+      '-t [coffeeify --extension .coffee]',
+      '-t [reactify --extension .jsx.coffee]',
+      '--extension .js.jsx.coffee'
+    ]
   end
 end
