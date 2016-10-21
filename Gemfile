@@ -10,6 +10,7 @@ gem 'browserify-rails'
 gem 'rb-readline'
 gem 'react-rails'
 gem 'turbolinks'
+gem 'slim-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
