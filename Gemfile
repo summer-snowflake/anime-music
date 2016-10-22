@@ -14,14 +14,22 @@ gem 'slim-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'rspec-rails'
-  gem 'rspec-collection_matchers'
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'pry-byebug'
+  gem 'rack-cors'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'rspec-collection_matchers'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'rack-cors'
+  gem 'shoulda-matchers'
+  gem 'rspec-json_matcher', require: false
+  gem 'capybara-email'
+  gem 'simplecov'
+  gem 'database_rewinder'
 end
 
 group :development do
