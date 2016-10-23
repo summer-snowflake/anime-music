@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022192806) do
+ActiveRecord::Schema.define(version: 20161022211023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20161022192806) do
     t.string   "summary"
     t.string   "wiki_url"
     t.string   "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.integer  "anime_id",   null: false
+    t.string   "name",       null: false
+    t.date     "start_on"
+    t.date     "end_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
