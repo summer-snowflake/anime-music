@@ -1,5 +1,7 @@
-class Api::AnimesController < Api::BaseController
-  def index
-    @animes = Anime.all
+module Api
+  class AnimesController < ApplicationController
+    def index
+      @animes = Anime.all
+    end
   end
 end
