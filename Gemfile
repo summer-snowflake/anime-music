@@ -11,6 +11,7 @@ gem 'rb-readline'
 gem 'react-rails'
 gem 'turbolinks'
 gem 'slim-rails'
+gem 'jbuilder'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -18,13 +19,13 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'pry-byebug'
   gem 'rack-cors'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :test do
   gem 'rspec-rails'
   gem 'rspec-collection_matchers'
-  gem 'factory_girl_rails'
-  gem 'faker'
   gem 'shoulda-matchers'
   gem 'rspec-json_matcher', require: false
   gem 'capybara-email'
