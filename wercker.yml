@@ -6,6 +6,19 @@ build:
   steps:
     - bundle-install
 
+brakeman:
+  steps:
+    - bundle-install
+    - script:
+      name: Display Brakeman
+      code: RAILS_ENV=test bundle exec brakeman
+    - script:
+      name: Report Brakeman
+      code: RAILS_ENV=test bundle exec brakeman -o tmp/output.json
+    - script:
+      name: Security Check Result
+      code: ruby -rjson -e "num = (JSON.parse File.read('tmp/output.json'))['scan_info']['security_warnings']; raise if num > 0"
+
 test:
   steps:
     - bundle-install
