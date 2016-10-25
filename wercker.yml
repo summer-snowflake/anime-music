@@ -6,6 +6,12 @@ build:
   steps:
     - bundle-install
 
+brakeman:
+  steps:
+    - bundle-install
+    - script:
+      name: Check brakeman
+      code: RAILS_ENV=test bundle exec brakeman
 test:
   steps:
     - bundle-install

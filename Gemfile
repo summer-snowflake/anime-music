@@ -21,6 +21,7 @@ group :development, :test do
   gem 'rack-cors'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'brakeman', require: false
 end
 
 group :test do
