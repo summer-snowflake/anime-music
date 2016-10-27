@@ -3,3 +3,5 @@
 //= require turbolinks
 //= require components
 //= require_tree .
+
+//= stub ./stub/jest-script-preprocessor
