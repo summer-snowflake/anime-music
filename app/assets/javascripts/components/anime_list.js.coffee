@@ -26,10 +26,4 @@ AnimeList = React.createClass
       this.state.animes.map (anime) ->
         React.createElement(Anime, { key: anime.id, anime: anime }, anime.title)
 
-#Anime = React.createClass
-#  render: ->
-#    R.div
-#      className: 'anime-title'
-#      this.props.anime.title
-
 module.exports = AnimeList
