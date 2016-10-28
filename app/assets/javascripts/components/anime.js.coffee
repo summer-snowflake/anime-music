@@ -1,6 +1,3 @@
-React = require('react')
-R = React.DOM
-
 Anime = React.createClass
   render: ->
     R.div

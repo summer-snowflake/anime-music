@@ -1,6 +1,7 @@
+window.React = require 'react'
+window.R = React.DOM
 jest.dontMock '../javascripts/components/anime.js.coffee'
 
-React = require 'react'
 Anime = require '../javascripts/components/anime.js.coffee'
 { shallow } = require 'enzyme'
 
