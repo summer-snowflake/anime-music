@@ -1,4 +1,5 @@
-React = require('react')
+React = require 'react'
+Anime = require './anime.js.coffee'
 R = React.DOM
 
 AnimeList = React.createClass
