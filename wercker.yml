@@ -33,7 +33,7 @@ test:
     - bundle-install
     - script:
       name: Check using Coffeelint
-      code: coffeelint app/assets
+      code: ./node_modules/coffeelint/bin/coffeelint app/assets
     - script:
       name: Check using Rubocop
       code: RAILS_ENV=test bundle exec rubocop app spec lib
