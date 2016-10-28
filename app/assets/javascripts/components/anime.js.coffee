@@ -2,6 +2,6 @@ Anime = React.createClass
   render: ->
     R.div
       className: 'anime-title'
-      this.props.children
+      React.createElement(Panel, null, this.props.children)
 
 module.exports = Anime
