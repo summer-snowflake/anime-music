@@ -21,6 +21,15 @@ brakeman:
 
 test:
   steps:
+    - script:
+      name: Build npm
+      code: |
+        sudo apt-get update
+        sudo apt-get -y install nodejs npm
+        npm install -g n
+        n latest
+    - npm-install
+    - npm-test
     - bundle-install
     - rails-database-yml
     - script:
