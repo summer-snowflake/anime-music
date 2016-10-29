@@ -9,18 +9,18 @@ describe 'GET /api/animes' do
     get '/api/animes'
     expect(response.status).to eq 200
 
-    json = { 
+    json = {
       animes: [
-        {   
+        {
           id: anime1.id,
           title: anime1.title
-        },  
-        {   
+        },
+        {
           id: anime2.id,
           title: anime2.title
-        }   
-      ]   
-    }   
+        }
+      ]
+    }
     expect(response.body).to be_json_as(json)
   end
 end
