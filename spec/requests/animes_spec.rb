@@ -5,7 +5,7 @@ describe 'GET /api/animes' do
   let!(:anime1) { create(:anime) }
   let!(:anime2) { create(:anime) }
 
-  it '201とアニメ一覧が返ってくること' do
+  it '200とアニメ一覧が返ってくること' do
     get '/api/animes'
     expect(response.status).to eq 200
 
