@@ -60,4 +60,8 @@ RSpec.configure do |config|
       DatabaseRewinder.clean_all
     end
   end
+
+  config.after :each do
+    DatabaseRewinder.clean_all
+  end
 end
