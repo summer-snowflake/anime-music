@@ -31,6 +31,7 @@ group :test do
   gem 'rspec-json_matcher', require: false
   gem 'selenium-webdriver'
   gem 'rack_session_access'
+  gem 'phantomjs'
   gem 'poltergeist'
   gem 'capybara'
   gem 'capybara-email'
