@@ -29,7 +29,13 @@ group :test do
   gem 'rspec-collection_matchers'
   gem 'shoulda-matchers'
   gem 'rspec-json_matcher', require: false
+  gem 'selenium-webdriver'
+  gem 'rack_session_access'
+  gem 'phantomjs'
+  gem 'poltergeist'
+  gem 'capybara'
   gem 'capybara-email'
+  gem 'capybara-screenshot'
   gem 'simplecov'
   gem 'database_rewinder'
 end
