@@ -20,6 +20,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rack-cors'
   gem 'factory_girl_rails'
+  gem 'gimei'
   gem 'faker'
   gem 'brakeman', require: false
 end
