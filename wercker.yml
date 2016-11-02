@@ -6,9 +6,37 @@ build:
   steps:
     - bundle-install
 
-test:
+brakeman:
   steps:
     - bundle-install
+    - script:
+      name: Display Brakeman
+      code: RAILS_ENV=test bundle exec brakeman
+    - script:
+      name: Report Brakeman
+      code: RAILS_ENV=test bundle exec brakeman -o tmp/output.json
+    - script:
+      name: Security Check Result
+      code: ruby -rjson -e "num = (JSON.parse File.read('tmp/output.json'))['scan_info']['security_warnings']; raise if num > 0"
+
+test:
+  steps:
+    - script:
+      name: Build npm
+      code: |
+        sudo apt-get update
+        sudo apt-get -y install nodejs npm
+        npm install -g n
+        n latest
+    - npm-install
+    - npm-test
+    - bundle-install
+    - script:
+      name: Check using Coffeelint
+      code: ./node_modules/coffeelint/bin/coffeelint app/assets
+    - script:
+      name: Check using Rubocop
+      code: RAILS_ENV=test bundle exec rubocop app spec lib
     - rails-database-yml
     - script:
       name: Set up DB
@@ -16,9 +44,6 @@ test:
     - script:
       name: Test using Rspec
       code: RAILS_ENV=test bundle exec rspec
-    - script:
-      name: Check rubocop
-      code: RAILS_ENV=test bundle exec rubocop app spec lib
   after-steps:
     - wantedly/pretty-slack-notify:
       webhook_url: "$SLACK_WEBHOOK_URL"

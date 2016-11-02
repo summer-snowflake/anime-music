@@ -7,7 +7,20 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
+  },
+  "jest": {
+    "scriptPreprocessor": "./app/assets/javascripts/stub/jest-script-preprocessor",
+    "automock": true,
+    "unmockedModulePathPatterns": [
+      "react",
+      "enzyme"
+    ],
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(coffee|cjsx|js|jsx)$",
+    "moduleFileExtensions": [
+      "coffee",
+      "js"
+    ]
   },
   "repository": {
     "type": "git",
@@ -20,9 +33,19 @@
   },
   "homepage": "https://github.com/summer-snowflake/anime-music#readme",
   "devDependencies": {
+    "babel-jest": "^16.0.0",
     "browserify": "^13.1.0",
     "browserify-incremental": "^3.1.1",
+    "coffee-react": "^5.0.1",
+    "coffee-react-transform": "^5.0.0",
+    "coffeeify": "^2.0.1",
+    "coffeelint": "^1.16.0",
+    "enzyme": "^2.5.1",
+    "jest": "^16.0.2",
+    "jest-cli": "^16.0.2",
     "react": "^15.3.2",
+    "react-addons-test-utils": "^15.3.2",
+    "react-bootstrap": "^0.30.5",
     "react-dom": "^15.3.2",
     "reactify": "^1.1.1"
   }

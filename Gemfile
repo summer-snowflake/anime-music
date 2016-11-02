@@ -10,17 +10,35 @@ gem 'browserify-rails'
 gem 'rb-readline'
 gem 'react-rails'
 gem 'turbolinks'
+gem 'slim-rails'
+gem 'jbuilder'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'rspec-rails'
-  gem 'rspec-collection_matchers'
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'pry-byebug'
-  gem 'factory_girl_rails'
-  gem 'faker'
   gem 'rack-cors'
+  gem 'factory_girl_rails'
+  gem 'gimei'
+  gem 'faker'
+  gem 'brakeman', require: false
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'rspec-collection_matchers'
+  gem 'shoulda-matchers'
+  gem 'rspec-json_matcher', require: false
+  gem 'selenium-webdriver'
+  gem 'rack_session_access'
+  gem 'phantomjs'
+  gem 'poltergeist'
+  gem 'capybara'
+  gem 'capybara-email'
+  gem 'capybara-screenshot'
+  gem 'simplecov'
+  gem 'database_rewinder'
 end
 
 group :development do
@@ -29,6 +47,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'guard-rubocop'
   gem 'rubocop', require: false
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :production do
