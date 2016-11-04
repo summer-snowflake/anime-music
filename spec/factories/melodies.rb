@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :melody do
     season
-    kind { [1..2].sample }
+    kind { [:op, :ed].sample }
     sequence(:title) { |n| "シーズン#{n}" }
     singer
     # TODO: 音楽データを設定する
