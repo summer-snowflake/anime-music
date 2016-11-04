@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :melody do
+    anime
     season
     kind { [:op, :ed].sample }
     sequence(:title) { |n| "シーズン#{n}" }

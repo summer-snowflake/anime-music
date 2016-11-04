@@ -25,19 +25,21 @@ ActiveRecord::Schema.define(version: 20161041154529) do
   end
 
   create_table "melodies", force: :cascade do |t|
-    t.integer  "season_id",    null: false
+    t.integer  "anime_id"
+    t.integer  "season_id"
     t.integer  "kind",         null: false
-    t.string   "title"
+    t.string   "title",        null: false
     t.integer  "singer_id"
     t.string   "music"
     t.string   "lyric_writer"
     t.string   "composer"
     t.string   "adapter"
     t.text     "memo"
-    t.date     "start_on",     null: false
+    t.date     "start_on"
     t.date     "end_on"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["anime_id"], name: "index_melodies_on_anime_id", using: :btree
     t.index ["season_id"], name: "index_melodies_on_season_id", using: :btree
     t.index ["singer_id"], name: "index_melodies_on_singer_id", using: :btree
   end
