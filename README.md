@@ -1,5 +1,7 @@
 # anime-music（仮）
 
+[![wercker status](https://app.wercker.com/status/c96221ac4fb6e1994bdea4cdfeaa1895/s/master "wercker status")](https://app.wercker.com/project/byKey/c96221ac4fb6e1994bdea4cdfeaa1895)
+
 アニメのOPとEDをまとめた情報サイト（の予定）
 
 ## 本番環境
