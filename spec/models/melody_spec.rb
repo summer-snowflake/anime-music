@@ -7,5 +7,6 @@ RSpec.describe Melody, type: :model do
 
   describe 'バリデーション' do
     it { is_expected.to validate_presence_of(:title) }
+    it { is_expected.to validate_presence_of(:kind) }
   end
 end
