@@ -1,6 +1,4 @@
-module Admin
-  class TopController < ApplicationController
-    def index
-    end
+class Admin::TopController < ApplicationController
+  def index
   end
 end
