@@ -21,3 +21,7 @@ Documentation:
 Metrics/AbcSize:
   Enabled: true
   Max: 20
+
+# ModuleとClassの形式をcompactに設定
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
