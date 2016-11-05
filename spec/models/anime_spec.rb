@@ -4,6 +4,7 @@ RSpec.describe Anime, type: :model do
   it { is_expected.to have_many(:seasons) }
   it { is_expected.to have_many(:melodies) }
   it { is_expected.to have_many(:appearances) }
+  it { is_expected.to have_many(:advertisements) }
 
   describe 'バリデーション' do
     it { is_expected.to validate_presence_of(:title) }
