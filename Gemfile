@@ -29,6 +29,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'autodoc'
   gem 'rspec-rails'
   gem 'rspec-collection_matchers'
   gem 'shoulda-matchers'
