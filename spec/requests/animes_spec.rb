@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-describe 'GET /api/animes' do
+describe 'GET /api/animes', autodoc: true do
   let!(:anime1) { create(:anime) }
   let!(:anime2) { create(:anime) }
 

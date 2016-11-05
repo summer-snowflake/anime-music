@@ -41,6 +41,10 @@ GEM
     addressable (2.4.0)
     arel (7.1.4)
     ast (2.3.0)
+    autodoc (0.6.0)
+      actionpack
+      activesupport (>= 3.0.0)
+      rspec
     awesome_print (1.7.0)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -221,6 +225,10 @@ GEM
       railties (>= 3.2)
       tilt
     ref (2.0.0)
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
     rspec-collection_matchers (1.1.2)
       rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.5.4)
@@ -307,6 +315,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autodoc
   better_errors
   binding_of_caller
   brakeman
