@@ -116,6 +116,11 @@ GEM
       pry (>= 0.9.12)
       shellany (~> 0.0)
       thor (>= 0.18.1)
+    guard-compat (1.2.1)
+    guard-rspec (4.7.3)
+      guard (~> 2.1)
+      guard-compat (~> 1.1)
+      rspec (>= 2.99.0, < 4.0)
     guard-rubocop (1.2.0)
       guard (~> 2.0)
       rubocop (~> 0.20)
@@ -292,6 +297,8 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     temple (0.7.7)
+    terminal-notifier (1.7.1)
+    terminal-notifier-guard (1.7.0)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -329,6 +336,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   gimei
+  guard-rspec
   guard-rubocop
   jbuilder
   jquery-rails
@@ -356,6 +364,8 @@ DEPENDENCIES
   slim-rails
   spring
   spring-watcher-listen (~> 2.0.0)
+  terminal-notifier
+  terminal-notifier-guard
   therubyracer
   turbolinks
   tzinfo-data

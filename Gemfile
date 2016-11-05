@@ -43,12 +43,15 @@ group :test do
   gem 'capybara-screenshot'
   gem 'simplecov'
   gem 'database_rewinder'
+  gem 'terminal-notifier'
+  gem 'terminal-notifier-guard'
 end
 
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'guard-rspec'
   gem 'guard-rubocop'
   gem 'rubocop', require: false
   gem 'better_errors'
