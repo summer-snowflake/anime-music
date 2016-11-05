@@ -50,6 +50,7 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include RSpec::JsonMatcher
   config.include ActiveJob::TestHelper
+  config.include FeatureSpecHelper, type: :feature
 
   config.before :suite do
     I18n.locale = :ja
