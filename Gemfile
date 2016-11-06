@@ -15,6 +15,8 @@ gem 'react-rails'
 gem 'turbolinks'
 gem 'slim-rails'
 gem 'jbuilder'
+gem 'bootstrap-sass'
+gem 'sass-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
