@@ -181,7 +181,7 @@ GEM
     pry-rescue (1.4.4)
       interception (>= 0.5)
       pry
-    public_suffix (2.0.3)
+    public_suffix (2.0.4)
     puma (3.6.0)
     rack (2.0.1)
     rack-cors (0.4.0)
@@ -266,7 +266,7 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
     rubyzip (1.2.0)
-    selenium-webdriver (3.0.0)
+    selenium-webdriver (3.0.1)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
