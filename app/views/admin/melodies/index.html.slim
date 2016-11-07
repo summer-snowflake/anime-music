@@ -1,0 +1,43 @@
+h1 Listing melodies
+
+table
+  thead
+    tr
+      th Anime
+      th Season
+      th Kind
+      th Title
+      th Singer
+      th Music
+      th Lyric writer
+      th Composer
+      th Adapter
+      th Memo
+      th Start on
+      th End on
+      th
+      th
+      th
+
+  tbody
+    - @melodies.each do |melody|
+      tr
+        td = melody.anime.title
+        td = melody.season.name
+        td = melody.kind
+        td = melody.title
+        td = melody.singer.name
+        td = melody.music
+        td = melody.lyric_writer
+        td = melody.composer
+        td = melody.adapter
+        td = melody.memo
+        td = melody.start_on
+        td = melody.end_on
+        td = link_to 'Show', [:admin, melody]
+        td = link_to 'Edit', edit_admin_melody_path(melody)
+        td = link_to 'Destroy', [:admin, melody], data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Melody', new_admin_melody_path

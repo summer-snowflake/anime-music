@@ -1,4 +1,4 @@
-= form_for ['admin', @anime] do |f|
+= form_for [:admin, @anime] do |f|
   - if @anime.errors.any?
     #error_explanation
       h2 = "#{pluralize(@anime.errors.count, "error")} prohibited this admin_anime from being saved:"
