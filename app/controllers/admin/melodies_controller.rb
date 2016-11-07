@@ -55,7 +55,9 @@ class Admin::MelodiesController < Admin::BaseController
   end
 
   def melody_params
-    params.require(:melody).permit(:anime_id, :season_id, :kind, :title, :singer_id, :music, :lyric_writer, :composer, :adapter, :memo, :start_on, :end_on)
+    params.require(:melody)
+          .permit(:anime_id, :season_id, :kind, :title, :singer_id, :music,
+                  :lyric_writer, :composer, :adapter, :memo, :start_on, :end_on)
   end
 
   def set_animes
