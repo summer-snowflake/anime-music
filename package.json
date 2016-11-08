@@ -41,7 +41,7 @@
     "coffeeify": "^2.0.1",
     "coffeelint": "^1.16.0",
     "enzyme": "^2.5.1",
-    "jest": "^16.0.2",
+    "jest": "^17.0.0",
     "jest-cli": "^17.0.0",
     "react": "^15.3.2",
     "react-addons-test-utils": "^15.3.2",
