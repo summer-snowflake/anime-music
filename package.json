@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "jest": {
-    "scriptPreprocessor": "./app/assets/javascripts/stub/jest-script-preprocessor",
+    "scriptPreprocessor": "./app/assets/javascripts/jest-script-preprocessor",
     "automock": true,
     "unmockedModulePathPatterns": [
       "react",
@@ -45,7 +45,6 @@
     "jest-cli": "^16.0.2",
     "react": "^15.3.2",
     "react-addons-test-utils": "^15.3.2",
-    "react-bootstrap": "^0.30.5",
     "react-dom": "^15.3.2",
     "reactify": "^1.1.1"
   }
