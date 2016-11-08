@@ -344,7 +344,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   pg (~> 0.18)
-  phantomjs
+  phantomjs (= 2.1.1.0)
   poltergeist
   pry-byebug
   pry-rails
