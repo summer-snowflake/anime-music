@@ -1,8 +1,8 @@
 window.React = require 'react'
 window.R = React.DOM
-jest.dontMock '../javascripts/components/anime_list.js.coffee'
+jest.dontMock '../components/anime_list.js.coffee'
 
-AnimeList = require '../javascripts/components/anime_list.js.coffee'
+AnimeList = require '../components/anime_list.js.coffee'
 { shallow } = require 'enzyme'
 
 describe('AnimeComponent', ->
