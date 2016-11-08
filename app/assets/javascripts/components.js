@@ -1,6 +1,7 @@
 //= require_self
 //= require react
 //= require react_ujs
+//= require react-router
 //= require_tree ./components
 
 window.React = require('react');
