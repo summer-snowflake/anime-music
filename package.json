@@ -34,7 +34,7 @@
   "homepage": "https://github.com/summer-snowflake/anime-music#readme",
   "devDependencies": {
     "babel-jest": "^16.0.0",
-    "browserify": "^13.1.0",
+    "browserify": "^13.1.1",
     "browserify-incremental": "^3.1.1",
     "coffee-react": "^5.0.1",
     "coffee-react-transform": "^5.0.0",

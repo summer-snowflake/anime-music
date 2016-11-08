@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'welcome#index'
+  root 'welcome#index'
+  get :welcome, to: 'welcome#index'
 
   namespace :admin do
     root to: 'top#index', as: :top
