@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'welcome#index'
+  root 'welcome#index'
 
   namespace :admin do
     root to: 'top#index', as: :top
@@ -10,5 +10,8 @@ Rails.application.routes.draw do
 
   namespace :api, only: %w(index), format: 'json' do
     resources :animes
+    namespace :admin do
+      resources :animes
+    end
   end
 end

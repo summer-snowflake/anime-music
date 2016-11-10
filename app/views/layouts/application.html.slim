@@ -4,8 +4,10 @@ head
   title Anime Music
   = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true
   = javascript_include_tag 'application', 'data-turbolinks-track': true
+  = javascript_include_tag 'https://unpkg.com/react-router/umd/ReactRouter.min.js'
   = csrf_meta_tags
 
-.container
-  .row
-    = yield
+body#body
+  .container
+    .row
+      = yield
