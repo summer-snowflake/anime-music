@@ -18,7 +18,8 @@ module AnimeMusic
     # Skip views, helpers and assets when generating a new resource.
     # config.api_only = true
     config.browserify_rails.commandline_options = [
-      '-t [coffeeify --extension .coffee]'
+      '-t [coffeeify --extension .coffee]',
+      '-t babelify'
     ]
     config.react.addons = true
   end
