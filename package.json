@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "jest": {
-    "scriptPreprocessor": "./app/assets/javascripts/jest-script-preprocessor",
+    "transform": "./app/assets/javascripts/jest-script-preprocessor",
     "automock": true,
     "unmockedModulePathPatterns": [
       "react",
