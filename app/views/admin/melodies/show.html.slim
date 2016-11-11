@@ -1,0 +1,42 @@
+p#notice = notice
+
+p
+  strong Anime:
+  = @melody.anime_id
+p
+  strong Season:
+  = @melody.season_id
+p
+  strong Kind:
+  = @melody.kind
+p
+  strong Title:
+  = @melody.title
+p
+  strong Singer:
+  = @melody.singer_id
+p
+  strong Music:
+  = @melody.music
+p
+  strong Lyric writer:
+  = @melody.lyric_writer
+p
+  strong Composer:
+  = @melody.composer
+p
+  strong Adapter:
+  = @melody.adapter
+p
+  strong Memo:
+  = @melody.memo
+p
+  strong Start on:
+  = @melody.start_on
+p
+  strong End on:
+  = @melody.end_on
+
+= link_to 'Edit', edit_admin_melody_path(@melody)
+'|
+= link_to 'Back', admin_melodies_path

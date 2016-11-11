@@ -1,0 +1,27 @@
+h1 Listing animes
+
+table.table
+  thead
+    tr
+      th Title
+      th Summary
+      th Wiki url
+      th Picture
+      th
+      th
+      th
+
+  tbody
+    - @animes.each do |anime|
+      tr
+        td = anime.title
+        td = anime.summary
+        td = anime.wiki_url
+        td = anime.picture
+        td = link_to 'Show', [:admin, anime]
+        td = link_to 'Edit', edit_admin_anime_path(anime)
+        td = link_to 'Destroy', [:admin, anime], data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Anime', new_admin_anime_path

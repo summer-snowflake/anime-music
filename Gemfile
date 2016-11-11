@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+ruby '2.3.1'
+
+gem 'rails', '5.0.0.1'
+
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'jquery-rails'
@@ -12,6 +15,8 @@ gem 'react-rails'
 gem 'turbolinks'
 gem 'slim-rails'
 gem 'jbuilder'
+gem 'bootstrap-sass'
+gem 'sass-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -26,25 +31,29 @@ group :development, :test do
 end
 
 group :test do
+  gem 'autodoc'
   gem 'rspec-rails'
   gem 'rspec-collection_matchers'
   gem 'shoulda-matchers'
   gem 'rspec-json_matcher', require: false
   gem 'selenium-webdriver'
   gem 'rack_session_access'
-  gem 'phantomjs'
+  gem 'phantomjs', '2.1.1.0'
   gem 'poltergeist'
   gem 'capybara'
   gem 'capybara-email'
   gem 'capybara-screenshot'
   gem 'simplecov'
   gem 'database_rewinder'
+  gem 'terminal-notifier'
+  gem 'terminal-notifier-guard'
 end
 
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'guard-rspec'
   gem 'guard-rubocop'
   gem 'rubocop', require: false
   gem 'better_errors'
