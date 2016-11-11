@@ -32,8 +32,8 @@ test:
     - npm-test
     - bundle-install
     - script:
-      name: Check using Coffeelint
-      code: ./node_modules/coffeelint/bin/coffeelint app/assets
+      name: Check using eslint
+      code: ./node_modules/eslint/bin/eslint.js app/assets/javascripts/
     - script:
       name: Check using Rubocop
       code: RAILS_ENV=test bundle exec rubocop app spec lib
