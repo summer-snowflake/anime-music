@@ -1,3 +1,5 @@
+import React from 'react';
+
 var Anime = React.createClass({
   render: function() {
     return (

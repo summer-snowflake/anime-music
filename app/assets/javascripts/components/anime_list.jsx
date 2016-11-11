@@ -1,3 +1,4 @@
+import React from 'react';
 import Anime from './anime.jsx';
 
 var AnimeList = React.createClass({
