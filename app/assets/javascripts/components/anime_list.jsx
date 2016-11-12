@@ -1,7 +1,7 @@
 import React from 'react'
 import Anime from './anime.jsx'
 
-var AnimeList = React.createClass({
+export default React.createClass({
   loadAnimesFromServer() {
     $.ajax({
       url: this.props.url,
@@ -33,5 +33,3 @@ var AnimeList = React.createClass({
     );
   }
 });
-
-module.exports = AnimeList;
