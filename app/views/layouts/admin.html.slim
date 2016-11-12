@@ -8,7 +8,9 @@ head
   = javascript_include_tag 'application', 'data-turbolinks-track': true
   = csrf_meta_tags
 
-.container
-  .row
-    = render 'admin_menu'
-    = yield
+body
+  .container
+    .row
+      #admin-menu= render 'admin_menu'
+      div#content
+      = yield
