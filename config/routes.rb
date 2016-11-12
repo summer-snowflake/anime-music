@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     resources :melodies
   end
 
-  namespace :api, only: %w(index), format: 'json' do
-    resources :animes
+  namespace :api, only: %i(index), format: 'json' do
+    resources :animes, only: %i(index)
+
+    namespace :admin do
+      resources :animes, only: %i(index)
+    end
   end
 end
