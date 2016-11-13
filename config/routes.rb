@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
     namespace :admin do
       resources :animes, only: %i(index)
+      resources :actors, only: %i(index)
     end
   end
 end
