@@ -9,7 +9,7 @@ window.React = React
 window.ReactDOM = ReactDOM
 
 import AnimeList from './components/anime_list.jsx'
-import AdminAnimesTable from './components/admin/admin_animes_table.jsx'
+import AdminAnimesTable from './components/admin/animes/admin_animes_table.jsx'
 
 window.AnimeList = AnimeList
 window.AdminAnimesTable = AdminAnimesTable
