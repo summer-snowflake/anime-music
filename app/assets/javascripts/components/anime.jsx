@@ -5,7 +5,7 @@ class Anime extends React.Component {
     return (
       <div className='panel panel-default anime-title'>
         <div className='panel-body'>
-          { this.props.children }
+          { this.props.anime.title }
         </div>
       </div>
     )

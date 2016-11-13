@@ -28,7 +28,7 @@ export default React.createClass({
       <table className='table'>
         <tbody>
           {this.state.animes.map((anime) =>
-            <AdminAnimeRow key={anime.id} anime={anime}>{anime.title}</AdminAnimeRow>
+            <AdminAnimeRow key={anime.id} anime={anime} />
           )}
         </tbody>
       </table>
