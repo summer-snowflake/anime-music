@@ -20,5 +20,7 @@ module AnimeMusic
       '-t babelify',
       '-t reactify'
     ]
+
+    config.react.addons = true
   end
 end
