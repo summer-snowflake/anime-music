@@ -28,7 +28,7 @@ export default React.createClass({
       <table className='table'>
         <tbody>
           {this.state.actors.map((actor) =>
-            <AdminActorRow key={actor.id} actor={actor} />
+            <AdminActorRow actor={actor} key={actor.id} />
           )}
         </tbody>
       </table>

@@ -6,7 +6,7 @@ jest.unmock('./../components/anime.jsx')
 describe('AnimeComponent', () => {
   it('アニメ情報が表示されること', () => {
     var anime_row = { title: 'タイトル' }
-    const anime = shallow(<Anime key='1' anime={anime_row} />)
+    const anime = shallow(<Anime anime={anime_row} key='1' />)
 
     expect(anime.node.props.children.props.children).toEqual('タイトル')
     expect(anime.find('.panel').length).toEqual(1)

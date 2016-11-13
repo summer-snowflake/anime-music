@@ -27,7 +27,7 @@ export default React.createClass({
     return (
       <div className='anime-list'>
         {this.state.animes.map((anime) =>
-          <Anime key={anime.id} anime={anime} />
+          <Anime anime={anime} key={anime.id} />
         )}
       </div>
     );
