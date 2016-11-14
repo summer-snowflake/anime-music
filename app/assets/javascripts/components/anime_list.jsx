@@ -1,7 +1,7 @@
 import React from 'react';
 import Anime from './anime.jsx';
 
-var AnimeList = React.createClass({
+export default React.createClass({
   loadAnimesFromServer() {
     $.ajax({
       url: this.props.url,
@@ -27,11 +27,9 @@ var AnimeList = React.createClass({
     return (
       <div className='anime-list'>
         {this.state.animes.map((anime) =>
-          <Anime key={anime.id} anime={anime}>{anime.title}</Anime>
+          <Anime anime={anime} key={anime.id} />
         )}
       </div>
     );
   }
 });
-
-module.exports = AnimeList;
