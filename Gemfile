@@ -17,6 +17,7 @@ gem 'slim-rails'
 gem 'jbuilder'
 gem 'bootstrap-sass'
 gem 'sass-rails'
+gem 'rake_shared_context'
 
 group :development, :test do
   gem 'byebug', platform: :mri

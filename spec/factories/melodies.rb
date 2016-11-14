@@ -3,7 +3,7 @@ FactoryGirl.define do
     anime
     season
     kind { [:op, :ed].sample }
-    sequence(:title) { |n| "シーズン#{n}" }
+    sequence(:title) { |n| "曲名タイトル#{n}" }
     singer
     # TODO: 音楽データを設定する
     # music
