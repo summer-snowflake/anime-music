@@ -225,6 +225,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.1.0)
     rake (11.3.0)
+    rake_shared_context (0.3.0)
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
@@ -367,6 +368,7 @@ DEPENDENCIES
   rack_session_access
   rails (= 5.0.0.1)
   rails_12factor
+  rake_shared_context
   rb-readline
   react-rails
   rspec-collection_matchers
