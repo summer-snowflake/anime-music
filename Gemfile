@@ -40,7 +40,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'rack_session_access'
   gem 'poltergeist'
-  gem 'phantomjs', require: 'phantomjs/poltergeist'
+  gem 'phantomjs'
   gem 'capybara'
   gem 'capybara-email'
   gem 'capybara-screenshot'
