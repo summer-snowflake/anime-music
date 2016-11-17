@@ -9,6 +9,6 @@ describe('AdminActorRowComponent', () => {
     const actor = shallow(<AdminActorRow actor={actor_row} key='1' />)
 
     expect(actor.find('tr').length).toEqual(1)
-    expect(actor.find('td').length).toEqual(2)
+    expect(actor.find('td').length).toEqual(1)
   })
 })

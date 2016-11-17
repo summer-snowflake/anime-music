@@ -2,22 +2,4 @@ h1 Listing actors
 
 = react_component 'AdminActorsTable', url: api_admin_actors_path, prerender: true
 
-table.table
-  thead
-    tr
-      th Name
-      th
-      th
-      th
-
-  tbody
-    - @actors.each do |actor|
-      tr
-        td = actor.name
-        td = link_to 'Show', ['admin', actor]
-        td = link_to 'Edit', edit_admin_actor_path(actor)
-        td = link_to 'Destroy', ['admin', actor], data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
 = link_to 'New Actor', new_admin_actor_path

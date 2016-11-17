@@ -1,11 +1,11 @@
 import React from 'react'
-import AnimeList from './../components/anime_list.jsx'
+import AnimeList from './../../components/welcome/anime_list.jsx'
 import { shallow } from 'enzyme'
-jest.unmock('./../components/anime_list.jsx')
+jest.unmock('./../../components/welcome/anime_list.jsx')
 
 describe('AnimeListComponent', () => {
   it('アニメ情報一覧が表示されること', () => {
-    const anime_list = shallow(<AnimeList url='api/animes' />)
+    const anime_list = shallow(<AnimeList url='/api/animes' />)
 
     anime_list.setState(
       { animes: [{ id: 1, title: 'タイトル' }, { id: 2, title: 'タイトル2' }] }

@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { Link } from 'react-router'
 
-class AdminAnimeRow extends React.Component {
+export default class AdminAnimeRow extends Component {
   render() {
     return (
       <tr>
@@ -8,10 +9,7 @@ class AdminAnimeRow extends React.Component {
         <td>{this.props.anime.summary}</td>
         <td>{this.props.anime.wiki_url}</td>
         <td>{this.props.anime.picture}</td>
-        <td><a href={'/admin/animes/' + this.props.anime.id}>show</a></td>
       </tr>
     )
   }
 }
-
-module.exports = AdminAnimeRow

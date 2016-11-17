@@ -9,6 +9,6 @@ describe('AdminAnimeRowComponent', () => {
     const anime = shallow(<AdminAnimeRow anime={anime_row} key='1' />)
 
     expect(anime.find('tr').length).toEqual(1)
-    expect(anime.find('td').length).toEqual(5)
+    expect(anime.find('td').length).toEqual(4)
   })
 })

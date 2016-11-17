@@ -1,7 +1,7 @@
 import React from 'react'
-import Anime from './../components/anime.jsx'
+import Anime from './../../components/welcome/anime.jsx'
 import { shallow } from 'enzyme'
-jest.unmock('./../components/anime.jsx')
+jest.unmock('./../../components/welcome/anime.jsx')
 
 describe('AnimeComponent', () => {
   it('アニメ情報が表示されること', () => {

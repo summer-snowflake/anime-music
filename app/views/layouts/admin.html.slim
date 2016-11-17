@@ -3,12 +3,13 @@ html
 head
   title Anime Music
   = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true
-  = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css'
-  = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css'
-  = javascript_include_tag 'application', 'data-turbolinks-track': true
+  = javascript_include_tag 'data-turbolinks-track': true
   = csrf_meta_tags
 
 .container
   .row
-    = render 'admin_menu'
-    = yield
+    #content
+      = render 'admin_menu'
+      = yield
+
+= javascript_include_tag 'application'
