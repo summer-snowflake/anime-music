@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import AdminAnimeRow from './admin_anime_row.jsx'
 
 export default React.createClass({
@@ -25,13 +25,15 @@ export default React.createClass({
 
   render() {
     return (
-      <table className='table'>
-        <tbody>
-          {this.state.animes.map((anime) =>
-            <AdminAnimeRow anime={anime} key={anime.id} />
-          )}
-        </tbody>
-      </table>
+      <div>
+        <table className='table'>
+          <tbody>
+            {this.state.animes.map((anime) =>
+              <AdminAnimeRow anime={anime} key={anime.id} />
+            )}
+          </tbody>
+        </table>
+      </div>
     )
   }
 })
