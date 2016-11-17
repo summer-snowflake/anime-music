@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-class AdminActorRow extends React.Component {
+export default class AdminActorRow extends Component {
   render() {
     return (
       <tr>
@@ -10,4 +10,3 @@ class AdminActorRow extends React.Component {
   }
 }
 
-module.exports = AdminActorRow

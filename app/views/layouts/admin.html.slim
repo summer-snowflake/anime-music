@@ -6,9 +6,10 @@ head
   = javascript_include_tag 'data-turbolinks-track': true
   = csrf_meta_tags
 
-.container#content
+.container
   .row
-    = render 'admin_menu'
-    = yield
+    #content
+      = render 'admin_menu'
+      = yield
 
 = javascript_include_tag 'application'
