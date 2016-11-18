@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Admin::MelodiesController < Admin::BaseController
   before_action :set_melody, only: [:show, :edit, :update, :destroy]
   before_action :set_animes, only: [:new, :create, :edit, :update]

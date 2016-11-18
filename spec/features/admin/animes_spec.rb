@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 feature '管理画面：アニメ一覧', js: true do
@@ -24,7 +25,7 @@ feature '管理画面：アニメ一覧', js: true do
 
     expect(current_path).to eq admin_anime_path(id: anime1.id)
     within '.panel-heading' do
-      expect(page).to have_content anime1.title 
+      expect(page).to have_content anime1.title
     end
   end
 end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Api::Admin::AnimesController < ApplicationController
   before_action :set_anime, only: %i(show)
 
@@ -7,7 +8,7 @@ class Api::Admin::AnimesController < ApplicationController
 
   def show
   end
- 
+
   private
 
   def set_anime

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Api::Admin::ActorsController < ApplicationController
   before_action :set_actor, only: %i(show)
 
@@ -7,7 +8,7 @@ class Api::Admin::ActorsController < ApplicationController
 
   def show
   end
- 
+
   private
 
   def set_actor

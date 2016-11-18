@@ -31,7 +31,7 @@ end
 
 describe 'GET /api/admin/animes/:id', autodoc: true do
   let!(:anime) { create(:anime) }
- 
+
   it '200とアニメ詳細が返ってくること' do
     get "/api/admin/animes/#{anime.id}"
     expect(response.status).to eq 200
