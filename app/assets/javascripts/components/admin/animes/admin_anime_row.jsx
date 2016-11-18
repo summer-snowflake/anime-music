@@ -9,6 +9,7 @@ export default class AdminAnimeRow extends Component {
         <td>{this.props.anime.summary}</td>
         <td>{this.props.anime.wiki_url}</td>
         <td>{this.props.anime.picture}</td>
+        <td><Link to={'/admin/animes/' + this.props.anime.id}>Show</Link></td>
       </tr>
     )
   }
