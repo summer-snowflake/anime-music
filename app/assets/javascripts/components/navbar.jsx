@@ -6,7 +6,7 @@ export default class Navbar extends Component {
     return (
       <div>
         <ul>
-          <li><Link to='/'>TOP</Link></li>
+          <li><Link to='/' activeClassName='active'>TOP</Link></li>
         </ul>
       </div>
     );
