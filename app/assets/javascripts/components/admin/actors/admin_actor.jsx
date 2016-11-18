@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import AdminActorDetail from './admin_actor_detail.jsx'
 
 export default class AdminActor extends Component {
   render() {
     return (
       <div>
-        Admin Actor # {this.props.params.actorId}
+        <AdminActorDetail url={'/api/admin/actors/' + this.props.params.actorId} />
       </div>
     )
   }

@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 jest.unmock('./../../../components/admin/actors/admin_actors_table.jsx')
 
 describe('AnimeListComponent', () => {
-  it('アニメ情報一覧が表示されること', () => {
+  it('声優情報一覧が表示されること', () => {
     const actors_list = shallow(<AdminActorsTable url='api/actors' />)
 
     actors_list.setState(

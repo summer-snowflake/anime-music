@@ -3,6 +3,6 @@ FactoryGirl.define do
     transient do
       gimei { Gimei.new }
     end
-    name { "#{gimei.first.kanji} #{gimei.last.kanji}" }
+    name { "#{gimei.last.kanji} #{gimei.first.kanji}" }
   end
 end
