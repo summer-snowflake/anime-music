@@ -5,7 +5,7 @@ import AdminActorDetail from './../../../components/admin/actors/admin_actor_det
 jest.unmock('./../../../components/admin/actors/admin_actor.jsx')
 
 describe('AdminActorComponent', () => {
-  it('管理画面：声優詳細情報が表示されること', () => {
+  it('管理画面：声優詳細画面が表示されること', () => {
     const admin_actor = shallow(<AdminActor params={{actorId: 1}}/>)
 
     expect(admin_actor.find(AdminActorDetail).length).toEqual(1)

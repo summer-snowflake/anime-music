@@ -5,7 +5,7 @@ import AnimeList from './../../components/welcome/anime_list.jsx'
 jest.unmock('./../../components/welcome/welcome.jsx')
 
 describe('AnimeComponent', () => {
-  it('画面が表示されること', () => {
+  it('アニメ一覧画面が表示されること', () => {
     const welcome = shallow(<Welcome />)
 
     expect(welcome.find(AnimeList).length).toEqual(1)

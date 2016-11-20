@@ -5,7 +5,7 @@ import AdminAnimesTable from './../../../components/admin/animes/admin_animes_ta
 jest.unmock('./../../../components/admin/animes/admin_animes.jsx')
 
 describe('AdminAnimesComponent', () => {
-  it('管理画面が表示されること', () => {
+  it('管理画面：アニメ情報一覧画面が表示されること', () => {
     const admin_animes = shallow(<AdminAnimes />)
 
     expect(admin_animes.find(AdminAnimesTable).length).toEqual(1)
