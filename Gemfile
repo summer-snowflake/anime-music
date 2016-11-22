@@ -17,6 +17,7 @@ gem 'jbuilder'
 gem 'bootstrap-sass'
 gem 'sass-rails'
 gem 'rake_shared_context'
+gem 'slack-notifier'
 
 group :development, :test do
   gem 'byebug', platform: :mri
