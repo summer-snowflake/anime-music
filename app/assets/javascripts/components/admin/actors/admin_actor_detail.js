@@ -29,8 +29,7 @@ export default React.createClass({
         <div className='panel-heading'>
           {this.state.actor.name}
         </div>
-        <div className='panel-body'>
-        </div>
+        <div className='panel-body' />
       </div>
     )
   }

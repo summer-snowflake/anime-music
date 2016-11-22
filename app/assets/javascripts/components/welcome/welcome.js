@@ -7,6 +7,6 @@ export default class Welcome extends Component {
       <div>
         <AnimeList url='api/animes' />
       </div>
-    );
+    )
   }
 }

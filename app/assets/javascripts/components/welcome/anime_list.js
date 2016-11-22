@@ -1,5 +1,5 @@
-import React from 'react';
-import Anime from './anime.js';
+import React from 'react'
+import Anime from './anime.js'
 
 export default React.createClass({
   loadAnimesFromServer() {
@@ -7,20 +7,20 @@ export default React.createClass({
       url: this.props.url,
       dataType: 'json',
       success: (res) => {
-        this.setState({animes: res.animes});
+        this.setState({animes: res.animes})
       },
       error: (xhr, status, err) => {
-        console.error(this.props.url, status, err.toString());
+        console.error(this.props.url, status, err.toString())
       }
-    });
+    })
   },
 
   componentDidMount() {
-    this.loadAnimesFromServer();
+    this.loadAnimesFromServer()
   },
 
   getInitialState() {
-    return { animes: [] };
+    return { animes: [] }
   },
 
   render() {
@@ -30,6 +30,6 @@ export default React.createClass({
           <Anime anime={anime} key={anime.id} />
         )}
       </div>
-    );
+    )
   }
-});
+})
