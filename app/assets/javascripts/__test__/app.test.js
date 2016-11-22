@@ -1,8 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import App from './../components/app.jsx'
-import Navbar from './../components/navbar.jsx'
-jest.unmock('./../components/app.jsx')
+import App from './../components/app.js'
+import Navbar from './../components/navbar.js'
+jest.unmock('./../components/app.js')
 
 describe('AnimeComponent', () => {
   it('トップ画面が表示されること', () => {

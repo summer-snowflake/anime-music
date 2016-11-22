@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import AdminAnimesTable from './admin_animes_table.jsx'
+import AdminAnimesTable from './admin_animes_table.js'
 
 export default class AdminAnimes extends Component {
   render() {

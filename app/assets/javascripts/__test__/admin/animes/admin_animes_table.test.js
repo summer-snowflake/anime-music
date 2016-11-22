@@ -1,7 +1,7 @@
 import React from 'react'
-import AdminAnimesTable from './../../../components/admin/animes/admin_animes_table.jsx'
+import AdminAnimesTable from './../../../components/admin/animes/admin_animes_table.js'
 import { shallow } from 'enzyme'
-jest.unmock('./../../../components/admin/animes/admin_animes_table.jsx')
+jest.unmock('./../../../components/admin/animes/admin_animes_table.js')
 
 describe('AnimeListComponent', () => {
   it('管理画面：アニメ情報一覧が表示されること', () => {

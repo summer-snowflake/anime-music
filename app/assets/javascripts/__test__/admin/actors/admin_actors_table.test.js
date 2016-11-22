@@ -1,7 +1,7 @@
 import React from 'react'
-import AdminActorsTable from './../../../components/admin/actors/admin_actors_table.jsx'
+import AdminActorsTable from './../../../components/admin/actors/admin_actors_table.js'
 import { shallow } from 'enzyme'
-jest.unmock('./../../../components/admin/actors/admin_actors_table.jsx')
+jest.unmock('./../../../components/admin/actors/admin_actors_table.js')
 
 describe('AnimeListComponent', () => {
   it('声優情報一覧が表示されること', () => {

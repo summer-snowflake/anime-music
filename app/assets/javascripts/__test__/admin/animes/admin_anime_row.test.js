@@ -1,7 +1,7 @@
 import React from 'react'
-import AdminAnimeRow from './../../../components/admin/animes/admin_anime_row.jsx'
+import AdminAnimeRow from './../../../components/admin/animes/admin_anime_row.js'
 import { shallow } from 'enzyme'
-jest.unmock('./../../../components/admin/animes/admin_anime_row.jsx')
+jest.unmock('./../../../components/admin/animes/admin_anime_row.js')
 
 describe('AdminAnimeRowComponent', () => {
   it('管理画面：アニメ情報が表示されること', () => {

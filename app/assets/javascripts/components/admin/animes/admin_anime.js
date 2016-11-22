@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import AdminAnimeDetail from './admin_anime_detail.jsx'
+import AdminAnimeDetail from './admin_anime_detail.js'
 
 export default class AdminAnime extends Component {
   render() {

@@ -1,5 +1,5 @@
-import React from 'react'
-import AdminActorRow from './admin_actor_row.jsx'
+import React, { Component } from 'react'
+import AdminActorRow from './admin_actor_row.js'
 
 export default React.createClass({
   loadActorsFromServer() {
@@ -7,7 +7,7 @@ export default React.createClass({
       url: this.props.url,
       dataType: 'json',
       success: (res) => {
-        this.setState({actors: res.actors})
+        this.setState({actor: res})
       },
       error: (xhr, status, err) => {
         console.error(this.props.url, status, err.toString())
@@ -20,18 +20,18 @@ export default React.createClass({
   },
 
   getInitialState() {
-    return { actors: [] }
+    return { actor: {} }
   },
 
   render() {
     return (
-      <table className='table'>
-        <tbody>
-          {this.state.actors.map((actor) =>
-            <AdminActorRow actor={actor} key={actor.id} />
-          )}
-        </tbody>
-      </table>
+      <div className='panel panel-default'>
+        <div className='panel-heading'>
+          {this.state.actor.name}
+        </div>
+        <div className='panel-body'>
+        </div>
+      </div>
     )
   }
 })

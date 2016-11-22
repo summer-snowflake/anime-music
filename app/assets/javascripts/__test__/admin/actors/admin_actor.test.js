@@ -1,8 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import AdminActor from './../../../components/admin/actors/admin_actor.jsx'
-import AdminActorDetail from './../../../components/admin/actors/admin_actor_detail.jsx'
-jest.unmock('./../../../components/admin/actors/admin_actor.jsx')
+import AdminActor from './../../../components/admin/actors/admin_actor.js'
+import AdminActorDetail from './../../../components/admin/actors/admin_actor_detail.js'
+jest.unmock('./../../../components/admin/actors/admin_actor.js')
 
 describe('AdminActorComponent', () => {
   it('管理画面：声優詳細画面が表示されること', () => {

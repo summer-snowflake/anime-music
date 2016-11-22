@@ -1,8 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { Link } from 'react-router'
-import AdminMenu from './../../components/admin/admin_menu.jsx'
-jest.unmock('./../../components/admin/admin_menu.jsx')
+import AdminMenu from './../../components/admin/admin_menu.js'
+jest.unmock('./../../components/admin/admin_menu.js')
 
 describe('AnimeComponent', () => {
   it('管理メニューが表示されること', () => {

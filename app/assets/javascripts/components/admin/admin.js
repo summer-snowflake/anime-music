@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import AdminMenu from './admin_menu.jsx'
+import AdminMenu from './admin_menu.js'
 
 export default class Admin extends Component {
   render() {

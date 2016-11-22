@@ -1,7 +1,7 @@
 import React from 'react'
-import AdminActorRow from './../../../components/admin/actors/admin_actor_row.jsx'
+import AdminActorRow from './../../../components/admin/actors/admin_actor_row.js'
 import { shallow } from 'enzyme'
-jest.unmock('./../../../components/admin/actors/admin_actor_row.jsx')
+jest.unmock('./../../../components/admin/actors/admin_actor_row.js')
 
 describe('AdminActorRowComponent', () => {
   it('管理画面：声優情報が表示されること', () => {

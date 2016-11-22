@@ -1,5 +1,5 @@
 import React from 'react';
-import Anime from './anime.jsx';
+import Anime from './anime.js';
 
 export default React.createClass({
   loadAnimesFromServer() {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import AdminAnimeRow from './admin_anime_row.jsx'
+import AdminAnimeRow from './admin_anime_row.js'
 
 export default React.createClass({
   loadAnimesFromServer() {

@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
-import App from './components/app.jsx'
+import App from './components/app.js'
 import Welcome from './components/welcome/welcome.jsx'
 import Admin from './components/admin/admin.jsx'
 import AdminAnimesPage from './components/admin/animes/admin_animes_page.jsx'
