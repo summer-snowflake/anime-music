@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { Component } from 'react'
 import AdminActorRow from './admin_actor_row.js'
 
-export default React.createClass({
+export default class AdminActorsTable extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      actors: []
+    }
+  }
+
+  componentDidMount() {
+    this.loadActorsFromServer()
+  }
+
   loadActorsFromServer() {
     $.ajax({
       url: this.props.url,
@@ -13,15 +24,7 @@ export default React.createClass({
         console.error(this.props.url, status, err.toString())
       }
     })
-  },
-
-  componentDidMount() {
-    this.loadActorsFromServer()
-  },
-
-  getInitialState() {
-    return { actors: [] }
-  },
+  }
 
   render() {
     return (
@@ -34,4 +37,4 @@ export default React.createClass({
       </table>
     )
   }
-})
+}

@@ -16,10 +16,11 @@
       "jsx": true
     }
   },
-  "globals": {"jest": false, "describe": false, "it": false, "expect": false},
+  "globals": {"jest": false, "describe": false, "it": false, "expect": false, "$": false},
   "rules": {
     "quotes": [1, "single"],
     "semi": [2 , "never"],
+    "no-console": "off",
     "no-unused-vars": ["error", { "vars": "all", "args": "after-used" }],
     "react/display-name": 1,
     "react/forbid-prop-types": 1,
