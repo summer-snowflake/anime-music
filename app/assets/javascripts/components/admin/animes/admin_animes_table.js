@@ -15,7 +15,7 @@ export default class AdminAnimesTable extends Component {
     })
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.loadAnimesFromServer()
   }
 

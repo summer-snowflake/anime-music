@@ -14,15 +14,15 @@ export default class AdminActorDetail extends Component {
     })
   }
 
-  componentDidMount() {
-    this.loadActorsFromServer()
-  }
-
   constructor(props) {
     super(props)
     this.state = {
       actor: {}
     }
+  }
+
+  componentWillMount() {
+    this.loadActorsFromServer()
   }
 
   render() {

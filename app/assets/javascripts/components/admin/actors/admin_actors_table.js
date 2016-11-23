@@ -9,7 +9,7 @@ export default class AdminActorsTable extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.loadActorsFromServer()
   }
 

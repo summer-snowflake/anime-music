@@ -1,6 +1,17 @@
 import React, { Component } from 'react'
 
 export default class AdminAnimeDetail extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      anime: {}
+    }
+  }
+
+  componentWillMount() {
+    this.loadAnimesFromServer()
+  }
+
   loadAnimesFromServer() {
     $.ajax({
       url: this.props.url,
@@ -12,17 +23,6 @@ export default class AdminAnimeDetail extends Component {
         console.error(this.props.url, status, err.toString())
       }
     })
-  }
-
-  componentDidMount() {
-    this.loadAnimesFromServer()
-  }
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      anime: {}
-    }
   }
 
   render() {
