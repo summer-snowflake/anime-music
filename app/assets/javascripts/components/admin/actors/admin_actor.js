@@ -12,5 +12,5 @@ export default class AdminActor extends Component {
 }
 
 AdminActor.propTypes = {
-  params: PropTypes.string.isRequired
+  params: PropTypes.object.isRequired
 }

@@ -12,5 +12,5 @@ export default class AdminAnime extends Component {
 }
 
 AdminAnime.propTypes = {
-  params: PropTypes.string.isRequired
+  params: PropTypes.object.isRequired
 }
