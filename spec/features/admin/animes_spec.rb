@@ -17,7 +17,7 @@ feature '管理画面：アニメ一覧', js: true do
     end
   end
 
-  scenario '声優一覧から詳細画面が表示されること' do
+  scenario 'アニメ一覧から詳細画面が表示されること' do
     wait_for_ajax
     within "#anime-#{anime1.id}" do
       click_on anime1.title
