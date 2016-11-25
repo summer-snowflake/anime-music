@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 
 export default class Anime extends Component {
   render () {
@@ -10,4 +10,8 @@ export default class Anime extends Component {
       </div>
     )
   }
+}
+
+Anime.propTypes = {
+  anime: PropTypes.object.isRequired
 }

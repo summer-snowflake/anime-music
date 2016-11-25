@@ -1,7 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Anime from './anime.js'
 
 export default class AnimeList extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      animes: []
+    }
+  }
+
+  componentWillMount() {
+    this.loadAnimesFromServer()
+  }
+
   loadAnimesFromServer() {
     $.ajax({
       url: this.props.url,
@@ -15,17 +26,6 @@ export default class AnimeList extends Component {
     })
   }
 
-  componentWillMount() {
-    this.loadAnimesFromServer()
-  }
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      animes: []
-    }
-  }
-
   render() {
     return (
       <div className='anime-list'>
@@ -35,4 +35,8 @@ export default class AnimeList extends Component {
       </div>
     )
   }
+}
+
+AnimeList.propTypes = {
+  url: PropTypes.string.isRequired
 }

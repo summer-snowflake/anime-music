@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 
 export default class AdminActorRow extends Component {
@@ -11,3 +11,6 @@ export default class AdminActorRow extends Component {
   }
 }
 
+AdminActorRow.propTypes = {
+  actor: PropTypes.object.isRequired
+}

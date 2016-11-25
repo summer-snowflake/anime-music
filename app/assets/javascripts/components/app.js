@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Navbar from './navbar.js'
 
 export default class App extends Component {
@@ -10,4 +10,8 @@ export default class App extends Component {
       </div>
     )
   }
+}
+
+App.propTypes = {
+  children: PropTypes.any.isRequired
 }

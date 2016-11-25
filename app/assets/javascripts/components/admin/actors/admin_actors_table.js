@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import AdminActorRow from './admin_actor_row.js'
 
 export default class AdminActorsTable extends Component {
@@ -37,4 +37,8 @@ export default class AdminActorsTable extends Component {
       </table>
     )
   }
+}
+
+AdminActorsTable.propTypes = {
+  url: PropTypes.string.isRequired
 }

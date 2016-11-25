@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 
 export default class AdminActorsPage extends Component {
   render() {
@@ -8,4 +8,8 @@ export default class AdminActorsPage extends Component {
       </div>
     )
   }
+}
+
+AdminActorsPage.propTypes = {
+  children: PropTypes.any.isRequired
 }

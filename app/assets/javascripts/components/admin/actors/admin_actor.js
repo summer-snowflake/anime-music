@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import AdminActorDetail from './admin_actor_detail.js'
 
 export default class AdminActor extends Component {
@@ -9,4 +9,8 @@ export default class AdminActor extends Component {
       </div>
     )
   }
+}
+
+AdminActor.propTypes = {
+  params: PropTypes.string.isRequired
 }

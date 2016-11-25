@@ -1,7 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import AdminAnimeRow from './admin_anime_row.js'
 
 export default class AdminAnimesTable extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      animes: []
+    }
+  }
+
+  componentWillMount() {
+    this.loadAnimesFromServer()
+  }
+
   loadAnimesFromServer() {
     $.ajax({
       url: this.props.url,
@@ -13,17 +24,6 @@ export default class AdminAnimesTable extends Component {
         console.error(this.props.url, status, err.toString())
       }
     })
-  }
-
-  componentWillMount() {
-    this.loadAnimesFromServer()
-  }
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      animes: []
-    }
   }
 
   render() {
@@ -39,4 +39,8 @@ export default class AdminAnimesTable extends Component {
       </div>
     )
   }
+}
+
+AdminAnimesTable.propTypes = {
+  url: PropTypes.string.isRequired
 }

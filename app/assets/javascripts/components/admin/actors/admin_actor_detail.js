@@ -1,6 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 
 export default class AdminActorDetail extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      actor: {}
+    }
+  }
+
+  componentWillMount() {
+    this.loadActorsFromServer()
+  }
+
   loadActorsFromServer() {
     $.ajax({
       url: this.props.url,
@@ -14,17 +25,6 @@ export default class AdminActorDetail extends Component {
     })
   }
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      actor: {}
-    }
-  }
-
-  componentWillMount() {
-    this.loadActorsFromServer()
-  }
-
   render() {
     return (
       <div className='panel panel-default'>
@@ -35,4 +35,8 @@ export default class AdminActorDetail extends Component {
       </div>
     )
   }
+}
+
+AdminActorDetail.propTypes = {
+  url: PropTypes.string.isRequired
 }
