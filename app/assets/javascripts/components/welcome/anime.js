@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react'
 
-class Anime extends React.Component {
+export default class Anime extends Component {
   render () {
     return (
       <div className='panel panel-default anime-title'>
@@ -12,4 +12,6 @@ class Anime extends React.Component {
   }
 }
 
-module.exports = Anime
+Anime.propTypes = {
+  anime: PropTypes.object.isRequired
+}

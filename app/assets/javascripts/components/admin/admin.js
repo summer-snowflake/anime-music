@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router'
-import AdminMenu from './admin_menu.jsx'
+import React, { Component, PropTypes } from 'react'
+import AdminMenu from './admin_menu.js'
 
 export default class Admin extends Component {
   render() {
@@ -11,4 +10,8 @@ export default class Admin extends Component {
       </div>
     )
   }
+}
+
+Admin.propTypes = {
+  children: PropTypes.any.isRequired
 }

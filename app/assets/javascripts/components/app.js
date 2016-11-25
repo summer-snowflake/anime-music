@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router'
-import Navbar from './navbar.jsx'
+import React, { Component, PropTypes } from 'react'
+import Navbar from './navbar.js'
 
 export default class App extends Component {
   render() {
@@ -11,4 +10,8 @@ export default class App extends Component {
       </div>
     )
   }
+}
+
+App.propTypes = {
+  children: PropTypes.any.isRequired
 }

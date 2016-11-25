@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import AdminActorDetail from './admin_actor_detail.jsx'
+import React, { Component, PropTypes } from 'react'
+import AdminActorDetail from './admin_actor_detail.js'
 
 export default class AdminActor extends Component {
   render() {
@@ -9,4 +9,8 @@ export default class AdminActor extends Component {
       </div>
     )
   }
+}
+
+AdminActor.propTypes = {
+  params: PropTypes.object.isRequired
 }

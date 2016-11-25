@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 
-export default class AdminActorsPage extends Component {
+export default class AdminTopPage extends Component {
   render() {
     return (
       <div>
-        {this.props.children}
       </div>
     )
   }

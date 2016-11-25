@@ -1,7 +1,17 @@
-import React, { Component } from 'react'
-import AdminActorRow from './admin_actor_row.jsx'
+import React, { Component, PropTypes } from 'react'
 
-export default React.createClass({
+export default class AdminActorDetail extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      actor: {}
+    }
+  }
+
+  componentWillMount() {
+    this.loadActorsFromServer()
+  }
+
   loadActorsFromServer() {
     $.ajax({
       url: this.props.url,
@@ -13,15 +23,7 @@ export default React.createClass({
         console.error(this.props.url, status, err.toString())
       }
     })
-  },
-
-  componentDidMount() {
-    this.loadActorsFromServer()
-  },
-
-  getInitialState() {
-    return { actor: {} }
-  },
+  }
 
   render() {
     return (
@@ -29,9 +31,12 @@ export default React.createClass({
         <div className='panel-heading'>
           {this.state.actor.name}
         </div>
-        <div className='panel-body'>
-        </div>
+        <div className='panel-body' />
       </div>
     )
   }
-})
+}
+
+AdminActorDetail.propTypes = {
+  url: PropTypes.string.isRequired
+}

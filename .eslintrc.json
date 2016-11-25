@@ -8,7 +8,6 @@
       "version": "15.3.2"
     }
   },
-  "parserOptions": {},
   "env": {"browser": true, "es6": true},
   "parserOptions": {
     "sourceType": "module",
@@ -16,13 +15,14 @@
       "jsx": true
     }
   },
-  "globals": {"jest": false, "describe": false, "it": false, "expect": false},
+  "globals": {"jest": false, "describe": false, "it": false, "expect": false, "$": false},
   "rules": {
     "quotes": [1, "single"],
     "semi": [2 , "never"],
+    "no-console": "off",
     "no-unused-vars": ["error", { "vars": "all", "args": "after-used" }],
     "react/display-name": 1,
-    "react/forbid-prop-types": 1,
+    "react/forbid-prop-types": 0,
     "react/jsx-boolean-value": 1,
     "react/jsx-closing-bracket-location": 1,
     "react/jsx-curly-spacing": 1,
@@ -43,7 +43,7 @@
     "react/no-did-update-set-state": 1,
     "react/no-direct-mutation-state": 1,
     "react/no-multi-comp": 1,
-    "react/no-set-state": 1,
+    "react/no-set-state": 0,
     "react/no-unknown-property": 1,
     "react/prefer-es6-class": 1,
     "react/prop-types": 1,

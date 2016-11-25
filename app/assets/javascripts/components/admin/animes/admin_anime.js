@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import AdminAnimeDetail from './admin_anime_detail.jsx'
+import React, { Component, PropTypes } from 'react'
+import AdminAnimeDetail from './admin_anime_detail.js'
 
 export default class AdminAnime extends Component {
   render() {
@@ -9,4 +9,8 @@ export default class AdminAnime extends Component {
       </div>
     )
   }
+}
+
+AdminAnime.propTypes = {
+  params: PropTypes.object.isRequired
 }
