@@ -3,7 +3,6 @@ html
 head
   title Anime Music
   = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true
-  = javascript_include_tag 'data-turbolinks-track': true
   = csrf_meta_tags
 
 .container
@@ -12,4 +11,4 @@ head
       = render 'admin_menu'
       = yield
 
-= javascript_include_tag 'application'
+= javascript_include_tag 'application', 'data-turbolinks-track': true

@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import { renderReact } from 'hypernova-react'
 
 import App from './components/app.js'
 import Welcome from './components/welcome/welcome.js'

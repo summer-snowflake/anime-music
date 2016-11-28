@@ -5,4 +5,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import routes from './routes.js'
+//import MyComponent from './MyComponent.js'
+import Welcome from './components/welcome/welcome.js'
+window.Welcome = Welcome
+//window.Welcome = Welcome
+
+//import routes from './routes.js'
