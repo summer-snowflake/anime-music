@@ -18,6 +18,9 @@ gem 'bootstrap-sass'
 gem 'sass-rails'
 gem 'rake_shared_context'
 gem 'slack-notifier'
+gem "hypernova", path: '/var/www/hypernova-ruby'
+gem 'sprockets'
+gem 'sprockets-es6', require: 'sprockets/es6'
 
 group :development, :test do
   gem 'byebug', platform: :mri
