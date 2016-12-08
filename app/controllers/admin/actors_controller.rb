@@ -6,15 +6,13 @@ class Admin::ActorsController < Admin::BaseController
     @actors = Actor.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @actor = Actor.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @actor = Actor.new(actor_params)

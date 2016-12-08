@@ -6,8 +6,7 @@ class Api::Admin::AnimesController < ApplicationController
     @animes = Anime.all
   end
 
-  def show
-  end
+  def show; end
 
   private
 
