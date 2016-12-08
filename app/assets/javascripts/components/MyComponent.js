@@ -17,14 +17,14 @@ import { renderReact } from 'hypernova-react'
 //}
 
 
-//export default class App extends React.Component {
-//  render() {
-//    return (
-//      <div>
-//        Hello, {this.props.name}
-//      </div>
-//    )
-//  }
-//}
-//
-//renderReact('MyComponentjs', App);
+export default class MyComponentjsa extends React.Component {
+  render() {
+    return (
+      <div>
+        Hello, {this.props.name}
+      </div>
+    )
+  }
+}
+
+renderReact('MyComponentjsa', MyComponentjs);
