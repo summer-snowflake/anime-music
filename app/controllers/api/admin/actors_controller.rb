@@ -6,8 +6,7 @@ class Api::Admin::ActorsController < ApplicationController
     @actors = Actor.all
   end
 
-  def show
-  end
+  def show; end
 
   private
 

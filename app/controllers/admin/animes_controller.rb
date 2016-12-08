@@ -6,15 +6,13 @@ class Admin::AnimesController < Admin::BaseController
     @animes = Anime.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @anime = Anime.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @anime = Anime.new(anime_params)
