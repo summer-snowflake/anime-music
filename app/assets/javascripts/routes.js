@@ -32,4 +32,6 @@ const routes = (
   </Router>
 )
 
-render(routes, document.getElementById('content'))
+if(typeof window !== 'undefined') {
+  render(routes, document.getElementById('content'))
+}

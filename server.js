@@ -4,7 +4,7 @@ import compression from 'compression'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { match, RouterContext } from 'react-router'
-import routes from './modules/routes'
+import routes from './app/assets/javascripts/components'
 
 var app = express()
 
@@ -16,6 +16,7 @@ app.use(express.static(path.join(__dirname, 'serve'), {index: false}))
 // send all requests to index.html so browserHistory works
 app.get('*', (req, res) => {
   match({ routes, location: req.url }, (err, redirect, props) => {
+    console.log(req.url)
     if (err) {
       res.status(500).send(err.message)
     } else if (redirect) {
@@ -23,6 +24,7 @@ app.get('*', (req, res) => {
     } else if (props) {
       // hey we made it!
       const appHtml = renderToString(<RouterContext {...props}/>)
+      console.log('renderToString...')
       res.send(renderPage(appHtml))
     } else {
       res.status(404).send('Not Found')
@@ -37,8 +39,10 @@ function renderPage(appHtml) {
     <meta charset=utf-8/>
     <title>My First React Router App</title>
     <link rel=stylesheet href=/index.css>
-    <div id=app>${appHtml}</div>
+    <div id=content></div>
+    <script src='./app/assets/javascripts/appliction.js'></script>
     <script src="/bundle.js"></script>
+   `
 }
 
 var PORT = process.env.PORT || 8080
