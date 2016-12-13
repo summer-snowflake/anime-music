@@ -4,8 +4,8 @@ import compression from 'compression'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { match, RouterContext } from 'react-router'
-//import routes from './app/assets/javascripts/components'
-import routes from './modules/routes'
+import routes from './app/assets/javascripts/routes'
+//import routes from './modules/routes'
 
 var app = express()
 

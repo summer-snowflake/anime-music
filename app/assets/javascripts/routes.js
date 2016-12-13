@@ -13,25 +13,24 @@ import AdminActorsPage from './components/admin/actors/admin_actors_page.js'
 import AdminActors from './components/admin/actors/admin_actors.js'
 import AdminActor from './components/admin/actors/admin_actor.js'
 
-const routes = (
-  <Router history={browserHistory}>
-    <Route component={App} path="/">
-      <IndexRoute component={Welcome} />
-      <Route component={Admin} path="/admin">
-        <IndexRoute component={AdminTopPage} />
-        <Route component={AdminAnimesPage} path="/admin/animes">
-          <IndexRoute component={AdminAnimes} />
-          <Route component={AdminAnime} path="/admin/animes/:animeId" />
-        </Route>
-        <Route component={AdminActorsPage} path="/admin/actors">
-          <IndexRoute component={AdminActors} />
-          <Route component={AdminActor} path="/admin/actors/:actorId" />
-        </Route>
+//const routes = (
+module.exports = (
+  <Route component={App} path="/">
+    <IndexRoute component={Welcome} />
+    <Route component={Admin} path="/admin">
+      <IndexRoute component={AdminTopPage} />
+      <Route component={AdminAnimesPage} path="/admin/animes">
+        <IndexRoute component={AdminAnimes} />
+        <Route component={AdminAnime} path="/admin/animes/:animeId" />
+      </Route>
+      <Route component={AdminActorsPage} path="/admin/actors">
+        <IndexRoute component={AdminActors} />
+        <Route component={AdminActor} path="/admin/actors/:actorId" />
       </Route>
     </Route>
-  </Router>
+  </Route>
 )
 
-if(typeof window !== 'undefined') {
-  render(routes, document.getElementById('content'))
-}
+//if(typeof window !== 'undefined') {
+//  render(routes, document.getElementById('content'))
+//}
