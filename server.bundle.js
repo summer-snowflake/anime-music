@@ -99,7 +99,7 @@
 	});
 
 	function renderPage(appHtml) {
-	  return '\n    <!doctype html public="storage">\n    <html>\n    <meta charset=utf-8/>\n    <title>My First React Router App</title>\n    <link rel=stylesheet href=/index.css>\n    aaaaa\n    <div id=content></div>\n    <script src=\'./app/assets/javascripts/appliction.js\'></script>\n    <script src="/bundle.js"></script>\n   ';
+	  return '\n    <!doctype html public="storage">\n    <html>\n    <meta charset=utf-8/>\n    <title>My First React Router App</title>\n    <link rel=stylesheet href=/index.css>\n    <div id=content></div>\n    <script src=\'./app/assets/javascripts/appliction.js\'></script>\n    <script src="/bundle.js"></script>\n   ';
 	}
 
 	var PORT = process.env.PORT || 8080;

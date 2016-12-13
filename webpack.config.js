@@ -1,7 +1,8 @@
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './app/assets/javascripts/components.js',
+  //entry: './app/assets/javascripts/components.js',
+  entry: './serve/index.js',
 
   output: {
     path: 'serve',
