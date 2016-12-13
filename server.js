@@ -4,7 +4,8 @@ import compression from 'compression'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { match, RouterContext } from 'react-router'
-import routes from './app/assets/javascripts/components'
+//import routes from './app/assets/javascripts/components'
+import routes from './modules/routes'
 
 var app = express()
 
@@ -40,7 +41,6 @@ function renderPage(appHtml) {
     <title>My First React Router App</title>
     <link rel=stylesheet href=/index.css>
     <div id=content></div>
-    <script src='./app/assets/javascripts/appliction.js'></script>
     <script src="/bundle.js"></script>
    `
 }
