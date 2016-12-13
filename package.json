@@ -62,6 +62,7 @@
     "if-env": "^1.0.0",
     "jest": "^17.0.3",
     "jest-cli": "^17.0.3",
+    "jquery": "^3.1.1",
     "react": "^15.4.1",
     "react-addons-test-utils": "^15.4.1",
     "react-dom": "^15.4.1",

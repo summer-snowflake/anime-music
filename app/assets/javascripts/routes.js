@@ -13,7 +13,6 @@ import AdminActorsPage from './components/admin/actors/admin_actors_page.js'
 import AdminActors from './components/admin/actors/admin_actors.js'
 import AdminActor from './components/admin/actors/admin_actor.js'
 
-//const routes = (
 module.exports = (
   <Route component={App} path="/">
     <IndexRoute component={Welcome} />
@@ -30,7 +29,3 @@ module.exports = (
     </Route>
   </Route>
 )
-
-//if(typeof window !== 'undefined') {
-//  render(routes, document.getElementById('content'))
-//}

@@ -101,7 +101,7 @@
 	});
 
 	function renderPage(appHtml) {
-	  return '\n    <!doctype html public="storage">\n    <html>\n    <meta charset=utf-8/>\n    <title>My First React Router App</title>\n    <link rel=stylesheet href=/index.css>\n    <div id=content></div>\n    <script src="/bundle.js"></script>\n   ';
+	  return '\n    <!doctype html public="storage">\n    <html>\n    <meta charset=utf-8/>\n    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>\n    <title>My First React Router App</title>\n    <link rel=stylesheet href=/index.css>\n    <div id=content></div>\n    <script src="/bundle.js"></script>\n   ';
 	}
 
 	var PORT = process.env.PORT || 8080;
@@ -201,36 +201,28 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var routes = _react2.default.createElement(
-	  _reactRouter.Router,
-	  { history: _reactRouter.browserHistory },
+	module.exports = _react2.default.createElement(
+	  _reactRouter.Route,
+	  { component: _app2.default, path: '/' },
+	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _welcome2.default }),
 	  _react2.default.createElement(
 	    _reactRouter.Route,
-	    { component: _app2.default, path: '/' },
-	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _welcome2.default }),
+	    { component: _admin2.default, path: '/admin' },
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _admin_top_page2.default }),
 	    _react2.default.createElement(
 	      _reactRouter.Route,
-	      { component: _admin2.default, path: '/admin' },
-	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _admin_top_page2.default }),
-	      _react2.default.createElement(
-	        _reactRouter.Route,
-	        { component: _admin_animes_page2.default, path: '/admin/animes' },
-	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _admin_animes2.default }),
-	        _react2.default.createElement(_reactRouter.Route, { component: _admin_anime2.default, path: '/admin/animes/:animeId' })
-	      ),
-	      _react2.default.createElement(
-	        _reactRouter.Route,
-	        { component: _admin_actors_page2.default, path: '/admin/actors' },
-	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _admin_actors2.default }),
-	        _react2.default.createElement(_reactRouter.Route, { component: _admin_actor2.default, path: '/admin/actors/:actorId' })
-	      )
+	      { component: _admin_animes_page2.default, path: '/admin/animes' },
+	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _admin_animes2.default }),
+	      _react2.default.createElement(_reactRouter.Route, { component: _admin_anime2.default, path: '/admin/animes/:animeId' })
+	    ),
+	    _react2.default.createElement(
+	      _reactRouter.Route,
+	      { component: _admin_actors_page2.default, path: '/admin/actors' },
+	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _admin_actors2.default }),
+	      _react2.default.createElement(_reactRouter.Route, { component: _admin_actor2.default, path: '/admin/actors/:actorId' })
 	    )
 	  )
 	);
-
-	if (typeof window !== 'undefined') {
-	  (0, _reactDom.render)(routes, document.getElementById('content'));
-	}
 
 /***/ },
 /* 8 */

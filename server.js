@@ -41,6 +41,7 @@ function renderPage(appHtml) {
     <title>My First React Router App</title>
     <link rel=stylesheet href=/index.css>
     <div id=content></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="/bundle.js"></script>
    `
 }
