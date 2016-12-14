@@ -21,7 +21,7 @@ export default class AdminActorsTable extends Component {
         this.setState({actors: res.actors})
       })
       .catch((error) => {
-        console.error(error);
+        console.error(error)
       })
   }
 

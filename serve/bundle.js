@@ -26388,8 +26388,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(32);
-
 	var _reactRouter = __webpack_require__(178);
 
 	var _app = __webpack_require__(234);
@@ -27442,7 +27440,11 @@
 	  _createClass(AdminTopPage, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('div', null);
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        'Admin Top'
+	      );
 	    }
 	  }]);
 

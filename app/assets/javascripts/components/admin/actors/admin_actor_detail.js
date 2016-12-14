@@ -20,7 +20,7 @@ export default class AdminActorDetail extends Component {
         this.setState({actor: res})
       })
       .catch((error) => {
-        console.error(error);
+        console.error(error)
       })
   }
 

@@ -22,7 +22,7 @@ export default class AnimeList extends Component {
         this.setState({animes: res.animes})
       })
       .catch((error) => {
-        console.error(error);
+        console.error(error)
       })
   }
 

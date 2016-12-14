@@ -20,7 +20,7 @@ export default class AdminAnimeDetail extends Component {
         this.setState({anime: res})
       })
       .catch((error) => {
-        console.error(error);
+        console.error(error)
       })
   }
 

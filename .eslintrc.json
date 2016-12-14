@@ -15,7 +15,7 @@
       "jsx": true
     }
   },
-  "globals": {"jest": false, "describe": false, "it": false, "expect": false, "$": false},
+  "globals": {"module": false},
   "rules": {
     "quotes": [1, "single"],
     "semi": [2 , "never"],
