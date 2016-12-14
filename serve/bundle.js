@@ -26681,8 +26681,8 @@
 	  }
 
 	  _createClass(AnimeList, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
 	      this.loadAnimesFromServer();
 	    }
 	  }, {
