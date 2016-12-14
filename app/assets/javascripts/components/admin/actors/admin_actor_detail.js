@@ -9,21 +9,19 @@ export default class AdminActorDetail extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.loadActorsFromServer()
   }
 
   loadActorsFromServer() {
-    $.ajax({
-      url: domain + this.props.url,
-      dataType: 'json',
-      success: (res) => {
+    fetch(domain + this.props.url)
+      .then((res) => res.json())
+      .then((res) => {
         this.setState({actor: res})
-      },
-      error: (xhr, status, err) => {
-        console.error(this.props.url, status, err.toString())
-      }
-    })
+      })
+      .catch((error) => {
+        console.error(error);
+      })
   }
 
   render() {

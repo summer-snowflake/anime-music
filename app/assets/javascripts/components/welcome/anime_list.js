@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Anime from './anime.js'
 import { domain } from './../../domain.js'
+import fetch from 'isomorphic-fetch'
 
 export default class AnimeList extends Component {
   constructor(props) {
@@ -10,21 +11,19 @@ export default class AnimeList extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.loadAnimesFromServer()
   }
 
   loadAnimesFromServer() {
-    $.ajax({
-      url: domain + this.props.url,
-      dataType: 'json',
-      success: (res) => {
+    fetch(domain + this.props.url)
+      .then((res) => res.json())
+      .then((res) => {
         this.setState({animes: res.animes})
-      },
-      error: (xhr, status, err) => {
-        console.error(this.props.url, status, err.toString())
-      }
-    })
+      })
+      .catch((error) => {
+        console.error(error);
+      })
   }
 
   render() {

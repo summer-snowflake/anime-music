@@ -101,7 +101,7 @@
 	});
 
 	function renderPage(appHtml) {
-	  return '\n    <!doctype html public="storage">\n    <html>\n    <meta charset=utf-8/>\n    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>\n    <title>My First React Router App</title>\n    <link rel=stylesheet href=/index.css>\n    <div id=content></div>\n    <script src="/bundle.js"></script>\n   ';
+	  return '\n    <!doctype html public="storage">\n    <html>\n    <meta charset=utf-8/>\n    <title>My First React Router App</title>\n    <link rel=stylesheet href=/index.css>\n    <div id=content></div>\n    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>\n    <script src="/bundle.js"></script>\n   ';
 	}
 
 	var PORT = process.env.PORT || 8080;
@@ -167,35 +167,35 @@
 
 	var _welcome2 = _interopRequireDefault(_welcome);
 
-	var _admin = __webpack_require__(15);
+	var _admin = __webpack_require__(16);
 
 	var _admin2 = _interopRequireDefault(_admin);
 
-	var _admin_top_page = __webpack_require__(17);
+	var _admin_top_page = __webpack_require__(18);
 
 	var _admin_top_page2 = _interopRequireDefault(_admin_top_page);
 
-	var _admin_animes_page = __webpack_require__(18);
+	var _admin_animes_page = __webpack_require__(19);
 
 	var _admin_animes_page2 = _interopRequireDefault(_admin_animes_page);
 
-	var _admin_animes = __webpack_require__(19);
+	var _admin_animes = __webpack_require__(20);
 
 	var _admin_animes2 = _interopRequireDefault(_admin_animes);
 
-	var _admin_anime = __webpack_require__(22);
+	var _admin_anime = __webpack_require__(23);
 
 	var _admin_anime2 = _interopRequireDefault(_admin_anime);
 
-	var _admin_actors_page = __webpack_require__(24);
+	var _admin_actors_page = __webpack_require__(25);
 
 	var _admin_actors_page2 = _interopRequireDefault(_admin_actors_page);
 
-	var _admin_actors = __webpack_require__(25);
+	var _admin_actors = __webpack_require__(26);
 
 	var _admin_actors2 = _interopRequireDefault(_admin_actors);
 
-	var _admin_actor = __webpack_require__(28);
+	var _admin_actor = __webpack_require__(29);
 
 	var _admin_actor2 = _interopRequireDefault(_admin_actor);
 
@@ -427,6 +427,10 @@
 
 	var _domain = __webpack_require__(14);
 
+	var _isomorphicFetch = __webpack_require__(15);
+
+	var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -459,15 +463,12 @@
 	    value: function loadAnimesFromServer() {
 	      var _this2 = this;
 
-	      $.ajax({
-	        url: _domain.domain + this.props.url,
-	        dataType: 'json',
-	        success: function success(res) {
-	          _this2.setState({ animes: res.animes });
-	        },
-	        error: function error(xhr, status, err) {
-	          console.error(_this2.props.url, status, err.toString());
-	        }
+	      (0, _isomorphicFetch2.default)(_domain.domain + this.props.url).then(function (res) {
+	        return res.json();
+	      }).then(function (res) {
+	        _this2.setState({ animes: res.animes });
+	      }).catch(function (error) {
+	        console.error(error);
 	      });
 	    }
 	  }, {
@@ -564,6 +565,12 @@
 
 /***/ },
 /* 15 */
+/***/ function(module, exports) {
+
+	module.exports = require("isomorphic-fetch");
+
+/***/ },
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -578,7 +585,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _admin_menu = __webpack_require__(16);
+	var _admin_menu = __webpack_require__(17);
 
 	var _admin_menu2 = _interopRequireDefault(_admin_menu);
 
@@ -622,7 +629,7 @@
 	};
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -703,7 +710,7 @@
 	exports.default = AdminMenu;
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -748,7 +755,7 @@
 	exports.default = AdminTopPage;
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -802,7 +809,7 @@
 	};
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -817,7 +824,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _admin_animes_table = __webpack_require__(20);
+	var _admin_animes_table = __webpack_require__(21);
 
 	var _admin_animes_table2 = _interopRequireDefault(_admin_animes_table);
 
@@ -855,7 +862,7 @@
 	exports.default = AdminAnimes;
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -870,7 +877,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _admin_anime_row = __webpack_require__(21);
+	var _admin_anime_row = __webpack_require__(22);
 
 	var _admin_anime_row2 = _interopRequireDefault(_admin_anime_row);
 
@@ -899,8 +906,8 @@
 	  }
 
 	  _createClass(AdminAnimesTable, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
 	      this.loadAnimesFromServer();
 	    }
 	  }, {
@@ -908,15 +915,12 @@
 	    value: function loadAnimesFromServer() {
 	      var _this2 = this;
 
-	      $.ajax({
-	        url: _domain.domain + this.props.url,
-	        dataType: 'json',
-	        success: function success(res) {
-	          _this2.setState({ animes: res.animes });
-	        },
-	        error: function error(xhr, status, err) {
-	          console.error(_this2.props.url, status, err.toString());
-	        }
+	      fetch(_domain.domain + this.props.url).then(function (res) {
+	        return res.json();
+	      }).then(function (res) {
+	        _this2.setState({ animes: res.animes });
+	      }).catch(function (error) {
+	        console.error(error);
 	      });
 	    }
 	  }, {
@@ -951,7 +955,7 @@
 	};
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1030,7 +1034,7 @@
 	};
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1045,7 +1049,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _admin_anime_detail = __webpack_require__(23);
+	var _admin_anime_detail = __webpack_require__(24);
 
 	var _admin_anime_detail2 = _interopRequireDefault(_admin_anime_detail);
 
@@ -1088,7 +1092,7 @@
 	};
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1128,8 +1132,8 @@
 	  }
 
 	  _createClass(AdminAnimeDetail, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
 	      this.loadAnimesFromServer();
 	    }
 	  }, {
@@ -1137,15 +1141,12 @@
 	    value: function loadAnimesFromServer() {
 	      var _this2 = this;
 
-	      $.ajax({
-	        url: _domain.domain + this.props.url,
-	        dataType: 'json',
-	        success: function success(res) {
-	          _this2.setState({ anime: res });
-	        },
-	        error: function error(xhr, status, err) {
-	          console.error(_this2.props.url, status, err.toString());
-	        }
+	      fetch(_domain.domain + this.props.url).then(function (res) {
+	        return res.json();
+	      }).then(function (res) {
+	        _this2.setState({ anime: res });
+	      }).catch(function (error) {
+	        console.error(error);
 	      });
 	    }
 	  }, {
@@ -1179,7 +1180,7 @@
 	};
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1233,7 +1234,7 @@
 	};
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1248,7 +1249,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _admin_actors_table = __webpack_require__(26);
+	var _admin_actors_table = __webpack_require__(27);
 
 	var _admin_actors_table2 = _interopRequireDefault(_admin_actors_table);
 
@@ -1286,7 +1287,7 @@
 	exports.default = AdminActors;
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1301,7 +1302,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _admin_actor_row = __webpack_require__(27);
+	var _admin_actor_row = __webpack_require__(28);
 
 	var _admin_actor_row2 = _interopRequireDefault(_admin_actor_row);
 
@@ -1330,8 +1331,8 @@
 	  }
 
 	  _createClass(AdminActorsTable, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
 	      this.loadActorsFromServer();
 	    }
 	  }, {
@@ -1339,15 +1340,12 @@
 	    value: function loadActorsFromServer() {
 	      var _this2 = this;
 
-	      $.ajax({
-	        url: _domain.domain + this.props.url,
-	        dataType: 'json',
-	        success: function success(res) {
-	          _this2.setState({ actors: res.actors });
-	        },
-	        error: function error(xhr, status, err) {
-	          console.error(_this2.props.url, status, err.toString());
-	        }
+	      fetch(_domain.domain + this.props.url).then(function (res) {
+	        return res.json();
+	      }).then(function (res) {
+	        _this2.setState({ actors: res.actors });
+	      }).catch(function (error) {
+	        console.error(error);
 	      });
 	    }
 	  }, {
@@ -1378,7 +1376,7 @@
 	};
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1442,7 +1440,7 @@
 	};
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1457,7 +1455,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _admin_actor_detail = __webpack_require__(29);
+	var _admin_actor_detail = __webpack_require__(30);
 
 	var _admin_actor_detail2 = _interopRequireDefault(_admin_actor_detail);
 
@@ -1500,7 +1498,7 @@
 	};
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1540,8 +1538,8 @@
 	  }
 
 	  _createClass(AdminActorDetail, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
 	      this.loadActorsFromServer();
 	    }
 	  }, {
@@ -1549,15 +1547,12 @@
 	    value: function loadActorsFromServer() {
 	      var _this2 = this;
 
-	      $.ajax({
-	        url: _domain.domain + this.props.url,
-	        dataType: 'json',
-	        success: function success(res) {
-	          _this2.setState({ actor: res });
-	        },
-	        error: function error(xhr, status, err) {
-	          console.error(_this2.props.url, status, err.toString());
-	        }
+	      fetch(_domain.domain + this.props.url).then(function (res) {
+	        return res.json();
+	      }).then(function (res) {
+	        _this2.setState({ actor: res });
+	      }).catch(function (error) {
+	        console.error(error);
 	      });
 	    }
 	  }, {
