@@ -27,3 +27,6 @@ doc/*
 
 # bundle.js
 server.bundle.js
+
+# Ignore environment variables list
+.env

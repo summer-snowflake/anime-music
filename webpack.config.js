@@ -1,4 +1,5 @@
 var webpack = require('webpack')
+require('dotenv').config()
 
 module.exports = {
   entry: './app/assets/javascripts/components.js',
@@ -13,7 +14,11 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin()
-  ] : [],
+  ] : [
+    new webpack.DefinePlugin({
+      DOMAIN_NAME : JSON.stringify(process.env.DOMAIN_NAME)
+    })
+  ],
 
   module: {
     loaders: [

@@ -18,6 +18,7 @@ gem 'bootstrap-sass'
 gem 'sass-rails'
 gem 'rake_shared_context'
 gem 'slack-notifier'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
