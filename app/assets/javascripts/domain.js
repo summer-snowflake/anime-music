@@ -1,1 +1,1 @@
-export const domain = 'http://localhost:3000'
+export const domain = (typeof DOMAIN_NAME != 'undefined' ? DOMAIN_NAME : '')
