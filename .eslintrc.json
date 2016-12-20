@@ -8,19 +8,20 @@
       "version": "15.3.2"
     }
   },
-  "env": {"browser": true, "es6": true},
+  "env": { "browser": true, "es6": true },
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
     }
   },
-  "globals": {"module": false},
+  "globals": { "module": true, "DOMAIN_NAME": true },
   "rules": {
     "quotes": [1, "single"],
     "semi": [2 , "never"],
     "no-console": "off",
     "no-unused-vars": ["error", { "vars": "all", "args": "after-used" }],
+    "no-undef": ["error", { "typeof": false }],
     "react/display-name": 1,
     "react/forbid-prop-types": 0,
     "react/jsx-boolean-value": 1,
