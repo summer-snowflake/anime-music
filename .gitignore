@@ -24,3 +24,10 @@ coverage/*
 
 # Ignore document files
 doc/*
+
+# bundle.js
+server.bundle.js
+public/bundle.js
+
+# Ignore environment variables list
+.env

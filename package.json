@@ -7,13 +7,21 @@
     "test": "test"
   },
   "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:dev": "webpack-dev-server --inline --content-base public/ --history-api-fallback",
+    "start:prod": "npm run build && node server.bundle.js",
+    "build:client": "webpack",
+    "build:server": "webpack --config webpack.server.config.js",
+    "build": "npm run build:client && npm run build:server",
     "test": "jest"
   },
   "jest": {
     "automock": true,
     "unmockedModulePathPatterns": [
       "react",
-      "enzyme"
+      "enzyme",
+      "expect",
+      "expect-jsx"
     ],
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js)$",
     "moduleFileExtensions": [
@@ -47,17 +55,26 @@
     "babelify": "^7.3.0",
     "browserify": "^13.1.1",
     "browserify-incremental": "^3.1.1",
+    "compression": "^1.6.2",
+    "dotenv": "^2.0.0",
     "enzyme": "^2.6.0",
     "eslint": "^3.11.1",
     "eslint-plugin-react": "^6.8.0",
+    "expect": "^1.20.2",
+    "expect-jsx": "^2.6.0",
+    "express": "^4.14.0",
+    "http-server": "^0.9.0",
+    "if-env": "^1.0.0",
     "jest": "^17.0.3",
     "jest-cli": "^17.0.3",
     "react": "^15.4.1",
     "react-addons-test-utils": "^15.4.1",
     "react-dom": "^15.4.1",
-    "react-test-renderer": "^15.4.1",
     "react-router": "^3.0.0",
-    "reactify": "^1.1.1"
+    "react-test-renderer": "^15.4.1",
+    "reactify": "^1.1.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
     "react": "^15.4.1",
