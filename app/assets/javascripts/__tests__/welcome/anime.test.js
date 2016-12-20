@@ -1,7 +1,7 @@
-import React from 'react';
-import expect from 'expect';
+import React from 'react'
+import expect from 'expect'
 import { createRenderer } from 'react-addons-test-utils'
-import expectJSX from 'expect-jsx';
+import expectJSX from 'expect-jsx'
 
 expect.extend(expectJSX)
 
@@ -20,7 +20,7 @@ describe('AnimeComponent', () => {
     let expectedElement = (
       <div className="panel panel-default anime-title">
         <div className='panel-body'>
-          アニメタイトル
+          {'アニメタイトル'}
         </div>
       </div>
     )
