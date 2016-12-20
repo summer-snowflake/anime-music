@@ -5,7 +5,7 @@ module.exports = {
   entry: './app/assets/javascripts/components.js',
 
   output: {
-    path: 'serve',
+    path: 'public',
     filename: 'bundle.js',
     publicPath: '/'
   },
