@@ -24,3 +24,5 @@ coverage/*
 
 # Ignore document files
 doc/*
+
+.env
