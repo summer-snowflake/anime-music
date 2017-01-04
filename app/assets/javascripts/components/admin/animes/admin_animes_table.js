@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import AdminAnimeRow from './admin_anime_row.js'
+import { domain } from './../../../domain.js'
 
 export default class AdminAnimesTable extends Component {
   constructor(props) {
@@ -9,21 +10,19 @@ export default class AdminAnimesTable extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.loadAnimesFromServer()
   }
 
   loadAnimesFromServer() {
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      success: (res) => {
+    fetch(domain + this.props.url)
+      .then((res) => res.json())
+      .then((res) => {
         this.setState({animes: res.animes})
-      },
-      error: (xhr, status, err) => {
-        console.error(this.props.url, status, err.toString())
-      }
-    })
+      })
+      .catch((error) => {
+        console.error(error)
+      })
   }
 
   render() {

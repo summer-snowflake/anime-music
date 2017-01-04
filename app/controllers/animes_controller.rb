@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class Api::AnimesController < ApplicationController
+class AnimesController < ApplicationController
   def index
     @animes = Anime.all
   end

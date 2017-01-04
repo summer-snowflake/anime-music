@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-describe 'GET /api/admin/animes', autodoc: true do
+describe 'GET /admin/animes', autodoc: true do
   let!(:anime1) { create(:anime) }
   let!(:anime2) { create(:anime) }
 
   it '200とアニメ一覧が返ってくること' do
-    get '/api/admin/animes'
+    get '/admin/animes'
     expect(response.status).to eq 200
 
     json = {
@@ -29,11 +29,11 @@ describe 'GET /api/admin/animes', autodoc: true do
   end
 end
 
-describe 'GET /api/admin/animes/:id', autodoc: true do
+describe 'GET /admin/animes/:id', autodoc: true do
   let!(:anime) { create(:anime) }
 
   it '200とアニメ詳細が返ってくること' do
-    get "/api/admin/animes/#{anime.id}"
+    get "/admin/animes/#{anime.id}"
     expect(response.status).to eq 200
 
     json = {

@@ -5,7 +5,7 @@ export default class AdminActors extends Component {
   render() {
     return (
       <div>
-        <AdminActorsTable url='/api/admin/actors' />
+        <AdminActorsTable url='/admin/actors' />
       </div>
     )
   }
