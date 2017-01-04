@@ -10,14 +10,11 @@ gem 'jquery-rails'
 gem 'coffee-rails'
 gem 'therubyracer'
 gem 'browserify-rails'
-gem 'react-rails'
-gem 'turbolinks'
 gem 'slim-rails'
 gem 'jbuilder'
-gem 'bootstrap-sass'
-gem 'sass-rails'
 gem 'rake_shared_context'
 gem 'slack-notifier'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
