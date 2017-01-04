@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { origin } from './../../../origin.js'
 
 export default class AdminAnimeDetail extends Component {
   constructor(props) {
@@ -8,13 +9,13 @@ export default class AdminAnimeDetail extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.loadAnimesFromServer()
   }
 
   loadAnimesFromServer() {
     $.ajax({
-      url: this.props.url,
+      url: origin + this.props.url,
       dataType: 'json',
       success: (res) => {
         this.setState({anime: res})

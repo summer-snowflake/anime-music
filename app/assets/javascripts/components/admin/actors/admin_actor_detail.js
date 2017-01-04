@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { origin } from './../../../origin.js'
 
 export default class AdminActorDetail extends Component {
   constructor(props) {
@@ -8,13 +9,13 @@ export default class AdminActorDetail extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.loadActorsFromServer()
   }
 
   loadActorsFromServer() {
     $.ajax({
-      url: this.props.url,
+      url: origin + this.props.url,
       dataType: 'json',
       success: (res) => {
         this.setState({actor: res})
