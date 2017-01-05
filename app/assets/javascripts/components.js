@@ -5,7 +5,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, browserHistory } from 'react-router'
-//require('bootstrap/dist/css/bootstrap.css')
+require('bootstrap/dist/css/bootstrap.css')
 
 import routes from './routes.js'
 
