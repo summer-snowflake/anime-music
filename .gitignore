@@ -25,4 +25,9 @@ coverage/*
 # Ignore document files
 doc/*
 
+# Ignore webpack bundle.js
+server.bundle.js
+public/bundle.js
+
+# Ignore environment variables list
 .env

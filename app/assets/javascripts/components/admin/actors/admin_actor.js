@@ -5,7 +5,7 @@ export default class AdminActor extends Component {
   render() {
     return (
       <div>
-        <AdminActorDetail url={'/api/admin/actors/' + this.props.params.actorId} />
+        <AdminActorDetail url={'api/admin/actors/' + this.props.params.actorId} />
       </div>
     )
   }
