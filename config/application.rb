@@ -23,7 +23,7 @@ module AnimeMusic
 
     config.action_dispatch.default_headers = {
       'Access-Control-Allow-Credentials' => 'true',
-      'Access-Control-Allow-Origin' => 'http://localhost:8080',
+      'Access-Control-Allow-Origin' => ENV['ALLOW_ORIGIN'],
       'Access-Control-Request-Method' => '*'
     }
   end
