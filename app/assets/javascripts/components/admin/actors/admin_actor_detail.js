@@ -14,16 +14,14 @@ export default class AdminActorDetail extends Component {
   }
 
   loadActorsFromServer() {
-    $.ajax({
-      url: origin + this.props.url,
-      dataType: 'json',
-      success: (res) => {
+    fetch(origin + this.props.url)
+      .then((res) => res.json())
+      .then((res) => {
         this.setState({actor: res})
-      },
-      error: (xhr, status, err) => {
-        console.error(this.props.url, status, err.toString())
-      }
-    })
+      })
+      .catch((error) => {
+        console.error(error)
+      })
   }
 
   render() {
