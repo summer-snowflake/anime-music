@@ -21,11 +21,10 @@ module AnimeMusic
       '-t reactify'
     ]
 
-    config.react.addons = true
-config.action_dispatch.default_headers = {
-    'Access-Control-Allow-Credentials' => 'true',
-    'Access-Control-Allow-Origin' => 'http://localhost:8080',
-    'Access-Control-Request-Method' => '*'
-}
+    config.action_dispatch.default_headers = {
+      'Access-Control-Allow-Credentials' => 'true',
+      'Access-Control-Allow-Origin' => 'http://localhost:8080',
+      'Access-Control-Request-Method' => '*'
+    }
   end
 end
