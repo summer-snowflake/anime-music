@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: anime-music_production
-  username: anime-music
-  password: <%= ENV['ANIME-MUSIC_DATABASE_PASSWORD'] %>
+  database: anime_music_production
+  user: <%= ENV['POSTGRESQL_USERNAME'] %>
+  host: <%= ENV['POSTGRESQL_HOST'] %>
+  password: <%= ENV['POSTGRESQL_PASSWORD'] %>
