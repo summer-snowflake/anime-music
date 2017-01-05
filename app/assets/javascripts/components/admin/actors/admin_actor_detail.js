@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { origin } from './../../../origin.js'
 
 export default class AdminActorDetail extends Component {
   constructor(props) {
@@ -8,21 +9,19 @@ export default class AdminActorDetail extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.loadActorsFromServer()
   }
 
   loadActorsFromServer() {
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      success: (res) => {
+    fetch(origin + this.props.url)
+      .then((res) => res.json())
+      .then((res) => {
         this.setState({actor: res})
-      },
-      error: (xhr, status, err) => {
-        console.error(this.props.url, status, err.toString())
-      }
-    })
+      })
+      .catch((error) => {
+        console.error(error)
+      })
   }
 
   render() {

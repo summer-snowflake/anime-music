@@ -8,14 +8,14 @@
       "version": "15.3.2"
     }
   },
-  "env": {"browser": true, "es6": true},
+  "env": { "browser": true, "es6": true },
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
     }
   },
-  "globals": {"jest": false, "describe": false, "it": false, "expect": false, "$": false},
+  "globals": { "module": true, "ORIGIN": true, "jest": true, "it": true, "describe": true },
   "rules": {
     "quotes": [1, "single"],
     "semi": [2 , "never"],
