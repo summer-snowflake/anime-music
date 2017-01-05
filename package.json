@@ -57,6 +57,7 @@
     "browserify": "^13.1.1",
     "browserify-incremental": "^3.1.1",
     "compression": "^1.6.2",
+    "css-loader": "^0.26.1",
     "dotenv": "^2.0.0",
     "enzyme": "^2.7.0",
     "eslint": "^3.12.2",
