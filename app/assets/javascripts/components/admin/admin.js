@@ -4,7 +4,7 @@ import AdminMenu from './_admin_menu.js'
 export default class Admin extends Component {
   render() {
     return (
-      <div>
+      <div className='adminComponent'>
         <AdminMenu />
         {this.props.children}
       </div>

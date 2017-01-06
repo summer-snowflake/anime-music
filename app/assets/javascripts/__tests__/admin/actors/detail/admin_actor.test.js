@@ -15,7 +15,7 @@ describe('AdminActorComponent', () => {
 
   it('子コンポーネントが出力されること', () => {
     renderer.render(
-      <AdminActor params={ params } />
+      <AdminActor params={params} />
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (

@@ -5,22 +5,21 @@ import expectJSX from 'expect-jsx'
 
 expect.extend(expectJSX)
 
-import AdminAnime from '../../../../components/admin/animes/detail/admin_anime'
-import AdminAnimeDetail from '../../../../components/admin/animes/detail/_admin_anime_detail'
-jest.unmock('../../../../components/admin/animes/detail/admin_anime')
+import Admin from '../../components/admin/admin'
+import AdminMenu from '../../components/admin/_admin_menu'
+jest.unmock('../../components/admin/admin')
 
-describe('AdminAnimeComponent', () => {
+describe('AppComponent', () => {
   let renderer = createRenderer()
-  const params = { animeId: 1 }
 
   it('子コンポーネントが出力されること', () => {
     renderer.render(
-      <AdminAnime params={params} />
+      <Admin />
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
-      <div className='adminAnimeComponent'>
-        <AdminAnimeDetail url='api/admin/animes/1' />
+      <div className='adminComponent'>
+        <AdminMenu />
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)
