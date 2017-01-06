@@ -5,8 +5,8 @@ import expectJSX from 'expect-jsx'
 
 expect.extend(expectJSX)
 
-import Anime from '../../components/welcome/anime'
-jest.unmock('../../components/welcome/anime')
+import Anime from '../../components/welcome/_anime'
+jest.unmock('../../components/welcome/_anime')
 
 describe('AnimeComponent', () => {
   let renderer = createRenderer()

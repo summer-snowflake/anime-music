@@ -6,10 +6,10 @@ import expectJSX from 'expect-jsx'
 
 expect.extend(expectJSX)
 
-import AdminActorRow from '../../../components/admin/actors/admin_actor_row'
-jest.unmock('../../../components/admin/actors/admin_actor_row')
+import AdminActorRow from '../../../../components/admin/actors/list/_admin_actor_row'
+jest.unmock('../../../../components/admin/actors/list/_admin_actor_row')
 
-describe('AnimeComponent', () => {
+describe('AdminActorRowComponent', () => {
   let renderer = createRenderer()
 
   it('propsに設定した値が出力される', () => {

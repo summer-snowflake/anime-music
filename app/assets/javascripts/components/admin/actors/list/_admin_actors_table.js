@@ -1,11 +1,12 @@
 import React, { Component, PropTypes } from 'react'
-import { origin } from './../../../origin.js'
+import AdminActorRow from './_admin_actor_row.js'
+import { origin } from './../../../../origin.js'
 
-export default class AdminActorDetail extends Component {
+export default class AdminActorsTable extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      actor: {}
+      actors: []
     }
   }
 
@@ -17,7 +18,7 @@ export default class AdminActorDetail extends Component {
     fetch(origin + this.props.url)
       .then((res) => res.json())
       .then((res) => {
-        this.setState({actor: res})
+        this.setState({actors: res.actors})
       })
       .catch((error) => {
         console.error(error)
@@ -26,16 +27,17 @@ export default class AdminActorDetail extends Component {
 
   render() {
     return (
-      <div className='panel panel-default'>
-        <div className='panel-heading'>
-          {this.state.actor.name}
-        </div>
-        <div className='panel-body' />
-      </div>
+      <table className='table'>
+        <tbody>
+          {this.state.actors.map((actor) =>
+            <AdminActorRow actor={actor} key={actor.id} />
+          )}
+        </tbody>
+      </table>
     )
   }
 }
 
-AdminActorDetail.propTypes = {
+AdminActorsTable.propTypes = {
   url: PropTypes.string.isRequired
 }

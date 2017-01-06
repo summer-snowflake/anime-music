@@ -1,23 +1,23 @@
 import React, { Component, PropTypes } from 'react'
-import { origin } from './../../../origin.js'
+import { origin } from './../../../../origin.js'
 
-export default class AdminAnimeDetail extends Component {
+export default class AdminActorDetail extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      anime: {}
+      actor: {}
     }
   }
 
   componentDidMount() {
-    this.loadAnimesFromServer()
+    this.loadActorsFromServer()
   }
 
-  loadAnimesFromServer() {
+  loadActorsFromServer() {
     fetch(origin + this.props.url)
       .then((res) => res.json())
       .then((res) => {
-        this.setState({anime: res})
+        this.setState({actor: res})
       })
       .catch((error) => {
         console.error(error)
@@ -28,16 +28,14 @@ export default class AdminAnimeDetail extends Component {
     return (
       <div className='panel panel-default'>
         <div className='panel-heading'>
-          {this.state.anime.title}
+          {this.state.actor.name}
         </div>
-        <div className='panel-body'>
-          {this.state.anime.summary}
-        </div>
+        <div className='panel-body' />
       </div>
     )
   }
 }
 
-AdminAnimeDetail.propTypes = {
+AdminActorDetail.propTypes = {
   url: PropTypes.string.isRequired
 }

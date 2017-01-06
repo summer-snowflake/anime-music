@@ -1,12 +1,11 @@
 import React, { Component, PropTypes } from 'react'
-import AdminAnimeRow from './admin_anime_row.js'
-import { origin } from './../../../origin.js'
+import { origin } from './../../../../origin.js'
 
-export default class AdminAnimesTable extends Component {
+export default class AdminAnimeDetail extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      animes: []
+      anime: {}
     }
   }
 
@@ -18,7 +17,7 @@ export default class AdminAnimesTable extends Component {
     fetch(origin + this.props.url)
       .then((res) => res.json())
       .then((res) => {
-        this.setState({animes: res.animes})
+        this.setState({anime: res})
       })
       .catch((error) => {
         console.error(error)
@@ -27,19 +26,18 @@ export default class AdminAnimesTable extends Component {
 
   render() {
     return (
-      <div>
-        <table className='table'>
-          <tbody>
-            {this.state.animes.map((anime) =>
-              <AdminAnimeRow anime={anime} key={anime.id} />
-            )}
-          </tbody>
-        </table>
+      <div className='panel panel-default'>
+        <div className='panel-heading'>
+          {this.state.anime.title}
+        </div>
+        <div className='panel-body'>
+          {this.state.anime.summary}
+        </div>
       </div>
     )
   }
 }
 
-AdminAnimesTable.propTypes = {
+AdminAnimeDetail.propTypes = {
   url: PropTypes.string.isRequired
 }

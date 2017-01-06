@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import Anime from './anime.js'
+import Anime from './_anime.js'
 import { origin } from './../../origin.js'
 
 export default class AnimeList extends Component {
