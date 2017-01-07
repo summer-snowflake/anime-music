@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { origin } from './../../../../origin.js'
 
 export default class AdminAnimeTitle extends Component {
   constructor(props) {
@@ -21,6 +22,19 @@ export default class AdminAnimeTitle extends Component {
   }
 
   handleSubmit() {
+    const params = { anime: { title: this.state.title }}
+    fetch(origin + 'api/admin/animes/' + this.props.id, {
+      method: 'PATCH',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(params)
+    }).then((res) => {
+      })
+      .catch((error) => {
+        console.error(error)
+      })
   }
 
   render() {

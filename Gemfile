@@ -14,13 +14,13 @@ gem 'rake_shared_context'
 gem 'slack-notifier'
 gem 'dotenv-rails'
 gem 'rails-i18n'
+gem 'rack-cors'
 
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'pry-byebug'
-  gem 'rack-cors'
   gem 'factory_girl_rails'
   gem 'gimei'
   gem 'faker'
