@@ -1,10 +1,8 @@
 import React from 'react'
 import expect from 'expect'
 import { Simulate, createRenderer, renderIntoDocument, findRenderedDOMComponentWithClass } from 'react-addons-test-utils'
-import { shallow } from 'enzyme'
 import expectJSX from 'expect-jsx'
 import 'jest-fetch-mock'
-//import reactElementToJSXString from 'react-element-to-jsx-string'
 
 expect.extend(expectJSX)
 
@@ -15,7 +13,7 @@ describe('AdminAnimeDetailComponent', () => {
   it('propsに設定した値が出力されること', () => {
     let renderer = createRenderer()
     renderer.render(
-      <AdminAnimeTitle title='アニメタイトル' id='1' />
+      <AdminAnimeTitle id='1' title='アニメタイトル' />
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
@@ -33,7 +31,7 @@ describe('AdminAnimeDetailComponent', () => {
 
   it('state初期値が設定されていること', () => {
     const component = renderIntoDocument(
-      <AdminAnimeTitle title='アニメタイトル' id='1' />
+      <AdminAnimeTitle id='1' title='アニメタイトル' />
     )
     expect(component.state.editingTitle).toBe(false)
     expect(component.state.title).toBe('アニメタイトル')
@@ -41,7 +39,7 @@ describe('AdminAnimeDetailComponent', () => {
 
   it('アイコンをクリックすると編集モードになること', () => {
     const component = renderIntoDocument(
-      <AdminAnimeTitle title='アニメタイトル' id='1' />
+      <AdminAnimeTitle id='1' title='アニメタイトル' />
     )
     expect(component.state.editingTitle).toBe(false)
 
