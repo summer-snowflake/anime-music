@@ -9,6 +9,7 @@ import reactElementToJSXString from 'react-element-to-jsx-string'
 expect.extend(expectJSX)
 
 import AdminAnimeDetail from '../../../../components/admin/animes/detail/_admin_anime_detail'
+import AdminAnimeTitle from '../../../../components/admin/animes/detail/_admin_anime_title'
 jest.unmock('../../../../components/admin/animes/detail/_admin_anime_detail')
 
 describe('AdminAnimeDetailComponent', () => {
@@ -31,10 +32,9 @@ describe('AdminAnimeDetailComponent', () => {
     let expectedElement = (
       <div className='adminAnimeDetailComponent'>
         <div className='panel panel-default'>
-          <div className='panel-heading'>
-            {'アニメタイトル'}
-          </div>
           <div className='panel-body'>
+            <AdminAnimeTitle id={1} title='アニメタイトル' />
+            <hr />
             {'アニメサマリ'}
           </div>
         </div>
