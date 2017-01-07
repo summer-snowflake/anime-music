@@ -27,13 +27,15 @@ export default class AdminActorsTable extends Component {
 
   render() {
     return (
-      <table className='table'>
-        <tbody>
-          {this.state.actors.map((actor) =>
-            <AdminActorRow actor={actor} key={actor.id} />
-          )}
-        </tbody>
-      </table>
+      <div className='adminActorsTableComponent'>
+        <table className='table'>
+          <tbody>
+            {this.state.actors.map((actor) =>
+              <AdminActorRow actor={actor} key={actor.id} />
+            )}
+          </tbody>
+        </table>
+      </div>
     )
   }
 }

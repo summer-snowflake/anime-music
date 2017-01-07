@@ -27,7 +27,7 @@ export default class AdminAnimesTable extends Component {
 
   render() {
     return (
-      <div>
+      <div className='adminAnimesTableComponent'>
         <table className='table'>
           <tbody>
             {this.state.animes.map((anime) =>
