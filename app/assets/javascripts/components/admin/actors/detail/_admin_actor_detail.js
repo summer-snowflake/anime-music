@@ -5,7 +5,7 @@ export default class AdminActorDetail extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      actor: {}
+      actor: { name: '' }
     }
   }
 

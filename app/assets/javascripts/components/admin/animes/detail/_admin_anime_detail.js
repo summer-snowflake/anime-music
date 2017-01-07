@@ -5,7 +5,7 @@ export default class AdminAnimeDetail extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      anime: {}
+      anime: {title: '', summary: '', wiki_url: ''}
     }
   }
 

@@ -1,0 +1,45 @@
+import React from 'react'
+import expect from 'expect'
+import { renderIntoDocument } from 'react-addons-test-utils'
+import { shallow } from 'enzyme'
+import expectJSX from 'expect-jsx'
+import fetch from 'jest-fetch-mock'
+import reactElementToJSXString from 'react-element-to-jsx-string'
+
+expect.extend(expectJSX)
+
+import AdminAnimeDetail, { loadAnimesFromServer } from '../../../../components/admin/animes/detail/_admin_anime_detail'
+jest.unmock('../../../../components/admin/animes/detail/_admin_anime_detail')
+
+describe('AdminAnimeComponent', () => {
+  const params = { animeId: 1 }
+
+  it('state初期値が設定されていること', () => {
+    const component = renderIntoDocument(
+      <AdminAnimeDetail url='api/admin/animes/1' />
+    )
+    expect(component.state.anime.title).toBe('')
+    expect(component.state.anime.summary).toBe('')
+    expect(component.state.anime.wiki_url).toBe('')
+  })
+
+  it('表示', () => {
+    const component = shallow(
+      <AdminAnimeDetail url='api/admin/animes/1' />
+    )
+    component.setState({anime: { id: 1, title: 'アニメタイトル', summary: 'アニメサマリ', wiki_url: 'https://wiki.com' }})
+
+    let actualElement = component.single(reactElementToJSXString)
+    let expectedElement = (
+      <div className='panel panel-default'>
+        <div className='panel-heading'>
+          {'アニメタイトル'}
+        </div>
+        <div className='panel-body'>
+          {'アニメサマリ'}
+        </div>
+      </div>
+    )
+    expect(actualElement).toEqualJSX(expectedElement)
+  })
+})
