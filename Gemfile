@@ -13,6 +13,7 @@ gem 'jbuilder'
 gem 'rake_shared_context'
 gem 'slack-notifier'
 gem 'dotenv-rails'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'byebug', platform: :mri

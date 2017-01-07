@@ -1,0 +1,5 @@
+ja:
+  activerecord:
+    attributes:
+      anime:
+        title: タイトル
