@@ -20,7 +20,7 @@ describe('AdminAnimesTableComponent', () => {
     expect(component.state.animes).toEqual([])
   })
 
-  it('表示', () => {
+  it('DOMが出力されること', () => {
     const component = shallow(
       <AdminAnimesTable url='api/admin/animes' />
     )

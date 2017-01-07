@@ -9,7 +9,7 @@ import Admin from '../../components/admin/admin'
 import AdminMenu from '../../components/admin/_admin_menu'
 jest.unmock('../../components/admin/admin')
 
-describe('AppComponent', () => {
+describe('AdminComponent', () => {
   let renderer = createRenderer()
 
   it('子コンポーネントが出力されること', () => {

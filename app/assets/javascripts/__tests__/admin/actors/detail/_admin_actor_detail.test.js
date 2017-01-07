@@ -11,7 +11,7 @@ expect.extend(expectJSX)
 import AdminActorDetail from '../../../../components/admin/actors/detail/_admin_actor_detail'
 jest.unmock('../../../../components/admin/actors/detail/_admin_actor_detail')
 
-describe('AdminActorComponent', () => {
+describe('AdminActorDetailComponent', () => {
   it('state初期値が設定されていること', () => {
     const component = renderIntoDocument(
       <AdminActorDetail url='api/admin/actors/1' />
