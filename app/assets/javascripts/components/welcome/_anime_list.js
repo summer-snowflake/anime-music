@@ -27,7 +27,7 @@ export default class AnimeList extends Component {
 
   render() {
     return (
-      <div className='anime-list'>
+      <div className='animeListComponent'>
         {this.state.animes.map((anime) =>
           <Anime anime={anime} key={anime.id} />
         )}

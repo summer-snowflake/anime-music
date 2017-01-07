@@ -19,7 +19,7 @@ describe('AdminActorRowComponent', () => {
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
-      <tr id='actor-1'>
+      <tr className='adminActorRowComponent' id='actor-1'>
         <td><Link to='/admin/actors/1'>{'声優 氏名'}</Link></td>
       </tr>
     )

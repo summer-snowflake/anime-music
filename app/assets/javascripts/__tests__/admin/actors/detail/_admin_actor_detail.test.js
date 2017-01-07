@@ -27,11 +27,13 @@ describe('AdminActorDetailComponent', () => {
 
     let actualElement = component.single(reactElementToJSXString)
     let expectedElement = (
-      <div className='panel panel-default'>
-        <div className='panel-heading'>
-          {'声優 氏名'}
+      <div className='adminActorDetailComponent'>
+        <div className='panel panel-default'>
+          <div className='panel-heading'>
+            {'声優 氏名'}
+          </div>
+          <div className='panel-body' />
         </div>
-        <div className='panel-body' />
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)

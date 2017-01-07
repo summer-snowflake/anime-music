@@ -26,12 +26,14 @@ export default class AdminAnimeDetail extends Component {
 
   render() {
     return (
-      <div className='panel panel-default'>
-        <div className='panel-heading'>
-          {this.state.anime.title}
-        </div>
-        <div className='panel-body'>
-          {this.state.anime.summary}
+      <div className='adminAnimeDetailComponent'>
+        <div className='panel panel-default'>
+          <div className='panel-heading'>
+            {this.state.anime.title}
+          </div>
+          <div className='panel-body'>
+            {this.state.anime.summary}
+          </div>
         </div>
       </div>
     )

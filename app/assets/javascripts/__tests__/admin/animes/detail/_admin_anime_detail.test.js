@@ -29,12 +29,14 @@ describe('AdminAnimeDetailComponent', () => {
 
     let actualElement = component.single(reactElementToJSXString)
     let expectedElement = (
-      <div className='panel panel-default'>
-        <div className='panel-heading'>
-          {'アニメタイトル'}
-        </div>
-        <div className='panel-body'>
-          {'アニメサマリ'}
+      <div className='adminAnimeDetailComponent'>
+        <div className='panel panel-default'>
+          <div className='panel-heading'>
+            {'アニメタイトル'}
+          </div>
+          <div className='panel-body'>
+            {'アニメサマリ'}
+          </div>
         </div>
       </div>
     )

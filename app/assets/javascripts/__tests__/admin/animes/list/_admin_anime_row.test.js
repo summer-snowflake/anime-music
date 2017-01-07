@@ -19,7 +19,7 @@ describe('AdminAnimeRowComponent', () => {
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
-      <tr id='anime-1'>
+      <tr className='adminAnimeRowComponent' id='anime-1'>
         <td><Link to='/admin/animes/1'>{'アニメタイトル'}</Link></td>
         <td>{'アニメサマリ'}</td>
         <td>{'https://wiki.com'}</td>

@@ -18,9 +18,11 @@ describe('AnimeComponent', () => {
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
-      <div className="panel panel-default anime-title">
-        <div className='panel-body'>
-          {'アニメタイトル'}
+      <div className='animeComponent'>
+        <div className="panel panel-default">
+          <div className='panel-body'>
+            {'アニメタイトル'}
+          </div>
         </div>
       </div>
     )
