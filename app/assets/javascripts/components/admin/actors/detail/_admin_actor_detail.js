@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react'
-import { origin } from './../../../origin.js'
+import { origin } from './../../../../origin.js'
 
 export default class AdminActorDetail extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      actor: {}
+      actor: { name: '' }
     }
   }
 
@@ -26,11 +26,13 @@ export default class AdminActorDetail extends Component {
 
   render() {
     return (
-      <div className='panel panel-default'>
-        <div className='panel-heading'>
-          {this.state.actor.name}
+      <div className='adminActorDetailComponent'>
+        <div className='panel panel-default'>
+          <div className='panel-heading'>
+            {this.state.actor.name}
+          </div>
+          <div className='panel-body' />
         </div>
-        <div className='panel-body' />
       </div>
     )
   }

@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 export default class Navbar extends Component {
   render() {
     return (
-      <div>
+      <div className='navbarComponent'>
         <ul>
           <li><Link activeClassName='active' onlyActiveOnIndex to='/'>{'TOP'}</Link></li>
         </ul>

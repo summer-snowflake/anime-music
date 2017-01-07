@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-import AdminAnimeRow from './admin_anime_row.js'
-import { origin } from './../../../origin.js'
+import AdminAnimeRow from './_admin_anime_row.js'
+import { origin } from './../../../../origin.js'
 
 export default class AdminAnimesTable extends Component {
   constructor(props) {
@@ -27,7 +27,7 @@ export default class AdminAnimesTable extends Component {
 
   render() {
     return (
-      <div>
+      <div className='adminAnimesTableComponent'>
         <table className='table'>
           <tbody>
             {this.state.animes.map((anime) =>

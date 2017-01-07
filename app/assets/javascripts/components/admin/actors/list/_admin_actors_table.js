@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-import AdminActorRow from './admin_actor_row.js'
-import { origin } from './../../../origin.js'
+import AdminActorRow from './_admin_actor_row.js'
+import { origin } from './../../../../origin.js'
 
 export default class AdminActorsTable extends Component {
   constructor(props) {
@@ -27,13 +27,15 @@ export default class AdminActorsTable extends Component {
 
   render() {
     return (
-      <table className='table'>
-        <tbody>
-          {this.state.actors.map((actor) =>
-            <AdminActorRow actor={actor} key={actor.id} />
-          )}
-        </tbody>
-      </table>
+      <div className='adminActorsTableComponent'>
+        <table className='table'>
+          <tbody>
+            {this.state.actors.map((actor) =>
+              <AdminActorRow actor={actor} key={actor.id} />
+            )}
+          </tbody>
+        </table>
+      </div>
     )
   }
 }

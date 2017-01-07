@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import AdminAnimesTable from './admin_animes_table.js'
+import AdminAnimesTable from './_admin_animes_table.js'
 
 export default class AdminAnimes extends Component {
   render() {
     return (
-      <div>
+      <div className='adminAnimesComponent'>
         <AdminAnimesTable url='api/admin/animes' />
       </div>
     )
