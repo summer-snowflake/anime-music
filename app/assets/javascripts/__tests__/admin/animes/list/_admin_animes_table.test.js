@@ -3,7 +3,7 @@ import expect from 'expect'
 import { renderIntoDocument } from 'react-addons-test-utils'
 import { shallow } from 'enzyme'
 import expectJSX from 'expect-jsx'
-import fetch from 'jest-fetch-mock'
+import 'jest-fetch-mock'
 import reactElementToJSXString from 'react-element-to-jsx-string'
 
 expect.extend(expectJSX)

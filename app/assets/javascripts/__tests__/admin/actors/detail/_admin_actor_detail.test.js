@@ -3,17 +3,15 @@ import expect from 'expect'
 import { renderIntoDocument } from 'react-addons-test-utils'
 import { shallow } from 'enzyme'
 import expectJSX from 'expect-jsx'
-import fetch from 'jest-fetch-mock'
+import 'jest-fetch-mock'
 import reactElementToJSXString from 'react-element-to-jsx-string'
 
 expect.extend(expectJSX)
 
-import AdminActorDetail, { loadActorsFromServer } from '../../../../components/admin/actors/detail/_admin_actor_detail'
+import AdminActorDetail from '../../../../components/admin/actors/detail/_admin_actor_detail'
 jest.unmock('../../../../components/admin/actors/detail/_admin_actor_detail')
 
 describe('AdminActorComponent', () => {
-  const params = { actorId: 1 }
-
   it('state初期値が設定されていること', () => {
     const component = renderIntoDocument(
       <AdminActorDetail url='api/admin/actors/1' />
