@@ -22,7 +22,7 @@ describe('AdminAnimeDetailComponent', () => {
     expect(component.state.anime.wiki_url).toBe('')
   })
 
-  it('表示', () => {
+  it('設定した値が表示されること', () => {
     const component = shallow(
       <AdminAnimeDetail url='api/admin/animes/1' />
     )
@@ -34,7 +34,6 @@ describe('AdminAnimeDetailComponent', () => {
         <div className='panel panel-default'>
           <div className='panel-body'>
             <AdminAnimeTitle id={1} title='アニメタイトル' />
-            <hr />
             {'アニメサマリ'}
           </div>
         </div>
