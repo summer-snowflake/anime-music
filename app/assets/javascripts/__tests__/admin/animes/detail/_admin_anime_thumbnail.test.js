@@ -1,6 +1,5 @@
 import React from 'react'
 import expect from 'expect'
-import { renderIntoDocument } from 'react-addons-test-utils'
 import { shallow } from 'enzyme'
 import expectJSX from 'expect-jsx'
 import 'jest-fetch-mock'
@@ -21,8 +20,8 @@ describe('AdminAnimesTableComponent', () => {
     let expectedElement = (
       <div className='adminAnimeThumbnailComponent'>
         <div className='col-xs-6 col-md-3'>
-          <a href='#' className='thumbnail'>
-            <img src='api/admin/animes' alt='アニメタイトル' />
+          <a className='thumbnail' href='#'>
+            <img alt='アニメタイトル' src='api/admin/animes' />
           </a>
         </div>
       </div>

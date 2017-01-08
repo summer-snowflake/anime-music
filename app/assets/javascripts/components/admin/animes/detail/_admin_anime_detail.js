@@ -8,7 +8,7 @@ export default class AdminAnimeDetail extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      anime: {id: 0, title: '', summary: '', wiki_url: ''}
+      anime: {id: 0, title: '', summary: '', wiki_url: '', picture: ''}
     }
   }
 

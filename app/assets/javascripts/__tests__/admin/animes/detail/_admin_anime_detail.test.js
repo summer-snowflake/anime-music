@@ -35,7 +35,7 @@ describe('AdminAnimeDetailComponent', () => {
         <div className='panel panel-default'>
           <div className='panel-body'>
             <AdminAnimeTitle id={1} title='アニメタイトル' />
-            <AdminAnimeThumbnail id={1} title='アニメタイトル' picture='https://picture.com'/>
+            <AdminAnimeThumbnail id={1} picture='https://picture.com' title='アニメタイトル' />
             {'アニメサマリ'}
           </div>
         </div>

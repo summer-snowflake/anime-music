@@ -1,19 +1,12 @@
 import React, { Component, PropTypes } from 'react'
-import { origin } from './../../../../origin.js'
 
 export default class AdminAnimeThumbnail extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-    }
-  }
-
   render() {
     return (
       <div className='adminAnimeThumbnailComponent'>
         <div className='col-xs-6 col-md-3'>
-          <a href='#' className='thumbnail'>
-            <img src={this.props.picture} alt={this.props.title} />
+          <a className='thumbnail' href='#'>
+            <img alt={this.props.title} src={this.props.picture} />
           </a>
         </div>
       </div>
@@ -22,5 +15,7 @@ export default class AdminAnimeThumbnail extends Component {
 }
 
 AdminAnimeThumbnail.propTypes = {
-  id: PropTypes.number.isRequired
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired
 }
