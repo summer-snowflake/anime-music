@@ -58,9 +58,9 @@ describe 'PATCH /api/admin/animes/:id' do
       patch "/api/admin/animes/#{anime.id}", params: params
       expect(response.status).to eq 422
 
-      json = { 
+      json = {
         error_messages: ['タイトルを入力してください']
-      }   
+      }
       expect(response.body).to be_json_as(json)
     end
   end
