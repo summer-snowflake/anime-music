@@ -1,13 +1,17 @@
 import React, { Component, PropTypes } from 'react'
 import { origin } from './../../../../origin.js'
 
+import MessageBox from './../../../common/_message_box'
+
 export default class AdminAnimeTitle extends Component {
   constructor(props) {
     super(props)
     this.state = {
       editingTitle: false,
       title: this.props.title,
-      unsaved_title: this.props.title
+      unsaved_title: this.props.title,
+      message_type: 'success',
+      message: ''
     }
     this.handleBlur = this.handleBlur.bind(this)
     this.handleClickEditTitleIcon = this.handleClickEditTitleIcon.bind(this)
@@ -32,14 +36,27 @@ export default class AdminAnimeTitle extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(params)
-    }).then((res) => {
-        if(res.status == 422) {
-          this.setState({editingTitle: true, title: ''})
+    })
+      .then((res) => {
+        if(res.status == '200') {
+          this.setState({
+            editingTitle: false,
+            title: this.state.unsaved_title,
+            message_type: 'success',
+            message: '更新しました'
+          })
         } else {
-          this.setState({editingTitle: false, title: this.state.unsaved_title})
+          this.setState({editingTitle: true, title: ''})
+          res.json().then((json) => {
+            this.setState({
+              message_type: 'danger',
+              message: json.error_messages[0]
+            })
+          })
         }
       })
       .catch((error) => {
+        console.log(error)
       })
     e.preventDefault()
   }
@@ -50,17 +67,21 @@ export default class AdminAnimeTitle extends Component {
 
   render() {
     let editing_jsx = (
-      <form className='form-inline' onSubmit={this.handleSubmit}>
-        <input autoFocus className='form-control' defaultValue={this.state.unsaved_title || this.props.title} onBlur={this.handleBlur} onChange={this.handleChangeTitle} type='text' />
-      </form>
+      <div className='editing-title'>
+        <form className='form-inline' onSubmit={this.handleSubmit}>
+          <input autoFocus className='form-control' defaultValue={this.state.unsaved_title || this.props.title} onBlur={this.handleBlur} onChange={this.handleChangeTitle} type='text' />
+        </form>
+        <MessageBox message={this.state.message} message_type={this.state.message_type} />
+      </div>
     )
 
     let not_editing_jsx = (
-      <div className='notEditingTitle'>
+      <div className='not-editing-title'>
         {this.state.title || this.props.title}
         <span className='right-icon' onClick={this.handleClickEditTitleIcon}>
           <span className='glyphicon glyphicon-pencil' />
         </span>
+        <MessageBox message={this.state.message} message_type={this.state.message_type} />
       </div>
     )
 

@@ -9,3 +9,18 @@
 .left-icon {
   padding-left: 5px;
 }
+
+.adminAnimeTitleComponent {
+  position: relative;
+}
+
+.adminAnimeTitleComponent form {
+  display: inline-block;
+}
+
+.messageBoxComponent {
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+}

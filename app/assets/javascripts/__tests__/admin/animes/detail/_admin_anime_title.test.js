@@ -7,6 +7,7 @@ import 'jest-fetch-mock'
 expect.extend(expectJSX)
 
 import AdminAnimeTitle from '../../../../components/admin/animes/detail/_admin_anime_title'
+import MessageBox from '../../../../components/common/_message_box'
 jest.unmock('../../../../components/admin/animes/detail/_admin_anime_title')
 
 describe('AdminAnimeDetailComponent', () => {
@@ -18,11 +19,12 @@ describe('AdminAnimeDetailComponent', () => {
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
       <div className='adminAnimeTitleComponent'>
-        <div className="notEditingTitle">
+        <div className="not-editing-title">
           {'アニメタイトル'}
           <span className='right-icon' onClick={jest.fn()}>
             <span className='glyphicon glyphicon-pencil' />
           </span>
+          <MessageBox message='' message_type='success' />
         </div>
       </div>
     )
@@ -45,6 +47,6 @@ describe('AdminAnimeDetailComponent', () => {
 
     Simulate.click(findRenderedDOMComponentWithClass(component, 'right-icon'))
     expect(component.state.editingTitle).toBe(true)
-    expect(findRenderedDOMComponentWithClass(component, 'form-inline')).toExist
+    expect(findRenderedDOMComponentWithClass(component, 'editing-title')).toExist
   })
 })
