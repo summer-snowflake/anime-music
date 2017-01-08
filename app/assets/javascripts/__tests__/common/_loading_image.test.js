@@ -18,7 +18,7 @@ describe('loadingImageComponent', () => {
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
       <div className='loadingImageComponent'>
-        <div>Loading...</div>
+        <div>{'Loading...'}</div>
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)
