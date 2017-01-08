@@ -197,6 +197,9 @@ GEM
       nokogiri (~> 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-i18n (5.0.2)
+      i18n (~> 0.7)
+      railties (~> 5.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -330,6 +333,7 @@ DEPENDENCIES
   rack-cors
   rack_session_access
   rails (= 5.0.1)
+  rails-i18n
   rails_12factor
   rake_shared_context
   rspec-collection_matchers

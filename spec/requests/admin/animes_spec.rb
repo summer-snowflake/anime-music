@@ -45,3 +45,30 @@ describe 'GET /api/admin/animes/:id', autodoc: true do
     expect(response.body).to be_json_as(json)
   end
 end
+
+describe 'PATCH /api/admin/animes/:id' do
+  let!(:anime) { create(:anime) }
+  let!(:title) { 'タイトル' }
+  let!(:params) { { anime: { id: anime.id, title: title } } }
+
+  context '値が空の場合' do
+    let(:title) { '' }
+
+    it '422とエラーメッセージが返ってくること' do
+      patch "/api/admin/animes/#{anime.id}", params: params
+      expect(response.status).to eq 422
+
+      json = {
+        error_messages: ['タイトルを入力してください']
+      }
+      expect(response.body).to be_json_as(json)
+    end
+  end
+
+  context 'タイトルが正常値の場合' do
+    it '200が返ってくること' do
+      patch "/api/admin/animes/#{anime.id}", params: params
+      expect(response.status).to eq 200
+    end
+  end
+end

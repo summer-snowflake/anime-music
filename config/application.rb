@@ -21,10 +21,15 @@ module AnimeMusic
       '-t reactify'
     ]
 
-    config.action_dispatch.default_headers = {
-      'Access-Control-Allow-Credentials' => 'true',
-      'Access-Control-Allow-Origin' => ENV['ALLOW_ORIGIN'],
-      'Access-Control-Request-Method' => '*'
-    }
+    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post, :options, :patch, :delete]
+      end
+    end
+
+    config.i18n.default_locale = :ja
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
   end
 end
