@@ -17,7 +17,7 @@ export default class AdminAnimeTitle extends Component {
     this.handleClickEditTitleIcon = this.handleClickEditTitleIcon.bind(this)
     this.handleChangeTitle = this.handleChangeTitle.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleLoad = this.handleLoad.bind(this)
+    this.handleTimeout = this.handleTimeout.bind(this)
   }
 
   handleClickEditTitleIcon() {
@@ -28,11 +28,11 @@ export default class AdminAnimeTitle extends Component {
     this.setState({unsaved_title: e.target.value})
   }
 
-  handleLoad() {
+  handleTimeout() {
     this.setState({message: ''})
   }
 
-  handleSubmit(e) {
+  loadAnimeTitleFromServer() {
     const params = { anime: { title: this.state.unsaved_title }}
     fetch(origin + 'api/admin/animes/' + this.props.id, {
       method: 'PATCH',
@@ -50,7 +50,7 @@ export default class AdminAnimeTitle extends Component {
             message_type: 'success',
             message: '更新しました'
           })
-          setTimeout(this.handleLoad, 2000)
+          setTimeout(this.handleTimeout, 2000)
         } else {
           this.setState({editingTitle: true, title: ''})
           res.json().then((json) => {
@@ -58,14 +58,18 @@ export default class AdminAnimeTitle extends Component {
               message_type: 'danger',
               message: json.error_messages[0]
             })
-            setTimeout(this.handleLoad, 2000)
+            setTimeout(this.handleTimeout, 2000)
           })
         }
       })
       .catch((error) => {
         console.log(error)
       })
+  }
+
+  handleSubmit(e) {
     e.preventDefault()
+    this.loadAnimeTitleFromServer()
   }
 
   handleBlur() {
@@ -76,7 +80,7 @@ export default class AdminAnimeTitle extends Component {
     let editing_jsx = (
       <div className='editing-title'>
         <form className='form-inline' onSubmit={this.handleSubmit}>
-          <input autoFocus className='form-control' defaultValue={this.state.unsaved_title || this.props.title} onBlur={this.handleBlur} onChange={this.handleChangeTitle} type='text' />
+          <input autoFocus className='form-control' defaultValue={this.state.unsaved_title || this.props.title} onBlur={this.handleBlur} onChange={this.handleChangeTitle} ref='title' type='text' />
         </form>
         <MessageBox message={this.state.message} message_type={this.state.message_type} />
       </div>
