@@ -1,6 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import { origin } from './../../../../origin.js'
-
 import AdminAnimeSeason from './_admin_anime_season'
 
 export default class AdminAnimeSeasons extends Component {
@@ -8,7 +6,7 @@ export default class AdminAnimeSeasons extends Component {
     return (
       <div className='adminAnimeSeasonsComponent'>
         {this.props.seasons.map((season) =>
-          <AdminAnimeSeason season={season} key={season.id} />
+          <AdminAnimeSeason key={season.id} season={season} />
         )}
       </div>
     )
