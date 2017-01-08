@@ -1,0 +1,60 @@
+.active {
+  color: green;
+}
+
+// Common CSS
+.right-icon {
+  padding-left: 10px;
+}
+
+.left-icon {
+  padding-left: 5px;
+}
+
+// Component CSS
+.messageBoxComponent {
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+}
+
+.adminAnimeTitleComponent {
+  height: 50px;
+}
+
+.adminAnimeTitleComponent form {
+  display: inline-block;
+}
+
+// Bootstrap Overrides CSS
+.panel-body {
+  position: relative;
+}
+
+.alert {
+  padding: 5px 10px 5px 10px;
+  animation-name: rotation;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+@keyframes rotation {
+  0% {
+  }
+
+  50% {
+    background-color: transparent;
+  }
+
+  100% {
+    background-color: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+}
