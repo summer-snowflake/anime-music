@@ -21,9 +21,11 @@ describe('AdminAnimeDetailComponent', () => {
       <div className='adminAnimeTitleComponent'>
         <div className="not-editing-title">
           <b>{'アニメタイトル'}</b>
-          <span className='right-icon' onClick={jest.fn()}>
-            <span className='glyphicon glyphicon-pencil' />
-          </span>
+          <a href='#'>
+            <span className='right-icon' onClick={jest.fn()}>
+              <span className='glyphicon glyphicon-pencil' />
+            </span>
+          </a>
         </div>
         <MessageBox message='' message_type='success' />
       </div>
