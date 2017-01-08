@@ -4,7 +4,11 @@ export default class AdminAnimeSeason extends Component {
   render() {
     return (
       <div className='adminAnimeSeasonComponent'>
-        {this.props.season.phase}
+        <div className='well well-lg'>
+          第{this.props.season.phase}期：
+          {this.props.season.start_on}〜{this.props.season.end_on}：
+          <b>{this.props.season.name}</b>
+        </div>
       </div>
     )
   }
