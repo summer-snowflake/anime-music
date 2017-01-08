@@ -24,8 +24,8 @@ describe('AdminAnimeDetailComponent', () => {
           <span className='right-icon' onClick={jest.fn()}>
             <span className='glyphicon glyphicon-pencil' />
           </span>
-          <MessageBox message='' message_type='success' />
         </div>
+        <MessageBox message='' message_type='success' />
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)
