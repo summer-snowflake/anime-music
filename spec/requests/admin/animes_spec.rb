@@ -40,7 +40,8 @@ describe 'GET /api/admin/animes/:id', autodoc: true do
       id: anime.id,
       title: anime.title,
       summary: anime.summary,
-      wiki_url: anime.wiki_url
+      wiki_url: anime.wiki_url,
+      picture: anime.picture
     }
     expect(response.body).to be_json_as(json)
   end
