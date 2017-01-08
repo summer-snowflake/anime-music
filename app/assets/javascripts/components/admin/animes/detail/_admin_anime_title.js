@@ -2,12 +2,14 @@ import React, { Component, PropTypes } from 'react'
 import { origin } from './../../../../origin.js'
 
 import MessageBox from './../../../common/_message_box'
+import LoadingImage from './../../../common/_loading_image'
 
 export default class AdminAnimeTitle extends Component {
   constructor(props) {
     super(props)
     this.state = {
       editingTitle: false,
+      loadingTitle: false,
       title: this.props.title,
       unsaved_title: this.props.title,
       message_type: 'success',
@@ -46,6 +48,7 @@ export default class AdminAnimeTitle extends Component {
         if(res.status == '200') {
           this.setState({
             editingTitle: false,
+            loadingTitle: false,
             title: this.state.unsaved_title,
             message_type: 'success',
             message: '更新しました'
@@ -55,6 +58,7 @@ export default class AdminAnimeTitle extends Component {
           this.setState({editingTitle: true, title: ''})
           res.json().then((json) => {
             this.setState({
+              loadingTitle: false,
               message_type: 'danger',
               message: json.error_messages[0]
             })
@@ -69,20 +73,24 @@ export default class AdminAnimeTitle extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    this.setState({loadingTitle: true})
     this.loadAnimeTitleFromServer()
   }
 
   handleBlur() {
-    this.setState({editingTitle: false, unsaved_title: this.state.unsaved_title})
+    if (this.state.loadingTitle) {
+      this.setState({editingTitle: true, unsaved_title: this.state.unsaved_title})
+    } else {
+      this.setState({editingTitle: false, unsaved_title: this.state.unsaved_title})
+    }
   }
 
   render() {
     let editing_jsx = (
       <div className='editing-title'>
         <form className='form-inline' onSubmit={this.handleSubmit}>
-          <input autoFocus className='form-control' defaultValue={this.state.unsaved_title || this.props.title} onBlur={this.handleBlur} onChange={this.handleChangeTitle} ref='title' type='text' />
+          <input autoFocus className='form-control' defaultValue={this.state.unsaved_title || this.props.title} disabled={this.state.loadingTitle} onBlur={this.handleBlur} onChange={this.handleChangeTitle} ref='title' type='text' />
         </form>
-        <MessageBox message={this.state.message} message_type={this.state.message_type} />
       </div>
     )
 
@@ -92,7 +100,6 @@ export default class AdminAnimeTitle extends Component {
         <span className='right-icon' onClick={this.handleClickEditTitleIcon}>
           <span className='glyphicon glyphicon-pencil' />
         </span>
-        <MessageBox message={this.state.message} message_type={this.state.message_type} />
       </div>
     )
 
@@ -103,6 +110,13 @@ export default class AdminAnimeTitle extends Component {
             return editing_jsx
           else
             return not_editing_jsx
+        })()}
+        <MessageBox message={this.state.message} message_type={this.state.message_type} />
+        {(() => {
+          if (this.state.loadingTitle)
+            return (
+              <LoadingImage />
+            )
         })()}
       </div>
     )

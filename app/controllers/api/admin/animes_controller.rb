@@ -9,6 +9,7 @@ class Api::Admin::AnimesController < Api::BaseController
   def show; end
 
   def update
+    sleep 3
     if @anime.update(anime_params)
       head :ok
     else
