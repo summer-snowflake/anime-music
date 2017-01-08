@@ -32,7 +32,6 @@ export default class AdminAnimeDetail extends Component {
         <div className='panel panel-default'>
           <div className='panel-body'>
             <AdminAnimeTitle id={this.state.anime.id} title={this.state.anime.title} />
-            <hr />
             {this.state.anime.summary}
           </div>
         </div>

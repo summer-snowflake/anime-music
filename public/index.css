@@ -10,8 +10,11 @@
   padding-left: 5px;
 }
 
-.adminAnimeTitleComponent {
+.panel-body {
   position: relative;
+}
+.adminAnimeTitleComponent {
+  height: 50px;
 }
 
 .adminAnimeTitleComponent form {
@@ -21,6 +24,6 @@
 .messageBoxComponent {
   display: inline-block;
   position: absolute;
-  top: 5px;
+  top: 20px;
   right: 15px;
 }

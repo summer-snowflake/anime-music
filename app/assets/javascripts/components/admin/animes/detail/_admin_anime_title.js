@@ -17,6 +17,7 @@ export default class AdminAnimeTitle extends Component {
     this.handleClickEditTitleIcon = this.handleClickEditTitleIcon.bind(this)
     this.handleChangeTitle = this.handleChangeTitle.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleLoad = this.handleLoad.bind(this)
   }
 
   handleClickEditTitleIcon() {
@@ -25,6 +26,10 @@ export default class AdminAnimeTitle extends Component {
 
   handleChangeTitle(e) {
     this.setState({unsaved_title: e.target.value})
+  }
+
+  handleLoad() {
+    this.setState({message: ''})
   }
 
   handleSubmit(e) {
@@ -45,6 +50,7 @@ export default class AdminAnimeTitle extends Component {
             message_type: 'success',
             message: '更新しました'
           })
+          setTimeout(this.handleLoad, 2000)
         } else {
           this.setState({editingTitle: true, title: ''})
           res.json().then((json) => {
@@ -52,6 +58,7 @@ export default class AdminAnimeTitle extends Component {
               message_type: 'danger',
               message: json.error_messages[0]
             })
+            setTimeout(this.handleLoad, 2000)
           })
         }
       })
@@ -77,7 +84,7 @@ export default class AdminAnimeTitle extends Component {
 
     let not_editing_jsx = (
       <div className='not-editing-title'>
-        {this.state.title || this.props.title}
+        <b>{this.state.title || this.props.title}</b>
         <span className='right-icon' onClick={this.handleClickEditTitleIcon}>
           <span className='glyphicon glyphicon-pencil' />
         </span>

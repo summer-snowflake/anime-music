@@ -27,5 +27,9 @@ module AnimeMusic
         resource '*', headers: :any, methods: [:get, :post, :options, :patch, :delete]
       end
     end
+
+    config.i18n.default_locale = :ja
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
   end
 end
