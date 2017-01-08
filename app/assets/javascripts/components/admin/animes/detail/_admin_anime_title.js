@@ -97,9 +97,11 @@ export default class AdminAnimeTitle extends Component {
     let not_editing_jsx = (
       <div className='not-editing-title'>
         <b>{this.state.title || this.props.title}</b>
-        <span className='right-icon' onClick={this.handleClickEditTitleIcon}>
-          <span className='glyphicon glyphicon-pencil' />
-        </span>
+        <a href='#'>
+          <span className='right-icon' onClick={this.handleClickEditTitleIcon}>
+            <span className='glyphicon glyphicon-pencil' />
+          </span>
+        </a>
       </div>
     )
 
