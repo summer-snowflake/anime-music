@@ -5,8 +5,8 @@ export default class AdminAnimeSeason extends Component {
     return (
       <div className='adminAnimeSeasonComponent'>
         <div className='well well-lg'>
-          第{this.props.season.phase}期：
-          {this.props.season.start_on}〜{this.props.season.end_on}：
+          {'第' + this.props.season.phase + '期：'}
+          {this.props.season.start_on + '〜' + this.props.season.end_on + '：'}
           <b>{this.props.season.name}</b>
         </div>
       </div>
