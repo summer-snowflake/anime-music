@@ -1,6 +1,5 @@
 import React from 'react'
 import expect from 'expect'
-import { renderIntoDocument } from 'react-addons-test-utils'
 import { shallow } from 'enzyme'
 import expectJSX from 'expect-jsx'
 import 'jest-fetch-mock'
@@ -16,7 +15,6 @@ describe('AdminAnimeSeasonsComponent', () => {
   it('DOMが出力されること', () => {
     const season1 = { id: '1', phase: '1', name: 'アニメタイトルシーズン1', start_on: '2016-03-01', end_on: '2016-07-01' }
     const season2 = { id: '2', phase: '2', name: 'アニメタイトルシーズン2', start_on: '2017-01-01', end_on: '' }
-    //component.setState({seasons: [season1, season2]})
     const component = shallow(
       <AdminAnimeSeasons seasons={[season1, season2]} />
     )
