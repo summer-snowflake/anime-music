@@ -93,16 +93,16 @@ export default class AdminAnimeBody extends Component {
     let editing_jsx = (
       <div className='editing-body'>
         <div className='summary'>
-          <textarea autoFocus className='form-control' rows='4' defaultValue={this.state.unsaved_summary || this.props.summary} onChange={this.handleChangeSummary} />
+          <textarea autoFocus className='form-control' defaultValue={this.state.unsaved_summary || this.props.summary} onChange={this.handleChangeSummary} rows='4' />
         </div>
         <div className='wiki-url'>
-          <input type='text' className='form-control' defaultValue={this.state.unsaved_wiki_url || this.props.wiki_url} onChange={this.handleChangeWikiUrl} />
+          <input className='form-control' defaultValue={this.state.unsaved_wiki_url || this.props.wiki_url} onChange={this.handleChangeWikiUrl} type='text' />
         </div>
         <div className='pull-right'>
-          <button className='btn btn-default' type='submit' onClick={this.handleClickSubmitButton}>
+          <button className='btn btn-default' onClick={this.handleClickSubmitButton} type='submit'>
             {'更新'}
           </button>
-          <button className='btn btn-default cancel-button' type='submit' onClick={this.handleClickCancelButton}>
+          <button className='btn btn-default cancel-button' onClick={this.handleClickCancelButton} type='submit'>
             {'キャンセル'}
           </button>
         </div>
@@ -118,7 +118,7 @@ export default class AdminAnimeBody extends Component {
           <a href={this.props.wiki_url} target='_blank'>{this.state.wiki_url || this.props.wiki_url}</a>
         </div>
         <div className='pull-right'>
-          <button className='btn btn-default' type='submit' onClick={this.handleClickEditButton}>
+          <button className='btn btn-default' onClick={this.handleClickEditButton} type='submit'>
             <span className='glyphicon glyphicon-pencil' />
           </button>
         </div>
