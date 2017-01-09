@@ -3,12 +3,27 @@
 }
 
 // Common CSS
+
+a {
+  outline: none;
+}
+
+button {
+  outline: none;
+}
+
+button:focus {outline:0;}
+
 .right-icon {
   padding-left: 10px;
 }
 
 .left-icon {
   padding-left: 5px;
+}
+
+.cancel-button {
+  margin-left: 15px;
 }
 
 .not-editing-title {
@@ -40,22 +55,25 @@
 }
 
 .adminAnimeBodyComponent {
-  border: thin solid transparent;
-  padding: 20px;
   .wiki-url {
     padding-top: 15px;
     padding-bottom: 15px;
   }
-  button {
-    Visibility: hidden;
-  }
-}
 
-.adminAnimeBodyComponent:hover {
-  border: thin solid #337ab7;
-  border-radius: 4px;
-  button {
-    visibility: visible;
+  .not-editing-body {
+    border: thin solid transparent;
+    padding: 20px;
+    button {
+      Visibility: hidden;
+    }
+  }
+
+  .not-editing-body:hover {
+    border: thin solid #337ab7;
+    border-radius: 4px;
+    button {
+      visibility: visible;
+    }
   }
 }
 
