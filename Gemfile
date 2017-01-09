@@ -16,6 +16,7 @@ gem 'dotenv-rails'
 gem 'rails-i18n'
 gem 'rack-cors'
 gem 'sass-rails'
+gem 'settingslogic'
 
 group :development, :test do
   gem 'byebug', platform: :mri
