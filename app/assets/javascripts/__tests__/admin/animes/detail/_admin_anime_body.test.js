@@ -7,8 +7,6 @@ import 'jest-fetch-mock'
 expect.extend(expectJSX)
 
 import AdminAnimeBody from '../../../../components/admin/animes/detail/_admin_anime_body'
-import MessageBox from '../../../../components/common/_message_box'
-import LoadingImage from '../../../../components/common/_loading_image'
 jest.unmock('../../../../components/admin/animes/detail/_admin_anime_body')
 
 describe('AdminAnimeDetailComponent', () => {
