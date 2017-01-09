@@ -36,7 +36,7 @@ export default class AdminAnimeDetail extends Component {
             <AdminAnimeTitle id={this.state.anime.id} title={this.state.anime.title} />
             <div className="row">
               <div className="col-xs-6 col-md-3">
-                <AdminAnimeThumbnail id={this.state.anime.id} picture={this.state.anime.picture} title={this.state.anime.title} />
+                <AdminAnimeThumbnail id={this.state.anime.id} picture={this.state.anime.picture || ''} title={this.state.anime.title} />
               </div>
               <div className="col-xs-6 col-md-9">
                 {this.state.anime.summary}
