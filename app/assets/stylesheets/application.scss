@@ -49,16 +49,20 @@ button:focus {outline:0;}
 .messageBoxComponent {
   display: inline-block;
   position: absolute;
-  top: 15px;
-  //right: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .adminAnimeTitleComponent {
   height: 50px;
   form {
     display: inline-block;
+  }
+
+  .messageBoxComponent {
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 

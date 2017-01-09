@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { origin } from './../../../../origin.js'
 import LoadingImage from './../../../common/_loading_image'
+import MessageBox from './../../../common/_message_box'
 
 export default class AdminAnimeBody extends Component {
   constructor(props) {
@@ -124,17 +125,17 @@ export default class AdminAnimeBody extends Component {
             <span className='glyphicon glyphicon-pencil' />
           </button>
         </div>
+        <MessageBox message={this.state.message} message_type={this.state.message_type} />
       </div>
     )
 
     return (
       <div className='adminAnimeBodyComponent'>
-        {(() => {
-          if (this.state.editingBody)
-            return editing_jsx
-          else
-            return not_editing_jsx
-        })()}
+        {this.state.editingBody ? (
+          editing_jsx
+        ) : (
+          not_editing_jsx
+        )}
       </div>
     )
   }

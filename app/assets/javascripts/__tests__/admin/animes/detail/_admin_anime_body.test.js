@@ -7,9 +7,10 @@ import 'jest-fetch-mock'
 expect.extend(expectJSX)
 
 import AdminAnimeBody from '../../../../components/admin/animes/detail/_admin_anime_body'
+import MessageBox from '../../../../components/common/_message_box'
 jest.unmock('../../../../components/admin/animes/detail/_admin_anime_body')
 
-describe('AdminAnimeDetailComponent', () => {
+describe('AdminAnimeBodyComponent', () => {
   it('propsに設定した値が出力されること', () => {
     let renderer = createRenderer()
     renderer.render(
@@ -30,6 +31,7 @@ describe('AdminAnimeDetailComponent', () => {
               <span className='glyphicon glyphicon-pencil' />
             </button>
           </div>
+          <MessageBox message='' message_type='success' />
         </div>
       </div>
     )
