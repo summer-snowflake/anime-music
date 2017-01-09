@@ -40,7 +40,7 @@ export default class AdminAnimeDetail extends Component {
                 <AdminAnimeThumbnail id={this.state.anime.id} picture={this.state.anime.picture || ''} title={this.state.anime.title} />
               </div>
               <div className="col-xs-6 col-md-9">
-                <AdminAnimeBody summary={this.state.anime.summary} wiki_url={this.state.anime.wiki_url} />
+                <AdminAnimeBody id={this.state.anime.id} summary={this.state.anime.summary} wiki_url={this.state.anime.wiki_url} />
               </div>
             </div>
             <AdminAnimeSeasons seasons={this.state.anime.seasons} />
