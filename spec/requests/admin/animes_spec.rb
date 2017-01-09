@@ -94,7 +94,9 @@ describe 'PATCH /api/admin/animes/:id' do
   end
 
   context 'サマリとwiki URLの変更' do
-    let!(:params) { { anime: { id: anime.id, summary: 'アニメサマリ', wiki_url: 'wiki_url' } } }
+    let!(:params) do
+      { anime: { id: anime.id, summary: 'アニメサマリ', wiki_url: 'wiki_url' } }
+    end
 
     it '200が返ってくること' do
       patch "/api/admin/animes/#{anime.id}", params: params
