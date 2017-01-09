@@ -28,6 +28,8 @@ button:focus {outline:0;}
 
 .not-editing-title {
   display: inline-block;
+  padding-top: 7px;
+  padding-left: 10px;
 }
 
 .editing-title {
@@ -48,7 +50,9 @@ button:focus {outline:0;}
   display: inline-block;
   position: absolute;
   top: 15px;
-  right: 15px;
+  //right: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .adminAnimeTitleComponent {
