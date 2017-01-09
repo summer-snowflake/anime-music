@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 
 export default class LoadingImage extends Component {
   render () {
@@ -7,9 +7,13 @@ export default class LoadingImage extends Component {
         {(this.props.loading) ? (
           <div>{'Loading...'}</div>
         ) : (
-          <div></div>
+          <div />
         )}
       </div>
     )
   }
+}
+
+LoadingImage.propTypes = {
+  loading: PropTypes.bool.isRequired
 }
