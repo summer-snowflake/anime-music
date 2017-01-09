@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { origin } from './../../../../origin.js'
+import LoadingImage from './../../../common/_loading_image'
 
 export default class AdminAnimeBody extends Component {
   constructor(props) {
@@ -93,16 +94,17 @@ export default class AdminAnimeBody extends Component {
     let editing_jsx = (
       <div className='editing-body'>
         <div className='summary'>
-          <textarea autoFocus className='form-control' defaultValue={this.state.unsaved_summary || this.props.summary} onChange={this.handleChangeSummary} rows='4' />
+          <textarea autoFocus className='form-control' defaultValue={this.state.unsaved_summary || this.props.summary} disabled={this.state.loadingBody} onChange={this.handleChangeSummary} rows='4' />
         </div>
         <div className='wiki-url'>
-          <input className='form-control' defaultValue={this.state.unsaved_wiki_url || this.props.wiki_url} onChange={this.handleChangeWikiUrl} type='text' />
+          <input className='form-control' defaultValue={this.state.unsaved_wiki_url || this.props.wiki_url} disabled={this.state.loadingBody} onChange={this.handleChangeWikiUrl} type='text' />
         </div>
         <div className='pull-right'>
-          <button className='btn btn-default' onClick={this.handleClickSubmitButton} type='submit'>
+          <LoadingImage loading={this.state.loadingBody} />
+          <button className='btn btn-default' disabled={this.state.loadingBody} onClick={this.handleClickSubmitButton} type='submit'>
             {'更新'}
           </button>
-          <button className='btn btn-default cancel-button' onClick={this.handleClickCancelButton} type='submit'>
+          <button className='btn btn-default cancel-button' disabled={this.state.loadingBody} onClick={this.handleClickCancelButton} type='submit'>
             {'キャンセル'}
           </button>
         </div>

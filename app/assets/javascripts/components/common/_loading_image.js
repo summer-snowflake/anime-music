@@ -4,7 +4,11 @@ export default class LoadingImage extends Component {
   render () {
     return (
       <div className='loadingImageComponent'>
-        <div>{'Loading...'}</div>
+        {(this.props.loading) ? (
+          <div>{'Loading...'}</div>
+        ) : (
+          <div></div>
+        )}
       </div>
     )
   }
