@@ -4,6 +4,7 @@ import { origin } from './../../../../origin.js'
 import AdminAnimeTitle from './_admin_anime_title'
 import AdminAnimeThumbnail from './_admin_anime_thumbnail'
 import AdminAnimeSeasons from './_admin_anime_seasons'
+import AdminAnimeBody from './_admin_anime_body'
 
 export default class AdminAnimeDetail extends Component {
   constructor(props) {
@@ -39,7 +40,7 @@ export default class AdminAnimeDetail extends Component {
                 <AdminAnimeThumbnail id={this.state.anime.id} picture={this.state.anime.picture || ''} title={this.state.anime.title} />
               </div>
               <div className="col-xs-6 col-md-9">
-                {this.state.anime.summary}
+                <AdminAnimeBody summary={this.state.anime.summary} wiki_url={this.state.anime.wiki_url} />
               </div>
             </div>
             <AdminAnimeSeasons seasons={this.state.anime.seasons} />

@@ -12,6 +12,7 @@ import AdminAnimeDetail from '../../../../components/admin/animes/detail/_admin_
 import AdminAnimeTitle from '../../../../components/admin/animes/detail/_admin_anime_title'
 import AdminAnimeThumbnail from '../../../../components/admin/animes/detail/_admin_anime_thumbnail'
 import AdminAnimeSeasons from '../../../../components/admin/animes/detail/_admin_anime_seasons'
+import AdminAnimeBody from '../../../../components/admin/animes/detail/_admin_anime_body'
 jest.unmock('../../../../components/admin/animes/detail/_admin_anime_detail')
 
 describe('AdminAnimeDetailComponent', () => {
@@ -43,7 +44,7 @@ describe('AdminAnimeDetailComponent', () => {
                 <AdminAnimeThumbnail id={1} picture='https://picture.com' title='アニメタイトル' />
               </div>
               <div className="col-xs-6 col-md-9">
-                {'アニメサマリ'}
+                <AdminAnimeBody summary='アニメサマリ' wiki_url='https://wiki.com' />
               </div>
             </div>
             <AdminAnimeSeasons seasons={seasons} />
