@@ -7,7 +7,6 @@ class Api::Admin::AnimesController < Api::BaseController
   end
 
   def show
-    @seasons = @anime.seasons
   end
 
   def update
