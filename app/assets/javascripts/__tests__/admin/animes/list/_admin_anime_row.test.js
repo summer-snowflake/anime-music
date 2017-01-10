@@ -21,9 +21,9 @@ describe('AdminAnimeRowComponent', () => {
     let expectedElement = (
       <div className='media adminAnimeRowComponent'>
         <div className='media-left'>
-          <a href='#'>
+          <Link to='/admin/animes/1'>
             <img alt='アニメタイトル' className='media-object' src='' />
-          </a>
+          </Link>
         </div>
         <div className='media-body'>
           <h4 className='media-heading'>

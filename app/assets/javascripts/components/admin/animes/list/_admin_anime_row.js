@@ -6,9 +6,9 @@ export default class AdminAnimeRow extends Component {
     return (
       <div className='media adminAnimeRowComponent'>
         <div className='media-left'>
-          <a href='#'>
+          <Link to={'/admin/animes/' + this.props.anime.id}>
             <img alt={this.props.anime.title} className='media-object' src={this.props.anime.picture} />
-          </a>
+          </Link>
         </div>
         <div className='media-body'>
           <h4 className='media-heading'>
