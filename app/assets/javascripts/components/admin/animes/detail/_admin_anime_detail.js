@@ -3,14 +3,13 @@ import { origin } from './../../../../origin.js'
 
 import AdminAnimeTitle from './_admin_anime_title'
 import AdminAnimeThumbnail from './_admin_anime_thumbnail'
-import AdminAnimeSeasons from './_admin_anime_seasons'
 import AdminAnimeBody from './_admin_anime_body'
 
 export default class AdminAnimeDetail extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      anime: {id: 0, title: '', summary: '', wiki_url: '', picture: '', seasons: []}
+      anime: {id: 0, title: '', summary: '', wiki_url: '', picture: ''}
     }
   }
 
@@ -43,7 +42,6 @@ export default class AdminAnimeDetail extends Component {
                 <AdminAnimeBody id={this.state.anime.id} summary={this.state.anime.summary} wiki_url={this.state.anime.wiki_url} />
               </div>
             </div>
-            <AdminAnimeSeasons seasons={this.state.anime.seasons} />
           </div>
         </div>
       </div>

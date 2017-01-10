@@ -11,7 +11,6 @@ expect.extend(expectJSX)
 import AdminAnimeDetail from '../../../../components/admin/animes/detail/_admin_anime_detail'
 import AdminAnimeTitle from '../../../../components/admin/animes/detail/_admin_anime_title'
 import AdminAnimeThumbnail from '../../../../components/admin/animes/detail/_admin_anime_thumbnail'
-import AdminAnimeSeasons from '../../../../components/admin/animes/detail/_admin_anime_seasons'
 import AdminAnimeBody from '../../../../components/admin/animes/detail/_admin_anime_body'
 jest.unmock('../../../../components/admin/animes/detail/_admin_anime_detail')
 
@@ -24,15 +23,13 @@ describe('AdminAnimeDetailComponent', () => {
     expect(component.state.anime.title).toBe('')
     expect(component.state.anime.summary).toBe('')
     expect(component.state.anime.wiki_url).toBe('')
-    expect(component.state.anime.seasons).toEqual([])
   })
 
   it('設定した値が表示されること', () => {
     const component = shallow(
       <AdminAnimeDetail url='api/admin/animes/1' />
     )
-    const seasons = [{id: 1, phase: '1', name: 'アニメタイトルシーズン１'}]
-    component.setState({anime: { id: 1, title: 'アニメタイトル', summary: 'アニメサマリ', wiki_url: 'https://wiki.com', picture: 'https://picture.com', seasons: seasons }})
+    component.setState({anime: { id: 1, title: 'アニメタイトル', summary: 'アニメサマリ', wiki_url: 'https://wiki.com', picture: 'https://picture.com' }})
 
     let actualElement = component.single(reactElementToJSXString)
     let expectedElement = (
@@ -48,7 +45,6 @@ describe('AdminAnimeDetailComponent', () => {
                 <AdminAnimeBody id={1} summary='アニメサマリ' wiki_url='https://wiki.com' />
               </div>
             </div>
-            <AdminAnimeSeasons seasons={seasons} />
           </div>
         </div>
       </div>
