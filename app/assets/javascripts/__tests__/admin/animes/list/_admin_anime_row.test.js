@@ -13,18 +13,32 @@ describe('AdminAnimeRowComponent', () => {
   let renderer = createRenderer()
 
   it('propsに設定した値が出力される', () => {
-    const anime = { id: 1, title: 'アニメタイトル', summary: 'アニメサマリ', wiki_url: 'https://wiki.com', picture: '' }
+    const anime = { id: 1, title: 'アニメタイトル', summary: 'アニメサマリ', wiki_url: 'https://wiki.com', picture: 'picture_url' }
     renderer.render(
       <AdminAnimeRow anime={anime} />
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
-      <tr className='adminAnimeRowComponent' id='anime-1'>
-        <td><Link to='/admin/animes/1'>{'アニメタイトル'}</Link></td>
-        <td>{'アニメサマリ'}</td>
-        <td>{'https://wiki.com'}</td>
-        <td>{''}</td>
-      </tr>
+      <div className='media adminAnimeRowComponent'>
+        <div className='media-left'>
+          <Link to='/admin/animes/1'>
+            <img alt='アニメタイトル' className='media-object' src='picture_url' />
+          </Link>
+        </div>
+        <div className='media-body'>
+          <h4 className='media-heading'>
+            <Link to='/admin/animes/1'>
+              {'アニメタイトル'}
+            </Link>
+          </h4>
+          <div className='summary'>
+            {'アニメサマリ'}
+          </div>
+          <div className='wiki-url'>
+            <a href='https://wiki.com' target='_blank'>{'https://wiki.com'}</a>
+          </div>
+        </div>
+      </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)
   })
