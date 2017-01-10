@@ -13,7 +13,7 @@ describe('AdminAnimeRowComponent', () => {
   let renderer = createRenderer()
 
   it('propsに設定した値が出力される', () => {
-    const anime = { id: 1, title: 'アニメタイトル', summary: 'アニメサマリ', wiki_url: 'https://wiki.com', picture: '' }
+    const anime = { id: 1, title: 'アニメタイトル', summary: 'アニメサマリ', wiki_url: 'https://wiki.com', picture: 'picture_url' }
     renderer.render(
       <AdminAnimeRow anime={anime} />
     )
@@ -22,7 +22,7 @@ describe('AdminAnimeRowComponent', () => {
       <div className='media adminAnimeRowComponent'>
         <div className='media-left'>
           <Link to='/admin/animes/1'>
-            <img alt='アニメタイトル' className='media-object' src='' />
+            <img alt='アニメタイトル' className='media-object' src='picture_url' />
           </Link>
         </div>
         <div className='media-body'>

@@ -21,6 +21,20 @@ button:focus {outline:0;}
   }
 }
 
+.adminAnimeRowComponent {
+  .no-image {
+    width: 64px;
+    height: 64px;
+    background-color: #eee;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
 .right-icon {
   padding-left: 10px;
 }
