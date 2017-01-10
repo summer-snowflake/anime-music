@@ -28,13 +28,9 @@ export default class AdminAnimesTable extends Component {
   render() {
     return (
       <div className='adminAnimesTableComponent'>
-        <table className='table'>
-          <tbody>
-            {this.state.animes.map((anime) =>
-              <AdminAnimeRow anime={anime} key={anime.id} />
-            )}
-          </tbody>
-        </table>
+        {this.state.animes.map((anime) =>
+          <AdminAnimeRow anime={anime} key={anime.id} />
+        )}
       </div>
     )
   }
