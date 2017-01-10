@@ -67,24 +67,37 @@ end
 
 describe 'PATCH /api/admin/animes/:id' do
   let!(:anime) { create(:anime) }
-  let!(:title) { 'タイトル' }
-  let!(:params) { { anime: { id: anime.id, title: title } } }
 
-  context '値が空の場合' do
-    let(:title) { '' }
+  context 'タイトルの変更' do
+    let!(:params) { { anime: { id: anime.id, title: title } } }
+    let!(:title) { 'タイトル' }
+    context 'タイトルが空の場合' do
+      let(:title) { '' }
 
-    it '422とエラーメッセージが返ってくること' do
-      patch "/api/admin/animes/#{anime.id}", params: params
-      expect(response.status).to eq 422
+      it '422とエラーメッセージが返ってくること' do
+        patch "/api/admin/animes/#{anime.id}", params: params
+        expect(response.status).to eq 422
 
-      json = {
-        error_messages: ['タイトルを入力してください']
-      }
-      expect(response.body).to be_json_as(json)
+        json = {
+          error_messages: ['タイトルを入力してください']
+        }
+        expect(response.body).to be_json_as(json)
+      end
+    end
+
+    context 'タイトルが正常値の場合' do
+      it '200が返ってくること' do
+        patch "/api/admin/animes/#{anime.id}", params: params
+        expect(response.status).to eq 200
+      end
     end
   end
 
-  context 'タイトルが正常値の場合' do
+  context 'サマリとwiki URLの変更' do
+    let!(:params) do
+      { anime: { id: anime.id, summary: 'アニメサマリ', wiki_url: 'wiki_url' } }
+    end
+
     it '200が返ってくること' do
       patch "/api/admin/animes/#{anime.id}", params: params
       expect(response.status).to eq 200

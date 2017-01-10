@@ -8,6 +8,7 @@ expect.extend(expectJSX)
 
 import AdminAnimeTitle from '../../../../components/admin/animes/detail/_admin_anime_title'
 import MessageBox from '../../../../components/common/_message_box'
+import LoadingImage from '../../../../components/common/_loading_image'
 jest.unmock('../../../../components/admin/animes/detail/_admin_anime_title')
 
 describe('AdminAnimeDetailComponent', () => {
@@ -28,6 +29,7 @@ describe('AdminAnimeDetailComponent', () => {
           </a>
         </div>
         <MessageBox message='' message_type='success' />
+        <LoadingImage />
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)

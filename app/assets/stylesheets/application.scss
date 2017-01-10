@@ -3,12 +3,27 @@
 }
 
 // Common CSS
+
+a {
+  outline: none;
+}
+
+button {
+  outline: none;
+}
+
+button:focus {outline:0;}
+
 .right-icon {
   padding-left: 10px;
 }
 
 .left-icon {
   padding-left: 5px;
+}
+
+.cancel-button {
+  margin-left: 15px;
 }
 
 .not-editing-title {
@@ -27,21 +42,51 @@
 }
 
 // Component CSS
+.loadingImageComponent {
+  padding: 10px;
+}
+
 .messageBoxComponent {
   display: inline-block;
   position: absolute;
-  top: 15px;
-  //right: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .adminAnimeTitleComponent {
   height: 50px;
+  form {
+    display: inline-block;
+  }
+
+  .messageBoxComponent {
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
-.adminAnimeTitleComponent form {
-  display: inline-block;
+.adminAnimeBodyComponent {
+  .wiki-url {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .not-editing-body {
+    border: thin solid transparent;
+    padding: 20px;
+    button {
+      Visibility: hidden;
+    }
+  }
+
+  .not-editing-body:hover {
+    border: thin solid #337ab7;
+    border-radius: 4px;
+    button {
+      visibility: visible;
+    }
+  }
 }
 
 .loadingImageComponent {

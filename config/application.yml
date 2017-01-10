@@ -1,0 +1,17 @@
+defaults: &defaults
+  anime:
+    summary:
+      maximum_length: 250
+    title:
+      maximum_length: 250
+    wiki_url:
+      maximum_length: 250
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

@@ -12,6 +12,7 @@ import AdminAnimeDetail from '../../../../components/admin/animes/detail/_admin_
 import AdminAnimeTitle from '../../../../components/admin/animes/detail/_admin_anime_title'
 import AdminAnimeThumbnail from '../../../../components/admin/animes/detail/_admin_anime_thumbnail'
 import AdminAnimeSeasons from '../../../../components/admin/animes/detail/_admin_anime_seasons'
+import AdminAnimeBody from '../../../../components/admin/animes/detail/_admin_anime_body'
 jest.unmock('../../../../components/admin/animes/detail/_admin_anime_detail')
 
 describe('AdminAnimeDetailComponent', () => {
@@ -19,6 +20,7 @@ describe('AdminAnimeDetailComponent', () => {
     const component = renderIntoDocument(
       <AdminAnimeDetail url='api/admin/animes/1' />
     )
+    expect(component.state.anime.id).toBe(0)
     expect(component.state.anime.title).toBe('')
     expect(component.state.anime.summary).toBe('')
     expect(component.state.anime.wiki_url).toBe('')
@@ -43,7 +45,7 @@ describe('AdminAnimeDetailComponent', () => {
                 <AdminAnimeThumbnail id={1} picture='https://picture.com' title='アニメタイトル' />
               </div>
               <div className="col-xs-6 col-md-9">
-                {'アニメサマリ'}
+                <AdminAnimeBody id={1} summary='アニメサマリ' wiki_url='https://wiki.com' />
               </div>
             </div>
             <AdminAnimeSeasons seasons={seasons} />

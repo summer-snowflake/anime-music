@@ -13,7 +13,7 @@ describe('loadingImageComponent', () => {
 
   it('出力される', () => {
     renderer.render(
-      <LoadingImage />
+      <LoadingImage loading='true' />
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (

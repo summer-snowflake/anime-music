@@ -114,12 +114,7 @@ export default class AdminAnimeTitle extends Component {
             return not_editing_jsx
         })()}
         <MessageBox message={this.state.message} message_type={this.state.message_type} />
-        {(() => {
-          if (this.state.loadingTitle)
-            return (
-              <LoadingImage />
-            )
-        })()}
+        <LoadingImage loading={this.state.loadingTitle} />
       </div>
     )
   }
