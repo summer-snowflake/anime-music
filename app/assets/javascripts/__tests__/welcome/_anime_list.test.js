@@ -15,14 +15,14 @@ jest.unmock('../../components/welcome/_anime_list')
 describe('AnimeListComponent', () => {
   it('state初期値が設定されていること', () => {
     const component = renderIntoDocument(
-      <AnimeList url='api/animes' />
+      <AnimeList />
     )
     expect(component.state.animes).toEqual([])
   })
 
   it('DOMが出力されること', () => {
     const component = shallow(
-      <AnimeList url='api/animes' />
+      <AnimeList />
     )
     const anime1 = { id: 1, title: 'アニメタイトル', summary: 'アニメサマリ', wiki_url: 'https://wiki.com' }
     const anime2 = { id: 1, title: 'アニメタイトル2', summary: 'アニメサマリ2', wiki_url: 'https://wiki2.com' }

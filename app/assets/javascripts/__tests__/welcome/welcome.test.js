@@ -19,7 +19,7 @@ describe('WelcomeComponent', () => {
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
       <div className='welcomeComponent'>
-        <AnimeList url='api/animes' />
+        <AnimeList />
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)
