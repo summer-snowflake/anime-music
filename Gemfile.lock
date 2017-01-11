@@ -47,6 +47,7 @@ GEM
       activesupport (>= 3.0.0)
       rspec
     awesome_print (1.7.0)
+    bcrypt (3.1.11)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -313,6 +314,7 @@ PLATFORMS
 
 DEPENDENCIES
   autodoc
+  bcrypt
   better_errors
   binding_of_caller
   brakeman
