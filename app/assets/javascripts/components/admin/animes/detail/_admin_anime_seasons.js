@@ -18,7 +18,7 @@ export default class AdminAnimeSeasons extends Component {
     fetch(origin + 'api/admin/animes/' + this.props.anime_id + '/seasons')
       .then((res) => res.json())
       .then((res) => {
-        this.setState({seasons: res})
+        this.setState({seasons: res.seasons})
       })
       .catch((error) => {
         console.error(error)

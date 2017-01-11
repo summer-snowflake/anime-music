@@ -14,10 +14,10 @@ export default class AdminAnimeDetail extends Component {
   }
 
   componentDidMount() {
-    this.loadAnimesFromServer()
+    this.loadAnimeFromServer()
   }
 
-  loadAnimesFromServer() {
+  loadAnimeFromServer() {
     fetch(origin + 'api/admin/animes/' + this.props.anime_id)
       .then((res) => res.json())
       .then((res) => {
