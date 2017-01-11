@@ -6,9 +6,7 @@ class Api::Admin::AnimesController < Api::BaseController
     @animes = Anime.all
   end
 
-  def show
-    @seasons = @anime.seasons
-  end
+  def show; end
 
   def update
     if @anime.update(anime_params)

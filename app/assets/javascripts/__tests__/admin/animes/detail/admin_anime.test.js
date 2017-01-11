@@ -7,6 +7,7 @@ expect.extend(expectJSX)
 
 import AdminAnime from '../../../../components/admin/animes/detail/admin_anime'
 import AdminAnimeDetail from '../../../../components/admin/animes/detail/_admin_anime_detail'
+import AdminAnimeSeasons from '../../../../components/admin/animes/detail/_admin_anime_seasons'
 jest.unmock('../../../../components/admin/animes/detail/admin_anime')
 
 describe('AdminAnimeComponent', () => {
@@ -20,7 +21,8 @@ describe('AdminAnimeComponent', () => {
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
       <div className='adminAnimeComponent'>
-        <AdminAnimeDetail url='api/admin/animes/1' />
+        <AdminAnimeDetail anime_id={1} />
+        <AdminAnimeSeasons anime_id={1} />
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)

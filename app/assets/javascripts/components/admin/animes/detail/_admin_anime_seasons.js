@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { origin } from './../../../../origin.js'
 import AdminAnimeSeason from './_admin_anime_season'
 
 export default class AdminAnimeSeasons extends Component {
@@ -9,10 +10,25 @@ export default class AdminAnimeSeasons extends Component {
     }
   }
 
+  componentDidMount() {
+    this.loadSeasonsFromServer()
+  }
+
+  loadSeasonsFromServer() {
+    fetch(origin + 'api/admin/animes/' + this.props.anime_id + '/seasons')
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({seasons: res.seasons})
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }
+
   render() {
     return (
       <div className='adminAnimeSeasonsComponent'>
-        {this.props.seasons.map((season) =>
+        {this.state.seasons.map((season) =>
           <AdminAnimeSeason key={season.id} season={season} />
         )}
       </div>
@@ -21,5 +37,5 @@ export default class AdminAnimeSeasons extends Component {
 }
 
 AdminAnimeSeasons.propTypes = {
-  seasons: PropTypes.array.isRequired
+  anime_id: PropTypes.string.isRequired
 }

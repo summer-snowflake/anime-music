@@ -5,7 +5,7 @@ export default class AdminAnimes extends Component {
   render() {
     return (
       <div className='adminAnimesComponent'>
-        <AdminAnimesTable url='api/admin/animes' />
+        <AdminAnimesTable />
       </div>
     )
   }
