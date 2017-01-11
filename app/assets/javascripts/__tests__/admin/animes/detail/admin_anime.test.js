@@ -21,7 +21,7 @@ describe('AdminAnimeComponent', () => {
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
       <div className='adminAnimeComponent'>
-        <AdminAnimeDetail url='api/admin/animes/1' />
+        <AdminAnimeDetail anime_id={1} />
         <AdminAnimeSeasons anime_id={1} />
       </div>
     )

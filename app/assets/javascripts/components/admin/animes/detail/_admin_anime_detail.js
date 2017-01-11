@@ -18,7 +18,7 @@ export default class AdminAnimeDetail extends Component {
   }
 
   loadAnimesFromServer() {
-    fetch(origin + this.props.url)
+    fetch(origin + 'api/admin/animes/' + this.props.anime_id)
       .then((res) => res.json())
       .then((res) => {
         this.setState({anime: res})
@@ -50,5 +50,5 @@ export default class AdminAnimeDetail extends Component {
 }
 
 AdminAnimeDetail.propTypes = {
-  url: PropTypes.string.isRequired
+  anime_id: PropTypes.string.isRequired
 }
