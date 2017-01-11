@@ -7,7 +7,7 @@ export default class AdminAnime extends Component {
     return (
       <div className='adminAnimeComponent'>
         <AdminAnimeDetail url={'api/admin/animes/' + this.props.params.animeId} />
-        <AdminAnimeSeasons id={this.props.params.animeId} />
+        <AdminAnimeSeasons anime_id={this.props.params.animeId} />
       </div>
     )
   }

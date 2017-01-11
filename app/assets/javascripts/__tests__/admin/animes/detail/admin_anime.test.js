@@ -22,7 +22,7 @@ describe('AdminAnimeComponent', () => {
     let expectedElement = (
       <div className='adminAnimeComponent'>
         <AdminAnimeDetail url='api/admin/animes/1' />
-        <AdminAnimeSeasons id={1} />
+        <AdminAnimeSeasons anime_id={1} />
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)

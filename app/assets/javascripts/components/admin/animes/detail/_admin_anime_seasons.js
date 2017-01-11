@@ -15,7 +15,7 @@ export default class AdminAnimeSeasons extends Component {
   }
 
   loadSeasonsFromServer() {
-    fetch(origin + 'api/admin/animes/' + this.props.id + '/seasons')
+    fetch(origin + 'api/admin/animes/' + this.props.anime_id + '/seasons')
       .then((res) => res.json())
       .then((res) => {
         this.setState({seasons: res})
@@ -37,5 +37,5 @@ export default class AdminAnimeSeasons extends Component {
 }
 
 AdminAnimeSeasons.propTypes = {
-  id: PropTypes.string.isRequired
+  anime_id: PropTypes.string.isRequired
 }
