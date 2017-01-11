@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import AdminAnimeRow from './_admin_anime_row.js'
 import { origin } from './../../../../origin.js'
 
@@ -15,7 +15,7 @@ export default class AdminAnimesTable extends Component {
   }
 
   loadAnimesFromServer() {
-    fetch(origin + this.props.url)
+    fetch(origin + 'api/admin/animes')
       .then((res) => res.json())
       .then((res) => {
         this.setState({animes: res.animes})
@@ -34,8 +34,4 @@ export default class AdminAnimesTable extends Component {
       </div>
     )
   }
-}
-
-AdminAnimesTable.propTypes = {
-  url: PropTypes.string.isRequired
 }

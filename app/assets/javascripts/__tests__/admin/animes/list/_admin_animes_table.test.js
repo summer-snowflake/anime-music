@@ -15,14 +15,14 @@ jest.unmock('../../../../components/admin/animes/list/_admin_animes_table')
 describe('AdminAnimesTableComponent', () => {
   it('state初期値が設定されていること', () => {
     const component = renderIntoDocument(
-      <AdminAnimesTable url='api/admin/animes' />
+      <AdminAnimesTable />
     )
     expect(component.state.animes).toEqual([])
   })
 
   it('DOMが出力されること', () => {
     const component = shallow(
-      <AdminAnimesTable url='api/admin/animes' />
+      <AdminAnimesTable />
     )
     const anime1 = { id: 1, title: 'アニメタイトル', summary: 'アニメサマリ', wiki_url: 'https://wiki.com' }
     const anime2 = { id: 1, title: 'アニメタイトル2', summary: 'アニメサマリ2', wiki_url: 'https://wiki2.com' }
