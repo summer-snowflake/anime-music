@@ -15,7 +15,7 @@ describe 'POST /api/session?email=email&password=password', autodoc: true do
     it '200が返ってくること' do
       post '/api/session', params: params
       expect(response.status).to eq 200
-      p response.body
+      expect(JSON.parse(response.body)['access_token']).to be_a(String)
     end
   end
 
