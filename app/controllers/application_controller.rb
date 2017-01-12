@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   class BadRequestError < StandardError; end
 
-  rescue_from Exception, with: :error500 # unless Rails.env.development?
+  rescue_from Exception, with: :error500 unless Rails.env.development?
   rescue_from ActiveRecord::RecordNotFound,
               ActionController::RoutingError,
               with: :error404
@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
       e,
       env: request.env,
       data: { url: origin, user_id: current_user.try(:id) }
-    )
+    ) if Rails.env.production?
     logger.error e.inspect
     logger.error [e, *e.backtrace].join("\n")
     render :error500, status: 500, formats: :json
