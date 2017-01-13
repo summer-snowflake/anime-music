@@ -92,4 +92,18 @@ describe 'POST /api/session?email=email&password=password', autodoc: true do
       expect(response.body).to be_json_as(json)
     end
   end
+
+  context 'メールアドレスが正しい形式ではない場合' do
+    let(:email) { 'abcde' }
+
+    it '401とエラーメッセージが返ってくること' do
+      post '/api/session', params: params
+
+      expect(response.status).to eq 401
+      json = {
+        error_messages: ['メールアドレスは不正な値です']
+      }
+      expect(response.body).to be_json_as(json)
+    end
+  end
 end
