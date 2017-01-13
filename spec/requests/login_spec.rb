@@ -63,4 +63,33 @@ describe 'POST /api/session?email=email&password=password', autodoc: true do
       expect(response.body).to be_json_as(json)
     end
   end
+
+  context 'メールアドレスが空の場合' do
+    let(:email) { '' }
+
+    it '401とエラーメッセージが返ってくること' do
+      post '/api/session', params: params
+
+      expect(response.status).to eq 401
+      json = {
+        error_messages: ['メールアドレスを入力してください']
+      }
+      expect(response.body).to be_json_as(json)
+    end
+  end
+
+  context 'メールアドレスとパスワードが空の場合' do
+    let(:email) { '' }
+    let(:password) { '' }
+
+    it '401とエラーメッセージが返ってくること' do
+      post '/api/session', params: params
+
+      expect(response.status).to eq 401
+      json = {
+        error_messages: ['メールアドレスを入力してください', 'パスワードを入力してください']
+      }
+      expect(response.body).to be_json_as(json)
+    end
+  end
 end

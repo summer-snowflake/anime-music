@@ -2,11 +2,17 @@
 class Session
   include ActiveModel::Model
 
+  attr_accessor :email, :password
+  validates :email, :password, presence: true
+
   def initialize(params)
     @params = params
+    @email = params[:email]
+    @password = params[:password]
   end
 
   def save
+    return false if invalid?
     if authenticate
       true
     else
@@ -27,10 +33,10 @@ class Session
   private
 
   def authenticate
-    user && user.registered? && user.authenticate(@params[:password])
+    user && user.registered? && user.authenticate(@password)
   end
 
   def find_user
-    User.find_by(email: @params[:email])
+    User.find_by(email: @email)
   end
 end
