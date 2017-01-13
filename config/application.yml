@@ -1,4 +1,7 @@
 defaults: &defaults
+  access_token:
+    length: 32
+    expire_after: <%= 90.days.to_i %>
   anime:
     summary:
       maximum_length: 250

@@ -4,6 +4,8 @@ ruby '2.4.0'
 
 gem 'rails', '5.0.1'
 
+gem 'bcrypt'
+gem 'exception_notification'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'jquery-rails'
@@ -11,12 +13,14 @@ gem 'browserify-rails'
 gem 'slim-rails'
 gem 'jbuilder'
 gem 'rake_shared_context'
+gem 'slack-api'
 gem 'slack-notifier'
 gem 'dotenv-rails'
 gem 'rails-i18n'
 gem 'rack-cors'
 gem 'sass-rails'
 gem 'settingslogic'
+gem 'tokens'
 
 group :development, :test do
   gem 'byebug', platform: :mri
