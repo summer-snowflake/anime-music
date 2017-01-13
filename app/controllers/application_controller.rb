@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   def error400(e)
     logger.warn [e, *e.backtrace].join("\n")
     @error = e
+    exception_notifier(e) if Rails.env.production?
     render :error400, status: 400, formats: :json
   end
 
@@ -21,12 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def error500(e)
-    origin = "#{request.protocol}#{request.host_with_port}"
-    ExceptionNotifier.notify_exception(
-      e,
-      env: request.env,
-      data: { url: origin, user_id: current_user.try(:id) }
-    ) if Rails.env.production?
+    exception_notifier(e) if Rails.env.production?
     logger.error e.inspect
     logger.error [e, *e.backtrace].join("\n")
     render :error500, status: 500, formats: :json
@@ -43,6 +39,15 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def exception_notifier(e)
+    origin = "#{request.protocol}#{request.host_with_port}"
+    ExceptionNotifier.notify_exception(
+      e,
+      env: request.env,
+      data: { url: origin, user_id: current_user.try(:id) }
+    )
+  end
 
   def render_error(resource, status = 422)
     @resource = resource
