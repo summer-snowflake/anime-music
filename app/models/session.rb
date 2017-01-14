@@ -6,8 +6,9 @@ class Session
   validates :email, presence: true,
                     email_format: { allow_blank: true, message: :invalid },
                     length: { maximum: Settings.user.email.maximum_length }
-  validates :password, presence: true,
-                       length: { maximum: Settings.user.password.maximum_length }
+  validates :password,
+            presence: true,
+            length: { maximum: Settings.user.password.maximum_length }
 
   def initialize(params = {})
     @email = params[:email]
