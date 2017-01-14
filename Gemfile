@@ -21,6 +21,7 @@ gem 'rack-cors'
 gem 'sass-rails'
 gem 'settingslogic'
 gem 'tokens'
+gem 'validates_email_format_of'
 
 group :development, :test do
   gem 'byebug', platform: :mri

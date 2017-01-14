@@ -9,6 +9,11 @@ defaults: &defaults
       maximum_length: 250
     wiki_url:
       maximum_length: 250
+  user:
+    email:
+      maximum_length: 250
+    password:
+      maximum_length: 250
 
 development:
   <<: *defaults

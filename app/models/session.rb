@@ -2,11 +2,21 @@
 class Session
   include ActiveModel::Model
 
-  def initialize(params)
-    @params = params
+  attr_accessor :email, :password
+  validates :email, presence: true,
+                    email_format: { allow_blank: true, message: :invalid },
+                    length: { maximum: Settings.user.email.maximum_length }
+  validates :password,
+            presence: true,
+            length: { maximum: Settings.user.password.maximum_length }
+
+  def initialize(params = {})
+    @email = params[:email]
+    @password = params[:password]
   end
 
   def save
+    return false if invalid?
     if authenticate
       true
     else
@@ -27,10 +37,10 @@ class Session
   private
 
   def authenticate
-    user && user.registered? && user.authenticate(@params[:password])
+    user && user.registered? && user.authenticate(@password)
   end
 
   def find_user
-    User.find_by(email: @params[:email])
+    User.find_by(email: @email)
   end
 end
