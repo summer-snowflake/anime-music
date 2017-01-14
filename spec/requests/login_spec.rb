@@ -87,7 +87,7 @@ describe 'POST /api/session?email=email&password=password', autodoc: true do
 
       expect(response.status).to eq 401
       json = {
-        error_messages: ['メールアドレスを入力してください', 'パスワードを入力してください']
+        error_messages: %w(メールアドレスを入力してください パスワードを入力してください)
       }
       expect(response.body).to be_json_as(json)
     end
