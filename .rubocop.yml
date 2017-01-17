@@ -25,3 +25,10 @@ Metrics/AbcSize:
 # ModuleとClassの形式をcompactに設定
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
+
+# モジュールの行数制限についてテストファイルを除外
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"
+    - "spec/rails_helper.rb"
+    - "spec/factories/*.rb"
