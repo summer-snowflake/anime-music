@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Admin::MelodiesController < Admin::BaseController
   before_action :set_melody, only: [:show, :edit, :update, :destroy]
   before_action :set_animes, only: [:new, :create, :edit, :update]
@@ -9,15 +10,13 @@ class Admin::MelodiesController < Admin::BaseController
     @melodies = Melody.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @melody = Melody.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @melody = Melody.new(melody_params)

@@ -1,18 +1,15 @@
+# frozen_string_literal: true
 class Admin::AnimesController < Admin::BaseController
-  before_action :set_anime, only: [:show, :edit, :update, :destroy]
+  before_action :set_anime, only: [:show, :update, :destroy]
 
   def index
     @animes = Anime.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @anime = Anime.new
-  end
-
-  def edit
   end
 
   def create
@@ -23,16 +20,6 @@ class Admin::AnimesController < Admin::BaseController
         format.html { redirect_to ['admin', @anime], notice: '追加しました' }
       else
         format.html { render :new }
-      end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @anime.update(anime_params)
-        format.html { redirect_to ['admin', @anime], notice: '更新しました' }
-      else
-        format.html { render :edit }
       end
     end
   end

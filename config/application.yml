@@ -1,0 +1,25 @@
+defaults: &defaults
+  access_token:
+    length: 32
+    expire_after: <%= 90.days.to_i %>
+  anime:
+    summary:
+      maximum_length: 250
+    title:
+      maximum_length: 250
+    wiki_url:
+      maximum_length: 250
+  user:
+    email:
+      maximum_length: 250
+    password:
+      maximum_length: 250
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

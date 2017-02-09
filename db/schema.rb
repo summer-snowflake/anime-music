@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105150204) do
+ActiveRecord::Schema.define(version: 20170111144651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,18 +70,41 @@ ActiveRecord::Schema.define(version: 20161105150204) do
   end
 
   create_table "seasons", force: :cascade do |t|
-    t.integer  "anime_id",   null: false
-    t.string   "name",       null: false
+    t.integer  "anime_id",               null: false
+    t.string   "name"
     t.date     "start_on"
     t.date     "end_on"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "phase",      default: 0
   end
 
   create_table "singers", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tokens", force: :cascade do |t|
+    t.string   "name",             null: false
+    t.string   "tokenizable_type", null: false
+    t.integer  "tokenizable_id",   null: false
+    t.string   "token",            null: false
+    t.text     "data"
+    t.datetime "expires_at"
+    t.datetime "created_at",       null: false
+    t.index ["expires_at"], name: "index_tokens_on_expires_at", using: :btree
+    t.index ["token"], name: "index_tokens_on_token", using: :btree
+    t.index ["tokenizable_id", "tokenizable_type", "name"], name: "index_tokens_on_tokenizable_id_and_tokenizable_type_and_name", unique: true, using: :btree
+    t.index ["tokenizable_type", "tokenizable_id"], name: "index_tokens_on_tokenizable_type_and_tokenizable_id", using: :btree
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.integer  "status"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

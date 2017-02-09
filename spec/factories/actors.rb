@@ -1,8 +1,9 @@
+# frozen_string_literal: true
 FactoryGirl.define do
   factory :actor do
     transient do
       gimei { Gimei.new }
     end
-    name { "#{gimei.first.kanji} #{gimei.last.kanji}" }
+    name { "#{gimei.last.kanji} #{gimei.first.kanji}" }
   end
 end
