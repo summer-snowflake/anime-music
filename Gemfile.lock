@@ -46,6 +46,8 @@ GEM
       actionpack
       activesupport (>= 3.0.0)
       rspec
+    autoprefixer-rails (6.6.1)
+      execjs
     awesome_print (1.7.0)
     bcrypt (3.1.11)
     better_errors (2.1.1)
@@ -54,6 +56,9 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     brakeman (3.5.0)
     browserify-rails (4.0.0)
       addressable (>= 2.4.0)
@@ -92,6 +97,7 @@ GEM
     exception_notification (4.2.1)
       actionmailer (>= 4.0, < 6)
       activesupport (>= 4.0, < 6)
+    execjs (2.7.0)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.8.0)
@@ -337,6 +343,7 @@ DEPENDENCIES
   bcrypt
   better_errors
   binding_of_caller
+  bootstrap-sass
   brakeman
   browserify-rails
   byebug
