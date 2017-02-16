@@ -10,6 +10,7 @@ feature '管理画面：声優一覧', js: true do
   end
 
   scenario '声優一覧が表示されること', js: true do
+sleep 3
     within "#actor-#{actor1.id}" do
       expect(page).to have_content actor1.name
       expect(page).not_to have_content actor2.name

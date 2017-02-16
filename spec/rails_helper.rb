@@ -27,14 +27,34 @@ end
 
 Capybara.default_max_wait_time = 20
 
+#Capybara.register_driver :selenium do |app|
+#  Capybara::Selenium::Driver.new(app, browser: :chrome)
+#end
+
+#Capybara.register_driver :poltergeist do |app|
+#  Capybara::Poltergeist::Driver.new(app, phantomjs: Phantomjs.path)
+#end
+#
+#Capybara.javascript_driver = :poltergeist
+
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
+
+Capybara.default_driver = :selenium
 
 ActiveRecord::Migration.maintain_test_schema!
 SimpleCov.start 'rails'
 
 RSpec.configure do |config|
+  config.expect_with :rspec do |expectations|
+    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  end
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
+  end
+  config.include Capybara::DSL
+
   config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
 
