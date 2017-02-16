@@ -28,7 +28,7 @@ end
 Capybara.default_max_wait_time = 20
 
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
 ActiveRecord::Migration.maintain_test_schema!
