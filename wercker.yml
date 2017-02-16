@@ -41,6 +41,7 @@ test:
     - script:
       name: Set up DB
       code: RAILS_ENV=test bundle exec rake db:schema:load
+    - desmondmorris/selenium-install@0.0.2
     - script:
       name: Test using Rspec
       code: RAILS_ENV=test bundle exec rspec
