@@ -4,6 +4,9 @@ window.AdminMenu = AdminMenu
 import AdminAnimes from './components/admin/animes/list/admin_animes.js'
 window.AdminAnimes = AdminAnimes
 
+import AdminAnime from './components/admin/animes/detail/admin_anime.js'
+window.AdminAnime = AdminAnime
+
 import AdminActors from './components/admin/actors/list/admin_actors.js'
 window.AdminActors = AdminActors
 
