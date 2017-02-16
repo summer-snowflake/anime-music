@@ -13,11 +13,13 @@ describe('AdminActorsPageComponent', () => {
 
   it('DOMが出力される', () => {
     renderer.render(
-      <AdminActorsPage />
+      <AdminActorsPage>{'dummy'}</AdminActorsPage>
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
-      <div className='adminActorsPageComponent' />
+      <div className='adminActorsPageComponent'>
+        {'dummy'}
+      </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)
   })
