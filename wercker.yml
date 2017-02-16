@@ -50,7 +50,7 @@ test:
     - desmondmorris/selenium-install@0.0.2
     - script:
       name: Test using Rspec
-      code: RAILS_ENV=test bundle exec rspec
+      code: RAILS_ENV=test bundle exec rspec spec/requests/ spec/models/ spec/lib/ spec/controllers/
   after-steps:
     - wantedly/pretty-slack-notify:
       webhook_url: "$SLACK_WEBHOOK_URL"
