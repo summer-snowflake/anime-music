@@ -14,12 +14,13 @@ describe('AppComponent', () => {
 
   it('子コンポーネントが出力されること', () => {
     renderer.render(
-      <App />
+      <App>{'dummy'}</App>
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
       <div className='appComponent'>
         <Navbar />
+        {'dummy'}
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)

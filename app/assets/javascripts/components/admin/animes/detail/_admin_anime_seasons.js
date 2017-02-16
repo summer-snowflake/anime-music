@@ -37,5 +37,5 @@ export default class AdminAnimeSeasons extends Component {
 }
 
 AdminAnimeSeasons.propTypes = {
-  anime_id: PropTypes.string.isRequired
+  anime_id: PropTypes.number.isRequired
 }
