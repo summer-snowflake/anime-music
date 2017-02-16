@@ -6,4 +6,4 @@ machine:
  
 test:
   post:
-    - bundle exec rake brakeman: run
+    - bundle exec rake brakeman:run
