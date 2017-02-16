@@ -27,20 +27,9 @@ end
 
 Capybara.default_max_wait_time = 20
 
-#Capybara.register_driver :selenium do |app|
-#  Capybara::Selenium::Driver.new(app, browser: :chrome)
-#end
-
-#Capybara.register_driver :poltergeist do |app|
-#  Capybara::Poltergeist::Driver.new(app, phantomjs: Phantomjs.path)
-#end
-#
-#Capybara.javascript_driver = :poltergeist
-
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
-
 Capybara.default_driver = :selenium
 
 ActiveRecord::Migration.maintain_test_schema!
