@@ -6,11 +6,11 @@
 
 ## 本番環境
 
-（未構築）
+（現在、AWSに構築中）
 
 ## ステージング環境
 
-（未構築）
+（現在、herokuに構築中）
 
 ## 開発
 
@@ -29,8 +29,7 @@ Slack使ってます。ご興味ある方は、[@kae_kasui](https://twitter.com/
 
 ### フロントエンド
 
-現在まだ用意していません。
-ReactJSを想定しています。
+ReactJSを使用
 
 ### コーディングルール
 
@@ -42,9 +41,18 @@ ReactJSを想定しています。
 CIについて、キーワードは以下です。
 詳細は、リポジトリの設定ファイル等で確認できます。
 - Github
+- CircleCI
 - Wercker
 - Slack
 - heroku
+
+### テスト
+
+- RSpec
+  - features(Capybara)
+  - requests
+  - models
+- jest
 
 ### 環境構築
 
@@ -118,7 +126,25 @@ rails db:migrate
 rails db:seed // 現在のところは不要
 ```
 
+- public以下の構築（productionの場合）
+
+```
+bundle exec rake assets:precompile
+```
+
 - サーバーの起動
 ```
 bin/rails s
 ```
+
+- サーバーの起動（productionの場合）
+
+```
+bin/rails s -e production
+```
+
+- （Webpackを使用する場合）
+
+`app/assets/stylesheets/application.scss`の`@import`行をコメントアウトし、
+`npm run start:dev`でdevelopment環境、
+`npm run start:prod`でproduction環境が立ち上がります。
