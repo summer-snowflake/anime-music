@@ -18,8 +18,8 @@ feature '管理画面：声優', js: true do
     end
   end
 
-  scenario '声優詳細画面が表示されること' do
-    visit "admin/actors/#{actor1.id}"
+  scenario '声優名から声優詳細画面が表示されること' do
+    click actor1.name
 
     expect(current_path).to eq admin_actor_path(id: actor1.id)
     within '.panel-heading' do

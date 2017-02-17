@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 export default class AdminAnimeRow extends Component {
   render() {
     return (
-      <div className='media adminAnimeRowComponent'>
+      <div className='media adminAnimeRowComponent' id={'anime-' + this.props.anime.id}>
         <div className='media-left'>
           <Link to={'/admin/animes/' + this.props.anime.id}>
             {this.props.anime.picture ? (
