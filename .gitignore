@@ -29,5 +29,8 @@ doc/*
 server.bundle.js
 client/bundle.js
 
+# Ignore public files
+public/assets/*
+
 # Ignore environment variables list
 .env
