@@ -1,3 +1,6 @@
+import Welcome from './components/welcome/welcome.js'
+window.Welcome = Welcome
+
 import AdminMenu from './components/admin/_admin_menu.js'
 window.AdminMenu = AdminMenu
 

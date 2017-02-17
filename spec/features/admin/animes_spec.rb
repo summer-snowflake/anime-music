@@ -8,18 +8,16 @@ feature '管理画面：アニメ', js: true do
   scenario 'アニメ一覧が表示されること' do
     visit admin_animes_path
 
-    within "#anime-#{anime1.id}" do
-      expect(page).to have_content anime1.title
-      expect(page).not_to have_content anime2.title
-    end
+p anime1
+p anime2
+    expect(page).to have_content anime1.title
+    expect(page).to have_content anime2.title
   end
 
   scenario 'アニメ詳細画面が表示されること' do
-    visit "admin/animes/#{actor1.id}"
+    visit "admin/animes/#{anime1.id}"
 
     expect(current_path).to eq admin_anime_path(id: anime1.id)
-    within '.panel-heading' do
-      expect(page).to have_content anime1.title
-    end
+    expect(page).to have_content anime1.title
   end
 end
