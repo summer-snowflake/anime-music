@@ -9,7 +9,7 @@ module.exports = {
   entry: './app/assets/javascripts/components.js',
 
   output: {
-    path: 'public',
+    path: 'client',
     filename: 'bundle.js',
     publicPath: '/'
   },

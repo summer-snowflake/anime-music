@@ -16,7 +16,7 @@ describe('AdminAnimeSeasonsComponent', () => {
     const season1 = { id: '1', phase: '1', name: 'アニメタイトルシーズン1', start_on: '2016-03-01', end_on: '2016-07-01' }
     const season2 = { id: '2', phase: '2', name: 'アニメタイトルシーズン2', start_on: '2017-01-01', end_on: '' }
     const component = shallow(
-      <AdminAnimeSeasons anime_id={1} />
+      <AdminAnimeSeasons anime_id='1' />
     )
     component.setState({seasons: [season1, season2]})
 

@@ -27,7 +27,10 @@ doc/*
 
 # Ignore webpack bundle.js
 server.bundle.js
-public/bundle.js
+client/bundle.js
+
+# Ignore public files
+public/assets/*
 
 # Ignore environment variables list
 .env
