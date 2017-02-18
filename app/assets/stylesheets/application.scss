@@ -1,3 +1,7 @@
+//NOTE: railsサーバーで動作する際にstyleをあてたい場合に設定
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 .active {
   color: green;
 }

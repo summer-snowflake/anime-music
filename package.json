@@ -9,12 +9,12 @@
   "scripts": {
     "postinstall": "npm run build",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:dev": "webpack-dev-server --inline --content-base public/ --history-api-fallback",
+    "start:dev": "webpack-dev-server --inline --content-base client/ --history-api-fallback",
     "start:prod": "npm run build && node server.bundle.js",
     "build:client": "webpack",
     "build:server": "webpack --config webpack.server.config.js",
     "build": "npm run build:client && npm run build:server",
-    "test": "jest"
+    "test": "jest --runInBand"
   },
   "jest": {
     "automock": true,
@@ -55,7 +55,7 @@
     "babel-preset-react": "^6.16.0",
     "babelify": "^7.3.0",
     "bootstrap-sass": "^3.3.7",
-    "browserify": "^13.3.0",
+    "browserify": "^14.1.0",
     "browserify-incremental": "^3.1.1",
     "compression": "^1.6.2",
     "css-loader": "^0.26.1",

@@ -43,7 +43,7 @@ test:
       code: RAILS_ENV=test bundle exec rake db:schema:load
     - script:
       name: Test using Rspec
-      code: RAILS_ENV=test bundle exec rspec
+      code: RAILS_ENV=test bundle exec rspec spec/requests/ spec/models/ spec/lib/ spec/controllers/
   after-steps:
     - wantedly/pretty-slack-notify:
       webhook_url: "$SLACK_WEBHOOK_URL"

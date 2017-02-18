@@ -14,7 +14,7 @@ describe('AdminAnimeBodyComponent', () => {
   it('propsに設定した値が出力されること', () => {
     let renderer = createRenderer()
     renderer.render(
-      <AdminAnimeBody id='1' summary='アニメサマリ' wiki_url='https://wiki.com' />
+      <AdminAnimeBody id={1} summary='アニメサマリ' wiki_url='https://wiki.com' />
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
@@ -40,7 +40,7 @@ describe('AdminAnimeBodyComponent', () => {
 
   it('state初期値が設定されていること', () => {
     const component = renderIntoDocument(
-      <AdminAnimeBody id='1' summary='アニメサマリ' wiki_url='https://wiki.com' />
+      <AdminAnimeBody id={1} summary='アニメサマリ' wiki_url='https://wiki.com' />
     )
     expect(component.state.editingBody).toBe(false)
     expect(component.state.summary).toBe('アニメサマリ')
@@ -49,7 +49,7 @@ describe('AdminAnimeBodyComponent', () => {
 
   it('アイコンをクリックすると編集モードになること', () => {
     const component = renderIntoDocument(
-      <AdminAnimeBody id='1' summary='アニメサマリ' wiki_url='https://wiki.com' />
+      <AdminAnimeBody id={1} summary='アニメサマリ' wiki_url='https://wiki.com' />
     )
     expect(component.state.editingBody).toBe(false)
 
