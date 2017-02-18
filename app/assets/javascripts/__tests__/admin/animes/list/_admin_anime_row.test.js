@@ -19,7 +19,7 @@ describe('AdminAnimeRowComponent', () => {
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
-      <div className='media adminAnimeRowComponent'>
+      <div className='media adminAnimeRowComponent' id='anime-1'>
         <div className='media-left'>
           <Link to='/admin/animes/1'>
             <img alt='アニメタイトル' className='media-object' src='picture_url' />
