@@ -34,3 +34,6 @@ public/assets/*
 
 # Ignore environment variables list
 .env
+
+# Ignore brakeman report files
+/brakeman

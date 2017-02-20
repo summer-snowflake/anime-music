@@ -5,3 +5,16 @@ machine:
     version: 2.4.0
   node:
     version: 7.5.0
+
+general:
+  artifacts:
+    - "~/anime-music/tmp/capybara/"
+    - "~/anime-music/brakeman"
+    - "~/anime-music/coverage"
+
+test:
+  pre:
+    - bundle exec rubocop app/ spec/ lib/
+    - eslint app/
+  post:
+    - bundle exec rake brakeman:run
