@@ -9,9 +9,10 @@ machine:
 general:
   artifacts:
     - "~/anime-music/tmp/capybara/"
+    - "~/anime-music/brakeman"
 
 test:
   pre:
     - bundle exec rubocop app/ spec/ lib/
   post:
-    - bundle exec rake brakeman
+    - bundle exec rake brakeman:run
