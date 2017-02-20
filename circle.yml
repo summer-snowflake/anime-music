@@ -5,3 +5,7 @@ machine:
     version: 2.4.0
   node:
     version: 7.5.0
+
+general:
+  artifacts:
+    - "~/anime-music/tmp/capybara/"
