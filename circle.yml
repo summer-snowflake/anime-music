@@ -9,3 +9,7 @@ machine:
 general:
   artifacts:
     - "~/anime-music/tmp/capybara/"
+
+test:
+  post:
+    - bundle exec rake brakeman:run
