@@ -1,9 +1,11 @@
+# frozen_string_literal: true
 require 'builder'
 
 class BrakemanReport
   def run
     run_brakeman
-    @json = JSON.parse File.read(File.join(Rails.root, 'brakeman', 'output.json'))
+    filename = File.join(Rails.root, 'brakeman', 'output.json')
+    @json = JSON.parse File.read(filename)
   end
 
   def warned?
@@ -12,20 +14,9 @@ class BrakemanReport
 
   def generate_report
     return unless warned?
-
     xml = Builder::XmlMarkup.new
     xml.instruct! :xml, version: '1.0', encoding: 'UTF-8'
-    xml.testsuite name: 'brakeman', tests: test_count, errors: warning_count, time: duration, timestamp: Time.now.xmlschema do
-      xml.properties
-
-      warnings.each do |w|
-        xml.testcase classname: 'brakeman.security_warnings', name: w['message'], file: w['file'], time: 0 do
-          xml.failure message: w['message'], type: w['warning_type'] do
-            xml.cdata! w.pretty_inspect
-          end
-        end
-      end
-    end
+    xml = build_content(xml)
 
     path = File.join(ENV['CIRCLE_TEST_REPORTS'], 'brakeman')
     Dir.mkdir(path) unless Dir.exist?(path)
@@ -36,13 +27,39 @@ class BrakemanReport
 
   attr_reader :json
 
+  def build_content(xml)
+    xml.testsuite testsuite_params do
+      xml.properties
+      warnings.each do |w|
+        xml.testcase testcase_params(w) do
+          xml.failure message: w['message'], type: w['warning_type'] do
+            xml.cdata! w.pretty_inspect
+          end
+        end
+      end
+    end
+  end
+
+  def testsuite_params
+    { name: 'brakeman', tests: test_count, errors: warning_count,
+      time: duration, timestamp: Time.now.xmlschema }
+  end
+
+  def testcase_params(w)
+    { classname: 'brakeman.security_warnings', name: w['message'],
+      file: w['file'], time: 0 }
+  end
+
   def run_brakeman
     dir = File.join Rails.root, 'brakeman'
-    system('bin/bundle', 'exec', 'brakeman', '-o', "#{dir}/output.html", '-o', "#{dir}/output.json")
+    system('bin/bundle', 'exec', 'brakeman',
+           '-o', "#{dir}/output.html",
+           '-o', "#{dir}/output.json")
   end
 
   def test_count
-    %w(number_of_controllers number_of_models number_of_templates).inject(0) do |sum, key|
+    numbers = %w(number_of_controllers number_of_models number_of_templates)
+    numbers.inject(0) do |sum, key|
       sum + json['scan_info'][key]
     end
   end
