@@ -11,5 +11,7 @@ general:
     - "~/anime-music/tmp/capybara/"
 
 test:
+  pre:
+    - bundle exec rubocop app/ spec/ lib/
   post:
-    - bundle exec rake brakeman:run
+    - bundle exec rake brakeman
