@@ -15,5 +15,6 @@ general:
 test:
   pre:
     - bundle exec rubocop app/ spec/ lib/
+    - eslint app/
   post:
     - bundle exec rake brakeman:run
