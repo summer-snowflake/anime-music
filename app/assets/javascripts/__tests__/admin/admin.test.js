@@ -14,12 +14,13 @@ describe('AdminComponent', () => {
 
   it('子コンポーネントが出力されること', () => {
     renderer.render(
-      <Admin />
+      <Admin>{'dummy'}</Admin>
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
       <div className='adminComponent'>
         <AdminMenu />
+        {'dummy'}
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)
