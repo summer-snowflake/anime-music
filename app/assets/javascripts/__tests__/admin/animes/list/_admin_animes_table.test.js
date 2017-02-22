@@ -13,13 +13,6 @@ import AdminAnimeRow from '../../../../components/admin/animes/list/_admin_anime
 jest.unmock('../../../../components/admin/animes/list/_admin_animes_table')
 
 describe('AdminAnimesTableComponent', () => {
-  it('state初期値が設定されていること', () => {
-    const component = renderIntoDocument(
-      <AdminAnimesTable />
-    )
-    expect(component.state.animes).toEqual([])
-  })
-
   it('DOMが出力されること', () => {
     const component = shallow(
       <AdminAnimesTable />

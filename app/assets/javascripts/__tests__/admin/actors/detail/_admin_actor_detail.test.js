@@ -12,13 +12,6 @@ import AdminActorDetail from '../../../../components/admin/actors/detail/_admin_
 jest.unmock('../../../../components/admin/actors/detail/_admin_actor_detail')
 
 describe('AdminActorDetailComponent', () => {
-  it('state初期値が設定されていること', () => {
-    const component = renderIntoDocument(
-      <AdminActorDetail url='api/admin/actors/1' />
-    )
-    expect(component.state.actor.name).toBe('')
-  })
-
   it('表示', () => {
     const component = shallow(
       <AdminActorDetail url='api/admin/actors/1' />

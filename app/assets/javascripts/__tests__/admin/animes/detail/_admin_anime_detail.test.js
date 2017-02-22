@@ -15,16 +15,6 @@ import AdminAnimeBody from '../../../../components/admin/animes/detail/_admin_an
 jest.unmock('../../../../components/admin/animes/detail/_admin_anime_detail')
 
 describe('AdminAnimeDetailComponent', () => {
-  it('state初期値が設定されていること', () => {
-    const component = renderIntoDocument(
-      <AdminAnimeDetail anime_id='1' />
-    )
-    expect(component.state.anime.id).toBe(0)
-    expect(component.state.anime.title).toBe('')
-    expect(component.state.anime.summary).toBe('')
-    expect(component.state.anime.wiki_url).toBe('')
-  })
-
   it('設定した値が表示されること', () => {
     const component = shallow(
       <AdminAnimeDetail anime_id='1' />
