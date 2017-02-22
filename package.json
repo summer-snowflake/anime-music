@@ -71,12 +71,10 @@
     "react-element-to-jsx-string": "^6.0.0",
     "react-router": "^3.0.0",
     "reactify": "^1.1.1",
-    "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7"
   },
   "dependencies": {
-    "babel-loader": "^6.2.10",
     "bootstrap": "^3.3.7",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
