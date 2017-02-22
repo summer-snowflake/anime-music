@@ -25,10 +25,6 @@ coverage/*
 # Ignore document files
 doc/*
 
-# Ignore webpack bundle.js
-server.bundle.js
-client/bundle.js
-
 # Ignore public files
 public/assets/*
 

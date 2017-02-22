@@ -1,6 +1,5 @@
 import React from 'react'
 import expect from 'expect'
-import { renderIntoDocument } from 'react-addons-test-utils'
 import { shallow } from 'enzyme'
 import expectJSX from 'expect-jsx'
 import 'jest-fetch-mock'
@@ -13,13 +12,6 @@ import AdminActorRow from '../../../../components/admin/actors/list/_admin_actor
 jest.unmock('../../../../components/admin/actors/list/_admin_actors_table')
 
 describe('AdminActorsTableComponent', () => {
-  it('state初期値が設定されていること', () => {
-    const component = renderIntoDocument(
-      <AdminActorsTable url='api/admin/actors' />
-    )
-    expect(component.state.actors).toEqual([])
-  })
-
   it('DOMが出力されること', () => {
     const component = shallow(
       <AdminActorsTable url='api/admin/actors' />
