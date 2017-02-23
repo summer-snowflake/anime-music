@@ -33,3 +33,39 @@ img.media-object {
   width: 64px;
   height: 64px;
 }
+
+
+//.nav > li > a:hover, .nav > li > a:focus {
+//  //color: #fff;
+//}
+//
+//.nav > li > a::after {
+//  top: 0;
+//  left: 0;
+//  width: 100%;
+//  height: 100%;
+//}
+//
+//.nav > li > a:hover::after, .nav > li > a:focus::after {
+//  -webkit-transform: scale(2) rotate(180deg);
+//  transform: scale(2) rotate(180deg);
+//  background: #333;
+//}
+
+.nav > li > a {
+  display: inline-block;
+  margin: 20px;
+  border: solid 1px $orange;
+  color: $orange-dark;
+  background: transparent;
+  transition: .3s;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  background: transparent;
+}
+
+.nav-pills > li > a.active {
+  color: #fff;
+  background: $orange;
+}

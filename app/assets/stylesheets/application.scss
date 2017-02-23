@@ -1,3 +1,6 @@
+$orange: #f7af40;
+$orange-dark: darken($orange, 15%);
+
 @import "common";
 
 @import "bootstrap-sprockets";
@@ -5,3 +8,5 @@
 
 @import "components";
 @import "bootstrap_overrides";
+
+@import "common_overrides";
