@@ -1,6 +1,11 @@
 $orange: #f7af40;
 $orange-dark: darken($orange, 15%);
 
+$blue: #48b5ee;
+$blue-dark: darken($blue, 10%);
+
+$link-color: $blue-dark;
+
 @import "common";
 
 @import "bootstrap-sprockets";
@@ -8,5 +13,3 @@ $orange-dark: darken($orange, 15%);
 
 @import "components";
 @import "bootstrap_overrides";
-
-@import "common_overrides";
