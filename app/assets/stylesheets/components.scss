@@ -5,21 +5,22 @@
 // == 管理画面：アニメ ==
 
 .adminAnimeRowComponent {
-  .no-image {
-    width: 64px;
-    height: 64px;
-    background-color: #eee;
-    border: 1px solid #ddd;
-    font-size: 12px;
-    font-weight: bold;
-  }
+  padding: 10px;
+
   a {
     text-decoration: none;
   }
-
+  span.no-image {
+    text-align: center;
+    background-color: rgba($blue, 0.1);
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba($blue, 0.7);
+  }
   h4 {
     font-size: 15px;
     font-weight: bold;
+    padding-bottom: 8px;
   }
 }
 
