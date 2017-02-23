@@ -19,9 +19,9 @@ describe('NavbarComponent', () => {
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
       <div className='navbarComponent'>
-        <ul>
-          <li><Link activeClassName='active' onlyActiveOnIndex to='/'>{'TOP'}</Link></li>
-        </ul>
+        <Link activeClassName='active' onlyActiveOnIndex to='/'>
+          <div className='brand-image' />
+        </Link>
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)
