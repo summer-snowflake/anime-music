@@ -33,3 +33,21 @@ img.media-object {
   width: 64px;
   height: 64px;
 }
+
+.nav > li > a {
+  display: inline-block;
+  margin: 20px;
+  border: solid 1px $orange;
+  color: $orange-dark;
+  background: transparent;
+  transition: .3s;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  background: transparent;
+}
+
+.nav-pills > li > a.active {
+  color: #fff;
+  background: $orange;
+}
