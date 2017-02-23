@@ -14,6 +14,14 @@ button:focus {
   color: green;
 }
 
+.brand-image {
+  background-image: image-url('anime_time.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 400px;
+  height: 70px;
+}
+
 .right-icon {
   padding-left: 10px;
 }

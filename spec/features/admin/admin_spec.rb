@@ -20,7 +20,7 @@ feature '管理画面：TOP', js: true do
 
   scenario 'メニューからTOP画面が表示されること' do
     within '.navbarComponent' do
-      click_link 'TOP'
+      find('.brand-image').click
       expect(current_path).to eq root_path
     end
   end
