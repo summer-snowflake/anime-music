@@ -1,6 +1,5 @@
 import React from 'react'
 import expect from 'expect'
-import { renderIntoDocument } from 'react-addons-test-utils'
 import { shallow } from 'enzyme'
 import expectJSX from 'expect-jsx'
 import 'jest-fetch-mock'
@@ -15,19 +14,9 @@ import AdminAnimeBody from '../../../../components/admin/animes/detail/_admin_an
 jest.unmock('../../../../components/admin/animes/detail/_admin_anime_detail')
 
 describe('AdminAnimeDetailComponent', () => {
-  it('state初期値が設定されていること', () => {
-    const component = renderIntoDocument(
-      <AdminAnimeDetail url='api/admin/animes/1' />
-    )
-    expect(component.state.anime.id).toBe(0)
-    expect(component.state.anime.title).toBe('')
-    expect(component.state.anime.summary).toBe('')
-    expect(component.state.anime.wiki_url).toBe('')
-  })
-
   it('設定した値が表示されること', () => {
     const component = shallow(
-      <AdminAnimeDetail url='api/admin/animes/1' />
+      <AdminAnimeDetail anime_id='1' />
     )
     component.setState({anime: { id: 1, title: 'アニメタイトル', summary: 'アニメサマリ', wiki_url: 'https://wiki.com', picture: 'https://picture.com' }})
 

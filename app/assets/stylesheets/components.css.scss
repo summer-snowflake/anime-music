@@ -1,0 +1,76 @@
+// == 管理画面：アニメ ==
+
+.adminAnimeRowComponent {
+  .no-image {
+    width: 64px;
+    height: 64px;
+    background-color: #eee;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  h4 {
+    font-size: 15px;
+    font-weight: bold;
+  }
+}
+
+.adminAnimeTitleComponent {
+  height: 50px;
+  form {
+    display: inline-block;
+  }
+
+  .loadingImageComponent {
+    padding-left: 20px;
+  }
+
+  .messageBoxComponent {
+    position: absolute;
+    top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.adminAnimeBodyComponent {
+  .wiki-url {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .not-editing-body {
+    border: thin solid transparent;
+    padding: 20px;
+    button {
+      visibility: hidden;
+    }
+  }
+
+  .not-editing-body:hover {
+    border: thin solid #337ab7;
+    border-radius: 4px;
+    button {
+      visibility: visible;
+    }
+  }
+}
+
+.adminAnimeSeasonComponent {
+  padding: 10px;
+}
+
+// === 共通 ===
+
+.messageBoxComponent {
+  display: inline-block;
+}
+
+.loadingImageComponent {
+  padding: 10px;
+  display: inline-block;
+}

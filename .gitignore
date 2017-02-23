@@ -25,9 +25,11 @@ coverage/*
 # Ignore document files
 doc/*
 
-# Ignore webpack bundle.js
-server.bundle.js
-public/bundle.js
+# Ignore public files
+public/assets/*
 
 # Ignore environment variables list
 .env
+
+# Ignore brakeman report files
+/brakeman

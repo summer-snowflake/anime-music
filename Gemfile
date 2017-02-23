@@ -5,6 +5,7 @@ ruby '2.4.0'
 gem 'rails', '5.0.1'
 
 gem 'bcrypt'
+gem 'bootstrap-sass'
 gem 'exception_notification'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
