@@ -20,9 +20,9 @@ describe('AdminAnimesTableComponent', () => {
     let expectedElement = (
       <div className='adminAnimeThumbnailComponent'>
         <div className='col-xs-6 col-md-3'>
-          <a className='thumbnail' href='#'>
+          <span className='thumbnail'>
             <img alt='アニメタイトル' src='api/admin/animes' />
-          </a>
+          </span>
         </div>
       </div>
     )

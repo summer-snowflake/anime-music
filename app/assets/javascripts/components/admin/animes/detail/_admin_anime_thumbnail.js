@@ -5,13 +5,13 @@ export default class AdminAnimeThumbnail extends Component {
     return (
       <div className='adminAnimeThumbnailComponent'>
         <div className='col-xs-6 col-md-3'>
-          <a className='thumbnail' href='#'>
+          <span className='thumbnail'>
             {this.props.picture ? (
               <img alt={this.props.title} src={this.props.picture} />
             ) : (
               <span className='no-image'>{'NO IMAGE'}</span>
             )}
-          </a>
+          </span>
         </div>
       </div>
     )
