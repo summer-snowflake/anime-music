@@ -95,10 +95,10 @@ export default class AdminAnimeBody extends Component {
     let editing_jsx = (
       <div className='editing-body'>
         <div className='summary'>
-          <textarea autoFocus className='form-control' defaultValue={this.state.unsaved_summary || this.props.summary} disabled={this.state.loadingBody} onChange={this.handleChangeSummary} rows='4' />
+          <textarea autoFocus className='form-control' defaultValue={this.state.unsaved_summary || this.props.summary} disabled={this.state.loadingBody} name='summary' onChange={this.handleChangeSummary} rows='4' />
         </div>
         <div className='wiki-url'>
-          <input className='form-control' defaultValue={this.state.unsaved_wiki_url || this.props.wiki_url} disabled={this.state.loadingBody} onChange={this.handleChangeWikiUrl} type='text' />
+          <input className='form-control' defaultValue={this.state.unsaved_wiki_url || this.props.wiki_url} disabled={this.state.loadingBody} name='wiki-url' onChange={this.handleChangeWikiUrl} type='text' />
         </div>
         <div className='pull-right'>
           <LoadingImage loading={this.state.loadingBody} />
@@ -121,9 +121,9 @@ export default class AdminAnimeBody extends Component {
           <a href={this.props.wiki_url} target='_blank'>{this.state.wiki_url || this.props.wiki_url}</a>
         </div>
         <div className='pull-right'>
-          <button className='btn btn-default' onClick={this.handleClickEditButton} type='submit'>
+          <span className='link' onClick={this.handleClickEditButton}>
             <span className='glyphicon glyphicon-pencil' />
-          </button>
+          </span>
         </div>
         <MessageBox message={this.state.message} message_type={this.state.message_type} />
       </div>

@@ -1,21 +1,19 @@
-a {
-  outline: none;
-}
-
-button {
-  outline: none;
-}
-
-button:focus {
-  outline: none;
-}
-
 .brand-image {
   background-image: image-url('anime_time.gif');
   background-repeat: no-repeat;
   background-size: contain;
   width: 400px;
   height: 70px;
+}
+
+span.no-image {
+  font-weight: bold;
+  color: rgba($blue, 0.7);
+}
+
+span.link {
+  cursor: pointer;
+  color: $blue-dark;
 }
 
 .right-icon {
@@ -32,12 +30,39 @@ button:focus {
 
 .not-editing-title {
   display: inline-block;
-  padding-top: 7px;
-  padding-left: 10px;
+  position: relative;
+  top: -2px;
+  padding: 5px;
+  span.glyphicon-pencil {
+    visibility: hidden;
+  }
+}
+
+.not-editing-title:hover {
+  background-color: rgba($blue, 0.1);
+  border-radius: 3px; 
+  span.glyphicon-pencil {
+    visibility: visible;
+  }
+}
+
+.not-editing-body {
+  span.glyphicon-pencil {
+    visibility: hidden;
+  }
+}
+
+.not-editing-body:hover {
+  background-color: rgba($blue, 0.1);
+  border-radius: 4px;
+  span.glyphicon-pencil {
+    visibility: visible;
+  }
 }
 
 .editing-title {
   display: inline-block;
+  position: relative;
 }
 
 .thumbnail {

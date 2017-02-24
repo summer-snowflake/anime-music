@@ -27,9 +27,9 @@ describe('AdminAnimeBodyComponent', () => {
             <a href='https://wiki.com' target='_blank'>{'https://wiki.com'}</a>
           </div>
           <div className='pull-right'>
-            <button className='btn btn-default' onClick={jest.fn()} type='submit'>
+            <span className='link' onClick={jest.fn()}>
               <span className='glyphicon glyphicon-pencil' />
-            </button>
+            </span>
           </div>
           <MessageBox message='' message_type='success' />
         </div>
@@ -53,7 +53,7 @@ describe('AdminAnimeBodyComponent', () => {
     )
     expect(component.state.editingBody).toBe(false)
 
-    Simulate.click(findRenderedDOMComponentWithClass(component, 'btn'))
+    Simulate.click(findRenderedDOMComponentWithClass(component, 'link'))
     expect(component.state.editingBody).toBe(true)
     expect(findRenderedDOMComponentWithClass(component, 'editing-body')).toExist
   })
