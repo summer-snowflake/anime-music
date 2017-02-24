@@ -27,7 +27,7 @@ feature '管理画面：アニメ', js: true do
     expect(page).to have_content anime1.title
     expect(page).to have_content anime1.summary
     expect(page).to have_content anime1.wiki_url
-    expect(page).to have_selector("img[src='#{anime1.picture}'", visible: true)
+    expect(page).to have_selector("img[alt='#{anime1.title}'", visible: true)
   end
 
   context 'シーズンが登録されていた場合' do
