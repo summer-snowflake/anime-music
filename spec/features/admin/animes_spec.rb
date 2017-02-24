@@ -30,6 +30,19 @@ feature '管理画面：アニメ', js: true do
     expect(page).to have_selector("img[src='#{anime1.picture}'", visible: true)
   end
 
+  scenario '詳細画面のタイトルでタイトルを編集できること' do
+    visit admin_anime_path(id: anime1.id)
+
+    expect(page).to have_content anime1.title
+    find('.not-editing-title > a > span').click
+    fill_in 'title', with: 'アニメのタイトル'
+    find("input[name='title']").native.send_keys(:return)
+
+    expect(page).not_to have_content anime1.title
+    expect(page).to have_content 'アニメのタイトル'
+    expect(anime1.reload.title).to eq 'アニメのタイトル'
+  end
+
   context 'シーズンが登録されていた場合' do
     let!(:season1) { create(:season, anime: anime1) }
     let!(:season2) { create(:season, anime: anime1) }
