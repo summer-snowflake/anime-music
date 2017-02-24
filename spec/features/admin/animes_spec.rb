@@ -34,7 +34,7 @@ feature '管理画面：アニメ', js: true do
     visit admin_anime_path(id: anime1.id)
 
     expect(page).to have_content anime1.title
-    find('.not-editing-title > a > span').click
+    find('.not-editing-title > span').click
     fill_in 'title', with: 'アニメのタイトル'
     find("input[name='title']").native.send_keys(:return)
 
