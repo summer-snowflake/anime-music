@@ -29,9 +29,14 @@
   }
 }
 
-img.media-object {
-  width: 64px;
-  height: 64px;
+.media-object {
+  width: 128px;
+  height: 128px;
+  border: 1px solid $blue;
+}
+
+.media-body {
+  padding-left: 20px;
 }
 
 .nav > li > a {
