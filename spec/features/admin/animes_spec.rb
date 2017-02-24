@@ -34,13 +34,30 @@ feature '管理画面：アニメ', js: true do
     visit admin_anime_path(id: anime1.id)
 
     expect(page).to have_content anime1.title
-    find('.not-editing-title > span').click
+    find('.not-editing-title > span.link').click
     fill_in 'title', with: 'アニメのタイトル'
     find("input[name='title']").native.send_keys(:return)
 
     expect(page).not_to have_content anime1.title
     expect(page).to have_content 'アニメのタイトル'
     expect(anime1.reload.title).to eq 'アニメのタイトル'
+  end
+
+  scenario '詳細画面でアニメ詳細情報を編集できること' do
+    visit admin_anime_path(id: anime1.id)
+
+    find('.not-editing-body > div > span.link').click
+    fill_in 'summary', with: 'アニメのあらすじ'
+    fill_in 'wiki-url', with: 'http://xxx.sample.com'
+    click_button '更新'
+
+    expect(page).not_to have_content anime1.summary
+    expect(page).not_to have_content anime1.wiki_url
+    expect(page).to have_content 'アニメのあらすじ'
+    expect(page).to have_content 'http://xxx.sample.com'
+    anime1.reload
+    expect(anime1.summary).to eq 'アニメのあらすじ'
+    expect(anime1.wiki_url).to eq 'http://xxx.sample.com'
   end
 
   context 'シーズンが登録されていた場合' do

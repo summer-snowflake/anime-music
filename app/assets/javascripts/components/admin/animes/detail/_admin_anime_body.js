@@ -95,10 +95,10 @@ export default class AdminAnimeBody extends Component {
     let editing_jsx = (
       <div className='editing-body'>
         <div className='summary'>
-          <textarea autoFocus className='form-control' defaultValue={this.state.unsaved_summary || this.props.summary} disabled={this.state.loadingBody} onChange={this.handleChangeSummary} rows='4' />
+          <textarea autoFocus className='form-control' defaultValue={this.state.unsaved_summary || this.props.summary} disabled={this.state.loadingBody} name='summary' onChange={this.handleChangeSummary} rows='4' />
         </div>
         <div className='wiki-url'>
-          <input className='form-control' defaultValue={this.state.unsaved_wiki_url || this.props.wiki_url} disabled={this.state.loadingBody} onChange={this.handleChangeWikiUrl} type='text' />
+          <input className='form-control' defaultValue={this.state.unsaved_wiki_url || this.props.wiki_url} disabled={this.state.loadingBody} name='wiki-url' onChange={this.handleChangeWikiUrl} type='text' />
         </div>
         <div className='pull-right'>
           <LoadingImage loading={this.state.loadingBody} />
