@@ -21,7 +21,7 @@ describe('AdminAnimeDetailComponent', () => {
     let expectedElement = (
       <div className='adminAnimeTitleComponent'>
         <div className="not-editing-title">
-          <b>{'アニメタイトル'}</b>
+          <b className='panel-title'>{'アニメタイトル'}</b>
           <a href='#'>
             <span className='right-icon' onClick={jest.fn()}>
               <span className='glyphicon glyphicon-pencil' />
