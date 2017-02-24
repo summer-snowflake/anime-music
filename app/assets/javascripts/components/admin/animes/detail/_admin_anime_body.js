@@ -121,9 +121,9 @@ export default class AdminAnimeBody extends Component {
           <a href={this.props.wiki_url} target='_blank'>{this.state.wiki_url || this.props.wiki_url}</a>
         </div>
         <div className='pull-right'>
-          <button className='btn btn-default' onClick={this.handleClickEditButton} type='submit'>
+          <span className='link' onClick={this.handleClickEditButton}>
             <span className='glyphicon glyphicon-pencil' />
-          </button>
+          </span>
         </div>
         <MessageBox message={this.state.message} message_type={this.state.message_type} />
       </div>

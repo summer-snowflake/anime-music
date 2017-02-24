@@ -11,6 +11,11 @@ span.no-image {
   color: rgba($blue, 0.7);
 }
 
+span.link {
+  cursor: pointer;
+  color: $blue-dark;
+}
+
 .right-icon {
   padding-left: 10px;
 }
@@ -26,16 +31,30 @@ span.no-image {
 .not-editing-title {
   display: inline-block;
   padding: 5px;
-  span.glyphicon {
-    display: none;
+  span.glyphicon-pencil {
+    visibility: hidden;
   }
 }
 
 .not-editing-title:hover {
   background-color: rgba($blue, 0.1);
   border-radius: 3px; 
-  span.glyphicon {
-    display: inline;
+  span.glyphicon-pencil {
+    visibility: visible;
+  }
+}
+
+.not-editing-body {
+  span.glyphicon-pencil {
+    visibility: hidden;
+  }
+}
+
+.not-editing-body:hover {
+  background-color: rgba($blue, 0.1);
+  border-radius: 4px;
+  span.glyphicon-pencil {
+    visibility: visible;
   }
 }
 
