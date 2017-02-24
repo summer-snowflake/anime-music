@@ -32,6 +32,18 @@
   animation-play-state: running;
 }
 
+.alert-success {
+  color: $blue;
+  border-color: $blue;
+  background-color: rgba($blue, 0.2)
+}
+
+.alert-danger {
+  color: $pink;
+  border-color: $pink;
+  background-color: rgba($pink, 0.2)
+}
+
 @keyframes rotation {
   0% {
   }
@@ -64,7 +76,6 @@
 
 .thumbnail {
   border: 1px solid $blue;
-  //background-color: rgba($blue, 0.1);
   text-align: center;
 }
 
