@@ -60,7 +60,7 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     brakeman (3.5.0)
-    browserify-rails (4.0.0)
+    browserify-rails (4.1.0)
       addressable (>= 2.4.0)
       railties (>= 4.0.0, < 5.1)
       sprockets (>= 3.6.0)
@@ -79,7 +79,7 @@ GEM
     capybara-screenshot (1.0.14)
       capybara (>= 1.0, < 3)
       launchy
-    childprocess (0.6.1)
+    childprocess (0.6.2)
       ffi (~> 1.0, >= 1.0.11)
     cliver (0.3.2)
     coderay (1.1.1)
