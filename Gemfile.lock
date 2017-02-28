@@ -46,7 +46,7 @@ GEM
       actionpack
       activesupport (>= 3.0.0)
       rspec
-    autoprefixer-rails (6.7.5)
+    autoprefixer-rails (6.7.6)
       execjs
     awesome_print (1.7.0)
     bcrypt (3.1.11)
