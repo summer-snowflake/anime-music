@@ -70,7 +70,7 @@ export default class AdminAnimeBody extends Component {
             message: '更新しました'
           })
           setTimeout(this.handleTimeout, 2000)
-          this.props.onLoadAnime()
+          this.props.handleLoadAnime()
         } else {
           this.setState({editingBody: true, summary: '', wiki_url: ''})
           res.json().then((json) => {
@@ -142,5 +142,5 @@ AdminAnimeBody.propTypes = {
   id: PropTypes.number.isRequired,
   summary: PropTypes.string.isRequired,
   wiki_url: PropTypes.string.isRequired,
-  onLoadAnime: PropTypes.func.isRequired
+  handleLoadAnime: PropTypes.func.isRequired
 }
