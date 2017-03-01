@@ -9,9 +9,7 @@ export default class AdminAnimeBody extends Component {
     this.state = {
       editingBody: false,
       loadingBody: false,
-      summary: this.props.summary,
       unsaved_summary: this.props.summary,
-      wiki_url: this.props.wiki_url,
       unsaved_wiki_url: this.props.wiki_url,
       message_type: 'success',
       message: ''
@@ -50,10 +48,10 @@ export default class AdminAnimeBody extends Component {
 
   handleClickSubmitButton() {
     this.setState({loadingBody: true})
-    this.loadAnimeBodyFromServer()
+    this.loadAnimeBodyAgainstServer()
   }
 
-  loadAnimeBodyFromServer() {
+  loadAnimeBodyAgainstServer() {
     const params = { anime: { summary: this.state.unsaved_summary, wiki_url: this.state.unsaved_wiki_url }}
     fetch(origin + 'api/admin/animes/' + this.props.id, {
       method: 'PATCH',
@@ -68,12 +66,11 @@ export default class AdminAnimeBody extends Component {
           this.setState({
             editingBody: false,
             loadingBody: false,
-            summary: this.state.unsaved_summary,
-            wiki_url: this.state.unsaved_wiki_url,
             message_type: 'success',
             message: '更新しました'
           })
           setTimeout(this.handleTimeout, 2000)
+          this.props.handleLoadAnime()
         } else {
           this.setState({editingBody: true, summary: '', wiki_url: ''})
           res.json().then((json) => {
@@ -115,10 +112,10 @@ export default class AdminAnimeBody extends Component {
     let not_editing_jsx = (
       <div className='not-editing-body'>
         <div className='summary'>
-          {this.state.summary || this.props.summary}
+          {this.props.summary}
         </div>
         <div className='wiki-url'>
-          <a href={this.props.wiki_url} target='_blank'>{this.state.wiki_url || this.props.wiki_url}</a>
+          <a href={this.props.wiki_url} target='_blank'>{this.props.wiki_url}</a>
         </div>
         <div className='pull-right'>
           <span className='link' onClick={this.handleClickEditButton}>
@@ -144,5 +141,6 @@ export default class AdminAnimeBody extends Component {
 AdminAnimeBody.propTypes = {
   id: PropTypes.number.isRequired,
   summary: PropTypes.string.isRequired,
-  wiki_url: PropTypes.string.isRequired
+  wiki_url: PropTypes.string.isRequired,
+  handleLoadAnime: PropTypes.func.isRequired
 }

@@ -11,6 +11,7 @@ export default class AdminAnimeDetail extends Component {
     this.state = {
       anime: {id: 0, title: '', summary: '', wiki_url: '', picture: ''}
     }
+    this.loadAnimeFromServer = this.loadAnimeFromServer.bind(this)
   }
 
   componentDidMount() {
@@ -39,7 +40,7 @@ export default class AdminAnimeDetail extends Component {
                 <AdminAnimeThumbnail id={this.state.anime.id} picture={this.state.anime.picture || ''} title={this.state.anime.title} />
               </div>
               <div className="col-xs-6 col-md-9">
-                <AdminAnimeBody id={this.state.anime.id} summary={this.state.anime.summary} wiki_url={this.state.anime.wiki_url} />
+                <AdminAnimeBody handleLoadAnime={this.loadAnimeFromServer} id={this.state.anime.id} summary={this.state.anime.summary} wiki_url={this.state.anime.wiki_url} />
               </div>
             </div>
           </div>
