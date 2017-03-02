@@ -21,7 +21,7 @@ describe('AdminAnimeBodyComponent', () => {
       <div className='adminAnimeBodyComponent'>
         <div className='not-editing-body'>
           <div className='summary'>
-            {'アニメサマリ'}
+            <div dangerouslySetInnerHTML={{__html: 'アニメサマリ'}} />
           </div>
           <div className='wiki-url'>
             <a href='https://wiki.com' target='_blank'>{'https://wiki.com'}</a>

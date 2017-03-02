@@ -109,10 +109,11 @@ export default class AdminAnimeBody extends Component {
       </div>
     )
 
+    const htmlString = { __html: this.props.summary.replace(/\r?\n/g, '<br>') }
     let not_editing_jsx = (
       <div className='not-editing-body'>
         <div className='summary'>
-          {this.props.summary}
+          <div dangerouslySetInnerHTML={htmlString} />
         </div>
         <div className='wiki-url'>
           <a href={this.props.wiki_url} target='_blank'>{this.props.wiki_url}</a>
