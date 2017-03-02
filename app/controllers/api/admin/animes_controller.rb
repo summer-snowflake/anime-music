@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class Api::Admin::AnimesController < Api::BaseController
-  before_action :set_anime, only: %i(show update)
+  before_action :set_anime, only: %i(show update destroy)
 
   def index
     @animes = Anime.all
@@ -14,6 +14,11 @@ class Api::Admin::AnimesController < Api::BaseController
     else
       render_error @anime
     end
+  end
+
+  def destroy
+    @anime.destroy
+    head @anime.destroyed? ? :ok : :forbidden
   end
 
   private
