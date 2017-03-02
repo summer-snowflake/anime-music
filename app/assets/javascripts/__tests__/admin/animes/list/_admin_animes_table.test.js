@@ -23,8 +23,8 @@ describe('AdminAnimesTableComponent', () => {
     let actualElement = component.single(reactElementToJSXString)
     let expectedElement = (
       <div className='adminAnimesTableComponent'>
-        <AdminAnimeRow anime={anime1} />
-        <AdminAnimeRow anime={anime2} />
+        <AdminAnimeRow anime={anime1} handleLoad={jest.fn()} />
+        <AdminAnimeRow anime={anime2} handleLoad={jest.fn()} />
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)

@@ -88,3 +88,12 @@ describe 'PATCH /api/admin/animes/:id' do
     end
   end
 end
+
+describe 'DELETE /api/admin/animes/:id', autodoc: true do
+  let!(:anime) { create(:anime) }
+
+  it '200が返ってくること' do
+    delete "/api/admin/animes/#{anime.id}"
+    expect(response.status).to eq 200
+  end
+end
