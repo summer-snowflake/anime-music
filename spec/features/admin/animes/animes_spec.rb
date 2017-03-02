@@ -27,7 +27,6 @@ feature '管理画面：アニメ', js: true do
     expect(page).to have_content anime1.title
     expect(page).to have_content anime1.summary
     expect(page).to have_content anime1.wiki_url
-    expect(page).to have_selector("img[alt='#{anime1.title}'")
   end
 
   context 'シーズンが登録されていた場合' do
@@ -44,5 +43,17 @@ feature '管理画面：アニメ', js: true do
         expect(page).not_to have_content season3.name
       end
     end
+  end
+
+  scenario 'アニメ一覧から対象のアニメを削除できること' do
+    within "#anime-#{anime1.id}" do
+      find('.glyphicon-trash').click
+    end
+    within '.modal-footer' do
+      find('.btn-danger').click
+    end
+    expect(page).not_to have_content anime1.title
+
+    expect(Anime.find_by(id: anime1.id)).to be_nil
   end
 end
