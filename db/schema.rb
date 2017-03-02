@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170111144651) do
+ActiveRecord::Schema.define(version: 20170302105933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 20170111144651) do
   end
 
   create_table "animes", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.string   "summary"
+    t.string   "title",                   null: false
+    t.string   "summary",    default: "", null: false
     t.string   "wiki_url"
     t.string   "picture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "appearances", force: :cascade do |t|
