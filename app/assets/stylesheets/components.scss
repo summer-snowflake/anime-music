@@ -38,13 +38,33 @@
 }
 
 .adminAnimeBodyComponent {
+  .not-editing-body {
+    min-height: 210px;
+    padding: 10px;
+    .wiki-url {
+      margin-left: 3px;
+    }
+    .summary {
+      margin-top: -3px;
+      margin-left: 3px;
+    }
+    .pull-right {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+    }
+  }
+  .editing-body {
+    min-height: 210px;
+  }
+
   .wiki-url {
     padding-top: 15px;
     padding-bottom: 15px;
   }
 
-  .not-editing-body {
-    padding: 20px;
+  .summary {
+    min-height: 85px;
   }
 }
 
