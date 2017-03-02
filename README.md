@@ -1,7 +1,5 @@
 # anime-music（仮）
 
-wercker: [![wercker status](https://app.wercker.com/status/c96221ac4fb6e1994bdea4cdfeaa1895/s/master "wercker status")](https://app.wercker.com/project/byKey/c96221ac4fb6e1994bdea4cdfeaa1895)
-
 CircleCI: [![CircleCI](https://circleci.com/gh/summer-snowflake/anime-music.svg?style=svg)](https://circleci.com/gh/summer-snowflake/anime-music)
 
 アニメのOPとEDをまとめた情報サイト（の予定）
@@ -44,7 +42,6 @@ CIについて、キーワードは以下です。
 詳細は、リポジトリの設定ファイル等で確認できます。
 - Github
 - CircleCI
-- Wercker
 - Slack
 - heroku
 
