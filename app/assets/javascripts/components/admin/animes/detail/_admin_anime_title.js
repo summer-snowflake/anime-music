@@ -89,19 +89,17 @@ export default class AdminAnimeTitle extends Component {
     let editing_jsx = (
       <div className='editing-title'>
         <form className='form-inline' onSubmit={this.handleSubmit}>
-          <input autoFocus className='form-control' defaultValue={this.state.unsaved_title || this.props.title} disabled={this.state.loadingTitle} onBlur={this.handleBlur} onChange={this.handleChangeTitle} ref='title' type='text' />
+          <input autoFocus className='form-control' defaultValue={this.state.unsaved_title || this.props.title} disabled={this.state.loadingTitle} name='title' onBlur={this.handleBlur} onChange={this.handleChangeTitle} ref='title' type='text' />
         </form>
       </div>
     )
 
     let not_editing_jsx = (
       <div className='not-editing-title'>
-        <b>{this.state.title || this.props.title}</b>
-        <a href='#'>
-          <span className='right-icon' onClick={this.handleClickEditTitleIcon}>
-            <span className='glyphicon glyphicon-pencil' />
-          </span>
-        </a>
+        <b className='panel-title'>{this.state.title || this.props.title}</b>
+        <span className='link right-icon' onClick={this.handleClickEditTitleIcon}>
+          <span className='glyphicon glyphicon-pencil' />
+        </span>
       </div>
     )
 

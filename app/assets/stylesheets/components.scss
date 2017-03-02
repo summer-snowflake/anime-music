@@ -1,21 +1,21 @@
+.navbarComponent {
+  height: 80px;
+}
+
 // == 管理画面：アニメ ==
 
 .adminAnimeRowComponent {
-  .no-image {
-    width: 64px;
-    height: 64px;
-    background-color: #eee;
-    border: 1px solid #ddd;
-    font-size: 12px;
-    font-weight: bold;
-  }
-  a {
-    text-decoration: none;
-  }
+  padding: 10px;
 
+  span.no-image {
+    text-align: center;
+    background-color: rgba($blue, 0.1);
+    font-size: 12px;
+  }
   h4 {
     font-size: 15px;
     font-weight: bold;
+    padding-bottom: 8px;
   }
 }
 
@@ -38,25 +38,33 @@
 }
 
 .adminAnimeBodyComponent {
+  .not-editing-body {
+    min-height: 210px;
+    padding: 10px;
+    .wiki-url {
+      margin-left: 3px;
+    }
+    .summary {
+      margin-top: -3px;
+      margin-left: 3px;
+    }
+    .pull-right {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+    }
+  }
+  .editing-body {
+    min-height: 210px;
+  }
+
   .wiki-url {
     padding-top: 15px;
     padding-bottom: 15px;
   }
 
-  .not-editing-body {
-    border: thin solid transparent;
-    padding: 20px;
-    button {
-      visibility: hidden;
-    }
-  }
-
-  .not-editing-body:hover {
-    border: thin solid #337ab7;
-    border-radius: 4px;
-    button {
-      visibility: visible;
-    }
+  .summary {
+    min-height: 85px;
   }
 }
 

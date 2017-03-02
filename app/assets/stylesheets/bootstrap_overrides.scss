@@ -1,0 +1,114 @@
+.glyphicon-pencil {
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.glyphicon-pencil:hover {
+  background-color: rgba($blue, 0.3);
+}
+
+.panel-title {
+  position: relative;
+  left: 5px;
+  display: inline-block;
+  font-size: 14px;
+  min-width: 140px;
+  padding: 3px;
+}
+
+.panel-body {
+  position: relative;
+}
+
+.alert {
+  padding: 5px 10px 5px 10px;
+  animation-name: rotation;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+.alert-success {
+  color: $blue;
+  border-color: $blue;
+  background-color: rgba($blue, 0.2)
+}
+
+.alert-danger {
+  color: $pink;
+  border-color: $pink;
+  background-color: rgba($pink, 0.2)
+}
+
+@keyframes rotation {
+  0% {
+  }
+
+  50% {
+    background-color: transparent;
+  }
+
+  100% {
+    background-color: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+}
+
+.media-object {
+  width: 128px;
+  height: 128px;
+  border: 1px solid $blue;
+  border-radius: 3px;
+}
+
+.media-object:hover {
+  border: 1pt solid $blue-dark;
+}
+
+.media-body {
+  padding-left: 20px;
+}
+
+.thumbnail {
+  border: 1px solid $blue;
+  text-align: center;
+}
+
+.nav > li > a {
+  display: inline-block;
+  margin: 20px;
+  border: solid 1px $orange;
+  color: $orange-dark;
+  background: transparent;
+  transition: .3s;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  background: transparent;
+}
+
+.nav-pills > li > a.active {
+  color: #fff;
+  background: $orange;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+a {
+  outline: none;
+}
+
+button {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}

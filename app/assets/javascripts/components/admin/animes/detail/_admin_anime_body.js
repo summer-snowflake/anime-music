@@ -9,9 +9,7 @@ export default class AdminAnimeBody extends Component {
     this.state = {
       editingBody: false,
       loadingBody: false,
-      summary: this.props.summary,
       unsaved_summary: this.props.summary,
-      wiki_url: this.props.wiki_url,
       unsaved_wiki_url: this.props.wiki_url,
       message_type: 'success',
       message: ''
@@ -50,10 +48,10 @@ export default class AdminAnimeBody extends Component {
 
   handleClickSubmitButton() {
     this.setState({loadingBody: true})
-    this.loadAnimeBodyFromServer()
+    this.loadAnimeBodyAgainstServer()
   }
 
-  loadAnimeBodyFromServer() {
+  loadAnimeBodyAgainstServer() {
     const params = { anime: { summary: this.state.unsaved_summary, wiki_url: this.state.unsaved_wiki_url }}
     fetch(origin + 'api/admin/animes/' + this.props.id, {
       method: 'PATCH',
@@ -68,12 +66,11 @@ export default class AdminAnimeBody extends Component {
           this.setState({
             editingBody: false,
             loadingBody: false,
-            summary: this.state.unsaved_summary,
-            wiki_url: this.state.unsaved_wiki_url,
             message_type: 'success',
             message: '更新しました'
           })
           setTimeout(this.handleTimeout, 2000)
+          this.props.handleLoadAnime()
         } else {
           this.setState({editingBody: true, summary: '', wiki_url: ''})
           res.json().then((json) => {
@@ -95,10 +92,10 @@ export default class AdminAnimeBody extends Component {
     let editing_jsx = (
       <div className='editing-body'>
         <div className='summary'>
-          <textarea autoFocus className='form-control' defaultValue={this.state.unsaved_summary || this.props.summary} disabled={this.state.loadingBody} onChange={this.handleChangeSummary} rows='4' />
+          <textarea autoFocus className='form-control' defaultValue={this.state.unsaved_summary || this.props.summary} disabled={this.state.loadingBody} name='summary' onChange={this.handleChangeSummary} rows='4' />
         </div>
         <div className='wiki-url'>
-          <input className='form-control' defaultValue={this.state.unsaved_wiki_url || this.props.wiki_url} disabled={this.state.loadingBody} onChange={this.handleChangeWikiUrl} type='text' />
+          <input className='form-control' defaultValue={this.state.unsaved_wiki_url || this.props.wiki_url} disabled={this.state.loadingBody} name='wiki-url' onChange={this.handleChangeWikiUrl} type='text' />
         </div>
         <div className='pull-right'>
           <LoadingImage loading={this.state.loadingBody} />
@@ -112,18 +109,19 @@ export default class AdminAnimeBody extends Component {
       </div>
     )
 
+    const htmlString = { __html: this.props.summary.replace(/\r?\n/g, '<br>') }
     let not_editing_jsx = (
       <div className='not-editing-body'>
         <div className='summary'>
-          {this.state.summary || this.props.summary}
+          <div dangerouslySetInnerHTML={htmlString} />
         </div>
         <div className='wiki-url'>
-          <a href={this.props.wiki_url} target='_blank'>{this.state.wiki_url || this.props.wiki_url}</a>
+          <a href={this.props.wiki_url} target='_blank'>{this.props.wiki_url}</a>
         </div>
         <div className='pull-right'>
-          <button className='btn btn-default' onClick={this.handleClickEditButton} type='submit'>
+          <span className='link' onClick={this.handleClickEditButton}>
             <span className='glyphicon glyphicon-pencil' />
-          </button>
+          </span>
         </div>
         <MessageBox message={this.state.message} message_type={this.state.message_type} />
       </div>
@@ -144,5 +142,6 @@ export default class AdminAnimeBody extends Component {
 AdminAnimeBody.propTypes = {
   id: PropTypes.number.isRequired,
   summary: PropTypes.string.isRequired,
-  wiki_url: PropTypes.string.isRequired
+  wiki_url: PropTypes.string.isRequired,
+  handleLoadAnime: PropTypes.func.isRequired
 }
