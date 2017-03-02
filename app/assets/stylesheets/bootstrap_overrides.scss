@@ -128,3 +128,14 @@ button {
 button:focus {
   outline: none;
 }
+
+.btn-danger {
+  background-color: #fff;
+  border-color: #ccc;
+  color: #333;
+}
+
+.btn-danger:hover {
+  background-color: #fff;
+  border-color: $orange-dark;
+}

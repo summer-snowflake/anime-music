@@ -1,8 +1,40 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
+import { Modal } from 'react-bootstrap'
 
 export default class AdminAnimeRow extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showModal: false
+    }
+    this.handleClickTrashIcon = this.handleClickTrashIcon.bind(this)
+    this.handleClickCancelButton = this.handleClickCancelButton.bind(this)
+  }
+
+  handleClickTrashIcon() {
+    this.setState({showModal: true})
+  }
+
+  handleClickCancelButton() {
+    this.setState({showModal: false})
+  }
+
   render() {
+    let modal_jsx = (
+      <Modal show={this.state.showModal} container={this}>
+        <Modal.Body>{'削除しますか？'}</Modal.Body>
+        <Modal.Footer>
+          <a className='btn btn-danger animate-button' onClick={this.handleClickCancelButton}>
+            {'はい'}
+          </a>
+          <a className='btn btn-default' onClick={this.handleClickCancelButton}>
+            {'いいえ'}
+          </a>
+        </Modal.Footer>
+      </Modal>
+    )
+
     return (
       <div className='media adminAnimeRowComponent' id={'anime-' + this.props.anime.id}>
         <div className='media-left'>
@@ -29,9 +61,10 @@ export default class AdminAnimeRow extends Component {
         </div>
         <div className='media-right'>
           <div className='pull-right'>
-            <span className='glyphicon glyphicon-trash' />
+            <span className='glyphicon glyphicon-trash link' onClick={this.handleClickTrashIcon} />
           </div>
         </div>
+        {modal_jsx}
       </div>
     )
   }
