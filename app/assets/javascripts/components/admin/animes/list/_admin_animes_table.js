@@ -8,6 +8,7 @@ export default class AdminAnimesTable extends Component {
     this.state = {
       animes: []
     }
+    this.loadAnimesFromServer = this.loadAnimesFromServer.bind(this)
   }
 
   componentDidMount() {
@@ -29,7 +30,7 @@ export default class AdminAnimesTable extends Component {
     return (
       <div className='adminAnimesTableComponent'>
         {this.state.animes.map((anime) =>
-          <AdminAnimeRow anime={anime} key={anime.id} />
+          <AdminAnimeRow anime={anime} handleLoad={this.loadAnimesFromServer} key={anime.id} />
         )}
       </div>
     )

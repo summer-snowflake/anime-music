@@ -4,6 +4,7 @@ import { shallow } from 'enzyme'
 import { Link } from 'react-router'
 import expectJSX from 'expect-jsx'
 import reactElementToJSXString from 'react-element-to-jsx-string'
+import { Modal } from 'react-bootstrap'
 
 expect.extend(expectJSX)
 
@@ -40,9 +41,20 @@ describe('AdminAnimeRowComponent', () => {
         </div>
         <div className='media-right'>
           <div className='pull-right'>
-            <span className='glyphicon glyphicon-trash' />
+            <span className='glyphicon glyphicon-trash link' onClick={jest.fn()} />
           </div>
         </div>
+        <Modal show={false}>
+          <Modal.Body>{'削除しますか？'}</Modal.Body>
+          <Modal.Footer>
+            <a className='btn btn-danger animate-button' onClick={jest.fn()}>
+              {'はい'}
+            </a>
+            <a className='btn btn-default' onClick={jest.fn()}>
+              {'いいえ'}
+            </a>
+          </Modal.Footer>
+        </Modal>
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)
