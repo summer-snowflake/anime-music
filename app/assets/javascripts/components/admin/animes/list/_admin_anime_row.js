@@ -27,6 +27,11 @@ export default class AdminAnimeRow extends Component {
             <a href={this.props.anime.wiki_url} target='_blank'>{this.props.anime.wiki_url}</a>
           </div>
         </div>
+        <div className='media-right'>
+          <div className='pull-right'>
+            <span className='glyphicon glyphicon-trash' />
+          </div>
+        </div>
       </div>
     )
   }

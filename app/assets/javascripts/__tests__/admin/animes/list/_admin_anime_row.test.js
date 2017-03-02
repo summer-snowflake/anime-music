@@ -38,6 +38,11 @@ describe('AdminAnimeRowComponent', () => {
             <a href='https://wiki.com' target='_blank'>{'https://wiki.com'}</a>
           </div>
         </div>
+        <div className='media-right'>
+          <div className='pull-right'>
+            <span className='glyphicon glyphicon-trash' />
+          </div>
+        </div>
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)
