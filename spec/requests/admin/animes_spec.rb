@@ -97,3 +97,36 @@ describe 'DELETE /api/admin/animes/:id', autodoc: true do
     expect(response.status).to eq 200
   end
 end
+
+describe 'POST /api/admin/animes', autodoc: true do
+  context '正しい値を設定した場合' do
+    let!(:params) do
+      { anime: { title: 'アニメタイトル', summary: 'アニメサマリ', wiki_url: 'wiki_url' } }
+    end
+
+    it '201が返ってくること' do
+      post '/api/admin/animes', params: params
+      expect(response.status).to eq 201
+      anime = Anime.last
+      expect(anime.title).to eq 'アニメタイトル'
+      expect(anime.summary).to eq 'アニメサマリ'
+      expect(anime.wiki_url).to eq 'wiki_url'
+    end
+  end
+
+  context 'タイトルを空で設定した場合' do
+    let!(:params) do
+      { anime: { title: '', summary: 'アニメサマリ', wiki_url: 'wiki_url' } }
+    end
+
+    it '422とエラーメッセージが返ってくること' do
+      post '/api/admin/animes', params: params
+      expect(response.status).to eq 422
+
+      json = {
+        error_messages: ['タイトルを入力してください']
+      }
+      expect(response.body).to be_json_as(json)
+    end
+  end
+end

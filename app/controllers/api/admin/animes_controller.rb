@@ -8,6 +8,15 @@ class Api::Admin::AnimesController < Api::BaseController
 
   def show; end
 
+  def create
+    @anime = Anime.new(anime_params)
+    if @anime.save
+      head :created
+    else
+      render_error @anime
+    end
+  end
+
   def update
     if @anime.update(anime_params)
       head :ok
