@@ -31,7 +31,7 @@ describe('AdminAnimeDetailComponent', () => {
                 <AdminAnimeThumbnail id={1} picture='https://picture.com' title='アニメタイトル' />
               </div>
               <div className="col-xs-6 col-md-9">
-                <AdminAnimeBody id={1} handleLoadAnime={jest.fn()} summary='アニメサマリ' wiki_url='https://wiki.com' />
+                <AdminAnimeBody handleLoadAnime={jest.fn()} id={1} summary='アニメサマリ' wiki_url='https://wiki.com' />
               </div>
             </div>
           </div>
