@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AdminAnimeRow from './_admin_anime_row.js'
+import AdminAnimeNewForm from './_admin_anime_new_form.js'
 import { origin } from './../../../../origin.js'
 
 export default class AdminAnimesTable extends Component {
@@ -29,6 +30,7 @@ export default class AdminAnimesTable extends Component {
   render() {
     return (
       <div className='adminAnimesTableComponent'>
+        <AdminAnimeNewForm handleLoad={this.loadAnimesFromServer} />
         {this.state.animes.map((anime) =>
           <AdminAnimeRow anime={anime} handleLoad={this.loadAnimesFromServer} key={anime.id} />
         )}

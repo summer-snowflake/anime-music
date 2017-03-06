@@ -17,6 +17,28 @@
     font-weight: bold;
     padding-bottom: 8px;
   }
+
+  .media-heading {
+    border-top: solid 5px;
+    border-color: rgba($blue, 0.2);
+    border-top-left-radius: 3px;
+  }
+
+  .media-body {
+    h4 {
+      padding-top: 10px;
+    }
+  }
+}
+
+.adminAnimeNewFormComponent {
+  padding: 10px;
+  background-color: rgba($blue, 0.1);
+  border-radius: 3px;
+  .media-left {
+    vertical-align: middle;
+  }
+  min-height: 75px;
 }
 
 .adminAnimeTitleComponent {
@@ -31,9 +53,7 @@
 
   .messageBoxComponent {
     position: absolute;
-    top: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
+    top: 14px;
   }
 }
 
@@ -74,11 +94,13 @@
 
 // === 共通 ===
 
-.messageBoxComponent {
-  display: inline-block;
-}
-
 .loadingImageComponent {
   padding: 10px;
   display: inline-block;
+}
+
+.messageBoxComponent {
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
 }

@@ -3,7 +3,7 @@ class Api::Admin::AnimesController < Api::BaseController
   before_action :set_anime, only: %i(show update destroy)
 
   def index
-    @animes = Anime.all
+    @animes = Anime.all.order(created_at: :desc)
   end
 
   def show; end

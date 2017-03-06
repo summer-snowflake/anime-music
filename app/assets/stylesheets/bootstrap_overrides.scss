@@ -72,15 +72,6 @@
 
 .media-body {
   padding-left: 20px;
-  h4 {
-    padding-top: 10px;
-  }
-}
-
-.media-heading {
-  border-top: solid 5px;
-  border-color: rgba($blue, 0.2);
-  border-top-left-radius: 3px;
 }
 
 .media-right {
@@ -138,4 +129,9 @@ button:focus {
 .btn-danger:hover {
   background-color: #fff;
   border-color: $orange-dark;
+}
+
+.btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled.focus, .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled].focus, fieldset[disabled] .btn-danger:hover, fieldset[disabled] .btn-danger:focus, fieldset[disabled] .btn-danger.focus {
+  background-color: #fff;
+  border-color: $orange;
 }
