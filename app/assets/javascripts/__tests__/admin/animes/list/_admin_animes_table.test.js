@@ -9,6 +9,7 @@ expect.extend(expectJSX)
 
 import AdminAnimesTable from '../../../../components/admin/animes/list/_admin_animes_table'
 import AdminAnimeRow from '../../../../components/admin/animes/list/_admin_anime_row'
+import AdminAnimeNewForm from '../../../../components/admin/animes/list/_admin_anime_new_form'
 jest.unmock('../../../../components/admin/animes/list/_admin_animes_table')
 
 describe('AdminAnimesTableComponent', () => {
@@ -23,6 +24,7 @@ describe('AdminAnimesTableComponent', () => {
     let actualElement = component.single(reactElementToJSXString)
     let expectedElement = (
       <div className='adminAnimesTableComponent'>
+        <AdminAnimeNewForm handleLoad={jest.fn()} />
         <AdminAnimeRow anime={anime1} handleLoad={jest.fn()} />
         <AdminAnimeRow anime={anime2} handleLoad={jest.fn()} />
       </div>

@@ -12,18 +12,18 @@ describe 'GET /api/admin/animes', autodoc: true do
     json = {
       animes: [
         {
-          id: anime1.id,
-          title: anime1.title,
-          summary: anime1.summary,
-          wiki_url: anime1.wiki_url,
-          picture: anime1.picture
-        },
-        {
           id: anime2.id,
           title: anime2.title,
           summary: anime2.summary,
           wiki_url: anime2.wiki_url,
           picture: anime2.picture
+        },
+        {
+          id: anime1.id,
+          title: anime1.title,
+          summary: anime1.summary,
+          wiki_url: anime1.wiki_url,
+          picture: anime1.picture
         }
       ]
     }
@@ -95,5 +95,38 @@ describe 'DELETE /api/admin/animes/:id', autodoc: true do
   it '200が返ってくること' do
     delete "/api/admin/animes/#{anime.id}"
     expect(response.status).to eq 200
+  end
+end
+
+describe 'POST /api/admin/animes', autodoc: true do
+  context '正しい値を設定した場合' do
+    let!(:params) do
+      { anime: { title: 'アニメタイトル', summary: 'アニメサマリ', wiki_url: 'wiki_url' } }
+    end
+
+    it '201が返ってくること' do
+      post '/api/admin/animes', params: params
+      expect(response.status).to eq 201
+      anime = Anime.last
+      expect(anime.title).to eq 'アニメタイトル'
+      expect(anime.summary).to eq 'アニメサマリ'
+      expect(anime.wiki_url).to eq 'wiki_url'
+    end
+  end
+
+  context 'タイトルを空で設定した場合' do
+    let!(:params) do
+      { anime: { title: '', summary: 'アニメサマリ', wiki_url: 'wiki_url' } }
+    end
+
+    it '422とエラーメッセージが返ってくること' do
+      post '/api/admin/animes', params: params
+      expect(response.status).to eq 422
+
+      json = {
+        error_messages: ['タイトルを入力してください']
+      }
+      expect(response.body).to be_json_as(json)
+    end
   end
 end
