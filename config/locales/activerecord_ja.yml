@@ -3,3 +3,5 @@ ja:
     attributes:
       anime:
         title: タイトル
+      actor:
+        name: 声優名

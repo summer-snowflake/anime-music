@@ -8,9 +8,22 @@ class Api::Admin::ActorsController < Api::BaseController
 
   def show; end
 
+  def create
+    @actor = Actor.new(actor_params)
+    if @actor.save
+      head :created
+    else
+      render_error @actor
+    end
+  end
+
   private
 
   def set_actor
     @actor = Actor.find(params[:id])
+  end
+
+  def actor_params
+    params.require(:actor).permit(:name)
   end
 end
