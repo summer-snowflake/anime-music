@@ -12,12 +12,12 @@ describe 'GET /api/admin/actors', autodoc: true do
     json = {
       actors: [
         {
-          id: actor1.id,
-          name: actor1.name
-        },
-        {
           id: actor2.id,
           name: actor2.name
+        },
+        {
+          id: actor1.id,
+          name: actor1.name
         }
       ]
     }

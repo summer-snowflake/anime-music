@@ -3,7 +3,7 @@ class Api::Admin::ActorsController < Api::BaseController
   before_action :set_actor, only: %i(show)
 
   def index
-    @actors = Actor.all
+    @actors = Actor.order(created_at: :desc)
   end
 
   def show; end
