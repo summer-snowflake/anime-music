@@ -56,4 +56,42 @@ feature '管理画面：アニメ', js: true do
 
     expect(Anime.find_by(id: anime1.id)).to be_nil
   end
+
+  scenario '正しい値と「登録」ボタンで、アニメを新規作成できること' do
+    within '.adminAnimeNewFormComponent' do
+      find('.btn-default').click
+      fill_in 'title', with: '新しいタイトル'
+      fill_in 'summary', with: '新しいあらすじ'
+      fill_in 'wiki-url', with: 'http://new-wiki.com'
+      find('.btn-danger').click
+      expect(page).to have_content '登録しました'
+    end
+
+    expect(Anime.last.title).to eq '新しいタイトル'
+  end
+
+  scenario '正しい値と「キャンセル」ボタンで、アニメが登録されないこと' do
+    within '.adminAnimeNewFormComponent' do
+      find('.btn-default').click
+      fill_in 'title', with: '新しいタイトル'
+      fill_in 'summary', with: '新しいあらすじ'
+      fill_in 'wiki-url', with: 'http://new-wiki.com'
+      find('.btn-default').click
+    end
+
+    expect(Anime.count).to eq 2
+  end
+
+  scenario '不正な値と「登録」ボタンで、アニメが登録されないこと' do
+    within '.adminAnimeNewFormComponent' do
+      find('.btn-default').click
+      fill_in 'title', with: ''
+      fill_in 'summary', with: '新しいあらすじ'
+      fill_in 'wiki-url', with: 'http://new-wiki.com'
+      find('.btn-danger').click
+      expect(page).to have_content 'タイトルを入力してください'
+    end
+
+    expect(Anime.count).to eq 2
+  end
 end
