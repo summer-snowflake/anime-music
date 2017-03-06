@@ -106,15 +106,15 @@ export default class AdminAnimeNewForm extends Component {
             </div>
             <div className='media-body'>
               <div className='form-group title'>
-                <label htmlFor='title'>タイトル</label>
+                <label htmlFor='title'>{'タイトル'}</label>
                 <input autoFocus className='form-control' disabled={this.state.loadingForm} id='title' name='title' onChange={this.handleChangeTitle} type='text' />
               </div>
               <div className='form-group summary'>
-                <label htmlFor='summary'>あらすじ</label>
+                <label htmlFor='summary'>{'あらすじ'}</label>
                 <textarea className='form-control' disabled={this.state.loadingForm} id='summary' name='summary' onChange={this.handleChangeSummary} rows='4' />
               </div>
               <div className='form-group wiki-url'>
-                <label htmlFor='wiki-url'>WikiのURL</label>
+                <label htmlFor='wiki-url'>{'WikiのURL'}</label>
                 <input className='form-control' disabled={this.state.loadingForm} name='wiki-url' onChange={this.handleChangeWikiUrl} type='text' />
               </div>
 
