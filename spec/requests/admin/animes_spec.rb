@@ -12,18 +12,18 @@ describe 'GET /api/admin/animes', autodoc: true do
     json = {
       animes: [
         {
-          id: anime1.id,
-          title: anime1.title,
-          summary: anime1.summary,
-          wiki_url: anime1.wiki_url,
-          picture: anime1.picture
-        },
-        {
           id: anime2.id,
           title: anime2.title,
           summary: anime2.summary,
           wiki_url: anime2.wiki_url,
           picture: anime2.picture
+        },
+        {
+          id: anime1.id,
+          title: anime1.title,
+          summary: anime1.summary,
+          wiki_url: anime1.wiki_url,
+          picture: anime1.picture
         }
       ]
     }
