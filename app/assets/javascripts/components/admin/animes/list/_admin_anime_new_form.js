@@ -75,7 +75,7 @@ export default class AdminAnimeNewForm extends Component {
             unsaved_summary: '',
             unsaved_wiki_url: '',
             message_type: 'success',
-            message: '登録しました'
+            message: '「' + this.state.unsaved_title + '」を登録しました'
           })
           this.props.handleLoad()
           setTimeout(this.handleTimeout, 2000)
