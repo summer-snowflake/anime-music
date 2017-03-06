@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { origin } from './../../../../origin.js'
 import MessageBox from './../../../common/_message_box'
+import AdminNewButtonField from './../../_admin_new_button_field'
 
 export default class AdminAnimeNewForm extends Component {
   constructor(props) {
@@ -14,16 +15,16 @@ export default class AdminAnimeNewForm extends Component {
       message_type: 'success',
       message: ''
     }
-    this.handleClickNewButton = this.handleClickNewButton.bind(this)
     this.handleClickCancelButton = this.handleClickCancelButton.bind(this)
     this.handleClickSubmitButton = this.handleClickSubmitButton.bind(this)
     this.handleChangeTitle = this.handleChangeTitle.bind(this)
     this.handleChangeSummary = this.handleChangeSummary.bind(this)
     this.handleChangeWikiUrl = this.handleChangeWikiUrl.bind(this)
     this.handleTimeout = this.handleTimeout.bind(this)
+    this.handleShowNewForm = this.handleShowNewForm.bind(this)
   }
 
-  handleClickNewButton() {
+  handleShowNewForm() {
     this.setState({showForm: true})
   }
 
@@ -128,11 +129,8 @@ export default class AdminAnimeNewForm extends Component {
             </div>
           </div>
           ) : (
-          <div>
-            <a className='btn btn-default' onClick={this.handleClickNewButton}>{'新規登録'}</a>
-            <MessageBox message={this.state.message} message_type={this.state.message_type} />
-          </div>
-        )}
+          <AdminNewButtonField message={this.state.message} message_type={this.state.message_type} onLoadNewForm={this.handleShowNewForm} />
+          )}
       </div>
     )
   }
