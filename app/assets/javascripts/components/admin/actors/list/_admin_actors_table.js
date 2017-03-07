@@ -1,5 +1,6 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import AdminActorRow from './_admin_actor_row.js'
+import AdminActorNewForm from './_admin_actor_new_form.js'
 import { origin } from './../../../../origin.js'
 
 export default class AdminActorsTable extends Component {
@@ -8,6 +9,7 @@ export default class AdminActorsTable extends Component {
     this.state = {
       actors: []
     }
+    this.loadActorsFromServer = this.loadActorsFromServer.bind(this)
   }
 
   componentDidMount() {
@@ -15,7 +17,7 @@ export default class AdminActorsTable extends Component {
   }
 
   loadActorsFromServer() {
-    fetch(origin + this.props.url)
+    fetch(origin + 'api/admin/actors')
       .then((res) => res.json())
       .then((res) => {
         this.setState({actors: res.actors})
@@ -28,7 +30,8 @@ export default class AdminActorsTable extends Component {
   render() {
     return (
       <div className='adminActorsTableComponent'>
-        <table className='table'>
+        <AdminActorNewForm handleLoad={this.loadActorsFromServer} />
+        <table className='table table-bordered'>
           <tbody>
             {this.state.actors.map((actor) =>
               <AdminActorRow actor={actor} key={actor.id} />
@@ -38,8 +41,4 @@ export default class AdminActorsTable extends Component {
       </div>
     )
   }
-}
-
-AdminActorsTable.propTypes = {
-  url: PropTypes.string.isRequired
 }

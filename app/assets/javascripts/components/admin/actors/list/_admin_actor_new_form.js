@@ -3,23 +3,19 @@ import { origin } from './../../../../origin.js'
 import MessageBox from './../../../common/_message_box'
 import AdminNewButtonField from './../../_admin_new_button_field'
 
-export default class AdminAnimeNewForm extends Component {
+export default class AdminActorNewForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
       showForm: false,
       loadingForm: false,
-      unsaved_title: '',
-      unsaved_summary: '',
-      unsaved_wiki_url: '',
+      unsaved_name: '',
       message_type: 'success',
       message: ''
     }
     this.handleClickCancelButton = this.handleClickCancelButton.bind(this)
     this.handleClickSubmitButton = this.handleClickSubmitButton.bind(this)
-    this.handleChangeTitle = this.handleChangeTitle.bind(this)
-    this.handleChangeSummary = this.handleChangeSummary.bind(this)
-    this.handleChangeWikiUrl = this.handleChangeWikiUrl.bind(this)
+    this.handleChangeName = this.handleChangeName.bind(this)
     this.handleTimeout = this.handleTimeout.bind(this)
     this.handleShowNewForm = this.handleShowNewForm.bind(this)
   }
@@ -34,32 +30,20 @@ export default class AdminAnimeNewForm extends Component {
 
   handleClickSubmitButton() {
     this.setState({loadingForm: true})
-    this.postAnimeAgainstServer()
+    this.postActorAgainstServer()
   }
 
-  handleChangeTitle(e) {
-    this.setState({unsaved_title: e.target.value})
-  }
-
-  handleChangeSummary(e) {
-    this.setState({unsaved_summary: e.target.value})
-  }
-
-  handleChangeWikiUrl(e) {
-    this.setState({unsaved_wiki_url: e.target.value})
+  handleChangeName(e) {
+    this.setState({unsaved_name: e.target.value})
   }
 
   handleTimeout() {
     this.setState({message: ''})
   }
 
-  postAnimeAgainstServer() {
-    const params = { anime: {
-      title: this.state.unsaved_title,
-      summary: this.state.unsaved_summary,
-      wiki_url: this.state.unsaved_wiki_url
-    }}
-    fetch(origin + 'api/admin/animes', {
+  postActorAgainstServer() {
+    const params = { actor: { name: this.state.unsaved_name }}
+    fetch(origin + 'api/admin/actors', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -72,16 +56,14 @@ export default class AdminAnimeNewForm extends Component {
           this.setState({
             showForm: false,
             loadingForm: false,
-            unsaved_title: '',
-            unsaved_summary: '',
-            unsaved_wiki_url: '',
+            unsaved_name: '',
             message_type: 'success',
-            message: '「' + this.state.unsaved_title + '」を登録しました'
+            message: '「' + this.state.unsaved_name + '」を登録しました'
           })
           this.props.handleLoad()
           setTimeout(this.handleTimeout, 2000)
         } else {
-          this.setState({editingTitle: true, title: ''})
+          this.setState({editingName: true, name: ''})
           res.json().then((json) => {
             this.setState({
               loadingForm: false,
@@ -99,26 +81,14 @@ export default class AdminAnimeNewForm extends Component {
 
   render() {
     return (
-      <div className='adminAnimeNewFormComponent new-form-field'>
+      <div className='adminActorNewFormComponent new-form-field'>
         {this.state.showForm ? (
           <div className='media'>
-            <div className='media-left'>
-              <span className='media-object no-image'>{'NO IMAGE'}</span>
-            </div>
             <div className='media-body'>
-              <div className='form-group title'>
-                <label htmlFor='title'>{'タイトル'}</label>
-                <input autoFocus className='form-control' disabled={this.state.loadingForm} id='title' name='title' onChange={this.handleChangeTitle} type='text' />
+              <div className='form-group name'>
+                <label htmlFor='name'>{'声優名'}</label>
+                <input autoFocus className='form-control' disabled={this.state.loadingForm} id='name' name='name' onChange={this.handleChangeName} type='text' />
               </div>
-              <div className='form-group summary'>
-                <label htmlFor='summary'>{'あらすじ'}</label>
-                <textarea className='form-control' disabled={this.state.loadingForm} id='summary' name='summary' onChange={this.handleChangeSummary} rows='4' />
-              </div>
-              <div className='form-group wiki-url'>
-                <label htmlFor='wiki-url'>{'WikiのURL'}</label>
-                <input className='form-control' disabled={this.state.loadingForm} name='wiki-url' onChange={this.handleChangeWikiUrl} type='text' />
-              </div>
-
               <a className='btn btn-danger animate-button' disabled={this.state.loadingForm} onClick={this.handleClickSubmitButton} type='submit'>
                 {'登録'}
               </a>
@@ -136,6 +106,6 @@ export default class AdminAnimeNewForm extends Component {
   }
 }
 
-AdminAnimeNewForm.propTypes = {
+AdminActorNewForm.propTypes = {
   handleLoad: PropTypes.func.isRequired
 }

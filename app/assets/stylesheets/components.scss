@@ -32,9 +32,6 @@
 }
 
 .adminAnimeNewFormComponent {
-  padding: 15px;
-  background-color: rgba($blue, 0.1);
-  border-radius: 3px;
   .media-left {
     vertical-align: middle;
   }
@@ -89,6 +86,12 @@
 
 .adminAnimeSeasonComponent {
   padding: 10px;
+}
+
+// === 声優 ===
+
+.adminActorsTableComponent table {
+  margin-top: 20px;
 }
 
 // === 共通 ===

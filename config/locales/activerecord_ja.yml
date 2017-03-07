@@ -3,3 +3,7 @@ ja:
     attributes:
       anime:
         title: タイトル
+        summary: あらすじ
+        wiki_url: WikiのURL
+      actor:
+        name: 声優名
