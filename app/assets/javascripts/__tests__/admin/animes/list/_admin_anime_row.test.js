@@ -4,10 +4,10 @@ import { shallow } from 'enzyme'
 import { Link } from 'react-router'
 import expectJSX from 'expect-jsx'
 import reactElementToJSXString from 'react-element-to-jsx-string'
-import { Modal } from 'react-bootstrap'
 
 expect.extend(expectJSX)
 
+import DestroyModal from '../../../../components/common/_destroy_modal'
 import AdminAnimeRow from '../../../../components/admin/animes/list/_admin_anime_row'
 jest.unmock('../../../../components/admin/animes/list/_admin_anime_row')
 
@@ -44,17 +44,7 @@ describe('AdminAnimeRowComponent', () => {
             <span className='glyphicon glyphicon-trash link' onClick={jest.fn()} />
           </div>
         </div>
-        <Modal show={false}>
-          <Modal.Body>{'削除しますか？'}</Modal.Body>
-          <Modal.Footer>
-            <a className='btn btn-danger animate-button' onClick={jest.fn()}>
-              {'はい'}
-            </a>
-            <a className='btn btn-default' onClick={jest.fn()}>
-              {'いいえ'}
-            </a>
-          </Modal.Footer>
-        </Modal>
+        <DestroyModal handleCancel={jest.fn()} handleDestroy={jest.fn()} showModal={false} />
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)

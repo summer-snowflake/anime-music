@@ -25,12 +25,8 @@ describe('AdminActorsTableComponent', () => {
     let expectedElement = (
       <div className='adminActorsTableComponent'>
         <AdminActorNewForm handleLoad={jest.fn()} />
-        <table className='table table-bordered'>
-          <tbody>
-            <AdminActorRow actor={actor1} />
-            <AdminActorRow actor={actor2} />
-          </tbody>
-        </table>
+        <AdminActorRow actor={actor1} handleLoad={jest.fn()} />
+        <AdminActorRow actor={actor2} handleLoad={jest.fn()} />
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)

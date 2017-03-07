@@ -40,6 +40,15 @@ describe 'GET /api/admin/actors/:id', autodoc: true do
   end
 end
 
+describe 'DELETE /api/admin/actors/:id', autodoc: true do
+  let!(:actor) { create(:actor) }
+
+  it '200が返ってくること' do
+    delete "/api/admin/actors/#{actor.id}"
+    expect(response.status).to eq 200
+  end
+end
+
 describe 'POST /api/admin/actors', autodoc: true do
   context '正しい値を設定した場合' do
     let!(:params) do

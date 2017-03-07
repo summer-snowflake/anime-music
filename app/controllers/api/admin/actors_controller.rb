@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class Api::Admin::ActorsController < Api::BaseController
-  before_action :set_actor, only: %i(show)
+  before_action :set_actor, only: %i(show destroy)
 
   def index
     @actors = Actor.order(created_at: :desc)
@@ -15,6 +15,11 @@ class Api::Admin::ActorsController < Api::BaseController
     else
       render_error @actor
     end
+  end
+
+  def destroy
+    @actor.destroy
+    head @actor.destroyed? ? :ok : :forbidden
   end
 
   private
