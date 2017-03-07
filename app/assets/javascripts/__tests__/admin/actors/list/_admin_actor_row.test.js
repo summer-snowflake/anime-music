@@ -22,7 +22,7 @@ describe('AdminActorRowComponent', () => {
     let expectedElement = (
       <div className='adminActorRowComponent media' id='actor-1'>
         <div className='media-body'>
-          <div className='name'>
+          <div className='media-heading name'>
             <Link to='/admin/actors/1'>{'声優 氏名'}</Link>
           </div>
         </div>

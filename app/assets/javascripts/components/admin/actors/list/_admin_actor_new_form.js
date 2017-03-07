@@ -84,7 +84,7 @@ export default class AdminActorNewForm extends Component {
       <div className='adminActorNewFormComponent new-form-field'>
         {this.state.showForm ? (
           <div className='media'>
-            <div className='media-body'>
+            <div className='media-body non-bordered'>
               <div className='form-group name'>
                 <label htmlFor='name'>{'声優名'}</label>
                 <input autoFocus className='form-control' disabled={this.state.loadingForm} id='name' name='name' onChange={this.handleChangeName} type='text' />

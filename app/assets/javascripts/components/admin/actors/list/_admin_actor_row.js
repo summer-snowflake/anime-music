@@ -61,7 +61,7 @@ export default class AdminActorRow extends Component {
     return (
       <div className='adminActorRowComponent media' id={'actor-' + this.props.actor.id}>
         <div className='media-body'>
-          <div className='name'>
+          <div className='media-heading name'>
             <Link to={'/admin/actors/' + this.props.actor.id}>{this.props.actor.name}</Link>
           </div>
         </div>

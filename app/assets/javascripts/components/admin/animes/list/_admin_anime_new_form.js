@@ -105,7 +105,7 @@ export default class AdminAnimeNewForm extends Component {
             <div className='media-left'>
               <span className='media-object no-image'>{'NO IMAGE'}</span>
             </div>
-            <div className='media-body'>
+            <div className='media-body non-bordered'>
               <div className='form-group title'>
                 <label htmlFor='title'>{'タイトル'}</label>
                 <input autoFocus className='form-control' disabled={this.state.loadingForm} id='title' name='title' onChange={this.handleChangeTitle} type='text' />
