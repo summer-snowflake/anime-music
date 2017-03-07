@@ -63,5 +63,3 @@ feature '管理画面：声優', js: true do
     expect(Actor.count).to eq 2
   end
 end
-
-
