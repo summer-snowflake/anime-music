@@ -81,7 +81,7 @@ export default class AdminActorNewForm extends Component {
 
   render() {
     return (
-      <div className='adminActorNewFormComponent'>
+      <div className='adminActorNewFormComponent new-form-field'>
         {this.state.showForm ? (
           <div className='media'>
             <div className='media-body'>

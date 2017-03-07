@@ -31,7 +31,7 @@ export default class AdminActorsTable extends Component {
     return (
       <div className='adminActorsTableComponent'>
         <AdminActorNewForm handleLoad={this.loadActorsFromServer} />
-        <table className='table'>
+        <table className='table table-bordered'>
           <tbody>
             {this.state.actors.map((actor) =>
               <AdminActorRow actor={actor} key={actor.id} />

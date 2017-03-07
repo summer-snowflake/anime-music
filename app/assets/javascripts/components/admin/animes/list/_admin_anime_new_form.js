@@ -99,7 +99,7 @@ export default class AdminAnimeNewForm extends Component {
 
   render() {
     return (
-      <div className='adminAnimeNewFormComponent'>
+      <div className='adminAnimeNewFormComponent new-form-field'>
         {this.state.showForm ? (
           <div className='media'>
             <div className='media-left'>
