@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       resources :animes, only: %i(index show create update destroy) do
         resources :seasons, only: %i(index)
       end
-      resources :actors, only: %i(index show create)
+      resources :actors, only: %i(index show create destroy)
     end
   end
 end
