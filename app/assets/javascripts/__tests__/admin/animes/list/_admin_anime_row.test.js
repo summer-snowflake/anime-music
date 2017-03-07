@@ -15,7 +15,7 @@ describe('AdminAnimeRowComponent', () => {
   it('propsに設定した値が出力される', () => {
     const anime = { id: 1, title: 'アニメタイトル', summary: 'アニメサマリ', wiki_url: 'https://wiki.com', picture: 'picture_url' }
     const component = shallow(
-      <AdminAnimeRow anime={anime} />
+      <AdminAnimeRow anime={anime} handleLoad={jest.fn()} />
     )
 
     let actualElement = component.single(reactElementToJSXString)

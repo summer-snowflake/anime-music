@@ -9,6 +9,7 @@ expect.extend(expectJSX)
 
 import AdminActorsTable from '../../../../components/admin/actors/list/_admin_actors_table'
 import AdminActorRow from '../../../../components/admin/actors/list/_admin_actor_row'
+import AdminActorNewForm from '../../../../components/admin/actors/list/_admin_actor_new_form'
 jest.unmock('../../../../components/admin/actors/list/_admin_actors_table')
 
 describe('AdminActorsTableComponent', () => {
@@ -23,7 +24,8 @@ describe('AdminActorsTableComponent', () => {
     let actualElement = component.single(reactElementToJSXString)
     let expectedElement = (
       <div className='adminActorsTableComponent'>
-        <table className='table'>
+        <AdminActorNewForm handleLoad={jest.fn()} />
+        <table className='table table-bordered'>
           <tbody>
             <AdminActorRow actor={actor1} />
             <AdminActorRow actor={actor2} />
