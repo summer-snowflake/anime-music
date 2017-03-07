@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
-import { Modal } from 'react-bootstrap'
 import { origin } from './../../../../origin.js'
+import DestroyModal from './../../../common/_destroy_modal'
 
 export default class AdminAnimeRow extends Component {
   constructor(props) {
@@ -44,20 +44,6 @@ export default class AdminAnimeRow extends Component {
   }
 
   render() {
-    let modal_jsx = (
-      <Modal show={this.state.showModal}>
-        <Modal.Body>{'削除しますか？'}</Modal.Body>
-        <Modal.Footer>
-          <a className='btn btn-danger animate-button' onClick={this.handleClickDeleteButton}>
-            {'はい'}
-          </a>
-          <a className='btn btn-default' onClick={this.handleClickCancelButton}>
-            {'いいえ'}
-          </a>
-        </Modal.Footer>
-      </Modal>
-    )
-
     return (
       <div className='media adminAnimeRowComponent' id={'anime-' + this.props.anime.id}>
         <div className='media-left'>
@@ -87,7 +73,7 @@ export default class AdminAnimeRow extends Component {
             <span className='glyphicon glyphicon-trash link' onClick={this.handleClickTrashIcon} />
           </div>
         </div>
-        {modal_jsx}
+        <DestroyModal showModal={this.state.showModal} closeModal={this.handleClickCancelButton} submitModal={this.handleClickDeleteButton} />
       </div>
     )
   }
