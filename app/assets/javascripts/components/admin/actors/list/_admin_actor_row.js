@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
-import { Modal } from 'react-bootstrap'
 import { origin } from './../../../../origin.js'
 import DestroyModal from './../../../common/_destroy_modal'
 
@@ -11,19 +10,19 @@ export default class AdminActorRow extends Component {
       showModal: false
     }
     this.handleClickTrashIcon = this.handleClickTrashIcon.bind(this)
-    this.handleClickCancelButton = this.handleClickCancelButton.bind(this)
-    this.handleClickDeleteButton = this.handleClickDeleteButton.bind(this)
+    this.onClickCancelButton = this.onClickCancelButton.bind(this)
+    this.onClickDeleteButton = this.onClickDeleteButton.bind(this)
   }
 
   handleClickTrashIcon() {
     this.setState({showModal: true})
   }
 
-  handleClickCancelButton() {
+  onClickCancelButton() {
     this.setState({showModal: false})
   }
 
-  handleClickDeleteButton() {
+  onClickDeleteButton() {
     fetch(origin + 'api/admin/actors/' + this.props.actor.id, {
       method: 'DELETE',
       headers: {
@@ -57,7 +56,7 @@ export default class AdminActorRow extends Component {
             <span className='glyphicon glyphicon-trash link' onClick={this.handleClickTrashIcon} />
           </div>
         </div>
-        <DestroyModal showModal={this.state.showModal} closeModal={this.handleClickCancelButton} submitModal={this.handleClickDeleteButton} />
+        <DestroyModal handleCancel={this.onClickCancelButton} handleDestroy={this.onClickDeleteButton} showModal={this.state.showModal} />
       </div>
     )
   }

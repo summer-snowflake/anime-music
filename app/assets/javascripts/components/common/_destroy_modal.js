@@ -9,11 +9,11 @@ export default class DestroyModal extends Component {
   }
 
   handleClickDeleteButton() {
-    this.props.submitModal()
+    this.props.handleDestroy()
   }
 
   handleClickCancelButton() {
-    this.props.closeModal()
+    this.props.handleCancel()
   }
 
   render () {
@@ -37,6 +37,6 @@ export default class DestroyModal extends Component {
 
 DestroyModal.propTypes = {
   showModal: PropTypes.bool.isRequired,
-  closeModal: PropTypes.func.isRequired,
-  submitModal: PropTypes.func.isRequired
+  handleCancel: PropTypes.func.isRequired,
+  handleDestroy: PropTypes.func.isRequired
 }

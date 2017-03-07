@@ -10,19 +10,19 @@ export default class AdminAnimeRow extends Component {
       showModal: false
     }
     this.handleClickTrashIcon = this.handleClickTrashIcon.bind(this)
-    this.handleClickCancelButton = this.handleClickCancelButton.bind(this)
-    this.handleClickDeleteButton = this.handleClickDeleteButton.bind(this)
+    this.onClickCancelButton = this.onClickCancelButton.bind(this)
+    this.onClickDeleteButton = this.onClickDeleteButton.bind(this)
   }
 
   handleClickTrashIcon() {
     this.setState({showModal: true})
   }
 
-  handleClickCancelButton() {
+  onClickCancelButton() {
     this.setState({showModal: false})
   }
 
-  handleClickDeleteButton() {
+  onClickDeleteButton() {
     fetch(origin + 'api/admin/animes/' + this.props.anime.id, {
       method: 'DELETE',
       headers: {
@@ -73,7 +73,7 @@ export default class AdminAnimeRow extends Component {
             <span className='glyphicon glyphicon-trash link' onClick={this.handleClickTrashIcon} />
           </div>
         </div>
-        <DestroyModal showModal={this.state.showModal} closeModal={this.handleClickCancelButton} submitModal={this.handleClickDeleteButton} />
+        <DestroyModal handleCancel={this.onClickCancelButton} handleDestroy={this.onClickDeleteButton} showModal={this.state.showModal} />
       </div>
     )
   }

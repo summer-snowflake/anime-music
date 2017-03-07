@@ -31,7 +31,7 @@ describe('AdminActorRowComponent', () => {
             <span className='glyphicon glyphicon-trash link' onClick={jest.fn()} />
           </div>
         </div>
-        <DestroyModal closeModal={jest.fn()} showModal={false} submitModal={jest.fn()} />
+        <DestroyModal handleCancel={jest.fn()} handleDestroy={jest.fn()} showModal={false} />
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)
