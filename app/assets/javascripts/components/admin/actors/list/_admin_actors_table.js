@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import AdminActorRow from './_admin_actor_row.js'
 import AdminActorNewForm from './_admin_actor_new_form.js'
 import { origin } from './../../../../origin.js'
