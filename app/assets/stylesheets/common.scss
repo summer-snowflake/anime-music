@@ -46,6 +46,10 @@ span.link {
   }
 }
 
+.editing-title {
+  display: inline-block;
+}
+
 .not-editing-body {
   span.glyphicon-pencil {
     visibility: hidden;
@@ -58,11 +62,6 @@ span.link {
   span.glyphicon-pencil {
     visibility: visible;
   }
-}
-
-.editing-title {
-  display: inline-block;
-  position: relative;
 }
 
 .thumbnail {
