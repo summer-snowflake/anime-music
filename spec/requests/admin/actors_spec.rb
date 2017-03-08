@@ -79,3 +79,33 @@ describe 'POST /api/admin/actors', autodoc: true do
     end
   end
 end
+
+describe 'PATCH /api/admin/actors/:id' do
+  let!(:actor) { create(:actor) }
+
+  context 'タイトルの変更' do
+    let!(:params) { { actor: { id: actor.id, name: name } } }
+    let!(:name) { '声優 名前' }
+
+    context 'タイトルが空の場合' do
+      let(:name) { '' }
+
+      it '422とエラーメッセージが返ってくること' do
+        patch "/api/admin/actors/#{actor.id}", params: params
+        expect(response.status).to eq 422
+
+        json = {
+          error_messages: ['声優名を入力してください']
+        }
+        expect(response.body).to be_json_as(json)
+      end
+    end
+
+    context 'タイトルが正常値の場合' do
+      it '200が返ってくること' do
+        patch "/api/admin/actors/#{actor.id}", params: params
+        expect(response.status).to eq 200
+      end
+    end
+  end
+end
