@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import { origin } from './../../../../origin.js'
 
 import MessageBox from './../../../common/_message_box'
 import LoadingImage from './../../../common/_loading_image'

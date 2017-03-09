@@ -23,7 +23,7 @@ describe('AdminActorDetailComponent', () => {
       <div className='adminActorDetailComponent'>
         <div className='panel panel-default'>
           <div className='panel-body'>
-            <AdminActorTitle ref='name' handleUpdateName={jest.fn()} name='声優 氏名' />
+            <AdminActorTitle handleUpdateName={jest.fn()} name='声優 氏名' ref='name' />
           </div>
         </div>
       </div>

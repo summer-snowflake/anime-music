@@ -10,14 +10,14 @@ export default class AdminActorDetail extends Component {
       actor: { name: '' },
       editingTitle: false
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   componentDidMount() {
     this.loadActorsFromServer()
   }
 
-  handleSubmit(params) {
+  onSubmit(params) {
     this.updateActorAgainstServer(params)
   }
 
@@ -66,7 +66,7 @@ export default class AdminActorDetail extends Component {
         <div className='panel panel-default'>
           <div className='panel-body'>
             <AdminActorTitle
-              handleUpdateName={this.handleSubmit}
+              handleUpdateName={this.onSubmit}
               name={this.state.actor.name}
               ref='name'
             />
