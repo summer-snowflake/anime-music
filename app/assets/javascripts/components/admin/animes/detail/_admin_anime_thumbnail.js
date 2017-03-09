@@ -19,7 +19,7 @@ export default class AdminAnimeThumbnail extends Component {
 }
 
 AdminAnimeThumbnail.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired
 }

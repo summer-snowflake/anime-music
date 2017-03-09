@@ -19,6 +19,7 @@ export default class AdminActorTitle extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleTimeout = this.handleTimeout.bind(this)
     this.updateSuccess = this.updateSuccess.bind(this)
+    this.updateFailed = this.updateFailed.bind(this)
   }
 
   handleClickEditTitleIcon() {

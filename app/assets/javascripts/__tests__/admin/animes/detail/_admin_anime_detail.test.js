@@ -25,13 +25,13 @@ describe('AdminAnimeDetailComponent', () => {
       <div className='adminAnimeDetailComponent'>
         <div className='panel panel-default'>
           <div className='panel-body'>
-            <AdminAnimeTitle id={1} title='アニメタイトル' />
+            <AdminAnimeTitle handleUpdateTitle={jest.fn()} title='アニメタイトル' ref='title' />
             <div className="row">
               <div className="col-xs-6 col-md-3">
-                <AdminAnimeThumbnail id={1} picture='https://picture.com' title='アニメタイトル' />
+                <AdminAnimeThumbnail id='1' picture='https://picture.com' title='アニメタイトル' />
               </div>
               <div className="col-xs-6 col-md-9">
-                <AdminAnimeBody handleLoadAnime={jest.fn()} id={1} summary='アニメサマリ' wiki_url='https://wiki.com' />
+                <AdminAnimeBody handleLoadAnime={jest.fn()} id='1' summary='アニメサマリ' wiki_url='https://wiki.com' />
               </div>
             </div>
           </div>

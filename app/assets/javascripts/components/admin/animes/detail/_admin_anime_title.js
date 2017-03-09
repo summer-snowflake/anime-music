@@ -10,7 +10,6 @@ export default class AdminAnimeTitle extends Component {
     this.state = {
       editingTitle: false,
       loadingTitle: false,
-      title: this.props.title,
       unsaved_title: this.props.title,
       message_type: 'success',
       message: ''
@@ -20,6 +19,8 @@ export default class AdminAnimeTitle extends Component {
     this.handleChangeTitle = this.handleChangeTitle.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleTimeout = this.handleTimeout.bind(this)
+    this.updateSuccess = this.updateSuccess.bind(this)
+    this.updateFailed = this.updateFailed.bind(this)
   }
 
   handleClickEditTitleIcon() {
@@ -34,47 +35,11 @@ export default class AdminAnimeTitle extends Component {
     this.setState({message: ''})
   }
 
-  loadAnimeTitleFromServer() {
-    const params = { anime: { title: this.state.unsaved_title }}
-    fetch(origin + 'api/admin/animes/' + this.props.id, {
-      method: 'PATCH',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(params)
-    })
-      .then((res) => {
-        if(res.status == '200') {
-          this.setState({
-            editingTitle: false,
-            loadingTitle: false,
-            title: this.state.unsaved_title,
-            message_type: 'success',
-            message: '更新しました'
-          })
-          setTimeout(this.handleTimeout, 2000)
-        } else {
-          this.setState({editingTitle: true, title: ''})
-          res.json().then((json) => {
-            this.setState({
-              loadingTitle: false,
-              message_type: 'danger',
-              message: json.error_messages[0]
-            })
-            setTimeout(this.handleTimeout, 2000)
-          })
-        }
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
-
   handleSubmit(e) {
     e.preventDefault()
     this.setState({loadingTitle: true})
-    this.loadAnimeTitleFromServer()
+    this.props.handleUpdateTitle({title: this.state.unsaved_title})
+    //this.loadAnimeTitleFromServer()
   }
 
   handleBlur() {
@@ -83,6 +48,25 @@ export default class AdminAnimeTitle extends Component {
     } else {
       this.setState({editingTitle: false, unsaved_title: this.state.unsaved_title})
     }
+  }
+
+  updateSuccess() {
+    this.setState({
+      editingTitle: false,
+      loadingTitle: false,
+      message_type: 'success',
+      message: '更新しました'
+    })  
+    setTimeout(this.handleTimeout, 2000)
+  }
+
+  updateFailed(message) {
+    this.setState({
+      loadingTitle: false,
+      message_type: 'danger',
+      message: message
+    })  
+    setTimeout(this.handleTimeout, 2000)
   }
 
   render() {
@@ -96,7 +80,7 @@ export default class AdminAnimeTitle extends Component {
 
     let not_editing_jsx = (
       <div className='not-editing-title'>
-        <b className='panel-title'>{this.state.title || this.props.title}</b>
+        <b className='panel-title'>{this.props.title}</b>
         <span className='link right-icon' onClick={this.handleClickEditTitleIcon}>
           <span className='glyphicon glyphicon-pencil' />
         </span>
@@ -119,6 +103,6 @@ export default class AdminAnimeTitle extends Component {
 }
 
 AdminAnimeTitle.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  handleUpdateTitle: PropTypes.func.isRequired
 }

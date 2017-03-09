@@ -140,7 +140,7 @@ export default class AdminAnimeBody extends Component {
 }
 
 AdminAnimeBody.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
   wiki_url: PropTypes.string.isRequired,
   handleLoadAnime: PropTypes.func.isRequired

@@ -13,7 +13,7 @@ jest.unmock('../../../../components/admin/animes/detail/_admin_anime_thumbnail')
 describe('AdminAnimesTableComponent', () => {
   it('DOMが出力されること', () => {
     const component = shallow(
-      <AdminAnimesThumbnail id={1} picture='api/admin/animes' title='アニメタイトル' />
+      <AdminAnimesThumbnail id='1' picture='api/admin/animes' title='アニメタイトル' />
     )
 
     let actualElement = component.single(reactElementToJSXString)
