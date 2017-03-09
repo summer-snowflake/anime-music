@@ -75,7 +75,7 @@ export default class AdminAnimeDetail extends Component {
       <div className='adminAnimeDetailComponent'>
         <div className='panel panel-default'>
           <div className='panel-body'>
-            <AdminAnimeTitle handleUpdateTitle={this.onSubmit} title={this.state.anime.title} ref='title' />
+            <AdminAnimeTitle handleUpdateTitle={this.onSubmit} ref='title' title={this.state.anime.title} />
             <div className="row">
               <div className="col-xs-6 col-md-3">
                 <AdminAnimeThumbnail handleUpdateThumbnail={this.onSubmit} picture={this.state.anime.picture || ''} title={this.state.anime.title} />
