@@ -26,7 +26,7 @@ feature '管理画面：声優', js: true do
     end
 
     expect(current_path).to eq admin_actor_path(id: actor1.id)
-    within '.panel-heading' do
+    within '.panel-body' do
       expect(page).to have_content actor1.name
     end
   end

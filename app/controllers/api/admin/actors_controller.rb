@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class Api::Admin::ActorsController < Api::BaseController
-  before_action :set_actor, only: %i(show destroy)
+  before_action :set_actor, only: %i(show update destroy)
 
   def index
     @actors = Actor.order(created_at: :desc)
@@ -12,6 +12,14 @@ class Api::Admin::ActorsController < Api::BaseController
     @actor = Actor.new(actor_params)
     if @actor.save
       head :created
+    else
+      render_error @actor
+    end
+  end
+
+  def update
+    if @actor.update(actor_params)
+      head :ok
     else
       render_error @actor
     end

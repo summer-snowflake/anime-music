@@ -27,14 +27,13 @@
 
 .adminAnimeTitleComponent {
   height: 50px;
-  form {
-    display: inline-block;
+  .messageBoxComponent {
+    position: absolute;
+    top: 14px;
   }
+}
 
-  .loadingImageComponent {
-    padding-left: 20px;
-  }
-
+.adminActorTitleComponent {
   .messageBoxComponent {
     position: absolute;
     top: 14px;
@@ -85,7 +84,7 @@
 // === 共通 ===
 
 .loadingImageComponent {
-  padding: 10px;
+  padding-left: 20px;
   display: inline-block;
 }
 
