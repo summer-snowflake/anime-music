@@ -20,7 +20,7 @@ describe('AdminActorComponent', () => {
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
       <div className='adminActorComponent'>
-        <AdminActorDetail url='api/admin/actors/1' />
+        <AdminActorDetail actor_id={1} />
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)
