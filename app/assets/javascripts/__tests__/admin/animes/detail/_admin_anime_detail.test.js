@@ -28,10 +28,10 @@ describe('AdminAnimeDetailComponent', () => {
             <AdminAnimeTitle handleUpdateTitle={jest.fn()} title='アニメタイトル' ref='title' />
             <div className="row">
               <div className="col-xs-6 col-md-3">
-                <AdminAnimeThumbnail id='1' picture='https://picture.com' title='アニメタイトル' />
+                <AdminAnimeThumbnail handleUpdateThumbnail={jest.fn()} picture='https://picture.com' title='アニメタイトル' />
               </div>
               <div className="col-xs-6 col-md-9">
-                <AdminAnimeBody handleLoadAnime={jest.fn()} id='1' summary='アニメサマリ' wiki_url='https://wiki.com' />
+                <AdminAnimeBody handleUpdateBody={jest.fn()} ref='body' summary='アニメサマリ' wiki_url='https://wiki.com' />
               </div>
             </div>
           </div>

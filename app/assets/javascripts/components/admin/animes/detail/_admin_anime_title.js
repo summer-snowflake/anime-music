@@ -39,7 +39,6 @@ export default class AdminAnimeTitle extends Component {
     e.preventDefault()
     this.setState({loadingTitle: true})
     this.props.handleUpdateTitle({title: this.state.unsaved_title})
-    //this.loadAnimeTitleFromServer()
   }
 
   handleBlur() {

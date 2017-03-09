@@ -49,11 +49,18 @@ export default class AdminAnimeDetail extends Component {
           if(params.title) {
             this.refs.title.updateSuccess()
           }
+          if(params.summary) {
+            this.refs.body.updateSuccess()
+          }
         } else {
           this.setState({editingTitle: true, title: ''})
           res.json().then((json) => {
             if(params.title != undefined) {
               this.refs.title.updateFailed(json.error_messages[0])
+            }
+            console.log(params)
+            if(params.summary != undefined) {
+              this.refs.body.updateFailed(json.error_messages[0])
             }
           })
         }
@@ -71,10 +78,10 @@ export default class AdminAnimeDetail extends Component {
             <AdminAnimeTitle handleUpdateTitle={this.onSubmit} title={this.state.anime.title} ref='title' />
             <div className="row">
               <div className="col-xs-6 col-md-3">
-                <AdminAnimeThumbnail id={this.props.anime_id} picture={this.state.anime.picture || ''} title={this.state.anime.title} />
+                <AdminAnimeThumbnail handleUpdateThumbnail={this.onSubmit} picture={this.state.anime.picture || ''} title={this.state.anime.title} />
               </div>
               <div className="col-xs-6 col-md-9">
-                <AdminAnimeBody handleLoadAnime={this.loadAnimeFromServer} id={this.props.anime_id} summary={this.state.anime.summary} wiki_url={this.state.anime.wiki_url} />
+                <AdminAnimeBody handleUpdateBody={this.onSubmit} ref='body' summary={this.state.anime.summary} wiki_url={this.state.anime.wiki_url} />
               </div>
             </div>
           </div>

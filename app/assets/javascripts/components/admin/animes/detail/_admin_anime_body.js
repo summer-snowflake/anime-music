@@ -20,6 +20,8 @@ export default class AdminAnimeBody extends Component {
     this.handleChangeSummary = this.handleChangeSummary.bind(this)
     this.handleChangeWikiUrl = this.handleChangeWikiUrl.bind(this)
     this.handleTimeout = this.handleTimeout.bind(this)
+    this.updateSuccess = this.updateSuccess.bind(this)
+    this.updateFailed = this.updateFailed.bind(this)
   }
 
   handleTimeout() {
@@ -48,44 +50,26 @@ export default class AdminAnimeBody extends Component {
 
   handleClickSubmitButton() {
     this.setState({loadingBody: true})
-    this.loadAnimeBodyAgainstServer()
+    this.props.handleUpdateBody({summary: this.state.unsaved_summary, wiki_url: this.state.unsaved_wiki_url})
   }
 
-  loadAnimeBodyAgainstServer() {
-    const params = { anime: { summary: this.state.unsaved_summary, wiki_url: this.state.unsaved_wiki_url }}
-    fetch(origin + 'api/admin/animes/' + this.props.id, {
-      method: 'PATCH',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(params)
+  updateSuccess() {
+    this.setState({
+      editingBody: false,
+      loadingBody: false,
+      message_type: 'success',
+      message: '更新しました'
     })
-      .then((res) => {
-        if(res.status == '200') {
-          this.setState({
-            editingBody: false,
-            loadingBody: false,
-            message_type: 'success',
-            message: '更新しました'
-          })
-          setTimeout(this.handleTimeout, 2000)
-          this.props.handleLoadAnime()
-        } else {
-          this.setState({editingBody: true, summary: '', wiki_url: ''})
-          res.json().then((json) => {
-            this.setState({
-              loadingBody: false,
-              message_type: 'danger',
-              message: json.error_messages[0]
-            })
-            setTimeout(this.handleTimeout, 2000)
-          })
-        }
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+    setTimeout(this.handleTimeout, 2000)
+  }
+
+  updateFailed(message) {
+    this.setState({
+      loadingBody: false,
+      message_type: 'danger',
+      message: message
+    })
+    setTimeout(this.handleTimeout, 2000)
   }
 
   render() {
@@ -140,8 +124,7 @@ export default class AdminAnimeBody extends Component {
 }
 
 AdminAnimeBody.propTypes = {
-  id: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
   wiki_url: PropTypes.string.isRequired,
-  handleLoadAnime: PropTypes.func.isRequired
+  handleUpdateBody: PropTypes.func.isRequired
 }
