@@ -39,7 +39,12 @@ describe 'POST /api/admin/animes/:anime_id/seasons', autodoc: true do
   let!(:three_months_ago) { 3.months.ago.to_date }
   let!(:one_month_ago) { 1.month.ago.to_date }
   let!(:params) do
-    { season: { phase: season_phase, name: season_name, start_on: three_months_ago, end_on: one_month_ago } }
+    { season: {
+      phase: season_phase,
+      name: season_name,
+      start_on: three_months_ago,
+      end_on: one_month_ago
+    } }
   end
 
   context '正しい値を設定した場合' do
