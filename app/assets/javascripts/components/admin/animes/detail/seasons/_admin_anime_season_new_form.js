@@ -142,8 +142,8 @@ export default class AdminAnimeSeasonNewForm extends Component {
                 <a className='btn btn-default cancel-button' disabled={this.state.loadingForm} onClick={this.handleClickCancelButton} type='submit'>
                   {'キャンセル'}
                 </a>
+                <MessageBox message={this.state.message} message_type={this.state.message_type} />
               </div>
-              <MessageBox message={this.state.message} message_type={this.state.message_type} />
             </div>
           </div>
           ) : (
