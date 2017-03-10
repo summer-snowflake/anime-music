@@ -111,17 +111,6 @@ export default class AdminAnimeSeasonNewForm extends Component {
           <div className='media'>
             <div className='media-body non-bordered'>
               <div className='form-horizontal'>
-                <div className='form-group'>
-                  <div className='col-sm-2'>
-                    <input className='form-control' disabled={this.state.loadingForm} id='start_on' name='start_on' onChange={this.handleChangeStartOn} type='date' />
-                  </div>
-                  <div className='col-sm-1'>
-                    <span className='control-label'>{'〜'}</span>
-                  </div>
-                  <div className='col-sm-2'>
-                    <input className='form-control' disabled={this.state.loadingForm} id='end_on' name='end_on' onChange={this.handleChangeEndOn} type='date' />
-                  </div>
-                </div>
                 <div className='col-sm-2'>
                   <div className='form-group phase'>
                     <span>{'第'}</span>
@@ -134,16 +123,25 @@ export default class AdminAnimeSeasonNewForm extends Component {
                     <input autoFocus className='form-control' disabled={this.state.loadingForm} id='name' name='name' onChange={this.handleChangeName} type='text' />
                   </div>
                 </div>
+                <div className='form-group'>
+                  <div className='col-sm-offset-2 col-sm-2'>
+                    <input className='form-control' disabled={this.state.loadingForm} id='start_on' name='start_on' onChange={this.handleChangeStartOn} type='date' />
+                  </div>
+                  <div className='col-sm-1'>
+                    <span className='control-label'>{'〜'}</span>
+                  </div>
+                  <div className='col-sm-2'>
+                    <input className='form-control' disabled={this.state.loadingForm} id='end_on' name='end_on' onChange={this.handleChangeEndOn} type='date' />
+                  </div>
+                </div>
               </div>
-              <div className='form-group'>
-                <a className='btn btn-danger animate-button' disabled={this.state.loadingForm} onClick={this.handleClickSubmitButton} type='submit'>
-                  {'登録'}
-                </a>
-                <a className='btn btn-default cancel-button' disabled={this.state.loadingForm} onClick={this.handleClickCancelButton} type='submit'>
-                  {'キャンセル'}
-                </a>
-                <MessageBox message={this.state.message} message_type={this.state.message_type} />
-              </div>
+              <a className='btn btn-danger animate-button' disabled={this.state.loadingForm} onClick={this.handleClickSubmitButton} type='submit'>
+                {'登録'}
+              </a>
+              <a className='btn btn-default cancel-button' disabled={this.state.loadingForm} onClick={this.handleClickCancelButton} type='submit'>
+                {'キャンセル'}
+              </a>
+              <MessageBox message={this.state.message} message_type={this.state.message_type} />
             </div>
           </div>
           ) : (
