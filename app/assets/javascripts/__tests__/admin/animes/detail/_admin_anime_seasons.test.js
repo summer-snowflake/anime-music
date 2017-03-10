@@ -24,7 +24,7 @@ describe('AdminAnimeSeasonsComponent', () => {
     let actualElement = component.single(reactElementToJSXString)
     let expectedElement = (
       <div className='adminAnimeSeasonsComponent'>
-        <AdminAnimeSeasonNewForm handleLoadSeasons={jest.fn()} />
+        <AdminAnimeSeasonNewForm anime_id='1' handleLoadSeasons={jest.fn()} />
         <AdminAnimeSeason key={1} season={season1} />
         <AdminAnimeSeason key={2} season={season2} />
       </div>
