@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import AdminAnimeDetail from './_admin_anime_detail.js'
-import AdminAnimeSeasons from './_admin_anime_seasons.js'
+import AdminAnimeSeasons from './seasons/_admin_anime_seasons.js'
 
 export default class AdminAnime extends Component {
   render() {

@@ -5,8 +5,8 @@ import expectJSX from 'expect-jsx'
 
 expect.extend(expectJSX)
 
-import AdminAnimeSeason from '../../../../components/admin/animes/detail/_admin_anime_season'
-jest.unmock('../../../../components/admin/animes/detail/_admin_anime_season')
+import AdminAnimeSeason from '../../../../components/admin/animes/detail/seasons/_admin_anime_season'
+jest.unmock('../../../../components/admin/animes/detail/seasons/_admin_anime_season')
 
 describe('AdminAnimeSeasonComponent', () => {
   it('propsに設定した値が表示されること', () => {
