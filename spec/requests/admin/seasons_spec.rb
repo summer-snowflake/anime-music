@@ -67,4 +67,18 @@ describe 'POST /api/admin/animes/:anime_id/seasons', autodoc: true do
       expect(response.body).to be_json_as(json)
     end
   end
+
+  context 'シーズンの期にマイナス値を設定した場合' do
+    let(:season_phase) { '-1' }
+
+    it '422とエラーメッセージが返ってくること' do
+      post "/api/admin/animes/#{anime.id}/seasons", params: params
+      expect(response.status).to eq 422
+
+      json = {
+        error_messages: ['シーズンの期は1以上の値にしてください']
+      }
+      expect(response.body).to be_json_as(json)
+    end
+  end
 end

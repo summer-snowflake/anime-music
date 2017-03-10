@@ -7,5 +7,6 @@ RSpec.describe Season, type: :model do
 
   describe 'バリデーション' do
     it { is_expected.to validate_presence_of(:phase) }
+    it { is_expected.to validate_uniqueness_of(:phase).scoped_to(:anime_id) }
   end
 end
