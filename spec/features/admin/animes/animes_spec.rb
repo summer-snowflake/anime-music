@@ -29,22 +29,6 @@ feature '管理画面：アニメ', js: true do
     expect(page).to have_content anime1.wiki_url
   end
 
-  context 'シーズンが登録されていた場合' do
-    let!(:season1) { create(:season, anime: anime1) }
-    let!(:season2) { create(:season, anime: anime1) }
-    let!(:season3) { create(:season, anime: anime2) }
-
-    scenario 'アニメ詳細画面でシーズン一覧が表示されること' do
-      visit admin_anime_path(id: anime1.id)
-
-      within '.adminAnimeSeasonsComponent' do
-        expect(page).to have_content season1.name
-        expect(page).to have_content season2.name
-        expect(page).not_to have_content season3.name
-      end
-    end
-  end
-
   scenario 'アニメ一覧から対象のアニメを削除できること' do
     within "#anime-#{anime1.id}" do
       find('.glyphicon-trash').click
