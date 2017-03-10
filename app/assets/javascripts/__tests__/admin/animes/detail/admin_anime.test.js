@@ -7,7 +7,7 @@ expect.extend(expectJSX)
 
 import AdminAnime from '../../../../components/admin/animes/detail/admin_anime'
 import AdminAnimeDetail from '../../../../components/admin/animes/detail/_admin_anime_detail'
-import AdminAnimeSeasons from '../../../../components/admin/animes/detail/_admin_anime_seasons'
+import AdminAnimeSeasons from '../../../../components/admin/animes/detail/seasons/_admin_anime_seasons'
 jest.unmock('../../../../components/admin/animes/detail/admin_anime')
 
 describe('AdminAnimeComponent', () => {

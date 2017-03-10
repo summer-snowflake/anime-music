@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
-import { origin } from './../../../../origin.js'
+import { origin } from './../../../../../origin.js'
 import AdminAnimeSeason from './_admin_anime_season'
+import AdminAnimeSeasonNewForm from './_admin_anime_season_new_form'
 
 export default class AdminAnimeSeasons extends Component {
   constructor(props) {
@@ -8,6 +9,7 @@ export default class AdminAnimeSeasons extends Component {
     this.state = {
       seasons: []
     }
+    this.loadSeasonsFromServer = this.loadSeasonsFromServer.bind(this)
   }
 
   componentDidMount() {
@@ -28,6 +30,7 @@ export default class AdminAnimeSeasons extends Component {
   render() {
     return (
       <div className='adminAnimeSeasonsComponent'>
+        <AdminAnimeSeasonNewForm anime_id={this.props.anime_id} handleLoadSeasons={this.loadSeasonsFromServer} />
         {this.state.seasons.map((season) =>
           <AdminAnimeSeason key={season.id} season={season} />
         )}

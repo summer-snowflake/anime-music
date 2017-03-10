@@ -145,3 +145,13 @@ button:focus {
   background-color: #fff;
   border-color: $orange;
 }
+
+.form-control#phase {
+  display: inline-block;
+  width: 100px;
+}
+
+.form-horizontal .control-label {
+  width: 100%;
+  text-align: center;
+}
