@@ -5,7 +5,9 @@ RSpec.describe SeasonDecorator, type: :decorator do
   describe '#period' do
     let!(:start_on) { 3.months.ago.to_date.to_s }
     let!(:end_on) { 1.month.ago.to_date.to_s }
-    let!(:season) { create(:season, start_on: start_on, end_on: end_on).decorate }
+    let!(:season) do
+      create(:season, start_on: start_on, end_on: end_on).decorate
+    end
     subject { season.period }
 
     context 'start_onとend_onに値が入っている場合' do
