@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
-import { origin } from './../../../../origin.js'
+import { origin } from './../../../../origin'
 import DestroyModal from './../../../common/_destroy_modal'
 
 export default class AdminAnimeRow extends Component {
