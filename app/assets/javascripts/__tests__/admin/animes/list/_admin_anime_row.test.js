@@ -1,7 +1,7 @@
 import React from 'react'
 import expect from 'expect'
 import { shallow } from 'enzyme'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import expectJSX from 'expect-jsx'
 import reactElementToJSXString from 'react-element-to-jsx-string'
 

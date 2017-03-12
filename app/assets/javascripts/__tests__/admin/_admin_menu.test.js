@@ -1,6 +1,6 @@
 import React from 'react'
 import expect from 'expect'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import { createRenderer } from 'react-addons-test-utils'
 import expectJSX from 'expect-jsx'
 
