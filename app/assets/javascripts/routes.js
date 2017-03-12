@@ -16,15 +16,17 @@ module.exports = (
   <Route component={App} path="/">
     <IndexRoute component={Welcome} />
     <Route component={Admin} path="/admin">
-      <IndexRoute component={AdminTopPage} />
-      <Route component={AdminAnimesPage} path="/admin/animes">
-        <IndexRoute component={AdminAnimes} />
-        <Route component={AdminAnime} path="/admin/animes/:animeId" />
-      </Route>
-      <Route component={AdminActorsPage} path="/admin/actors">
-        <IndexRoute component={AdminActors} />
-        <Route component={AdminActor} path="/admin/actors/:actorId" />
-      </Route>
+      <div className='admin-content'>
+        <IndexRoute component={AdminTopPage} />
+        <Route component={AdminAnimesPage} path="/admin/animes">
+          <IndexRoute component={AdminAnimes} />
+          <Route component={AdminAnime} path="/admin/animes/:animeId" />
+        </Route>
+        <Route component={AdminActorsPage} path="/admin/actors">
+          <IndexRoute component={AdminActors} />
+          <Route component={AdminActor} path="/admin/actors/:actorId" />
+        </Route>
+      </div>
     </Route>
   </Route>
 )
