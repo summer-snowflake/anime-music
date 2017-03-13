@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.4.0'
 
-gem 'rails', '5.0.1'
+gem 'rails', '5.0.2'
 
 gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml' # for draper
 gem 'bcrypt'
