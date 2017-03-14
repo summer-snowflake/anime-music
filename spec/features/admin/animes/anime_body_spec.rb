@@ -13,7 +13,7 @@ feature '管理画面：アニメ', js: true do
     find('.not-editing-body > div > span.link').click
     fill_in 'summary', with: 'アニメのあらすじ'
     fill_in 'wiki-url', with: 'http://xxx.sample.com'
-    click_button '更新'
+    find('.btn-danger').click
 
     expect(page).not_to have_content anime1.summary
     expect(page).not_to have_content anime1.wiki_url
@@ -32,7 +32,7 @@ feature '管理画面：アニメ', js: true do
     expect(find("textarea[name='summary']").value).to eq ''
     find("input[name='wiki-url']").native.send_keys(:backspace)
     expect(find("input[name='wiki-url']").value).to eq ''
-    click_button '更新'
+    find('.btn-danger').click
 
     expect(page).not_to have_content anime1.summary
     expect(page).not_to have_content anime1.wiki_url

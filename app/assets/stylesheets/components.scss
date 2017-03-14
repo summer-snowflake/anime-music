@@ -42,8 +42,8 @@
 
 .adminAnimeBodyComponent {
   .not-editing-body {
-    min-height: 210px;
-    padding: 10px;
+    min-height: 230px;
+    padding: 20px;
     .wiki-url {
       margin-left: 3px;
     }
@@ -58,7 +58,9 @@
     }
   }
   .editing-body {
-    min-height: 210px;
+    height: 230px;
+    padding: 20px;
+    background-color: rgba($blue, 0.1);
   }
 
   .wiki-url {

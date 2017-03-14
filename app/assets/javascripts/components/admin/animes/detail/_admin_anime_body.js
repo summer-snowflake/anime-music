@@ -80,14 +80,14 @@ export default class AdminAnimeBody extends Component {
         <div className='wiki-url'>
           <input className='form-control' defaultValue={this.state.unsaved_wiki_url || this.props.wiki_url} disabled={this.state.loadingBody} name='wiki-url' onChange={this.handleChangeWikiUrl} type='text' />
         </div>
-        <div className='pull-right'>
-          <LoadingImage loading={this.state.loadingBody} />
-          <button className='btn btn-default' disabled={this.state.loadingBody} onClick={this.handleClickSubmitButton} type='submit'>
+        <div>
+          <a className='btn btn-danger animate-button' disabled={this.state.loadingBody} onClick={this.handleClickSubmitButton} type='submit'>
             {'更新'}
-          </button>
-          <button className='btn btn-default cancel-button' disabled={this.state.loadingBody} onClick={this.handleClickCancelButton} type='submit'>
+          </a>
+          <a className='btn btn-default cancel-button' disabled={this.state.loadingBody} onClick={this.handleClickCancelButton} type='submit'>
             {'キャンセル'}
-          </button>
+          </a>
+          <LoadingImage loading={this.state.loadingBody} />
         </div>
       </div>
     )
