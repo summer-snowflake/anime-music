@@ -120,7 +120,7 @@ export default class AdminAnimeSeasonNewForm extends Component {
                 </div>
                 <div className='col-sm-10'>
                   <div className='form-group name'>
-                    <input autoFocus className='form-control' disabled={this.state.loadingForm} id='name' name='name' onChange={this.handleChangeName} type='text' />
+                    <input autoFocus className='form-control' disabled={this.state.loadingForm} id='name' name='name' onChange={this.handleChangeName} type='text' placeholder='シーズン名' />
                   </div>
                 </div>
                 <div className='form-group'>
