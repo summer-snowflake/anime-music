@@ -81,7 +81,7 @@ export default class AdminAnimeSeasonNewField extends Component {
     return (
       <div className='adminAnimeSeasonNewFormComponent new-form-field'>
         {this.state.showForm ? (
-          <AdminAnimeSeasonForm anime_id={this.props.anime_id} close={this.handleClickCancelButton} handleSubmit={this.handleClickSubmitButton} ref='form' />
+          <AdminAnimeSeasonForm anime_id={this.props.anime_id} onClose={this.handleClickCancelButton} onSubmit={this.handleClickSubmitButton} ref='form' />
           ) : (
           <AdminNewButtonField message={this.state.message} message_type={this.state.message_type} onLoadNewForm={this.handleShowNewForm} />
           )}

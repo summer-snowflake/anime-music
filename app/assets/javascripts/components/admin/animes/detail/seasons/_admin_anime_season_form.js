@@ -1,7 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { origin } from './../../../../../origin.js'
 import MessageBox from './../../../../common/_message_box'
-import AdminNewButtonField from './../../../_admin_new_button_field'
 
 export default class AdminAnimeSeasonForm extends Component {
   constructor(props) {
@@ -26,12 +24,12 @@ export default class AdminAnimeSeasonForm extends Component {
   }
 
   handleClickCancelButton() {
-    this.props.close()
+    this.props.onClose()
   }
 
   handleClickSubmitButton() {
     this.setState({loadingForm: true})
-    this.props.handleSubmit()
+    this.props.onSubmit()
   }
 
   handleChangeStartOn(e) {
@@ -77,7 +75,7 @@ export default class AdminAnimeSeasonForm extends Component {
             </div>
             <div className='col-sm-10'>
               <div className='form-group name'>
-                <input autoFocus className='form-control' disabled={this.state.loadingForm} id='name' name='name' onChange={this.handleChangeName} ref='name' type='text' placeholder='シーズン名' />
+                <input autoFocus className='form-control' disabled={this.state.loadingForm} id='name' name='name' onChange={this.handleChangeName} placeholder='シーズン名' ref='name' type='text' />
               </div>
             </div>
             <div className='form-group'>
@@ -106,6 +104,6 @@ export default class AdminAnimeSeasonForm extends Component {
 }
 
 AdminAnimeSeasonForm.propTypes = {
-  close: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired
+  onClose: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 }

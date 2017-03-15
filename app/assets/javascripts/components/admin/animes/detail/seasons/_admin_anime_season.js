@@ -30,7 +30,7 @@ export default class AdminAnimeSeason extends Component {
   render() {
     let editing_jsx = (
       <div className='editing-body'>
-        <AdminAnimeSeasonForm anime_id={this.props.season.anime_id} close={this.handleClickCancelButton} handleSubmit={this.handleClickSubmitButton} />
+        <AdminAnimeSeasonForm anime_id={this.props.season.anime_id} onClose={this.handleClickCancelButton} onSubmit={this.handleClickSubmitButton} />
       </div>
     )
 
