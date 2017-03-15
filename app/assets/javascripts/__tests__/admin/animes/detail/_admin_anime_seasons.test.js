@@ -9,7 +9,7 @@ expect.extend(expectJSX)
 
 import AdminAnimeSeasons from '../../../../components/admin/animes/detail/seasons/_admin_anime_seasons'
 import AdminAnimeSeason from '../../../../components/admin/animes/detail/seasons/_admin_anime_season'
-import AdminAnimeSeasonNewForm from '../../../../components/admin/animes/detail/seasons/_admin_anime_season_new_form'
+import AdminAnimeSeasonNewField from '../../../../components/admin/animes/detail/seasons/_admin_anime_season_new_field'
 jest.unmock('../../../../components/admin/animes/detail/seasons/_admin_anime_seasons')
 
 describe('AdminAnimeSeasonsComponent', () => {
@@ -24,7 +24,7 @@ describe('AdminAnimeSeasonsComponent', () => {
     let actualElement = component.single(reactElementToJSXString)
     let expectedElement = (
       <div className='adminAnimeSeasonsComponent'>
-        <AdminAnimeSeasonNewForm anime_id='1' handleLoadSeasons={jest.fn()} />
+        <AdminAnimeSeasonNewField anime_id='1' handleLoadSeasons={jest.fn()} />
         <AdminAnimeSeason key={1} season={season1} />
         <AdminAnimeSeason key={2} season={season2} />
       </div>
