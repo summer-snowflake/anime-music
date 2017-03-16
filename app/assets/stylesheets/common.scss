@@ -99,7 +99,7 @@ a.animate-button:hover::after {
   height: 100%;
 }
 
-.new-form-field {
+.new-form-field, .edit-form-field {
   padding: 15px;
   background-color: rgba($blue, 0.1);
   border-radius: 3px;
