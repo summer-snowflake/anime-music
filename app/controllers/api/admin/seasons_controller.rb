@@ -4,7 +4,7 @@ class Api::Admin::SeasonsController < Api::BaseController
   before_action :set_season, only: %i(update show)
 
   def index
-    @seasons = @anime.seasons
+    @seasons = @anime.seasons.order(phase: :desc)
   end
 
   def show; end

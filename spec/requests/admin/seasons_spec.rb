@@ -13,15 +13,6 @@ describe 'GET /api/admin/animes/1/seasons', autodoc: true do
     json = {
       seasons: [
         {
-          id: season1.id,
-          anime_id: season1.anime_id,
-          phase: season1.phase,
-          name: season1.name,
-          start_on: season1.start_on.strftime('%Y-%m-%d'),
-          end_on: season1.end_on.try(:strftime, '%Y-%m-%d'),
-          period: season1.period
-        },
-        {
           id: season2.id,
           anime_id: season2.anime_id,
           phase: season2.phase,
@@ -29,6 +20,15 @@ describe 'GET /api/admin/animes/1/seasons', autodoc: true do
           start_on: season2.start_on.strftime('%Y-%m-%d'),
           end_on: season2.end_on.try(:strftime, '%Y-%m-%d'),
           period: season2.period
+        },
+        {
+          id: season1.id,
+          anime_id: season1.anime_id,
+          phase: season1.phase,
+          name: season1.name,
+          start_on: season1.start_on.strftime('%Y-%m-%d'),
+          end_on: season1.end_on.try(:strftime, '%Y-%m-%d'),
+          period: season1.period
         }
       ]
     }
