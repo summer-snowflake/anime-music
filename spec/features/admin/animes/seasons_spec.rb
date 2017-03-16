@@ -14,7 +14,7 @@ feature '管理画面：シーズン', js: true do
     let!(:season2) { create(:season, anime: anime1) }
     let!(:season3) { create(:season, anime: anime2) }
 
-    scenario 'アニメ詳細画面でシーズン一覧が表示されること' do
+    scenario 'アニメ詳細画面で該当アニメのシーズン一覧が表示されること' do
       visit admin_anime_path(id: anime1.id)
 
       within '.adminAnimeSeasonsComponent' do
