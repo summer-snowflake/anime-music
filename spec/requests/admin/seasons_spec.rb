@@ -36,6 +36,27 @@ describe 'GET /api/admin/animes/1/seasons', autodoc: true do
   end
 end
 
+describe 'GET /api/admin/animes/:anime_id/seasons/:id', autodoc: true do
+  let!(:anime) { create(:anime) }
+  let!(:season) { create(:season, anime: anime).decorate }
+
+  it '200とアニメのシーズン詳細が返ってくること' do
+    get "/api/admin/animes/#{anime.id}/seasons/#{season.id}"
+    expect(response.status).to eq 200
+
+    json = {
+      id: season.id,
+      phase: season.phase,
+      name: season.name,
+      start_on: season.start_on.strftime('%Y-%m-%d'),
+      end_on: season.end_on.try(:strftime, '%Y-%m-%d'),
+      period: season.period
+    }
+    expect(response.body).to be_json_as(json)
+  end
+end
+
+
 describe 'POST /api/admin/animes/:anime_id/seasons', autodoc: true do
   let!(:anime) { create(:anime) }
   let!(:season_phase) { 1 }
