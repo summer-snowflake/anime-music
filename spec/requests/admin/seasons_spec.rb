@@ -56,7 +56,6 @@ describe 'GET /api/admin/animes/:anime_id/seasons/:id', autodoc: true do
   end
 end
 
-
 describe 'POST /api/admin/animes/:anime_id/seasons', autodoc: true do
   let!(:anime) { create(:anime) }
   let!(:season_phase) { 1 }
@@ -115,23 +114,22 @@ end
 
 describe 'PATCH /api/admin/animes/1/seasons/:id', autodoc: true do
   let!(:anime) { create(:anime) }
-  let!(:season1) { create(:season, anime: anime).decorate }
-  let!(:season2) { create(:season, anime: anime).decorate }
+  let!(:season) { create(:season, anime: anime).decorate }
 
   context '正しい値を設定していた場合' do
     let!(:params) { { season: attributes_for(:season) } }
 
     it '200が返ってくること' do
-      patch "/api/admin/animes/#{anime.id}/seasons/#{season1.id}", params: params
+      patch "/api/admin/animes/#{anime.id}/seasons/#{season.id}", params: params
       expect(response.status).to eq 200
     end
   end
 
-  context '基を設定していなかった場合' do
+  context 'シーズンの期を設定していなかった場合' do
     let!(:params) { { season: attributes_for(:season, phase: '') } }
 
     it '422とエラーメッセージが返ってくること' do
-      patch "/api/admin/animes/#{anime.id}/seasons/#{season1.id}", params: params
+      patch "/api/admin/animes/#{anime.id}/seasons/#{season.id}", params: params
       expect(response.status).to eq 422
 
       json = {
