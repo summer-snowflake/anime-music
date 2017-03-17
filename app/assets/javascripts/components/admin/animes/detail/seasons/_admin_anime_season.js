@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { origin } from './../../../../../origin.js'
 import AdminAnimeSeasonForm from './_admin_anime_season_form'
 import MessageBox from './../../../../common/_message_box'
+import DestroyModal from './../../../../common/_destroy_modal'
 
 export default class AdminAnimeSeason extends Component {
   constructor(props) {
@@ -9,12 +10,16 @@ export default class AdminAnimeSeason extends Component {
     this.state = {
       season: this.props.season,
       showForm: false,
+      showModal: false,
       message_type: 'success',
       message: ''
     }
     this.handleClickEditIcon = this.handleClickEditIcon.bind(this)
+    this.handleClickTrashIcon = this.handleClickTrashIcon.bind(this)
     this.handleClickSubmitButton = this.handleClickSubmitButton.bind(this)
     this.handleClickCancelButton = this.handleClickCancelButton.bind(this)
+    this.onClickCancelButton = this.onClickCancelButton.bind(this)
+    this.onClickDeleteButton = this.onClickDeleteButton.bind(this)
     this.handleTimeout = this.handleTimeout.bind(this)
     this.updateAnimeSeasonAgainstServer = this.updateAnimeSeasonAgainstServer.bind(this)
     this.loadAnimeSeasonFromServer = this.loadAnimeSeasonFromServer.bind(this)
@@ -22,6 +27,10 @@ export default class AdminAnimeSeason extends Component {
 
   handleClickEditIcon() {
     this.setState({showForm: true})
+  }
+
+  handleClickTrashIcon() {
+    this.setState({showModal: true}) 
   }
 
   handleTimeout() {
@@ -42,6 +51,32 @@ export default class AdminAnimeSeason extends Component {
 
   handleClickCancelButton() {
     this.setState({showForm: false})
+  }
+
+  onClickCancelButton() {
+    this.setState({showModal: false})
+  }
+
+  onClickDeleteButton() {
+    fetch(origin + 'api/admin/animes/' + this.props.season.anime_id + '/seasons/' + this.props.season.id, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((res) => {
+        if(res.status == '200') {
+          this.setState({showModal: false})
+          this.props.handleLoad()
+        } else {
+          alert('削除できませんでした')
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  
   }
 
   updateAnimeSeasonAgainstServer(params) {
@@ -84,6 +119,11 @@ export default class AdminAnimeSeason extends Component {
     let editing_jsx = (
       <div className='media-body editing-body edit-form-field'>
         <AdminAnimeSeasonForm anime_id={this.props.season.anime_id} onClose={this.handleClickCancelButton} onSubmit={this.handleClickSubmitButton} ref='form' season={this.state.season} />
+        <div className='pull-right'>
+          <span className='link' onClick={this.handleClickTrashIcon}>
+            <span className='glyphicon glyphicon-trash' />
+          </span>
+        </div>
       </div>
     )
 
@@ -113,11 +153,13 @@ export default class AdminAnimeSeason extends Component {
           else
             return not_editing_jsx
         })()}
+        <DestroyModal handleCancel={this.onClickCancelButton} handleDestroy={this.onClickDeleteButton} showModal={this.state.showModal} />
       </div>
     )
   }
 }
 
 AdminAnimeSeason.propTypes = {
-  season: PropTypes.object.isRequired
+  season: PropTypes.object.isRequired,
+  handleLoad: PropTypes.func.isRequired
 }
