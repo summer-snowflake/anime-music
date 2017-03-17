@@ -14,7 +14,7 @@ feature '管理画面：シーズン', js: true do
     let!(:season2) { create(:season, anime: anime1) }
     let!(:season3) { create(:season, anime: anime2) }
 
-    scenario 'アニメ詳細画面でシーズン一覧が表示されること' do
+    scenario 'アニメ詳細画面で該当アニメのシーズン一覧が表示されること' do
       visit admin_anime_path(id: anime1.id)
 
       within '.adminAnimeSeasonsComponent' do
@@ -26,7 +26,7 @@ feature '管理画面：シーズン', js: true do
   end
 
   scenario 'シーズンを登録できること' do
-    within '.adminAnimeSeasonNewFormComponent' do
+    within '.adminAnimeSeasonNewFieldComponent' do
       find('.btn-default').click
       fill_in 'start_on', with: 3.months.ago.to_date
       fill_in 'end_on', with: 1.month.ago.to_date

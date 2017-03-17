@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 class Api::Admin::SeasonsController < Api::BaseController
-  before_action :set_anime, only: %i(index create)
+  before_action :set_anime, only: %i(index show create update)
+  before_action :set_season, only: %i(update show)
 
   def index
-    @seasons = @anime.seasons
+    @seasons = @anime.seasons.order(phase: :desc)
   end
+
+  def show; end
 
   def create
     @season = @anime.seasons.new(season_params)
@@ -15,10 +18,22 @@ class Api::Admin::SeasonsController < Api::BaseController
     end
   end
 
+  def update
+    if @season.update(season_params)
+      head :ok
+    else
+      render_error @season
+    end
+  end
+
   private
 
   def set_anime
     @anime = Anime.find(params[:anime_id])
+  end
+
+  def set_season
+    @season = @anime.seasons.find(params[:id])
   end
 
   def season_params

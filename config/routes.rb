@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
     namespace :admin do
       resources :animes, only: %i(index show create update destroy) do
-        resources :seasons, only: %i(index create)
+        resources :seasons, only: %i(index show create update)
       end
       resources :actors, only: %i(index show create update destroy)
     end
