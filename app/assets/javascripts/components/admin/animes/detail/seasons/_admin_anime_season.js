@@ -146,7 +146,7 @@ export default class AdminAnimeSeason extends Component {
     )
 
     return (
-      <div className='adminAnimeSeasonComponent media'>
+      <div className='adminAnimeSeasonComponent media' id={'season-' + this.state.season.id}>
         {(() => {
           if (this.state.showForm)
             return editing_jsx

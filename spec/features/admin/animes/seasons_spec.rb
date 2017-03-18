@@ -38,4 +38,29 @@ feature '管理画面：シーズン', js: true do
     expect(page).to have_content '新しいシーズン名'
     expect(anime1.seasons.count).to eq 1
   end
+
+  context 'シーズンが登録されていた場合' do
+    let!(:season1) { create(:season, anime: anime1) }
+    let!(:season2) { create(:season, anime: anime1) }
+    let!(:season3) { create(:season, anime: anime1) }
+
+    scenario 'シーズン一覧から対象のシーズンを削除できること' do
+      visit admin_anime_path(anime1)
+
+      find("#season-#{season2.id}").hover
+      within "#season-#{season2.id}" do
+        expect(page).to have_content season2.name
+        find('.glyphicon-pencil').click
+        find('.glyphicon-trash').click
+      end
+      within '.modal-footer' do
+        find('.btn-danger').click
+      end
+      expect(page).to have_content season1.name
+      expect(page).not_to have_content season2.name
+      expect(page).to have_content season3.name
+
+      expect(anime1.seasons.find_by(id: season2.id)).to be_nil
+    end
+  end
 end
