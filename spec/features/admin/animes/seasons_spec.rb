@@ -44,9 +44,29 @@ feature '管理画面：シーズン', js: true do
     let!(:season2) { create(:season, anime: anime1) }
     let!(:season3) { create(:season, anime: anime1) }
 
-    scenario 'シーズン一覧から対象のシーズンを削除できること' do
+    background do
       visit admin_anime_path(anime1)
+    end
 
+    scenario '対象のシーズンを編集できること' do
+      find("#season-#{season1.id}").hover
+
+      within "#season-#{season1.id}" do
+        expect(page).to have_content season1.name
+        find('.glyphicon-pencil').click
+
+        fill_in 'start_on', with: 3.months.ago.to_date
+        fill_in 'end_on', with: 1.month.ago.to_date
+        fill_in 'phase', with: '8'
+        fill_in 'name', with: '編集したシーズン名'
+        find('.btn-danger').click
+
+        expect(page).not_to have_content season1.name
+        expect(page).to have_content '編集したシーズン名'
+      end
+    end
+
+    scenario 'シーズン一覧から対象のシーズンを削除できること' do
       find("#season-#{season2.id}").hover
       within "#season-#{season2.id}" do
         expect(page).to have_content season2.name
