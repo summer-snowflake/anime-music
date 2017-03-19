@@ -32,7 +32,7 @@ export default class AdminAnimeSeasons extends Component {
       <div className='adminAnimeSeasonsComponent'>
         <AdminAnimeSeasonNewField anime_id={this.props.anime_id} handleLoadSeasons={this.loadSeasonsFromServer} />
         {this.state.seasons.map((season) =>
-          <AdminAnimeSeason key={season.id} season={season} handleLoad={this.loadSeasonsFromServer} />
+          <AdminAnimeSeason handleLoad={this.loadSeasonsFromServer} key={season.id} season={season} />
         )}
       </div>
     )
