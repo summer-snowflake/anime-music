@@ -25,8 +25,8 @@ describe('AdminAnimeSeasonsComponent', () => {
     let expectedElement = (
       <div className='adminAnimeSeasonsComponent'>
         <AdminAnimeSeasonNewField anime_id='1' handleLoadSeasons={jest.fn()} />
-        <AdminAnimeSeason key={1} season={season1} />
-        <AdminAnimeSeason key={2} season={season2} />
+        <AdminAnimeSeason key={1} season={season1} handleLoad={jest.fn()} />
+        <AdminAnimeSeason key={2} season={season2} handleLoad={jest.fn()} />
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)
