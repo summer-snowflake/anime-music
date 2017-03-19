@@ -139,3 +139,13 @@ describe 'PATCH /api/admin/animes/1/seasons/:id', autodoc: true do
     end
   end
 end
+
+describe 'DELETE /api/admin/animes/:anime_id/seasons/:id', autodoc: true do
+  let!(:anime) { create(:anime) }
+  let!(:season) { create(:season, anime: anime) }
+
+  it '200が返ってくること' do
+    delete "/api/admin/animes/#{anime.id}/seasons/#{season.id}"
+    expect(response.status).to eq 200
+  end
+end
