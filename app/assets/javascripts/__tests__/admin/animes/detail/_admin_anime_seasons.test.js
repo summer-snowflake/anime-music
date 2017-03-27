@@ -7,9 +7,10 @@ import reactElementToJSXString from 'react-element-to-jsx-string'
 
 expect.extend(expectJSX)
 
-import AdminAnimeSeasons from '../../../../components/admin/animes/detail/_admin_anime_seasons'
-import AdminAnimeSeason from '../../../../components/admin/animes/detail/_admin_anime_season'
-jest.unmock('../../../../components/admin/animes/detail/_admin_anime_seasons')
+import AdminAnimeSeasons from '../../../../components/admin/animes/detail/seasons/_admin_anime_seasons'
+import AdminAnimeSeason from '../../../../components/admin/animes/detail/seasons/_admin_anime_season'
+import AdminAnimeSeasonNewField from '../../../../components/admin/animes/detail/seasons/_admin_anime_season_new_field'
+jest.unmock('../../../../components/admin/animes/detail/seasons/_admin_anime_seasons')
 
 describe('AdminAnimeSeasonsComponent', () => {
   it('DOMが出力されること', () => {
@@ -23,8 +24,9 @@ describe('AdminAnimeSeasonsComponent', () => {
     let actualElement = component.single(reactElementToJSXString)
     let expectedElement = (
       <div className='adminAnimeSeasonsComponent'>
-        <AdminAnimeSeason key={1} season={season1} />
-        <AdminAnimeSeason key={2} season={season2} />
+        <AdminAnimeSeasonNewField anime_id='1' handleLoadSeasons={jest.fn()} />
+        <AdminAnimeSeason handleLoad={jest.fn()} key={1} season={season1} />
+        <AdminAnimeSeason handleLoad={jest.fn()} key={2} season={season2} />
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)

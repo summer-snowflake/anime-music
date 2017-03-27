@@ -3,13 +3,13 @@ import React, { Component, PropTypes } from 'react'
 import MessageBox from './../../../common/_message_box'
 import LoadingImage from './../../../common/_loading_image'
 
-export default class AdminAnimeTitle extends Component {
+export default class AdminActorTitle extends Component {
   constructor(props) {
     super(props)
     this.state = {
       editingTitle: false,
       loadingTitle: false,
-      unsaved_title: this.props.title,
+      unsaved_name: this.props.name,
       message_type: 'success',
       message: ''
     }
@@ -23,11 +23,14 @@ export default class AdminAnimeTitle extends Component {
   }
 
   handleClickEditTitleIcon() {
-    this.setState({editingTitle: true, unsaved_title: (this.state.unsaved_title || this.props.title)})
+    this.setState({
+      editingTitle: true,
+      unsaved_name: (this.state.unsaved_name || this.props.name)
+    })
   }
 
   handleChangeTitle(e) {
-    this.setState({unsaved_title: e.target.value})
+    this.setState({unsaved_name: e.target.value})
   }
 
   handleTimeout() {
@@ -37,14 +40,14 @@ export default class AdminAnimeTitle extends Component {
   handleSubmit(e) {
     e.preventDefault()
     this.setState({loadingTitle: true})
-    this.props.handleUpdateTitle({title: this.state.unsaved_title})
+    this.props.handleUpdateName({name: this.state.unsaved_name})
   }
 
   handleBlur() {
     if (this.state.loadingTitle) {
-      this.setState({editingTitle: true, unsaved_title: this.state.unsaved_title})
+      this.setState({editingTitle: true, unsaved_name: this.state.unsaved_name})
     } else {
-      this.setState({editingTitle: false, unsaved_title: this.state.unsaved_title})
+      this.setState({editingTitle: false, unsaved_name: this.state.unsaved_name})
     }
   }
 
@@ -54,7 +57,7 @@ export default class AdminAnimeTitle extends Component {
       loadingTitle: false,
       message_type: 'success',
       message: '更新しました'
-    })  
+    })
     setTimeout(this.handleTimeout, 2000)
   }
 
@@ -63,7 +66,7 @@ export default class AdminAnimeTitle extends Component {
       loadingTitle: false,
       message_type: 'danger',
       message: message
-    })  
+    })
     setTimeout(this.handleTimeout, 2000)
   }
 
@@ -71,14 +74,14 @@ export default class AdminAnimeTitle extends Component {
     let editing_jsx = (
       <div className='editing-title'>
         <form className='form-inline' onSubmit={this.handleSubmit}>
-          <input autoFocus className='form-control' defaultValue={this.state.unsaved_title || this.props.title} disabled={this.state.loadingTitle} name='title' onBlur={this.handleBlur} onChange={this.handleChangeTitle} ref='title' type='text' />
+          <input autoFocus className='form-control' defaultValue={this.state.unsaved_name || this.props.name} disabled={this.state.loadingTitle} name='name' onBlur={this.handleBlur} onChange={this.handleChangeTitle} ref='name' type='text' />
         </form>
       </div>
     )
 
     let not_editing_jsx = (
       <div className='not-editing-title'>
-        <b className='panel-title'>{this.props.title}</b>
+        <b className='panel-title'>{this.props.name}</b>
         <span className='link right-icon' onClick={this.handleClickEditTitleIcon}>
           <span className='glyphicon glyphicon-pencil' />
         </span>
@@ -86,7 +89,7 @@ export default class AdminAnimeTitle extends Component {
     )
 
     return (
-      <div className='adminAnimeTitleComponent'>
+      <div className='adminActorTitleComponent'>
         {(() => {
           if (this.state.editingTitle)
             return editing_jsx
@@ -100,7 +103,7 @@ export default class AdminAnimeTitle extends Component {
   }
 }
 
-AdminAnimeTitle.propTypes = {
-  title: PropTypes.string.isRequired,
-  handleUpdateTitle: PropTypes.func.isRequired
+AdminActorTitle.propTypes = {
+  name: PropTypes.string.isRequired,
+  handleUpdateName: PropTypes.func.isRequired
 }

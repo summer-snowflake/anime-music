@@ -19,28 +19,31 @@
   }
 }
 
+.adminAnimeNewFormComponent {
+  .media-left {
+    vertical-align: middle;
+  }
+}
+
 .adminAnimeTitleComponent {
   height: 50px;
-  form {
-    display: inline-block;
-  }
-
-  .loadingImageComponent {
-    padding-left: 20px;
-  }
-
   .messageBoxComponent {
     position: absolute;
-    top: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
+    top: 14px;
+  }
+}
+
+.adminActorTitleComponent {
+  .messageBoxComponent {
+    position: absolute;
+    top: 14px;
   }
 }
 
 .adminAnimeBodyComponent {
   .not-editing-body {
-    min-height: 210px;
-    padding: 10px;
+    min-height: 230px;
+    padding: 20px;
     .wiki-url {
       margin-left: 3px;
     }
@@ -55,7 +58,9 @@
     }
   }
   .editing-body {
-    min-height: 210px;
+    height: 230px;
+    padding: 20px;
+    background-color: rgba($blue, 0.1);
   }
 
   .wiki-url {
@@ -72,13 +77,30 @@
   padding: 10px;
 }
 
+.adminAnimeSeasonFormComponent {
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+// === 声優 ===
+
+.adminActorsTableComponent table {
+  margin-top: 20px;
+}
+
 // === 共通 ===
 
-.messageBoxComponent {
+.loadingImageComponent {
+  padding-left: 20px;
   display: inline-block;
 }
 
-.loadingImageComponent {
-  padding: 10px;
+.messageBoxComponent {
   display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
 }

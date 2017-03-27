@@ -7,13 +7,14 @@ import reactElementToJSXString from 'react-element-to-jsx-string'
 
 expect.extend(expectJSX)
 
+import AdminActorTitle from '../../../../components/admin/actors/detail/_admin_actor_title'
 import AdminActorDetail from '../../../../components/admin/actors/detail/_admin_actor_detail'
 jest.unmock('../../../../components/admin/actors/detail/_admin_actor_detail')
 
 describe('AdminActorDetailComponent', () => {
   it('表示', () => {
     const component = shallow(
-      <AdminActorDetail url='api/admin/actors/1' />
+      <AdminActorDetail actor_id='1' />
     )
     component.setState({actor: { id: 1, name: '声優 氏名' }})
 
@@ -21,10 +22,9 @@ describe('AdminActorDetailComponent', () => {
     let expectedElement = (
       <div className='adminActorDetailComponent'>
         <div className='panel panel-default'>
-          <div className='panel-heading'>
-            {'声優 氏名'}
+          <div className='panel-body'>
+            <AdminActorTitle handleUpdateName={jest.fn()} name='声優 氏名' ref='name' />
           </div>
-          <div className='panel-body' />
         </div>
       </div>
     )

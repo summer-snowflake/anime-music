@@ -13,10 +13,10 @@ Rails.application.routes.draw do
     resources :animes, only: %i(index)
 
     namespace :admin do
-      resources :animes, only: %i(index show update) do
-        resources :seasons, only: %i(index)
+      resources :animes, only: %i(index show create update destroy) do
+        resources :seasons, only: %i(index show create update destroy)
       end
-      resources :actors, only: %i(index show)
+      resources :actors, only: %i(index show create update destroy)
     end
   end
 end

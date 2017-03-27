@@ -1,6 +1,6 @@
 import React from 'react'
 import expect from 'expect'
-import { Simulate, createRenderer, renderIntoDocument, findRenderedDOMComponentWithClass } from 'react-addons-test-utils'
+import { createRenderer } from 'react-addons-test-utils'
 import expectJSX from 'expect-jsx'
 import 'jest-fetch-mock'
 
@@ -15,7 +15,7 @@ describe('AdminAnimeDetailComponent', () => {
   it('propsに設定した値が出力されること', () => {
     let renderer = createRenderer()
     renderer.render(
-      <AdminAnimeTitle id={1} title='アニメタイトル' />
+      <AdminAnimeTitle handleUpdateTitle={jest.fn()} title='アニメタイトル' />
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
@@ -31,24 +31,5 @@ describe('AdminAnimeDetailComponent', () => {
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)
-  })
-
-  it('state初期値が設定されていること', () => {
-    const component = renderIntoDocument(
-      <AdminAnimeTitle id={1} title='アニメタイトル' />
-    )
-    expect(component.state.editingTitle).toBe(false)
-    expect(component.state.title).toBe('アニメタイトル')
-  })
-
-  it('アイコンをクリックすると編集モードになること', () => {
-    const component = renderIntoDocument(
-      <AdminAnimeTitle id={1} title='アニメタイトル' />
-    )
-    expect(component.state.editingTitle).toBe(false)
-
-    Simulate.click(findRenderedDOMComponentWithClass(component, 'right-icon'))
-    expect(component.state.editingTitle).toBe(true)
-    expect(findRenderedDOMComponentWithClass(component, 'editing-title')).toExist
   })
 })

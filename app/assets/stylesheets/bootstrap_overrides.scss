@@ -1,9 +1,9 @@
-.glyphicon-pencil {
+.glyphicon {
   border-radius: 3px;
   padding: 5px;
 }
 
-.glyphicon-pencil:hover {
+.glyphicon-pencil:hover, .glyphicon-trash:hover {
   background-color: rgba($blue, 0.3);
 }
 
@@ -22,6 +22,7 @@
 
 .alert {
   padding: 5px 10px 5px 10px;
+  margin: 0px;
   animation-name: rotation;
   animation-duration: 3s;
   animation-timing-function: ease;
@@ -71,7 +72,24 @@
 }
 
 .media-body {
+  padding-top: 10px;
   padding-left: 20px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  border-top: solid 5px;
+  border-color: rgba($blue, 0.2);
+  border-top-left-radius: 3px;
+}
+
+.media-body.non-bordered {
+  border-top: none;
+}
+
+.media-right {
+  vertical-align: bottom;
+  border-top: solid 5px;
+  border-color: rgba($blue, 0.2);
+  border-top-right-radius: 3px;
 }
 
 .thumbnail {
@@ -111,4 +129,30 @@ button {
 
 button:focus {
   outline: none;
+}
+
+.btn-danger {
+  background-color: #fff;
+  border-color: #ccc;
+  color: #333;
+}
+
+.btn-danger:hover {
+  background-color: #fff;
+  border-color: $orange-dark;
+}
+
+.btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled.focus, .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled].focus, fieldset[disabled] .btn-danger:hover, fieldset[disabled] .btn-danger:focus, fieldset[disabled] .btn-danger.focus {
+  background-color: #fff;
+  border-color: $orange;
+}
+
+.form-control#phase {
+  display: inline-block;
+  width: 100px;
+}
+
+.form-horizontal .control-label {
+  width: 100%;
+  text-align: center;
 }

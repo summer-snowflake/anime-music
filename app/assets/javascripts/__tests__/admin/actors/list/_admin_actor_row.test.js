@@ -6,6 +6,7 @@ import expectJSX from 'expect-jsx'
 
 expect.extend(expectJSX)
 
+import DestroyModal from '../../../../components/common/_destroy_modal'
 import AdminActorRow from '../../../../components/admin/actors/list/_admin_actor_row'
 jest.unmock('../../../../components/admin/actors/list/_admin_actor_row')
 
@@ -15,13 +16,23 @@ describe('AdminActorRowComponent', () => {
   it('propsに設定した値が出力される', () => {
     const actor = { id: 1, name: '声優 氏名' }
     renderer.render(
-      <AdminActorRow actor={actor} />
+      <AdminActorRow actor={actor} handleLoad={jest.fn()} />
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
-      <tr className='adminActorRowComponent' id='actor-1'>
-        <td><Link to='/admin/actors/1'>{'声優 氏名'}</Link></td>
-      </tr>
+      <div className='adminActorRowComponent media' id='actor-1'>
+        <div className='media-body'>
+          <div className='media-heading name'>
+            <Link to='/admin/actors/1'>{'声優 氏名'}</Link>
+          </div>
+        </div>
+        <div className='media-right'>
+          <div className='pull-right'>
+            <span className='glyphicon glyphicon-trash link' onClick={jest.fn()} />
+          </div>
+        </div>
+        <DestroyModal handleCancel={jest.fn()} handleDestroy={jest.fn()} showModal={false} />
+      </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)
   })
