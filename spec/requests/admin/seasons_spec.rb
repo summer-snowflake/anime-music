@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'GET /api/admin/animes/1/seasons', autodoc: true do

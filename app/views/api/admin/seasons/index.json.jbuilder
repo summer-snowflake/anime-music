@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.seasons do
   json.array! @seasons do |season|
     json.id season.id

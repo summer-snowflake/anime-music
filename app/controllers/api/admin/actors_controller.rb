@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Api::Admin::ActorsController < Api::BaseController
   before_action :set_actor, only: %i(show update destroy)
 

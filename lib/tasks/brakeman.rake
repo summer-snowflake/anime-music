@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'brakeman_report'
 namespace :brakeman do
   desc 'Run brakeman and generate security report in JUnit XML format'

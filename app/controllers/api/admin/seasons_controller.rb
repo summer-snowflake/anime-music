@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Api::Admin::SeasonsController < Api::BaseController
   before_action :set_anime, only: %i(index show create update destroy)
   before_action :set_season, only: %i(update show destroy)

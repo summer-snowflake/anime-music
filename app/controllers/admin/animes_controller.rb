@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Admin::AnimesController < Admin::BaseController
   before_action :set_anime, only: [:show]
 

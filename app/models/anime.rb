@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Anime < ApplicationRecord
   has_many :seasons
   has_many :melodies
