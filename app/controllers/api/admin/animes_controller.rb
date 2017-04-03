@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Api::Admin::AnimesController < Api::BaseController
   before_action :set_anime, only: %i(show update destroy)
 
