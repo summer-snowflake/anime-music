@@ -7,5 +7,5 @@ class Melody < ApplicationRecord
 
   validates :title, :kind, presence: true
 
-  enum kind: %i(op ed)
+  enum kind: %i[op ed]
 end

@@ -59,7 +59,7 @@ class BrakemanReport
   end
 
   def test_count
-    numbers = %w(number_of_controllers number_of_models number_of_templates)
+    numbers = %w[number_of_controllers number_of_models number_of_templates]
     numbers.inject(0) do |sum, key|
       sum + json['scan_info'][key]
     end

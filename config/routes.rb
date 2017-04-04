@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api, only: %i(index), format: 'json' do
+    resource :user, only: %i(show)
     resource :session, only: %i(create)
     resources :animes, only: %i(index)
 
