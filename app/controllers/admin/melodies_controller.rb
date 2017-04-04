@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class Admin::MelodiesController < Admin::BaseController
-  before_action :set_melody, only: %i(show edit update destroy)
-  before_action :set_animes, only: %i(new create edit update)
-  before_action :set_seasons, only: %i(new create edit update)
-  before_action :set_singers, only: %i(new create edit update)
+  before_action :set_melody, only: %i[show edit update destroy]
+  before_action :set_animes, only: %i[new create edit update]
+  before_action :set_seasons, only: %i[new create edit update]
+  before_action :set_singers, only: %i[new create edit update]
 
   def index
     @singers = Singer.all
