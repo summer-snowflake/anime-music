@@ -3,7 +3,7 @@
 class Session
   include ActiveModel::Model
 
-  attr_accessor :email, :password
+  attr_accessor :email, :password, :user
   validates :email, presence: true,
                     email_format: { allow_blank: true, message: :invalid },
                     length: { maximum: Settings.user.email.maximum_length }
