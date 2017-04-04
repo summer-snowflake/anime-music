@@ -11,6 +11,8 @@ namespace :db do
       create_melody2
       create_appearances
       create_advertisements
+
+      puts "Create Anime { id: #{@anime.id}, title: #{@anime.title}}"
     end
   end
 end
