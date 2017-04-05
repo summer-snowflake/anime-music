@@ -1,13 +1,13 @@
 import React from 'react'
 import expect from 'expect'
-import { Link } from 'react-router'
+import Link from 'react-router-dom'
 import { createRenderer } from 'react-addons-test-utils'
 import expectJSX from 'expect-jsx'
 
 expect.extend(expectJSX)
 
-import Navbar from '../components/_navbar'
-jest.unmock('../components/_navbar')
+import Navbar from './../components/_navbar'
+jest.unmock('./../components/_navbar')
 
 describe('NavbarComponent', () => {
   let renderer = createRenderer()

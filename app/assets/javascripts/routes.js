@@ -1,5 +1,6 @@
 import React from 'react'
-import { Route, IndexRoute } from 'react-router'
+//import { IndexRoute } from 'react-router'
+import { Route } from 'react-router-dom'
 
 import App from './components/app.js'
 import Welcome from './components/welcome/welcome.js'
@@ -13,17 +14,13 @@ import AdminActors from './components/admin/actors/list/admin_actors.js'
 import AdminActor from './components/admin/actors/detail/admin_actor.js'
 
 module.exports = (
-  <Route component={App} path="/">
-    <IndexRoute component={Welcome} />
-    <Route component={Admin} path="/admin">
-      <IndexRoute component={AdminTopPage} />
-      <Route component={AdminAnimesPage} path="/admin/animes">
-        <IndexRoute component={AdminAnimes} />
-        <Route component={AdminAnime} path="/admin/animes/:animeId" />
+  <Route component={App} pattern="/">
+    <Route component={Admin} pattern="/admin">
+      <Route component={AdminAnimesPage} pattern="/admin/animes">
+        <Route component={AdminAnime} patttern="/admin/animes/:animeId" />
       </Route>
-      <Route component={AdminActorsPage} path="/admin/actors">
-        <IndexRoute component={AdminActors} />
-        <Route component={AdminActor} path="/admin/actors/:actorId" />
+      <Route component={AdminActorsPage} patttern="/admin/actors">
+        <Route component={AdminActor} pattern="/admin/actors/:actorId" />
       </Route>
     </Route>
   </Route>
