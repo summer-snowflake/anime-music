@@ -25,7 +25,7 @@
     "react/display-name": 1,
     "react/forbid-prop-types": 0,
     "react/jsx-boolean-value": 1,
-    "react/jsx-closing-bracket-location": 1,
+    "react/jsx-closing-bracket-location": [1, { "selfClosing": "props-aligned", "nonEmpty": "after-props" }],
     "react/jsx-curly-spacing": 1,
     "react/jsx-handler-names": 1,
     "react/jsx-key": 1,

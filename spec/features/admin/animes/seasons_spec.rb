@@ -3,10 +3,12 @@
 require 'rails_helper'
 
 feature '管理画面：シーズン', js: true do
+  let!(:user) { create(:user, :registered, :admin_user) }
   let!(:anime1) { create(:anime) }
   let!(:anime2) { create(:anime) }
 
   background do
+    login(user)
     visit admin_anime_path(anime1)
   end
 
@@ -83,5 +85,9 @@ feature '管理画面：シーズン', js: true do
 
       expect(anime1.seasons.find_by(id: season2.id)).to be_nil
     end
+  end
+
+  after do
+    logout
   end
 end

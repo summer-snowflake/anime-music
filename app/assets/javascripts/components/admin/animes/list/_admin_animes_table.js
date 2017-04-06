@@ -17,7 +17,9 @@ export default class AdminAnimesTable extends Component {
   }
 
   loadAnimesFromServer() {
-    fetch(origin + 'api/admin/animes')
+    fetch(origin + 'api/admin/animes', {
+      headers: {'Authorization': 'Token token=' + localStorage.getItem('access_token')}
+    })
       .then((res) => res.json())
       .then((res) => {
         this.setState({animes: res.animes})

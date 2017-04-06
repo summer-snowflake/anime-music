@@ -64,6 +64,7 @@ export default class AdminAnimeNewForm extends Component {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': 'Token token=' + localStorage.getItem('access_token')
       },
       body: JSON.stringify(params)
     })

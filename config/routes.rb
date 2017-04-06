@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root to: 'welcome#index'
 
+  get 'login', to: 'sessions#new'
+  delete 'logout', to: 'sessions#destroy'
+
   namespace :admin do
     root to: 'top#index', as: :top
     resources :animes, only: %i(index show)
