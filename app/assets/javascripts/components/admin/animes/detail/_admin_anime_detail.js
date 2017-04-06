@@ -24,7 +24,9 @@ export default class AdminAnimeDetail extends Component {
   }
 
   loadAnimeFromServer() {
-    fetch(origin + 'api/admin/animes/' + this.props.anime_id)
+    fetch(origin + 'api/admin/animes/' + this.props.anime_id, {
+      headers: {'Authorization': 'Token token=' + localStorage.getItem('access_token')}
+    })
       .then((res) => res.json())
       .then((res) => {
         this.setState({anime: res})
@@ -40,6 +42,7 @@ export default class AdminAnimeDetail extends Component {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': 'Token token=' + localStorage.getItem('access_token')
       },
       body: JSON.stringify(params)
     })
@@ -58,7 +61,6 @@ export default class AdminAnimeDetail extends Component {
             if(params.title != undefined) {
               this.refs.title.updateFailed(json.error_messages[0])
             }
-            console.log(params)
             if(params.summary != undefined) {
               this.refs.body.updateFailed(json.error_messages[0])
             }

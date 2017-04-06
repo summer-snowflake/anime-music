@@ -6,9 +6,11 @@ feature 'トップページ', js: true do
   let!(:anime1) { create(:anime) }
   let!(:anime2) { create(:anime) }
 
-  scenario 'アニメ一覧が表示されること' do
+  background do
     visit root_path
+  end
 
+  scenario 'アニメ一覧が表示されること' do
     expect(page).to have_content anime1.title
     expect(page).to have_content anime2.title
   end

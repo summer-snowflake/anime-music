@@ -11,7 +11,7 @@ span.no-image {
   color: rgba($blue, 0.7);
 }
 
-span.link {
+span.link, a.link {
   cursor: pointer;
   color: $blue-dark;
 }

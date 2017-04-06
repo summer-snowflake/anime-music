@@ -35,7 +35,7 @@ describe 'GET /api/user', autodoc: true do
       expect(response.status).to eq 200
 
       json = {
-        email: email,
+        email: user.email,
         admin: true
       }
       expect(response.body).to be_json_as(json)

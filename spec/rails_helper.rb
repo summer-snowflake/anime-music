@@ -51,6 +51,7 @@ RSpec.configure do |config|
   config.include RSpec::JsonMatcher
   config.include ActiveJob::TestHelper
   config.include RequestSpecHelper, type: :request
+  config.include FeatureSpecHelper, type: :feature
 
   config.before :suite do
     I18n.locale = :ja

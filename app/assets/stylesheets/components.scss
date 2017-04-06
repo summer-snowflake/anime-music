@@ -2,6 +2,13 @@
   height: 80px;
 }
 
+.loginPageComponent {
+  padding-top: 80px;
+  .panel-body {
+    padding: 40px;
+  }
+}
+
 // == 管理画面：アニメ ==
 
 .adminAnimeRowComponent {

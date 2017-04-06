@@ -3,10 +3,12 @@
 require 'rails_helper'
 
 feature '管理画面：声優', js: true do
+  let!(:user) { create(:user, :registered, :admin_user) }
   let!(:actor1) { create(:actor) }
   let!(:actor2) { create(:actor) }
 
   background do
+    login(user)
     visit admin_actor_path(id: actor1.id)
   end
 
@@ -46,5 +48,9 @@ feature '管理画面：声優', js: true do
     expect(find('b.panel-title').text).to eq old_name
     find('.not-editing-title > span.link').click
     expect(find("input[name='name']").value).to eq '編集途中の声優名'
+  end
+
+  after do
+    logout
   end
 end

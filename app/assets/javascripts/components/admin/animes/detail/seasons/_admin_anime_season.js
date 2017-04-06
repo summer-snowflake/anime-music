@@ -62,7 +62,8 @@ export default class AdminAnimeSeason extends Component {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': 'Token token=' + localStorage.getItem('access_token')
       }
     })
       .then((res) => {
@@ -85,6 +86,7 @@ export default class AdminAnimeSeason extends Component {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': 'Token token=' + localStorage.getItem('access_token')
       },
       body: JSON.stringify(params)
     })
@@ -105,7 +107,9 @@ export default class AdminAnimeSeason extends Component {
   }
 
   loadAnimeSeasonFromServer() {
-    fetch(origin + 'api/admin/animes/' + this.props.season.anime_id + '/seasons/' + this.props.season.id)
+    fetch(origin + 'api/admin/animes/' + this.props.season.anime_id + '/seasons/' + this.props.season.id, {
+      headers: {'Authorization': 'Token token=' + localStorage.getItem('access_token')}
+    })
       .then((res) => res.json())
       .then((res) => {
         this.setState({season: res})

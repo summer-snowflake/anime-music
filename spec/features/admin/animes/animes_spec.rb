@@ -3,14 +3,16 @@
 require 'rails_helper'
 
 feature '管理画面：アニメ', js: true do
+  let!(:user) { create(:user, :registered, :admin_user) }
   let!(:anime1) { create(:anime) }
   let!(:anime2) { create(:anime) }
 
   background do
-    visit admin_animes_path
+    login(user)
   end
 
   scenario 'アニメ一覧が表示されること' do
+    visit admin_animes_path
     within "#anime-#{anime1.id}" do
       expect(page).to have_content anime1.title
     end
@@ -20,6 +22,7 @@ feature '管理画面：アニメ', js: true do
   end
 
   scenario 'アニメ一覧から詳細画面が表示されること' do
+    visit admin_animes_path
     within "#anime-#{anime1.id} .media-heading" do
       click_link anime1.title
     end
@@ -31,6 +34,7 @@ feature '管理画面：アニメ', js: true do
   end
 
   scenario 'アニメ一覧から対象のアニメを削除できること' do
+    visit admin_animes_path
     within "#anime-#{anime1.id}" do
       find('.glyphicon-trash').click
     end
@@ -43,6 +47,7 @@ feature '管理画面：アニメ', js: true do
   end
 
   scenario '正しい値と「登録」ボタンで、アニメを新規作成できること' do
+    visit admin_animes_path
     within '.adminAnimeNewFormComponent' do
       find('.btn-default').click
       fill_in 'title', with: '新しいタイトル'
@@ -56,6 +61,7 @@ feature '管理画面：アニメ', js: true do
   end
 
   scenario '正しい値と「キャンセル」ボタンで、アニメが登録されないこと' do
+    visit admin_animes_path
     within '.adminAnimeNewFormComponent' do
       find('.btn-default').click
       fill_in 'title', with: '新しいタイトル'
@@ -68,6 +74,7 @@ feature '管理画面：アニメ', js: true do
   end
 
   scenario '不正な値と「登録」ボタンで、アニメが登録されないこと' do
+    visit admin_animes_path
     within '.adminAnimeNewFormComponent' do
       find('.btn-default').click
       fill_in 'title', with: ''
@@ -78,5 +85,9 @@ feature '管理画面：アニメ', js: true do
     end
 
     expect(Anime.count).to eq 2
+  end
+
+  after do
+    logout
   end
 end

@@ -3,10 +3,12 @@
 require 'rails_helper'
 
 feature '管理画面：声優', js: true do
+  let!(:user) { create(:user, :registered, :admin_user) }
   let!(:actor1) { create(:actor) }
   let!(:actor2) { create(:actor) }
 
   background do
+    login(user)
     visit admin_actors_path
   end
 
@@ -74,5 +76,9 @@ feature '管理画面：声優', js: true do
     end
 
     expect(Actor.count).to eq 2
+  end
+
+  after do
+    logout
   end
 end
