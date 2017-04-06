@@ -52,7 +52,7 @@ export default class Navbar extends Component {
             </ul>
           ) : (
             // ログイン
-            <span></span>
+            <span />
           )}
         </div>
       </div>

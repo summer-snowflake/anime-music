@@ -22,10 +22,9 @@ export default class App extends Component {
   }
 
   loginStatus() {
-    let pathname = this.props.location.pathname
     if (localStorage.getItem('access_token') != 'undefined') {
       this.loadUserFromServer()
-    } else if (pathname.match(/\/admin/)) {
+    } else if (this.props.location.pathname.match(/\/admin/)) {
       browserHistory.push('/login')
     } else {
       this.setState({user: undefined})
