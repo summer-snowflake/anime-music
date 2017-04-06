@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import AdminMenu from './_admin_menu.js'
-import AdminAuthenticate from './../mixins/authenticate.js'
 
 export default class Admin extends Component {
   render() {

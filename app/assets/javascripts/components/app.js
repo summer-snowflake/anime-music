@@ -17,14 +17,15 @@ export default class App extends Component {
     this.loginStatus()
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps() {
     this.loginStatus()
   }
 
   loginStatus() {
+    let pathname = this.props.location.pathname
     if (localStorage.getItem('access_token') != 'undefined') {
       this.loadUserFromServer()
-    } else if (this.props.location.pathname.match(/\/admin/)) {
+    } else if (pathname.match(/\/admin/)) {
       browserHistory.push('/login')
     } else {
       this.setState({user: undefined})
@@ -67,5 +68,6 @@ export default class App extends Component {
 }
 
 App.propTypes = {
-  children: PropTypes.any.isRequired
+  children: PropTypes.any.isRequired,
+  location: PropTypes.any
 }

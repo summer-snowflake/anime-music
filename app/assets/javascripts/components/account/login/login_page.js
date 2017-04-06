@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { browserHistory } from 'react-router'
 
 import LoginForm from './_login_form'
 import { origin } from './../../../origin.js'

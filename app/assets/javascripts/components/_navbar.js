@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Link, browserHistory } from 'react-router'
-import Authenticate from './mixins/authenticate.js'
 
 export default class Navbar extends Component {
   constructor(props) {
@@ -39,7 +38,7 @@ export default class Navbar extends Component {
           { (this.props.user) ? (
             <ul className='nav navbar-nav navbar-right' >
               {admin_link_jsx}
-              <li ref='email' className='email'>
+              <li className='email' ref='email'>
                 <a className='link'>
                   {this.props.user.email}
                 </a>
@@ -58,4 +57,8 @@ export default class Navbar extends Component {
       </div>
     )
   }
+}
+
+Navbar.propTypes = {
+  user: PropTypes.object.isRequired
 }
