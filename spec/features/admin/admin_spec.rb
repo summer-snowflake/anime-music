@@ -51,6 +51,13 @@ feature '管理画面：TOP', js: true do
       visit admin_top_path
     end
 
+    scenario '管理メニューアイコンから管理画面が表示されること' do
+      visit root_path
+      find('.glyphicon-cog').click
+
+      expect(current_path).to eq admin_top_path
+    end
+
     scenario '管理TOPが表示されること' do
       expect(current_path).to eq admin_top_path
     end
