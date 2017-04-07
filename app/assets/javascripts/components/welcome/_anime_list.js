@@ -15,7 +15,7 @@ export default class AnimeList extends Component {
   }
 
   loadAnimesFromServer() {
-    fetch(origin + 'api/animes')
+    fetch(origin + 'api/welcome')
       .then((res) => res.json())
       .then((res) => {
         this.setState({animes: res.animes})

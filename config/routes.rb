@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   namespace :api, only: %i(index), format: 'json' do
     resource :user, only: %i(show)
     resource :session, only: %i(create)
-    resources :animes, only: %i(index)
+    get :welcome, to: 'welcome#show'
 
     namespace :admin do
       resources :animes, only: %i(index show create update destroy) do
