@@ -2,6 +2,6 @@
 
 class Api::WelcomeController < Api::BaseController
   def show
-    @animes = Anime.all
+    @animes = Anime.current_airing
   end
 end
