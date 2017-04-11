@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 json.animes do
-  json.array! @animes do |anime|
-    json.id anime.id
-    json.title anime.title
-    json.summary anime.summary
+  json.array! @seasons do |season|
+    json.id season.anime.id
+    json.title season.anime.title
+    json.summary season.anime.summary
   end
 end
