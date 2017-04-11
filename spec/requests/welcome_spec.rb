@@ -5,6 +5,8 @@ require 'rails_helper'
 describe 'GET /api/welcome', autodoc: true do
   let!(:anime1) { create(:anime) }
   let!(:anime2) { create(:anime) }
+  let!(:season1) { create(:season, anime: anime1) }
+  let!(:season2) { create(:season, anime: anime2) }
 
   it '200とアニメ一覧が返ってくること' do
     get '/api/welcome'

@@ -6,7 +6,12 @@ export default class Anime extends Component {
       <div className='animeComponent'>
         <div className='panel panel-default'>
           <div className='panel-body'>
-            { this.props.anime.title }
+            <div className='title'>
+              { this.props.anime.title }
+            </div>
+            <div className='summary'>
+              { this.props.anime.summary }
+            </div>
           </div>
         </div>
       </div>

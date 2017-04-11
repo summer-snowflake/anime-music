@@ -16,7 +16,7 @@ RSpec.describe Anime, type: :model do
   end
 
   describe '#current_airing' do
-    subject { Anime.current_airing_animes }
+    subject { Anime.current_airing }
 
     let(:anime1) { create(:anime) }
     let(:anime2) { create(:anime) }
