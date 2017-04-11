@@ -346,7 +346,7 @@ GEM
     tokens (2.1.1)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
-    unicode-display_width (1.2.0)
+    unicode-display_width (1.2.1)
     validates_email_format_of (1.6.3)
       i18n
     websocket (1.2.4)
