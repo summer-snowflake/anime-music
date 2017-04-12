@@ -5,6 +5,7 @@ require 'rails_helper'
 describe 'GET /api/admin/animes', autodoc: true do
   let!(:anime1) { create(:anime) }
   let!(:anime2) { create(:anime) }
+  let!(:season) { create(:season, anime: anime1) }
 
   context 'ログインしていない場合' do
     it '401が返ってくること' do
@@ -27,14 +28,16 @@ describe 'GET /api/admin/animes', autodoc: true do
             title: anime2.title,
             summary: anime2.summary,
             wiki_url: anime2.wiki_url,
-            picture: anime2.picture
+            picture: anime2.picture,
+            airing: false
           },
           {
             id: anime1.id,
             title: anime1.title,
             summary: anime1.summary,
             wiki_url: anime1.wiki_url,
-            picture: anime1.picture
+            picture: anime1.picture,
+            airing: true
           }
         ]
       }
@@ -45,6 +48,7 @@ end
 
 describe 'GET /api/admin/animes/:id', autodoc: true do
   let!(:anime) { create(:anime) }
+  let!(:season) { create(:season, anime: anime) }
 
   context 'ログインしていない場合' do
     it '401が返ってくること' do
@@ -65,7 +69,8 @@ describe 'GET /api/admin/animes/:id', autodoc: true do
         title: anime.title,
         summary: anime.summary,
         wiki_url: anime.wiki_url,
-        picture: anime.picture
+        picture: anime.picture,
+        airing: true
       }
       expect(response.body).to be_json_as(json)
     end

@@ -9,7 +9,7 @@ export default class AdminAnimeDetail extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      anime: {id: 0, title: '', summary: '', wiki_url: '', picture: ''}
+      anime: {id: 0, title: '', summary: '', wiki_url: '', picture: '', airing: false}
     }
     this.loadAnimeFromServer = this.loadAnimeFromServer.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
@@ -77,7 +77,7 @@ export default class AdminAnimeDetail extends Component {
       <div className='adminAnimeDetailComponent'>
         <div className='panel panel-default'>
           <div className='panel-body'>
-            <AdminAnimeTitle handleUpdateTitle={this.onSubmit} ref='title' title={this.state.anime.title} />
+            <AdminAnimeTitle handleUpdateTitle={this.onSubmit} ref='title' title={this.state.anime.title} airing={this.state.anime.airing} />
             <div className="row">
               <div className="col-xs-6 col-md-3">
                 <AdminAnimeThumbnail handleUpdateThumbnail={this.onSubmit} picture={this.state.anime.picture || ''} title={this.state.anime.title} />
