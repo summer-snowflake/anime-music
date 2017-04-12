@@ -7,10 +7,10 @@ export default class Anime extends Component {
         <div className='panel panel-default'>
           <div className='panel-body'>
             <div className='title'>
-              { this.props.anime.title }
+              { this.props.season.anime.title } {this.props.season.name} {'（第'}{ this.props.season.phase }{'期）'}
             </div>
             <div className='summary'>
-              { this.props.anime.summary }
+              { this.props.season.anime.summary }
             </div>
           </div>
         </div>
@@ -20,5 +20,5 @@ export default class Anime extends Component {
 }
 
 Anime.propTypes = {
-  anime: PropTypes.object.isRequired
+  season: PropTypes.object.isRequired
 }

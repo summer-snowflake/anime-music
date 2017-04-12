@@ -13,8 +13,9 @@ describe('AnimeComponent', () => {
 
   it('propsに設定した値が出力される', () => {
     const anime = { title: 'アニメタイトル', summary: 'アニメサマリ' }
+    const season = { id: 1, phase: '1', name: 'シーズン名', anime: anime }
     renderer.render(
-      <Anime anime={anime} />
+      <Anime season={season} />
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
@@ -22,7 +23,7 @@ describe('AnimeComponent', () => {
         <div className="panel panel-default">
           <div className='panel-body'>
             <div className='title'>
-              {'アニメタイトル'}
+              {'アニメタイトル シーズン名 （第1期）'}
             </div>
             <div className='summary'>
               {'アニメサマリ'}

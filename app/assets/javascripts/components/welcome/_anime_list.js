@@ -6,7 +6,7 @@ export default class AnimeList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      animes: []
+      seasons: []
     }
   }
 
@@ -18,7 +18,7 @@ export default class AnimeList extends Component {
     fetch(origin + 'api/welcome')
       .then((res) => res.json())
       .then((res) => {
-        this.setState({animes: res.animes})
+        this.setState({seasons: res.seasons})
       })
       .catch((error) => {
         console.error(error)
@@ -28,8 +28,8 @@ export default class AnimeList extends Component {
   render() {
     return (
       <div className='animeListComponent'>
-        {this.state.animes.map((anime) =>
-          <Anime anime={anime} key={anime.id} />
+        {this.state.seasons.map((season) =>
+          <Anime key={season.id} season={season} />
         )}
       </div>
     )
