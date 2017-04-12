@@ -61,6 +61,10 @@ export default class AdminAnimeRow extends Component {
             <Link to={'/admin/animes/' + this.props.anime.id}>
               {this.props.anime.title}
             </Link>
+            {(() => {
+              if (this.props.anime.airing)
+                return <span className='pull-right label label-default'>{'放送中'}</span>
+            })()}
           </h4>
           <div className='summary'>
             {this.props.anime.summary}
