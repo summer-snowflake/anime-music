@@ -9,6 +9,14 @@
   }
 }
 
+.welcomeComponent {
+  padding-top: 40px;
+  .title {
+    font-weight: bold;
+    padding-bottom: 7px;
+  }
+}
+
 // == 管理画面：アニメ ==
 
 .adminAnimeRowComponent {
