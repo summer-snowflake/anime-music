@@ -25,7 +25,7 @@ describe('AdminAnimeDetailComponent', () => {
       <div className='adminAnimeDetailComponent'>
         <div className='panel panel-default'>
           <div className='panel-body'>
-            <AdminAnimeTitle handleUpdateTitle={jest.fn()} ref='title' title='アニメタイトル' airing={false} />
+            <AdminAnimeTitle airing={false} handleUpdateTitle={jest.fn()} ref='title' title='アニメタイトル' />
             <div className="row">
               <div className="col-xs-6 col-md-3">
                 <AdminAnimeThumbnail handleUpdateThumbnail={jest.fn()} picture='https://picture.com' title='アニメタイトル' />

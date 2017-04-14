@@ -16,7 +16,7 @@ class Melody::Fetcher
   end
 
   def all
-    melodies = @season.melodies
+    melodies = @season.melodies.order(:created_at)
     melodies = melodies.send(@kind) if valid? && @kind
     melodies
   end
