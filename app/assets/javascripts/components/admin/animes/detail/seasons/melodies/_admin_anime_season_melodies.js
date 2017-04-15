@@ -21,7 +21,6 @@ export default class AdminAnimeSeasonMelodies extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res)
         this.setState({melodies: res.melodies})
       })
       .catch((error) => {

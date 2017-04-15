@@ -7,6 +7,8 @@ describe 'GET /api/welcome', autodoc: true do
   let!(:anime2) { create(:anime) }
   let!(:season1) { create(:season, anime: anime1) }
   let!(:season2) { create(:season, anime: anime2) }
+  let!(:melody1) { create(:melody, season: season1) }
+  let!(:melody2) { create(:melody, season: season2) }
 
   it '200とアニメ一覧が返ってくること' do
     get '/api/welcome'
@@ -22,7 +24,14 @@ describe 'GET /api/welcome', autodoc: true do
             id: anime1.id,
             title: anime1.title,
             summary: anime1.summary
-          }
+          },
+          melodies: [
+            {
+              id: melody1.id,
+              kind: melody1.kind,
+              title: melody1.title
+            }
+          ]
         },
         {
           id: season2.id,
@@ -32,7 +41,14 @@ describe 'GET /api/welcome', autodoc: true do
             id: anime2.id,
             title: anime2.title,
             summary: anime2.summary
-          }
+          },
+          melodies: [
+            {
+              id: melody2.id,
+              kind: melody2.kind,
+              title: melody2.title
+            }
+          ]
         }
       ]
     }
