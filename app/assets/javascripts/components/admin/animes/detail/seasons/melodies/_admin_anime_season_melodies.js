@@ -12,12 +12,11 @@ export default class AdminAnimeSeasonMelodies extends Component {
   }
 
   componentDidMount() {
-    let params = this.props.kind ? '?kind=' + this.props.kind : ''
-    this.loadMelodiesFromServer(params)
+    this.loadMelodiesFromServer()
   }
 
-  loadMelodiesFromServer(params) {
-    fetch(origin + 'api/admin/seasons/' + this.props.season_id + '/melodies' + params, {
+  loadMelodiesFromServer() {
+    fetch(origin + 'api/admin/seasons/' + this.props.season_id + '/melodies', {
       headers: {'Authorization': 'Token token=' + localStorage.getItem('access_token')}
     })
       .then((res) => res.json())
@@ -42,6 +41,5 @@ export default class AdminAnimeSeasonMelodies extends Component {
 }
 
 AdminAnimeSeasonMelodies.propTypes = {
-  season_id: PropTypes.number.isRequired,
-  kind: PropTypes.string
+  season_id: PropTypes.number.isRequired
 }

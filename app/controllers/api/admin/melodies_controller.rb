@@ -4,7 +4,7 @@ class Api::Admin::MelodiesController < Api::Admin::BaseController
   before_action :set_season, only: %i[index]
 
   def index
-    @melodies = Melody::Fetcher.all(season: @season, kind: params[:kind])
+    @melodies = Melody::Fetcher.all(season: @season, params: nil)
   end
 
   private

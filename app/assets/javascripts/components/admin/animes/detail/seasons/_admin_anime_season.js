@@ -158,8 +158,7 @@ export default class AdminAnimeSeason extends Component {
           else
             return not_editing_jsx
         })()}
-        <AdminAnimeSeasonMelodies kind='op' season_id={this.state.season.id} />
-        <AdminAnimeSeasonMelodies kind='ed' season_id={this.state.season.id} />
+        <AdminAnimeSeasonMelodies season_id={this.state.season.id} />
         <DestroyModal handleCancel={this.onClickCancelButton} handleDestroy={this.onClickDeleteButton} showModal={this.state.showModal} />
       </div>
     )

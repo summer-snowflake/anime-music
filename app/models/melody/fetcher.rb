@@ -6,13 +6,13 @@ class Melody::Fetcher
   attr_accessor :kind
   validates :kind, inclusion: { in: %w[op ed] }, allow_nil: true
 
-  def initialize(season:, kind:)
+  def initialize(season:, params:)
     @season = season
-    @kind = kind
+    @kind = params[:kind] if params && params[:kind]
   end
 
-  def self.all(season:, kind:)
-    new(season: season, kind: kind).all
+  def self.all(season:, params:)
+    new(season: season, params: params).all
   end
 
   def all
