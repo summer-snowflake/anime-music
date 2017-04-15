@@ -15,7 +15,7 @@ describe('AdminAnimeDetailComponent', () => {
   it('propsに設定した値が出力されること', () => {
     let renderer = createRenderer()
     renderer.render(
-      <AdminAnimeTitle handleUpdateTitle={jest.fn()} title='アニメタイトル' />
+      <AdminAnimeTitle airing={false} handleUpdateTitle={jest.fn()} title='アニメタイトル' />
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
