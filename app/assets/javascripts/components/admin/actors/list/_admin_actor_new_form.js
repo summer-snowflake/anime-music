@@ -100,7 +100,7 @@ export default class AdminActorNewForm extends Component {
             </div>
           </div>
           ) : (
-          <AdminNewButtonField message={this.state.message} message_type={this.state.message_type} onLoadNewForm={this.handleShowNewForm} />
+          <AdminNewButtonField message={this.state.message} message_type={this.state.message_type} name='Actor' onLoadNewForm={this.handleShowNewForm} />
           )}
       </div>
     )
