@@ -14,7 +14,10 @@ export default class AdminNewButtonField extends Component {
   render() {
     return (
       <div className='adminNewButtonFieldComponent'>
-        <a className='btn btn-default' onClick={this.handleClickNewButton}>{'新規登録'}</a>
+        <a className='btn btn-default' onClick={this.handleClickNewButton}>
+          <span className='glyphicon glyphicon-pencil' />
+          {'New ' + this.props.name}
+        </a>
         <MessageBox message={this.props.message} message_type={this.props.message_type} />
       </div>
     )
@@ -22,6 +25,7 @@ export default class AdminNewButtonField extends Component {
 }
 
 AdminNewButtonField.propTypes = {
+  name: PropTypes.string.isRequired,
   onLoadNewForm: PropTypes.func.isRequired,
   message: PropTypes.string.isRequired,
   message_type: PropTypes.string.isRequired
