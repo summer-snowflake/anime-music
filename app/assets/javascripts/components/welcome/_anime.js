@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import Melody from './_melody'
 
 export default class Anime extends Component {
   render () {
@@ -12,6 +13,9 @@ export default class Anime extends Component {
             <div className='summary'>
               { this.props.season.anime.summary }
             </div>
+            {this.props.season.melodies.map((melody) =>
+              <Melody key={melody.id} melody={melody} />
+            )}
           </div>
         </div>
       </div>
