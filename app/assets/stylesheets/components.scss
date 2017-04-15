@@ -17,6 +17,21 @@
   }
 }
 
+.adminAnimeSeasonMelodyComponent {
+  .kind-label {
+    margin: 8px;
+  }
+  .title {
+    margin: 5px;
+    font-weight: bold;
+  }
+  border: solid 1px $blue;
+  padding: 5px;
+  display: inline-block;
+  width: 120px;
+  margin: 10px;
+}
+
 // == 管理画面：アニメ ==
 
 .adminAnimeRowComponent {
