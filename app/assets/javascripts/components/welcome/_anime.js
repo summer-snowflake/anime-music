@@ -13,6 +13,11 @@ export default class Anime extends Component {
             <div className='summary'>
               { this.props.season.anime.summary }
             </div>
+            {(() => {
+              if (this.props.season.melodies.length > 0) {
+                return <hr />
+              }
+            })()}
             {this.props.season.melodies.map((melody) =>
               <Melody key={melody.id} melody={melody} />
             )}

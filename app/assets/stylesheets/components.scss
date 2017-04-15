@@ -17,6 +17,29 @@
   }
 }
 
+.melodyComponent {
+  .glyphicon-music {
+    font-size: 21px;
+    color: #aaa;
+    margin: 8px;
+    padding: 5px;
+  }
+  .kind-label {
+    display: inline-block;
+    margin: 8px;
+    position: relative;
+    top: -35px;
+    left: 10px;
+  }
+  .title {
+    display: inline-block;
+    margin: 8px;
+    position: relative;
+    top: -7px;
+    left: -34px;
+  }
+}
+
 .adminAnimeSeasonMelodyComponent {
   .kind-label {
     margin: 8px;

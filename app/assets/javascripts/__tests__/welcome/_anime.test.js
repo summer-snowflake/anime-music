@@ -30,6 +30,7 @@ describe('AnimeComponent', () => {
             <div className='summary'>
               {'アニメサマリ'}
             </div>
+            <hr />
             <Melody melody={melody} />
           </div>
         </div>
