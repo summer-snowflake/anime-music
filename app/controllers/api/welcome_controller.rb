@@ -2,6 +2,6 @@
 
 class Api::WelcomeController < Api::BaseController
   def show
-    @seasons = Season.airing(Time.zone.today).includes(:anime)
+    @seasons = Season.airing(Time.zone.today).includes([:anime, :melodies])
   end
 end
