@@ -1,11 +1,14 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 feature '管理画面：アニメ', js: true do
+  let!(:user) { create(:user, :registered, :admin_user) }
   let!(:anime1) { create(:anime) }
   let!(:anime2) { create(:anime) }
 
   background do
+    login(user)
     visit admin_anime_path(id: anime1.id)
   end
 
@@ -45,5 +48,9 @@ feature '管理画面：アニメ', js: true do
     expect(find('b.panel-title').text).to eq old_title
     find('.not-editing-title > span.link').click
     expect(find("input[name='title']").value).to eq '編集途中のアニメタイトル'
+  end
+
+  after do
+    logout
   end
 end

@@ -3,6 +3,7 @@ import { Route, IndexRoute } from 'react-router'
 
 import App from './components/app.js'
 import Welcome from './components/welcome/welcome.js'
+import LoginPage from './components/account/login/login_page.js'
 import Admin from './components/admin/admin.js'
 import AdminTopPage from './components/admin/top/admin_top_page.js'
 import AdminAnimesPage from './components/admin/animes/admin_animes_page.js'
@@ -15,6 +16,7 @@ import AdminActor from './components/admin/actors/detail/admin_actor.js'
 module.exports = (
   <Route component={App} path="/">
     <IndexRoute component={Welcome} />
+    <Route component={LoginPage} path='/login' />
     <Route component={Admin} path="/admin">
       <IndexRoute component={AdminTopPage} />
       <Route component={AdminAnimesPage} path="/admin/animes">

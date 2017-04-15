@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'POST /api/session?email=email&password=password', autodoc: true do
@@ -16,6 +17,15 @@ describe 'POST /api/session?email=email&password=password', autodoc: true do
       post '/api/session', params: params
       expect(response.status).to eq 200
       expect(JSON.parse(response.body)['access_token']).to be_a(String)
+
+      json = {
+        user: {
+          id: user.id,
+          email: email,
+          admin: false
+        }
+      }
+      expect(response.body).to be_json_including(json)
     end
   end
 
@@ -87,7 +97,7 @@ describe 'POST /api/session?email=email&password=password', autodoc: true do
 
       expect(response.status).to eq 401
       json = {
-        error_messages: %w(メールアドレスを入力してください パスワードを入力してください)
+        error_messages: %w[メールアドレスを入力してください パスワードを入力してください]
       }
       expect(response.body).to be_json_as(json)
     end

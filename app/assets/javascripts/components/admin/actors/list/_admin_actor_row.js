@@ -27,7 +27,8 @@ export default class AdminActorRow extends Component {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': 'Token token=' + localStorage.getItem('access_token')
       }
     })
       .then((res) => {

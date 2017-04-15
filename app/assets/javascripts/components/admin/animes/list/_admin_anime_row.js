@@ -27,7 +27,8 @@ export default class AdminAnimeRow extends Component {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': 'Token token=' + localStorage.getItem('access_token')
       }
     })
       .then((res) => {
@@ -60,6 +61,10 @@ export default class AdminAnimeRow extends Component {
             <Link to={'/admin/animes/' + this.props.anime.id}>
               {this.props.anime.title}
             </Link>
+            {(() => {
+              if (this.props.anime.airing)
+                return <span className='pull-right label label-default'>{'放送中'}</span>
+            })()}
           </h4>
           <div className='summary'>
             {this.props.anime.summary}

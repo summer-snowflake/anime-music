@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.id @season.id
 json.phase @season.phase
 json.name @season.name

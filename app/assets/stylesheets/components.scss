@@ -2,6 +2,59 @@
   height: 80px;
 }
 
+.loginPageComponent {
+  padding-top: 80px;
+  .panel-body {
+    padding: 40px;
+  }
+}
+
+.welcomeComponent {
+  padding-top: 40px;
+  .title {
+    font-weight: bold;
+    padding-bottom: 7px;
+  }
+}
+
+.melodyComponent {
+  .glyphicon-music {
+    font-size: 21px;
+    color: #aaa;
+    margin: 8px;
+    padding: 5px;
+  }
+  .kind-label {
+    display: inline-block;
+    margin: 8px;
+    position: relative;
+    top: -35px;
+    left: 10px;
+  }
+  .title {
+    display: inline-block;
+    margin: 8px;
+    position: relative;
+    top: -7px;
+    left: -34px;
+  }
+}
+
+.adminAnimeSeasonMelodyComponent {
+  .kind-label {
+    margin: 8px;
+  }
+  .title {
+    margin: 5px;
+    font-weight: bold;
+  }
+  border: solid 1px $blue;
+  padding: 5px;
+  display: inline-block;
+  width: 120px;
+  margin: 10px;
+}
+
 // == 管理画面：アニメ ==
 
 .adminAnimeRowComponent {
@@ -30,6 +83,9 @@
   .messageBoxComponent {
     position: absolute;
     top: 14px;
+  }
+  .airing-label {
+    font-size: 13px;
   }
 }
 

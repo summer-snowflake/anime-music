@@ -95,6 +95,10 @@ export default class AdminAnimeTitle extends Component {
         })()}
         <MessageBox message={this.state.message} message_type={this.state.message_type} />
         <LoadingImage loading={this.state.loadingTitle} />
+        {(() => {
+          if (this.props.airing)
+            return <span className='pull-right label label-default airing-label'>{'放送中'}</span>
+        })()}
       </div>
     )
   }
@@ -102,5 +106,6 @@ export default class AdminAnimeTitle extends Component {
 
 AdminAnimeTitle.propTypes = {
   title: PropTypes.string.isRequired,
+  airing: PropTypes.bool.isRequired,
   handleUpdateTitle: PropTypes.func.isRequired
 }

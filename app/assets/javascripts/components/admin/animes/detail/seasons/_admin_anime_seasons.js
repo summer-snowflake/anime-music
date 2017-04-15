@@ -17,7 +17,9 @@ export default class AdminAnimeSeasons extends Component {
   }
 
   loadSeasonsFromServer() {
-    fetch(origin + 'api/admin/animes/' + this.props.anime_id + '/seasons')
+    fetch(origin + 'api/admin/animes/' + this.props.anime_id + '/seasons', {
+      headers: {'Authorization': 'Token token=' + localStorage.getItem('access_token')}
+    })
       .then((res) => res.json())
       .then((res) => {
         this.setState({seasons: res.seasons})

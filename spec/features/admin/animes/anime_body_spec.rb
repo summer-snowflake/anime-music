@@ -1,11 +1,14 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 feature '管理画面：アニメ', js: true do
+  let!(:user) { create(:user, :registered, :admin_user) }
   let!(:anime1) { create(:anime) }
   let!(:anime2) { create(:anime) }
 
   background do
+    login(user)
     visit admin_anime_path(id: anime1.id)
   end
 
@@ -39,5 +42,9 @@ feature '管理画面：アニメ', js: true do
     anime1.reload
     expect(anime1.summary).to eq ''
     expect(anime1.wiki_url).to eq ''
+  end
+
+  after do
+    logout
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.animes do
   json.array! @animes do |anime|
     json.id anime.id
@@ -5,5 +7,6 @@ json.animes do
     json.summary anime.summary
     json.wiki_url anime.wiki_url
     json.picture anime.picture
+    json.airing anime.airing?
   end
 end

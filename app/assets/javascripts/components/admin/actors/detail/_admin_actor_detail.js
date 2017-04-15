@@ -22,7 +22,9 @@ export default class AdminActorDetail extends Component {
   }
 
   loadActorsFromServer() {
-    fetch(origin + 'api/admin/actors/' + this.props.actor_id)
+    fetch(origin + 'api/admin/actors/' + this.props.actor_id, {
+      headers: {'Authorization': 'Token token=' + localStorage.getItem('access_token')}
+    })
       .then((res) => res.json())
       .then((res) => {
         this.setState({actor: res})
@@ -38,6 +40,7 @@ export default class AdminActorDetail extends Component {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': 'Token token=' + localStorage.getItem('access_token')
       },
       body: JSON.stringify(params)
     })
@@ -69,7 +72,7 @@ export default class AdminActorDetail extends Component {
               handleUpdateName={this.onSubmit}
               name={this.state.actor.name}
               ref='name'
-            />
+              />
           </div>
         </div>
       </div>

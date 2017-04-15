@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-class Api::Admin::AnimesController < Api::BaseController
-  before_action :set_anime, only: %i(show update destroy)
+
+class Api::Admin::AnimesController < Api::Admin::BaseController
+  before_action :set_anime, only: %i[show update destroy]
 
   def index
     @animes = Anime.all.order(created_at: :desc)

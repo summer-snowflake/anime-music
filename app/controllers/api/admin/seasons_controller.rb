@@ -1,7 +1,8 @@
 # frozen_string_literal: true
-class Api::Admin::SeasonsController < Api::BaseController
-  before_action :set_anime, only: %i(index show create update destroy)
-  before_action :set_season, only: %i(update show destroy)
+
+class Api::Admin::SeasonsController < Api::Admin::BaseController
+  before_action :set_anime, only: %i[index show create update destroy]
+  before_action :set_season, only: %i[update show destroy]
 
   def index
     @seasons = @anime.seasons.order(phase: :desc)

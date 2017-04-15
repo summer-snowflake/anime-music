@@ -18,14 +18,14 @@ describe('AdminAnimeDetailComponent', () => {
     const component = shallow(
       <AdminAnimeDetail anime_id='1' />
     )
-    component.setState({anime: { id: 1, title: 'アニメタイトル', summary: 'アニメサマリ', wiki_url: 'https://wiki.com', picture: 'https://picture.com' }})
+    component.setState({anime: { id: 1, title: 'アニメタイトル', summary: 'アニメサマリ', wiki_url: 'https://wiki.com', picture: 'https://picture.com', airing: false }})
 
     let actualElement = component.single(reactElementToJSXString)
     let expectedElement = (
       <div className='adminAnimeDetailComponent'>
         <div className='panel panel-default'>
           <div className='panel-body'>
-            <AdminAnimeTitle handleUpdateTitle={jest.fn()} ref='title' title='アニメタイトル' />
+            <AdminAnimeTitle airing={false} handleUpdateTitle={jest.fn()} ref='title' title='アニメタイトル' />
             <div className="row">
               <div className="col-xs-6 col-md-3">
                 <AdminAnimeThumbnail handleUpdateThumbnail={jest.fn()} picture='https://picture.com' title='アニメタイトル' />

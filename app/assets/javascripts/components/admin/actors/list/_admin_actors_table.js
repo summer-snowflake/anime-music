@@ -17,7 +17,9 @@ export default class AdminActorsTable extends Component {
   }
 
   loadActorsFromServer() {
-    fetch(origin + 'api/admin/actors')
+    fetch(origin + 'api/admin/actors', {
+      headers: {'Authorization': 'Token token=' + localStorage.getItem('access_token')}
+    })
       .then((res) => res.json())
       .then((res) => {
         this.setState({actors: res.actors})

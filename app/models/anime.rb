@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Anime < ApplicationRecord
   has_many :seasons
   has_many :melodies
@@ -11,4 +12,11 @@ class Anime < ApplicationRecord
   validates :summary, length: { maximum: Settings.anime.summary.maximum_length }
   validates :wiki_url,
             length: { maximum: Settings.anime.wiki_url.maximum_length }
+
+  def airing?
+    seasons.any? do |season|
+      season.start_on <= Time.zone.today &&
+        (season.end_on.nil? || season.end_on >= Time.zone.today)
+    end
+  end
 end
