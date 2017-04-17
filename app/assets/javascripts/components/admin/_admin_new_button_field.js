@@ -14,8 +14,7 @@ export default class AdminNewButtonField extends Component {
   render() {
     return (
       <div className='adminNewButtonFieldComponent'>
-        <a className='btn btn-default' onClick={this.handleClickNewButton}>
-          <span className='glyphicon glyphicon-pencil' />
+        <a className='btn btn-primary' onClick={this.handleClickNewButton}>
           {'New ' + this.props.name}
         </a>
         <MessageBox message={this.props.message} message_type={this.props.message_type} />

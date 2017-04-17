@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { origin } from './../../../../../../origin.js'
 import AdminAnimeSeasonMelody from './_admin_anime_season_melody'
+import AdminNewButtonField from './../../../../_admin_new_button_field'
 
 export default class AdminAnimeSeasonMelodies extends Component {
   constructor(props) {
@@ -34,6 +35,7 @@ export default class AdminAnimeSeasonMelodies extends Component {
         {this.state.melodies.map((melody) =>
           <AdminAnimeSeasonMelody key={melody.id} melody={melody} />
         )}
+        <AdminNewButtonField message='' message_type='' name='Melody' onLoadNewForm={this.loadMelodiesFromServer} />
       </div>
     )
   }
