@@ -130,7 +130,7 @@ export default class AdminAnimeNewForm extends Component {
             </div>
           </div>
           ) : (
-          <AdminNewButtonField message={this.state.message} message_type={this.state.message_type} onLoadNewForm={this.handleShowNewForm} />
+          <AdminNewButtonField message={this.state.message} message_type={this.state.message_type} name='Anime' onLoadNewForm={this.handleShowNewForm} />
           )}
       </div>
     )
