@@ -9,3 +9,6 @@ ja:
         name: 声優名
       season:
         phase: シーズンの期
+      melody:
+        title: タイトル
+        kind: 種類
