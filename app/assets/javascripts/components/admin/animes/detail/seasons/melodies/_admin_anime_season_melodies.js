@@ -1,15 +1,21 @@
 import React, { Component, PropTypes } from 'react'
 import { origin } from './../../../../../../origin.js'
 import AdminAnimeSeasonMelody from './_admin_anime_season_melody'
-import AdminNewButtonField from './../../../../_admin_new_button_field'
+import AdminSeasonMelodyNewField from './_admin_season_melody_new_field'
 
 export default class AdminAnimeSeasonMelodies extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      melodies: []
+      melodies: [],
+      showForm: false
     }
     this.loadMelodiesFromServer = this.loadMelodiesFromServer.bind(this)
+    this.handleShowNewForm = this.handleShowNewForm.bind(this)
+  }
+
+  handleShowNewForm() {
+    this.setState({showForm: false})
   }
 
   componentDidMount() {
@@ -35,7 +41,7 @@ export default class AdminAnimeSeasonMelodies extends Component {
         {this.state.melodies.map((melody) =>
           <AdminAnimeSeasonMelody key={melody.id} melody={melody} />
         )}
-        <AdminNewButtonField message='' message_type='' name='Melody' onLoadNewForm={this.loadMelodiesFromServer} />
+        <AdminSeasonMelodyNewField season_id={this.props.season_id} handleLoadMelodies={this.loadMelodiesFromServer} />
       </div>
     )
   }
