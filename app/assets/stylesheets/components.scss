@@ -148,6 +148,17 @@
   padding-bottom: 10px;
 }
 
+.adminSeasonMelodyNewFieldComponent {
+  .kind {
+    display: block;
+    margin-bottom: 10px;
+  }
+  label {
+    margin: 5px;
+    cursor: pointer;
+  }
+}
+
 // === 声優 ===
 
 .adminActorsTableComponent table {
