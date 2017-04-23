@@ -14,12 +14,12 @@ export default class AdminAnimeSeasonMelodies extends Component {
     this.handleShowNewForm = this.handleShowNewForm.bind(this)
   }
 
-  handleShowNewForm() {
-    this.setState({showForm: false})
-  }
-
   componentDidMount() {
     this.loadMelodiesFromServer()
+  }
+
+  handleShowNewForm() {
+    this.setState({showForm: false})
   }
 
   loadMelodiesFromServer() {
@@ -41,7 +41,7 @@ export default class AdminAnimeSeasonMelodies extends Component {
         {this.state.melodies.map((melody) =>
           <AdminAnimeSeasonMelody key={melody.id} melody={melody} />
         )}
-        <AdminSeasonMelodyNewField season_id={this.props.season_id} handleLoadMelodies={this.loadMelodiesFromServer} />
+        <AdminSeasonMelodyNewField handleLoadMelodies={this.loadMelodiesFromServer} season_id={this.props.season_id} />
       </div>
     )
   }

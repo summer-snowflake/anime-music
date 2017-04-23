@@ -49,7 +49,7 @@ export default class AdminSeasonMelodyForm extends Component {
             <label className={'label ' + (this.state.kind == 'ED' ? 'label-info' : 'label-default')} onClick={this.handleChangeKind} value='ED'>
               {'ED'}
             </label>
-            <input type='hidden' ref='kind' value={this.state.kind} />
+            <input ref='kind' type='hidden' value={this.state.kind} />
           </div>
           <div className='form-group title'>
             <label htmlFor='title'>

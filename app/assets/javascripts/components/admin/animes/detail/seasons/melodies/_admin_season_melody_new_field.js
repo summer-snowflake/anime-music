@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import AdminAnimeSeasonMelody from './_admin_anime_season_melody'
 import AdminNewButtonField from './../../../../_admin_new_button_field'
 import AdminSeasonMelodyForm from './_admin_season_melody_form'
 import { origin } from './../../../../../../origin.js'
@@ -76,7 +75,7 @@ export default class AdminSeasonMelodyNewField extends Component {
     return (
       <div className='adminSeasonMelodyNewFieldComponent new-form-field'>
         {this.state.showForm ? (
-          <AdminSeasonMelodyForm season_id={this.props.season_id} onClose={this.handleClickCancelButton} onSubmit={this.handleClickSubmitButton} ref='form' />
+          <AdminSeasonMelodyForm onClose={this.handleClickCancelButton} onSubmit={this.handleClickSubmitButton} ref='form' season_id={this.props.season_id} />
         ) : (
           <AdminNewButtonField message={this.state.message} message_type={this.state.message_type} name='Melody' onLoadNewForm={this.handleShowNewForm} />
         )}
