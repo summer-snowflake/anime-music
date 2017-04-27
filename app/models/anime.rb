@@ -16,7 +16,7 @@ class Anime < ApplicationRecord
   def airing?
     seasons.any? do |season|
       season.start_on <= Time.zone.today &&
-        (season.end_on.nil? || season.end_on >= Time.zone.today)
+        (season.end_on.nil? || season.end_on >= Time.zone.today) if season.start_on.present?
     end
   end
 end
