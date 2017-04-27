@@ -79,14 +79,18 @@ span.link, a.link {
   background-color: #ddd;
 }
 
-a.animate-button {
+.submit-button-field {
+  padding-top: 10px;
+}
+
+.animate-button {
   position: relative;
   z-index: 2;
   overflow: hidden;
   font-weight: bold;
 }
 
-a.animate-button::after {
+.animate-button::after {
   display: block;
   content: "";
   position: absolute;
@@ -100,11 +104,11 @@ a.animate-button::after {
   transition: .2s;
 }
 
-a.animate-button:hover {
+.animate-button:hover {
   color: #fff;
 }
 
-a.animate-button:hover::after {
+.animate-button:hover::after {
   width: 100%;
   height: 100%;
 }

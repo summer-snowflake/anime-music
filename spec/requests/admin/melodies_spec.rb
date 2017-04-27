@@ -43,3 +43,48 @@ describe 'GET /api/admin/seasons/1/melodies', autodoc: true do
     end
   end
 end
+
+describe 'POST /api/admin/seasons/:season_id/melodies', autodoc: true do
+  let(:melody_title) { '音楽タイトル' }
+  let!(:season) { create(:season) }
+  let!(:params) do
+    { melody: attributes_for(:melody, title: melody_title) }
+  end
+
+  context 'ログインしていない場合' do
+    it '401が返ってくること' do
+      post "/api/admin/seasons/#{season.id}/melodies"
+      expect(response.status).to eq 401
+    end
+  end
+
+  context 'ログインしている場合' do
+    let!(:user) { create(:user, :registered) }
+
+    context '正しい値を設定した場合' do
+      it '201が返ってくること' do
+        post "/api/admin/seasons/#{season.id}/melodies",
+             params: params, headers: login_headers(user)
+        expect(response.status).to eq 201
+
+        melody = season.melodies.last
+        expect(melody.title).to eq '音楽タイトル'
+      end
+    end
+
+    context 'タイトルを空で設定した場合' do
+      let(:melody_title) { '' }
+
+      it '422とエラーメッセージが返ってくること' do
+        post "/api/admin/seasons/#{season.id}/melodies",
+             params: params, headers: login_headers(user)
+        expect(response.status).to eq 422
+
+        json = {
+          error_messages: ['タイトルを入力してください']
+        }
+        expect(response.body).to be_json_as(json)
+      end
+    end
+  end
+end
