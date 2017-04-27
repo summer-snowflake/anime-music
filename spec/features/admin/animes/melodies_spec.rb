@@ -29,7 +29,6 @@ feature '管理画面：シーズン', js: true do
     within "#season-#{season.id}" do
       within '.adminNewButtonFieldComponent' do
         find('.btn-primary').click
-
       end
       within '.adminSeasonMelodyNewFieldComponent' do
         find('.label-default').click
