@@ -43,11 +43,11 @@ export default class AdminAdvertisementForm extends Component {
       <div className='adminAdvertisementFormComponent'>
         <form className='form-inline' onSubmit={this.handleClickSubmitButton}>
           <div className='form-group body'>
-            <textarea className='form-control' defaultValue={(this.props.advertisement || {}).body} disabled={this.state.loadingForm} id='body' placeholder='htmlタグ' ref='body' rows='4' cols='120' />
+            <textarea className='form-control' cols='120' defaultValue={(this.props.advertisement || {}).body} disabled={this.state.loadingForm} id='body' placeholder='htmlタグ' ref='body' rows='4' />
           </div>
           <div className='submit-button-field'>
             <a className='btn btn-danger animate-button' disabled={this.state.loadingForm} onClick={this.handleClickSubmitButton}>
-              {this.props.melody ? '更新' : '登録'}
+              {this.props.advertisement ? '更新' : '登録'}
             </a>
             <a className='btn btn-default cancel-button' disabled={this.state.loadingForm} onClick={this.handleClickCancelButton}>
               {'キャンセル'}
