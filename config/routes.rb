@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     get :welcome, to: 'welcome#show'
 
     namespace :admin do
-      resources :advertisements, only: %i(create)
+      resources :advertisements, only: %i(create destroy)
       resources :animes, only: %i(index show create update destroy) do
         resources :advertisements, only: %i(index)
         resources :seasons, only: %i(index show create update destroy)
