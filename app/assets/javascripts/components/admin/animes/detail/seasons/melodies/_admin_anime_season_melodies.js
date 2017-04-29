@@ -22,7 +22,7 @@ export default class AdminAnimeSeasonMelodies extends Component {
   }
 
   handleCloseEditMelodyField(melody_id) {
-    for (let [index, val] in this.state.melodies) {
+    for (let index in this.state.melodies) {
       if (this.state.melodies[index].id == melody_id) {
         let melodies = this.state.melodies
         melodies[index].showEditForm = false
@@ -36,7 +36,7 @@ export default class AdminAnimeSeasonMelodies extends Component {
   }
 
   handleShowEditMelodyField(melody_id) {
-    for (let [index, val] in this.state.melodies) {
+    for (let index in this.state.melodies) {
       if (this.state.melodies[index].id == melody_id) {
         let melodies = this.state.melodies
         melodies[index].showEditForm = true
@@ -62,10 +62,10 @@ export default class AdminAnimeSeasonMelodies extends Component {
     return (
       <div className='adminAnimeSeasonMelodiesComponent'>
         {this.state.melodies.map((melody) =>
-          <AdminAnimeSeasonMelody key={melody.id} melody={melody} handleShowEditMelodyField={this.handleShowEditMelodyField} />
+          <AdminAnimeSeasonMelody key={melody.id} melody={melody} onShowEditMelodyField={this.handleShowEditMelodyField} />
         )}
         {this.state.melodies.map((melody) =>
-          <AdminSeasonMelodyEditField key={melody.id} melody={melody} handleCloseEditMelodyField={this.handleCloseEditMelodyField} handleLoadMelodies={this.loadMelodiesFromServer} />
+          <AdminSeasonMelodyEditField handleLoadMelodies={this.loadMelodiesFromServer} key={melody.id} melody={melody} onCloseEditMelodyField={this.handleCloseEditMelodyField} />
         )}
         <AdminSeasonMelodyNewField handleLoadMelodies={this.loadMelodiesFromServer} season_id={this.props.season_id} />
       </div>

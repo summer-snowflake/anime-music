@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import AdminNewButtonField from './../../../../_admin_new_button_field'
 import AdminSeasonMelodyForm from './_admin_season_melody_form'
 import { origin } from './../../../../../../origin.js'
 
@@ -15,7 +14,7 @@ export default class AdminSeasonMelodyEditField extends Component {
   }
 
   handleClickCancelButton() {
-    this.props.handleCloseEditMelodyField(this.props.melody.id)
+    this.props.onCloseEditMelodyField(this.props.melody.id)
   }
 
   handleClickSubmitButton(params) {
@@ -51,7 +50,7 @@ export default class AdminSeasonMelodyEditField extends Component {
       <div>
         {this.props.melody.showEditForm ? (
           <div className='adminSeasonMelodyEditFieldComponent new-form-field'>
-            <AdminSeasonMelodyForm onClose={this.handleClickCancelButton} melody={this.props.melody} onSubmit={this.handleClickSubmitButton} ref='form' season_id={this.props.melody.season_id} />
+            <AdminSeasonMelodyForm melody={this.props.melody} onClose={this.handleClickCancelButton} onSubmit={this.handleClickSubmitButton} ref='form' season_id={this.props.melody.season_id} />
           </div>
           ) : (
             null
@@ -64,5 +63,5 @@ export default class AdminSeasonMelodyEditField extends Component {
 AdminSeasonMelodyEditField.propTypes = {
   melody: PropTypes.object.isRequired,
   handleLoadMelodies: PropTypes.func.isRequired,
-  handleCloseEditMelodyField: PropTypes.func.isRequired
+  onCloseEditMelodyField: PropTypes.func.isRequired
 }

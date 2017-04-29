@@ -7,7 +7,7 @@ export default class AdminAnimeSeasonMelody extends Component {
   }
 
   handleClickEditIcon() {
-    this.props.handleShowEditMelodyField(this.props.melody.id)
+    this.props.onShowEditMelodyField(this.props.melody.id)
   }
 
   render() {
@@ -32,5 +32,5 @@ export default class AdminAnimeSeasonMelody extends Component {
 
 AdminAnimeSeasonMelody.propTypes = {
   melody: PropTypes.object.isRequired,
-  handleShowEditMelodyField: PropTypes.func.isRequired
+  onShowEditMelodyField: PropTypes.func.isRequired
 }
