@@ -84,7 +84,7 @@ export default class AdminSeasonMelodyEditField extends Component {
     return (
       <div>
         {this.props.melody.showEditForm ? (
-          <div className='adminSeasonMelodyEditFieldComponent new-form-field'>
+          <div className='adminSeasonMelodyEditFieldComponent new-form-field media-body non-bordered'>
             <AdminSeasonMelodyForm melody={this.props.melody} onClose={this.handleClickCancelButton} onSubmit={this.handleClickSubmitButton} ref='form' season_id={this.props.melody.season_id} />
             <div className='pull-right'>
               <span className='link' onClick={this.handleClickTrashIcon}>
