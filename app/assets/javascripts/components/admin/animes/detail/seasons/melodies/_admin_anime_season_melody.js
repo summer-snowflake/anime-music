@@ -12,7 +12,7 @@ export default class AdminAnimeSeasonMelody extends Component {
 
   render() {
     return (
-      <div className='adminAnimeSeasonMelodyComponent'>
+      <div className='adminAnimeSeasonMelodyComponent' id={'melody-' + this.props.melody.id}>
         <div className='label label-info kind-label'>
           {this.props.melody.kind.toUpperCase()}
           <div className='pull-right'>
