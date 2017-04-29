@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Season, type: :model do
   it { is_expected.to belong_to(:anime) }
-  it { is_expected.to have_many(:melodies) }
+  it { is_expected.to have_many(:melodies).dependent(:destroy) }
 
   describe 'バリデーション' do
     subject { create(:season) }
