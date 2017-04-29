@@ -7,12 +7,12 @@ export default class Anime extends Component {
       <div className='animeComponent'>
         <div className='panel panel-default'>
           <div className='panel-body'>
-            <div className='title'>
+            <h2 className='title'>
               { this.props.season.anime.title } {this.props.season.name} {'（第'}{ this.props.season.phase }{'期）'}
-            </div>
-            <div className='summary'>
+            </h2>
+            <p className='summary'>
               { this.props.season.anime.summary }
-            </div>
+            </p>
             {(() => {
               if (this.props.season.melodies.length > 0) {
                 return <hr />
