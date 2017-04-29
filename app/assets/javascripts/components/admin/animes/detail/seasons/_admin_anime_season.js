@@ -78,7 +78,6 @@ export default class AdminAnimeSeason extends Component {
       .catch((error) => {
         console.log(error)
       })
-  
   }
 
   updateAnimeSeasonAgainstServer(params) {
