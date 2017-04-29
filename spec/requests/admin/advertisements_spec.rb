@@ -2,6 +2,50 @@
 
 require 'rails_helper'
 
+describe 'GET /api/admin/animes/:anime_id/advertisements', autodoc: true do
+  let!(:anime) { create(:anime) }
+  let!(:season) { create(:season, anime: anime) }
+  let!(:advertisement1) { create(:advertisement, anime: anime) }
+  let!(:advertisement2) { create(:advertisement, anime: nil, season: season) }
+
+  context 'ログインしていない場合' do
+    it '401が返ってくること' do
+      get "/api/admin/animes/#{anime.id}/advertisements"
+      expect(response.status).to eq 401
+    end
+  end
+
+  context 'ログインしている場合' do
+    let!(:user) { create(:user, :registered) }
+
+    it '200とアニメ一覧が返ってくること' do
+      get "/api/admin/animes/#{anime.id}/advertisements",
+          headers: login_headers(user)
+      expect(response.status).to eq 200
+
+      json = {
+        advertisements: [
+          {
+            id: advertisement1.id,
+            anime_id: advertisement1.anime_id,
+            season_id: advertisement1.season_id,
+            season_phase: nil,
+            body: advertisement1.body
+          },
+          {
+            id: advertisement2.id,
+            anime_id: advertisement2.anime_id,
+            season_id: advertisement2.season_id,
+            season_phase: advertisement2.season.phase,
+            body: advertisement2.body
+          }
+        ]
+      }
+      expect(response.body).to be_json_as(json)
+    end
+  end
+end
+
 describe 'POST /api/admin/advertisements', autodoc: true do
   context 'ログインしていない場合' do
     it '401が返ってくること' do
