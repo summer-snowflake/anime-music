@@ -61,13 +61,13 @@ export default class AdminAnimeSeasonMelodies extends Component {
   render() {
     return (
       <div className='adminAnimeSeasonMelodiesComponent'>
+        <AdminSeasonMelodyNewField handleLoadMelodies={this.loadMelodiesFromServer} season_id={this.props.season_id} />
         {this.state.melodies.map((melody) =>
           <AdminAnimeSeasonMelody key={melody.id} melody={melody} onShowEditMelodyField={this.handleShowEditMelodyField} />
         )}
         {this.state.melodies.map((melody) =>
           <AdminSeasonMelodyEditField handleLoadMelodies={this.loadMelodiesFromServer} key={melody.id} melody={melody} onCloseEditMelodyField={this.handleCloseEditMelodyField} />
         )}
-        <AdminSeasonMelodyNewField handleLoadMelodies={this.loadMelodiesFromServer} season_id={this.props.season_id} />
       </div>
     )
   }
