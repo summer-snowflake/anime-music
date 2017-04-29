@@ -15,12 +15,30 @@ feature '管理画面：シーズン', js: true do
   context 'シーズンに曲が登録されていた場合' do
     let!(:melody) { create(:melody, season: season) }
 
-    scenario 'アニメ詳細画面で該当シーズンに曲が表示されること' do
-      visit admin_anime_path(id: anime.id)
+    background do
+      visit admin_anime_path(anime)
+    end
 
+    scenario 'アニメ詳細画面で該当シーズンに曲が表示されること' do
       within '.adminAnimeSeasonMelodiesComponent' do
         expect(page).to have_content melody.kind.upcase
         expect(page).to have_content melody.title
+      end
+    end
+
+    scenario '対象の曲が編集できること' do
+      within '.adminAnimeSeasonMelodiesComponent' do
+        find("#melody-#{melody.id}").hover
+        find('.glyphicon-pencil').click
+      end
+      within '.adminSeasonMelodyEditFieldComponent' do
+        find('.label-default').click
+        fill_in 'title', with: '曲のタイトルを編集'
+        find('.btn-danger').click
+      end
+      within '.adminAnimeSeasonMelodiesComponent' do
+        expect(page).to have_content 'ED'
+        expect(page).to have_content '曲のタイトルを編集'
       end
     end
   end
