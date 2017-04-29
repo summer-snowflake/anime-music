@@ -18,7 +18,11 @@ export default class AdminSeasonMelodyForm extends Component {
 
   handleClickSubmitButton(e) {
     e.preventDefault()
-    this.props.onSubmit()
+    const params = { melody: {
+      kind: this.refs.kind.value.toLowerCase(),
+      title: this.refs.title.value
+    }}
+    this.props.onSubmit(params)
   }
 
   handleClickCancelButton() {

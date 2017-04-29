@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       end
       resources :actors, only: %i(index show create update destroy)
       resources :seasons, only: :none do
-        resources :melodies, only: %i(index create)
+        resources :melodies, only: %i(index create update)
       end
     end
   end

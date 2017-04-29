@@ -7,34 +7,24 @@ export default class AdminSeasonMelodyEditField extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showForm: false,
       message_type: 'success',
       message: ''
     }
     this.handleClickCancelButton = this.handleClickCancelButton.bind(this)
     this.handleClickSubmitButton = this.handleClickSubmitButton.bind(this)
-    this.handleTimeout = this.handleTimeout.bind(this)
   }
 
   handleClickCancelButton() {
     this.props.handleCloseEditMelodyField(this.props.melody.id)
   }
 
-  handleTimeout() {
-    this.setState({message: ''})
-  }
-
-  handleClickSubmitButton() {
-    const params = { melody: {
-      kind: this.refs.form.refs.kind.value.toLowerCase(),
-      title: this.refs.form.refs.title.value
-    }}
+  handleClickSubmitButton(params) {
     this.postAnimeSeasonMelodyAgainsServer(params)
   }
 
   postAnimeSeasonMelodyAgainsServer(params) {
-    fetch(origin + 'api/admin/seasons/' + this.props.season_id + '/melodies', {
-      method: 'POST',
+    fetch(origin + 'api/admin/seasons/' + this.props.melody.season_id + '/melodies/' + this.props.melody.id, {
+      method: 'PATCH',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -43,17 +33,7 @@ export default class AdminSeasonMelodyEditField extends Component {
       body: JSON.stringify(params)
     })  
       .then((res) => {
-        if(res.status == '201') {
-          let title = ''
-          if(this.refs.form.refs.title.value) {
-            title = '「' + this.refs.form.refs.title.value + '」を'
-          }
-          this.setState({
-            showForm: false,
-            message_type: 'success',
-            message: title + '登録しました'
-          })  
-          setTimeout(this.handleTimeout, 2000)
+        if(res.status == '200') {
           this.props.handleLoadMelodies()
         } else {
           res.json().then((json) => {

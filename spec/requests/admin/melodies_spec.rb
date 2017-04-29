@@ -90,3 +90,44 @@ describe 'POST /api/admin/seasons/:season_id/melodies', autodoc: true do
     end
   end
 end
+
+describe 'PATCH /api/admin/seasons/:season_id/melodies/:id', autodoc: true do
+  let!(:season) { create(:season) }
+  let!(:melody) { create(:melody, season: season) }
+
+  context 'ログインしていない場合' do
+    it '401が返ってくること' do
+      patch "/api/admin/seasons/#{season.id}/melodies/#{melody.id}"
+      expect(response.status).to eq 401
+    end
+  end
+
+  context 'ログインしている場合' do
+    let!(:user) { create(:user, :registered) }
+
+    context '正しい値を設定していた場合' do
+      let!(:params) { { melody: attributes_for(:melody) } }
+
+      it '200が返ってくること' do
+        patch "/api/admin/seasons/#{season.id}/melodies/#{melody.id}",
+              params: params, headers: login_headers(user)
+        expect(response.status).to eq 200
+      end
+    end
+
+    context 'シーズンの期を設定していなかった場合' do
+      let!(:params) { { melody: attributes_for(:melody, title: '') } }
+
+      it '422とエラーメッセージが返ってくること' do
+        patch "/api/admin/seasons/#{season.id}/melodies/#{melody.id}",
+              params: params, headers: login_headers(user)
+        expect(response.status).to eq 422
+
+        json = {
+          error_messages: ['タイトルを入力してください']
+        }
+        expect(response.body).to be_json_as(json)
+      end
+    end
+  end
+end
