@@ -56,7 +56,7 @@ export default class AdminAnimeAdvertisementNewField extends Component {
             message: name + '登録しました'
           })
           setTimeout(this.handleTimeout, 2000)
-          //this.props.handleLoadSeasons()
+          //this.props.handleLoadAdvertisements()
         } else {
           res.json().then((json) => {
             this.refs.form.updateFailed(json.error_messages[0])
