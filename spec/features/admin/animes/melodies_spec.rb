@@ -41,6 +41,21 @@ feature '管理画面：シーズン', js: true do
         expect(page).to have_content '曲のタイトルを編集'
       end
     end
+
+    scenario '対象の曲が削除できること' do
+      within '.adminAnimeSeasonMelodiesComponent' do
+        find("#melody-#{melody.id}").hover
+        find('.glyphicon-pencil').click
+        find('.glyphicon-trash').click
+      end
+      within '.modal-footer' do
+        find('.btn-danger').click
+      end
+      within '.adminAnimeSeasonMelodiesComponent' do
+        expect(page).not_to have_content melody.kind.upcase
+        expect(page).not_to have_content melody.title
+      end
+    end
   end
 
   scenario '対象のシーズンに曲が登録できること' do
