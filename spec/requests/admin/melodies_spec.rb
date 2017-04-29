@@ -28,11 +28,13 @@ describe 'GET /api/admin/seasons/1/melodies', autodoc: true do
           melodies: [
             {
               id: op_melody.id,
+              season_id: op_melody.season.id,
               title: op_melody.title,
               kind: op_melody.kind
             },
             {
               id: ed_melody.id,
+              season_id: ed_melody.season.id,
               title: ed_melody.title,
               kind: ed_melody.kind
             }

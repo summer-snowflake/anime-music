@@ -6,7 +6,7 @@ export default class AdminSeasonMelodyForm extends Component {
     super(props)
     this.state = {
       loadingForm: false,
-      kind: 'OP',
+      kind: ((this.props.melody || {}).kind || 'op').toUpperCase(),
       message_type: 'danger',
       message: '' 
     }
@@ -59,11 +59,7 @@ export default class AdminSeasonMelodyForm extends Component {
           </div>
           <div className='submit-button-field'>
             <a className='btn btn-danger animate-button' disabled={this.state.loadingForm} onClick={this.handleClickSubmitButton}>
-              {this.props.melody ? (
-                '更新'
-              ) : ( 
-                '登録'
-              )}  
+              {this.props.melody ? '更新' : '登録'}
             </a>
             <a className='btn btn-default cancel-button' disabled={this.state.loadingForm} onClick={this.handleClickCancelButton}>
               {'キャンセル'}
