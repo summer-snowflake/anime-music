@@ -14,15 +14,15 @@ export default class AdminSeasonMelodyEditField extends Component {
     this.handleClickTrashIcon = this.handleClickTrashIcon.bind(this)
     this.handleClickCancelButton = this.handleClickCancelButton.bind(this)
     this.handleClickSubmitButton = this.handleClickSubmitButton.bind(this)
-    this.handleClickDeleteCancelButton = this.handleClickDeleteCancelButton.bind(this)
-    this.handleClickDeleteButton = this.handleClickDeleteButton.bind(this)
+    this.onClickDeleteCancelButton = this.onClickDeleteCancelButton.bind(this)
+    this.onClickDeleteButton = this.onClickDeleteButton.bind(this)
   }
 
   handleClickTrashIcon() {
     this.setState({showModal: true}) 
   }
 
-  handleClickDeleteCancelButton() {
+  onClickDeleteCancelButton() {
     this.setState({showModal: false}) 
   }
 
@@ -34,7 +34,7 @@ export default class AdminSeasonMelodyEditField extends Component {
     this.postAnimeSeasonMelodyAgainsServer(params)
   }
 
-  handleClickDeleteButton() {
+  onClickDeleteButton() {
     fetch(origin + 'api/admin/seasons/' + this.props.melody.season_id + '/melodies/' + this.props.melody.id, {
       method: 'DELETE',
       headers: {
@@ -91,7 +91,7 @@ export default class AdminSeasonMelodyEditField extends Component {
                 <span className='glyphicon glyphicon-trash' />
               </span>
             </div>
-            <DestroyModal handleCancel={this.handleClickDeleteCancelButton} handleDestroy={this.handleClickDeleteButton} showModal={this.state.showModal} />
+            <DestroyModal handleCancel={this.onClickDeleteCancelButton} handleDestroy={this.onClickDeleteButton} showModal={this.state.showModal} />
           </div>
           ) : (
             null
