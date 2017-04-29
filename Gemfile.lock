@@ -1,15 +1,4 @@
 GIT
-  remote: git://github.com/audionerd/draper.git
-  revision: e816e0e5876b76c648c0928f1c3f2aa2c7a3d1f2
-  branch: rails5
-  specs:
-    draper (2.1.0)
-      actionpack (>= 3.0)
-      activemodel (>= 3.0)
-      activesupport (>= 3.0)
-      request_store (~> 1.0)
-
-GIT
   remote: git://github.com/rails/activemodel-serializers-xml.git
   revision: dd9c0acf26aab111ebc647cd8deb99ebc6946531
   specs:
@@ -112,6 +101,12 @@ GEM
     dotenv-rails (2.2.0)
       dotenv (= 2.2.0)
       railties (>= 3.2, < 5.1)
+    draper (3.0.0.pre1)
+      actionpack (~> 5.0)
+      activemodel (~> 5.0)
+      activemodel-serializers-xml (~> 1.0)
+      activesupport (~> 5.0)
+      request_store (~> 1.0)
     erubis (2.7.0)
     eventmachine (1.2.3)
     exception_notification (4.2.1)
@@ -375,7 +370,7 @@ DEPENDENCIES
   capybara-screenshot
   database_rewinder
   dotenv-rails
-  draper!
+  draper (> 3.x)
   exception_notification
   factory_girl_rails
   faker

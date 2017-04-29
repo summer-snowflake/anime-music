@@ -7,7 +7,7 @@ gem 'rails', '5.0.2'
 gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml' # for draper
 gem 'bcrypt'
 gem 'bootstrap-sass'
-gem 'draper', github: 'audionerd/draper', branch: 'rails5'
+gem 'draper', '> 3.x'
 gem 'exception_notification'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
