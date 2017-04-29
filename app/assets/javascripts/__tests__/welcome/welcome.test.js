@@ -19,6 +19,7 @@ describe('WelcomeComponent', () => {
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
       <div className='welcomeComponent'>
+        <h1>{'本日のアニソン'}</h1>
         <AnimeList />
       </div>
     )
