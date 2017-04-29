@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Api::Admin::MelodiesController < Api::Admin::BaseController
-  before_action :set_season, only: %i[index create update]
-  before_action :set_melody, only: %i[update]
+  before_action :set_season, only: %i[index create update destroy]
+  before_action :set_melody, only: %i[update destroy]
 
   def index
     @melodies = Melody::Fetcher.all(season: @season, params: nil)
@@ -23,6 +23,11 @@ class Api::Admin::MelodiesController < Api::Admin::BaseController
     else
       render_error @melody
     end
+  end
+
+  def destroy
+    @melody.destroy
+    head @melody.destroyed? ? :ok : :forbidden
   end
 
   private
