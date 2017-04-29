@@ -5,7 +5,8 @@ class Advertisement < ApplicationRecord
   belongs_to :actor, optional: true
   belongs_to :season, optional: true
 
-  validates :body, presence: true, format: { with: /<"[^"]*"|'[^']*'|[^'">]*>/i }
+  validates :body, presence: true,
+                   format: { with: /<"[^"]*"|'[^']*'|[^'">]*>/i }
   validate :should_have_id
 
   def should_have_id
