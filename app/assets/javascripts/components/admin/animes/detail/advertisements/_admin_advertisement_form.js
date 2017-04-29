@@ -6,19 +6,11 @@ export default class AdminAdvertisementForm extends Component {
     super(props)
     this.state = {
       loadingForm: false,
-      unsaved_start_on: '',
-      unsaved_end_on: '',
-      unsaved_phase: '',
-      unsaved_name: '',
       message_type: 'danger',
       message: ''
     }
     this.handleClickCancelButton = this.handleClickCancelButton.bind(this)
     this.handleClickSubmitButton = this.handleClickSubmitButton.bind(this)
-    this.handleChangeStartOn = this.handleChangeStartOn.bind(this)
-    this.handleChangeEndOn = this.handleChangeEndOn.bind(this)
-    this.handleChangePhase = this.handleChangePhase.bind(this)
-    this.handleChangeName = this.handleChangeName.bind(this)
     this.handleTimeout = this.handleTimeout.bind(this)
     this.updateFailed = this.updateFailed.bind(this)
   }
@@ -31,22 +23,6 @@ export default class AdminAdvertisementForm extends Component {
     this.setState({loadingForm: true})
     const body = this.refs.body.value
     this.props.onSubmit(body)
-  }
-
-  handleChangeStartOn(e) {
-    this.setState({unsaved_start_on: e.target.value})
-  }
-
-  handleChangeEndOn(e) {
-    this.setState({unsaved_end_on: e.target.value})
-  }
-
-  handleChangePhase(e) {
-    this.setState({unsaved_phase: e.target.value})
-  }
-
-  handleChangeName(e) {
-    this.setState({unsaved_name: e.target.value})
   }
 
   handleTimeout() {
