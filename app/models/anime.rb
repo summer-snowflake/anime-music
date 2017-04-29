@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class Anime < ApplicationRecord
-  has_many :seasons
-  has_many :melodies
-  has_many :appearances
-  has_many :advertisements
+  has_many :seasons, dependent: :destroy
+  has_many :melodies, dependent: :destroy
+  has_many :appearances, dependent: :destroy
+  has_many :advertisements, dependent: :destroy
 
   validates :title,
             presence: true,
