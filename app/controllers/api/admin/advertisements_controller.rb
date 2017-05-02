@@ -7,11 +7,9 @@ class Api::Admin::AdvertisementsController < Api::Admin::BaseController
   def index
     @advertisements =
       if @anime
-        Advertisement.where(anime: @anime)
-                     .or(Advertisement.where(season: @anime.seasons))
-                     .includes(:season)
+        @anime.advertisements
       else
-        Advertisement.all.includes(:season)
+        Advertisement.all.includes(:season).order(created_at: :desc)
       end
   end
 
