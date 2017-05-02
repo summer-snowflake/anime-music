@@ -6,7 +6,7 @@ describe 'GET /api/admin/animes/:anime_id/advertisements', autodoc: true do
   let!(:anime) { create(:anime) }
   let!(:season) { create(:season, anime: anime) }
   let!(:advertisement1) { create(:advertisement, anime: anime) }
-  let!(:advertisement2) { create(:advertisement, anime: nil, season: season) }
+  let!(:advertisement2) { create(:advertisement, anime: anime) }
 
   context 'ログインしていない場合' do
     it '401が返ってくること' do
@@ -36,7 +36,7 @@ describe 'GET /api/admin/animes/:anime_id/advertisements', autodoc: true do
             id: advertisement2.id,
             anime_id: advertisement2.anime_id,
             season_id: advertisement2.season_id,
-            season_phase: advertisement2.season.phase,
+            season_phase: nil,
             body: advertisement2.body
           }
         ]
