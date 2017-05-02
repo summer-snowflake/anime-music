@@ -6,7 +6,7 @@ class Advertisement < ApplicationRecord
   belongs_to :season, optional: true
 
   validates :body, presence: true,
-                   format: { with: /<"[^"]*"|'[^']*'|[^'">]*>/i }
+                   format: { with: /\A<"\A*"|'\A*'|\A*>\z/i }
   validate :should_have_id
 
   def should_have_id
