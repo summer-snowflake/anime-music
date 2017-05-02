@@ -118,3 +118,29 @@ span.link, a.link {
   background-color: rgba($blue, 0.1);
   border-radius: 3px;
 }
+
+ul.advertisements {
+  padding: 20px;
+  .glyphicon-trash {
+    visibility: hidden;
+  }
+  .pull-right {
+    padding-left: 5px;
+  }
+  li {
+    float: left;
+    width: 150px;
+    text-align: center;
+    position: relative;
+    padding: 10px;
+    .body {
+      margin-bottom: 5px;
+    }
+  }
+  li:hover {
+    background-color: rgba($blue, 0.1);
+    .glyphicon-trash {
+      visibility: visible;
+    }
+  }
+}
