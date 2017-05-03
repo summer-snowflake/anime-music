@@ -43,7 +43,7 @@ export default class AdminAdvertisementForm extends Component {
       <div className='adminAdvertisementFormComponent'>
         <form className='form-inline' onSubmit={this.handleClickSubmitButton}>
           <div className='form-group body'>
-            <textarea className='form-control' cols='120' defaultValue={(this.props.advertisement || {}).body} disabled={this.state.loadingForm} id='body' placeholder='htmlタグ' ref='body' rows='4' />
+            <textarea autoFocus className='form-control' cols='120' defaultValue={(this.props.advertisement || {}).body} disabled={this.state.loadingForm} id='body' placeholder='htmlタグ' ref='body' rows='4' />
           </div>
           <div className='submit-button-field'>
             <a className='btn btn-danger animate-button' disabled={this.state.loadingForm} onClick={this.handleClickSubmitButton}>
