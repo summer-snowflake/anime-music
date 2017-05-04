@@ -41,6 +41,6 @@ class Api::Admin::MelodiesController < Api::Admin::BaseController
   end
 
   def melody_params
-    params.require(:melody).permit(:title, :kind)
+    params.require(:melody).permit(:title, :kind, :youtube)
   end
 end
