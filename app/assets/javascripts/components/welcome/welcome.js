@@ -17,9 +17,9 @@ export default class Welcome extends Component {
         <div className='col-md-9'>
           <AnimeList />
         </div>
-        <div className='col-md-3'>
+        <div className='col-md-3 twitter-widget'>
           <div className='panel panel-default'>
-            <a className='twitter-timeline' data-width='260' href='https://twitter.com/anison_time'>{'Tweets by anison_time'}</a>
+            <a className='twitter-timeline' data-width='500' href='https://twitter.com/anison_time'>{'Tweets by anison_time'}</a>
           </div>
         </div>
       </div>
