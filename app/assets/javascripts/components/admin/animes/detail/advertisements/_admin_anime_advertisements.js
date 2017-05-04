@@ -36,7 +36,7 @@ export default class AdminAnimeAdvertisements extends Component {
         <ul className='advertisements'>
         {this.state.advertisements.map((advertisement) =>
           <li key={advertisement.id}>
-            <AdminAnimeAdvertisement handleLoadAdvertisements={this.loadAdvertisementsFromServer} advertisement={advertisement} />
+            <AdminAnimeAdvertisement advertisement={advertisement} handleLoadAdvertisements={this.loadAdvertisementsFromServer} />
           </li>
         )}
         </ul>
