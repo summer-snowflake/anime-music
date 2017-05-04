@@ -23,7 +23,7 @@ describe('WelcomeComponent', () => {
         <div className='col-md-9'>
           <AnimeList />
         </div>
-        <div className='col-md-3'>
+        <div className='col-md-3 tiwtter-widget'>
           <div className='panel panel-default'>
             <a className='twitter-timeline' data-width='500' href='https://twitter.com/anison_time'>{'Tweets by anison_time'}</a>
           </div>
