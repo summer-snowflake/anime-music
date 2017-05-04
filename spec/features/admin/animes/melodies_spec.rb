@@ -56,6 +56,21 @@ feature '管理画面：シーズン', js: true do
         expect(page).not_to have_content melody.title
       end
     end
+
+    scenario '対象の曲の動画が表示されること' do
+      within '.adminAnimeSeasonMelodiesComponent' do
+        within "#melody-#{melody.id}" do
+          find('.glyphicon-modal-window').click
+        end
+      end
+
+      within '.modal-body' do
+        expect(page).to have_css 'iframe'
+      end
+      within '.modal-footer' do
+        find('.btn-default').click
+      end
+    end
   end
 
   scenario '対象のシーズンに曲が登録できること' do
