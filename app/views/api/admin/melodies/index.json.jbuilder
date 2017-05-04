@@ -6,5 +6,6 @@ json.melodies do
     json.season_id melody.season.id
     json.title melody.title
     json.kind melody.kind
+    json.youtube melody.youtube.try!(:html_safe)
   end
 end

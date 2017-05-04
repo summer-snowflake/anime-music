@@ -30,13 +30,15 @@ describe 'GET /api/admin/seasons/1/melodies', autodoc: true do
               id: op_melody.id,
               season_id: op_melody.season.id,
               title: op_melody.title,
-              kind: op_melody.kind
+              kind: op_melody.kind,
+              youtube: op_melody.youtube
             },
             {
               id: ed_melody.id,
               season_id: ed_melody.season.id,
               title: ed_melody.title,
-              kind: ed_melody.kind
+              kind: ed_melody.kind,
+              youtube: ed_melody.youtube
             }
           ]
         }
