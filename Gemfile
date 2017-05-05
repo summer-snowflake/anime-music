@@ -4,7 +4,6 @@ ruby '2.4.1'
 
 gem 'rails', '5.0.2'
 
-gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml' # for draper
 gem 'bcrypt'
 gem 'bootstrap-sass'
 gem 'draper', '> 3.x'
