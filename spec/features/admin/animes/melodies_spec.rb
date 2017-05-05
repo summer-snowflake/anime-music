@@ -34,11 +34,16 @@ feature '管理画面：シーズン', js: true do
       within '.adminSeasonMelodyEditFieldComponent' do
         find('.label-default').click
         fill_in 'title', with: '曲のタイトルを編集'
+        fill_in 'youtube',
+          with: '<iframe width="560" height="315" \
+                src="https://www.youtube.com/embed/vgFCRaymmI4" \
+                frameborder="0" allowfullscreen></iframe>'
         find('.btn-danger').click
       end
       within '.adminAnimeSeasonMelodiesComponent' do
         expect(page).to have_content 'ED'
         expect(page).to have_content '曲のタイトルを編集'
+        expect(page).to have_css 'span.glyphicon-modal-window'
       end
     end
 
@@ -46,9 +51,9 @@ feature '管理画面：シーズン', js: true do
       within '.adminAnimeSeasonMelodiesComponent' do
         find("#melody-#{melody.id}").hover
         find('.glyphicon-pencil').click
-      end
-      within '.adminSeasonMelodyEditFieldComponent' do
-        find('.glyphicon-trash').click
+        within '.adminSeasonMelodyEditFieldComponent' do
+          find('.glyphicon-trash').click
+        end
       end
       within '.modal-footer' do
         find('.btn-danger').click
