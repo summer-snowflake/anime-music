@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170429153601) do
+ActiveRecord::Schema.define(version: 20170504162430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20170429153601) do
     t.date     "end_on"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.text     "youtube"
     t.index ["anime_id"], name: "index_melodies_on_anime_id", using: :btree
     t.index ["season_id"], name: "index_melodies_on_season_id", using: :btree
     t.index ["singer_id"], name: "index_melodies_on_singer_id", using: :btree

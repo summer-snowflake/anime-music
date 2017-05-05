@@ -137,6 +137,13 @@
   width: 200px;
 }
 
+.adminSeasonMelodyFormComponent {
+  .youtube {
+    margin-top: 10px;
+    display: block;
+  }
+}
+
 .adminAnimeSeasonMelodiesComponent {
   padding: 10px;
   border-left: solid 5px rgba($blue, 0.2);
@@ -149,6 +156,11 @@
   .title {
     margin: 5px;
     font-weight: bold;
+  }
+  .youtube {
+    .link {
+      color: #fff;
+    }
   }
   display: inline-block;
   padding: 10px;

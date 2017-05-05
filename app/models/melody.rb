@@ -6,6 +6,8 @@ class Melody < ApplicationRecord
   belongs_to :singer
 
   validates :title, :kind, presence: true
+  validates :youtube,
+            format: { with: /\A<iframe "\A*"|'\A*'|\A*>\z/i, allow_blank: true }
 
   enum kind: %i[op ed]
 end

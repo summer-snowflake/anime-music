@@ -29,11 +29,7 @@ export default class AdminSeasonMelodyNewField extends Component {
     this.setState({message: ''})
   }
 
-  handleClickSubmitButton() {
-    const params = { melody: {
-      kind: this.refs.form.refs.kind.value.toLowerCase(),
-      title: this.refs.form.refs.title.value
-    }}
+  handleClickSubmitButton(params) {
     this.postAnimeSeasonMelodyAgainsServer(params)
   }
 
