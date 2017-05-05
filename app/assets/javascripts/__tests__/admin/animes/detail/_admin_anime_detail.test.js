@@ -11,6 +11,7 @@ import AdminAnimeDetail from '../../../../components/admin/animes/detail/_admin_
 import AdminAnimeTitle from '../../../../components/admin/animes/detail/_admin_anime_title'
 import AdminAnimeThumbnail from '../../../../components/admin/animes/detail/_admin_anime_thumbnail'
 import AdminAnimeBody from '../../../../components/admin/animes/detail/_admin_anime_body'
+import AdminAnimeAdvertisements from '../../../../components/admin/animes/detail/advertisements/_admin_anime_advertisements'
 jest.unmock('../../../../components/admin/animes/detail/_admin_anime_detail')
 
 describe('AdminAnimeDetailComponent', () => {
@@ -34,6 +35,8 @@ describe('AdminAnimeDetailComponent', () => {
                 <AdminAnimeBody handleUpdateBody={jest.fn()} ref='body' summary='アニメサマリ' wiki_url='https://wiki.com' />
               </div>
             </div>
+            <hr />
+            <AdminAnimeAdvertisements anime_id='1' />
           </div>
         </div>
       </div>

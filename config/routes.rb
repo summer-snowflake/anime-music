@@ -17,12 +17,15 @@ Rails.application.routes.draw do
     get :welcome, to: 'welcome#show'
 
     namespace :admin do
+      resources :advertisements, only: %i(create destroy)
       resources :animes, only: %i(index show create update destroy) do
+        resources :advertisements, only: %i(index)
         resources :seasons, only: %i(index show create update destroy)
       end
       resources :actors, only: %i(index show create update destroy)
       resources :seasons, only: :none do
-        resources :melodies, only: %i(index)
+        resources :advertisements, only: %i(index)
+        resources :melodies, only: %i(index create update destroy)
       end
     end
   end

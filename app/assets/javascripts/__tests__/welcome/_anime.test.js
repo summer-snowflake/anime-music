@@ -1,6 +1,6 @@
 import React from 'react'
 import expect from 'expect'
-import { createRenderer } from 'react-addons-test-utils'
+import { createRenderer } from 'react-test-renderer/shallow'
 import expectJSX from 'expect-jsx'
 
 expect.extend(expectJSX)
@@ -24,12 +24,12 @@ describe('AnimeComponent', () => {
       <div className='animeComponent'>
         <div className="panel panel-default">
           <div className='panel-body'>
-            <div className='title'>
+            <h2 className='title'>
               {'アニメタイトル シーズン名 （第1期）'}
-            </div>
-            <div className='summary'>
+            </h2>
+            <p className='summary'>
               {'アニメサマリ'}
-            </div>
+            </p>
             <hr />
             <Melody melody={melody} />
           </div>

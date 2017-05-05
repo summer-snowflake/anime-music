@@ -2,7 +2,8 @@
 
 class Season < ApplicationRecord
   belongs_to :anime
-  has_many :melodies
+  has_many :melodies, dependent: :destroy
+  has_many :advertisements, dependent: :destroy
 
   validates :phase,
             presence: true,

@@ -10,49 +10,16 @@
 }
 
 .welcomeComponent {
-  padding-top: 40px;
+  padding-top: 30px;
   .title {
+    font-size: 15px;
     font-weight: bold;
+    margin-top: 10px;
     padding-bottom: 7px;
   }
-}
-
-.melodyComponent {
-  .glyphicon-music {
-    font-size: 21px;
-    color: #aaa;
-    margin: 8px;
-    padding: 5px;
+  .twitter-widget {
+    width: 292px;
   }
-  .kind-label {
-    display: inline-block;
-    margin: 8px;
-    position: relative;
-    top: -35px;
-    left: 10px;
-  }
-  .title {
-    display: inline-block;
-    margin: 8px;
-    position: relative;
-    top: -7px;
-    left: -34px;
-  }
-}
-
-.adminAnimeSeasonMelodyComponent {
-  .kind-label {
-    margin: 8px;
-  }
-  .title {
-    margin: 5px;
-    font-weight: bold;
-  }
-  border: solid 1px $blue;
-  padding: 5px;
-  display: inline-block;
-  width: 120px;
-  margin: 10px;
 }
 
 // == 管理画面：アニメ ==
@@ -131,6 +98,9 @@
 
 .adminAnimeSeasonComponent {
   padding: 10px;
+  .not-editing-body, .edit-form-field {
+    border-left: solid 5px rgba($blue, 0.2);
+  }
 }
 
 .adminAnimeSeasonFormComponent {
@@ -139,6 +109,82 @@
     vertical-align: middle;
     padding-left: 5px;
     padding-right: 5px;
+  }
+}
+
+.melodyComponent {
+  .glyphicon-music {
+    font-size: 21px;
+    color: #aaa;
+    margin: 8px;
+    padding: 5px;
+  }
+  .kind-label {
+    display: inline-block;
+    margin: 8px;
+    position: relative;
+    top: -35px;
+    left: 10px;
+  }
+  .title {
+    display: inline-block;
+    margin: 8px;
+    position: relative;
+    top: -7px;
+    left: -34px;
+  }
+  float: left;
+  width: 200px;
+}
+
+.adminSeasonMelodyFormComponent {
+  .youtube {
+    margin-top: 10px;
+    display: block;
+  }
+}
+
+.adminAnimeSeasonMelodiesComponent {
+  padding: 10px;
+  border-left: solid 5px rgba($blue, 0.2);
+}
+
+.adminAnimeSeasonMelodyComponent {
+  .kind-label {
+    margin: 8px;
+  }
+  .title {
+    margin: 5px;
+    font-weight: bold;
+  }
+  .youtube {
+    .link {
+      color: #fff;
+    }
+  }
+  display: inline-block;
+  padding: 10px;
+  width: 200px;
+  span.glyphicon-pencil {
+    visibility: hidden;
+  }
+}
+
+.adminAnimeSeasonMelodyComponent:hover {
+  span.glyphicon-pencil {
+    visibility: visible;
+  }
+  background-color: rgba($blue, 0.1);
+}
+
+.adminSeasonMelodyNewFieldComponent, .adminSeasonMelodyEditFieldComponent {
+  .kind {
+    display: block;
+    margin-bottom: 10px;
+  }
+  label {
+    margin: 5px;
+    cursor: pointer;
   }
 }
 
