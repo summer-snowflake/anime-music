@@ -51,10 +51,10 @@ feature '管理画面：シーズン', js: true do
       within '.adminAnimeSeasonMelodiesComponent' do
         find("#melody-#{melody.id}").hover
         find('.glyphicon-pencil').click
-        within '.adminSeasonMelodyEditFieldComponent' do
-          find('.pull-right').hover
-          find('span.glyphicon-trash').click
-        end
+      end
+      within '.adminSeasonMelodyEditFieldComponent' do
+        find('.pull-right').hover
+        find('span.glyphicon-trash').click
       end
       within '.modal-footer' do
         find('.btn-danger').click
