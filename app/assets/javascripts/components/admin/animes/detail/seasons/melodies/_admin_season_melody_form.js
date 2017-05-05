@@ -63,7 +63,7 @@ export default class AdminSeasonMelodyForm extends Component {
             <input className='form-control' defaultValue={(this.props.melody || {}).title} disabled={this.state.loadingForm} id='title' placeholder='タイトル' ref='title' type='text' />
           </div>
           <div className='youtube'>
-            <textarea className='form-control' cols='120' defaultValue={(this.props.melody || {}).youtube} disabled={this.state.loadingForm} id='youtube' placeholder='Youtubeの埋め込みコード' ref='youtube' rows='5' />
+            <textarea className='form-control' cols='120' defaultValue={(this.props.melody || {}).youtube} disabled={this.state.loadingForm} id='youtube' placeholder='Youtubeの埋め込みコード' ref='youtube' rows='4' />
           </div>
           <div className='submit-button-field'>
             <a className='btn btn-danger animate-button' disabled={this.state.loadingForm} onClick={this.handleClickSubmitButton}>
