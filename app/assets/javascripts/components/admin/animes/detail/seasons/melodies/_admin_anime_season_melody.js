@@ -40,7 +40,7 @@ export default class AdminAnimeSeasonMelody extends Component {
             <span className='label label-danger link' onClick={this.handleClickModalIcon}>
               <span className='glyphicon glyphicon-modal-window' />
             </span>
-            <MovieModal showModal={this.state.showModal} handleClickCloseButton={this.handleClickCloseButton} youtube={this.props.melody.youtube} />
+            <MovieModal onClickCloseButton={this.handleClickCloseButton} showModal={this.state.showModal} youtube={this.props.melody.youtube} />
           </div>
         ) : (
           null
