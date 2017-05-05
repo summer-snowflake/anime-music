@@ -35,9 +35,9 @@ feature '管理画面：シーズン', js: true do
         find('.label-default').click
         fill_in 'title', with: '曲のタイトルを編集'
         fill_in 'youtube',
-          with: '<iframe width="560" height="315" \
-                src="https://www.youtube.com/embed/vgFCRaymmI4" \
-                frameborder="0" allowfullscreen></iframe>'
+                with: '<iframe width="560" height="315" \
+                      src="https://www.youtube.com/embed/vgFCRaymmI4" \
+                      frameborder="0" allowfullscreen></iframe>'
         find('.btn-danger').click
       end
       within '.adminAnimeSeasonMelodiesComponent' do

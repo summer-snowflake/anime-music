@@ -30,5 +30,5 @@ export default class MovieModal extends Component {
 MovieModal.propTypes = {
   handleClickCloseButton: PropTypes.func.isRequired,
   showModal: PropTypes.bool.isRequired,
-  youtube: PropTypes.string
+  youtube: PropTypes.string.isRequired
 }
