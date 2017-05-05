@@ -36,9 +36,12 @@ export default class AdminAnimeSeasonMelody extends Component {
           </span>
         </div>
         {this.props.melody.youtube ? (
-          <span className='label label-danger youtube pull-right link' onClick={this.handleClickModalIcon}>
-            <span className='glyphicon glyphicon-modal-window' />
-          </span>
+          <div className='youtube pull-right'>
+            <span className='label label-danger link' onClick={this.handleClickModalIcon}>
+              <span className='glyphicon glyphicon-modal-window' />
+            </span>
+            <MovieModal showModal={this.state.showModal} handleClickCloseButton={this.handleClickCloseButton} youtube={this.props.melody.youtube} />
+          </div>
         ) : (
           null
         )}
@@ -46,7 +49,6 @@ export default class AdminAnimeSeasonMelody extends Component {
           <span className='glyphicon glyphicon-music' />
           {this.props.melody.title}
         </div>
-        <MovieModal showModal={this.state.showModal} handleClickCloseButton={this.handleClickCloseButton} youtube={this.props.melody.youtube} />
       </div>
     )
   }
