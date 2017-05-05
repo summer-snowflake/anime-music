@@ -8,7 +8,7 @@ export default class MovieModal extends Component {
   }
 
   handleClickCancelButton() {
-    this.props.handleClickCloseButton()
+    this.props.onClickCloseButton()
   }
 
   render () {
@@ -28,7 +28,7 @@ export default class MovieModal extends Component {
 }
 
 MovieModal.propTypes = {
-  handleClickCloseButton: PropTypes.func.isRequired,
+  onClickCloseButton: PropTypes.func.isRequired,
   showModal: PropTypes.bool.isRequired,
   youtube: PropTypes.string.isRequired
 }
