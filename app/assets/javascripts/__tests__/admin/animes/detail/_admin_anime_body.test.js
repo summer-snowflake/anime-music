@@ -1,6 +1,7 @@
 import React from 'react'
 import expect from 'expect'
-import { Simulate, createRenderer, renderIntoDocument, findRenderedDOMComponentWithClass } from 'react-addons-test-utils'
+import { Simulate, renderIntoDocument, findRenderedDOMComponentWithClass } from 'react-addons-test-utils'
+import { createRenderer } from 'react-test-renderer/shallow'
 import expectJSX from 'expect-jsx'
 import 'jest-fetch-mock'
 
