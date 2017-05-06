@@ -62,7 +62,7 @@
     "http-server": "~0.10.0",
     "if-env": "~1.0.0",
     "jest": "~19.0.2",
-    "jest-cli": "~19.0.2",
+    "jest-cli": "~20.0.0",
     "jest-fetch-mock": "~1.1.0",
     "node-sass": "~4.5.2",
     "react": "~15.5.4",
