@@ -29,4 +29,13 @@ feature 'トップページ', js: true do
       expect(page).to have_css 'iframe'
     end
   end
+
+ scenario '広告一覧が表示されること' do
+    within "#season-#{season1.id}" do
+      find('.show-movie-link').click
+    end
+    within '.advertisementComponent' do
+      expect(page).to have_css "a[href='https://example.com']"
+    end
+  end
 end
