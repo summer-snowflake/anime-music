@@ -10,6 +10,7 @@ feature 'トップページ', js: true do
   let!(:season2) { create(:season, anime: anime2) }
   let!(:season3) { create(:season, anime: anime3, end_on: Time.zone.yesterday) }
   let!(:melody) { create(:melody, season: season1) }
+  let!(:advertisement) { create(:advertisement, anime: anime1) }
 
   background do
     visit root_path
@@ -27,6 +28,15 @@ feature 'トップページ', js: true do
     end
     within '.movieComponent' do
       expect(page).to have_css 'iframe'
+    end
+  end
+
+  scenario '広告一覧が表示されること' do
+    within "#season-#{season1.id}" do
+      find('.show-movie-link').click
+    end
+    within '.advertisementComponent' do
+      expect(page).to have_css "a[href='https://url.com']"
     end
   end
 end

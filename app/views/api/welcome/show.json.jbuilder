@@ -15,5 +15,9 @@ json.seasons do
       json.melody_id movie.id
       json.youtube movie.youtube.html_safe
     end
+    json.advertisements season.welcome_advertisements do |advertisement|
+      json.id advertisement.id
+      json.body advertisement.body
+    end
   end
 end
