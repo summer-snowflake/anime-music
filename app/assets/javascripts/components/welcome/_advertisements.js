@@ -7,7 +7,7 @@ export default class Advertisements extends Component {
       <div className='advertisementsComponent'>
         <span className='pull-left label label-default'>{'PR'}</span>
         {this.props.advertisements.map((advertisement) =>
-          <Advertisement key={advertisement.id} advertisement={advertisement} />
+          <Advertisement advertisement={advertisement} key={advertisement.id} />
         )}
       </div>
     )
