@@ -9,6 +9,7 @@ describe 'GET /api/welcome', autodoc: true do
   let!(:season2) { create(:season, anime: anime2) }
   let!(:melody1) { create(:melody, season: season1) }
   let!(:melody2) { create(:melody, season: season2) }
+  let!(:advertisement) { create(:advertisement, anime: anime1) }
 
   it '200とアニメ一覧が返ってくること' do
     get '/api/welcome'
@@ -37,6 +38,12 @@ describe 'GET /api/welcome', autodoc: true do
               melody_id: melody1.id,
               youtube: melody1.youtube
             }
+          ],
+          advertisements: [
+            {
+              id: advertisement.id,
+              body: advertisement.body
+            }
           ]
         },
         {
@@ -60,7 +67,8 @@ describe 'GET /api/welcome', autodoc: true do
               melody_id: melody2.id,
               youtube: melody2.youtube
             }
-          ]
+          ],
+          advertisements: []
         }
       ]
     }
