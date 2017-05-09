@@ -10,6 +10,7 @@ feature 'トップページ', js: true do
   let!(:season2) { create(:season, anime: anime2) }
   let!(:season3) { create(:season, anime: anime3, end_on: Time.zone.yesterday) }
   let!(:melody) { create(:melody, season: season1) }
+  let!(:advertisement) { create(:advertisement, anime: anime1) }
 
   background do
     visit root_path
@@ -35,7 +36,7 @@ feature 'トップページ', js: true do
       find('.show-movie-link').click
     end
     within '.advertisementComponent' do
-      expect(page).to have_css "a[href='https://example.com']"
+      expect(page).to have_css "a[href='https://url.com']"
     end
   end
 end
