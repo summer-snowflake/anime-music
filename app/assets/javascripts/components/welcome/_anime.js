@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Melody from './_melody'
 import Movies from './_movies'
+import Advertisements from './_advertisements'
 
 export default class Anime extends Component {
   constructor(props) {
@@ -47,7 +48,10 @@ export default class Anime extends Component {
               <span className='show-movie-link'>{'視聴する'}</span>
             </span>
             {this.state.showMovies ? (
-              <Movies movies={this.props.season.movies} />
+              <div>
+                <Movies movies={this.props.season.movies} />
+                <Advertisements advertisements={this.props.season.advertisements} />
+              </div>
             ) : (
               null
             )}
