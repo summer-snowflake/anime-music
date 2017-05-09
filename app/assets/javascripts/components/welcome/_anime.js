@@ -54,7 +54,7 @@ export default class Anime extends Component {
             {this.state.showMovies ? (
               <div>
                 <Movies movies={this.props.season.movies} />
-                <Advertisements advertisements={this.props.season.advertisements} />
+                <Advertisements advertisements={this.props.season.advertisements} season_id={this.props.season.id} />
               </div>
             ) : (
               null
