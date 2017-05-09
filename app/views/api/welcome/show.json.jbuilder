@@ -13,7 +13,7 @@ json.seasons do
     end
     json.movies season.movies do |movie|
       json.melody_id movie.id
-      json.youtube movie.youtube
+      json.youtube movie.youtube.html_safe
     end
   end
 end
