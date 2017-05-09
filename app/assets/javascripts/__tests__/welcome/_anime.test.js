@@ -15,7 +15,7 @@ describe('AnimeComponent', () => {
   it('propsに設定した値が出力される', () => {
     const anime = { title: 'アニメタイトル', summary: 'アニメサマリ' }
     const melody = { id: 1, kind: 'ed', title: 'エンディング曲'}
-    const season = { id: 1, phase: '1', name: 'シーズン名', anime: anime, melodies: [melody] }
+    const season = { id: 1, phase: '1', name: 'シーズン名', anime: anime, melodies: [melody], movies: [], advertisements: [{id: 1, body: "<a href=''></a>"}] }
     renderer.render(
       <Anime season={season} />
     )
