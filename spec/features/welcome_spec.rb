@@ -31,7 +31,7 @@ feature 'トップページ', js: true do
     end
   end
 
- scenario '広告一覧が表示されること' do
+  scenario '広告一覧が表示されること' do
     within "#season-#{season1.id}" do
       find('.show-movie-link').click
     end
