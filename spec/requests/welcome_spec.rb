@@ -31,6 +31,12 @@ describe 'GET /api/welcome', autodoc: true do
               kind: melody1.kind,
               title: melody1.title
             }
+          ],
+          movies: [
+            {
+              melody_id: melody1.id,
+              youtube: melody1.youtube
+            }
           ]
         },
         {
@@ -47,6 +53,12 @@ describe 'GET /api/welcome', autodoc: true do
               id: melody2.id,
               kind: melody2.kind,
               title: melody2.title
+            }
+          ],
+          movies: [
+            {
+              melody_id: melody2.id,
+              youtube: melody2.youtube
             }
           ]
         }

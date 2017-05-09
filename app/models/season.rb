@@ -16,4 +16,8 @@ class Season < ApplicationRecord
   def self.airing(date)
     where('start_on <= ?', date).where('end_on >= ? or end_on is null', date)
   end
+
+  def movies
+    melodies.where.not(youtube: nil).where.not(youtube: '')
+  end
 end
