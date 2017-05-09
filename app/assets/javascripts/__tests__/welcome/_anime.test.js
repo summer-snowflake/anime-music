@@ -21,7 +21,7 @@ describe('AnimeComponent', () => {
     )
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
-      <div className='animeComponent'>
+      <div className='animeComponent' id='season-1'>
         <div className="panel panel-default">
           <div className='panel-body'>
             <h2 className='title'>
@@ -32,6 +32,10 @@ describe('AnimeComponent', () => {
             </p>
             <hr />
             <Melody melody={melody} />
+            <span className='link' onClick={jest.fn()}>
+              <span className='glyphicon glyphicon-chevron-right' />
+              <span className='show-movie-link'>{'視聴する'}</span>
+            </span>
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@ export default class Anime extends Component {
 
   render () {
     return (
-      <div className='animeComponent'>
+      <div className='animeComponent' id={'season-' + this.props.season.id}>
         <div className='panel panel-default'>
           <div className='panel-body'>
             <h2 className='title'>
@@ -44,7 +44,7 @@ export default class Anime extends Component {
               ) : (
                 <span className='glyphicon glyphicon-chevron-right' />
               )}
-              {'視聴する'}
+              <span className='show-movie-link'>{'視聴する'}</span>
             </span>
             {this.state.showMovies ? (
               <Movies movies={this.props.season.movies} />
