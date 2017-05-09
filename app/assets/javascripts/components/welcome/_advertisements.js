@@ -6,7 +6,10 @@ export default class Advertisements extends Component {
     return (
       <div className='advertisementsComponent'>
         {this.props.advertisements.length > 0 ? (
-          <span className='pull-left label label-default'>{'PR'}</span>
+          <div>
+            <span className='pull-left label label-default'>{'PR'}</span>
+            <span className='link glyphicon glyphicon-refresh' />
+          </div>
         ) : (
           null
         )}
