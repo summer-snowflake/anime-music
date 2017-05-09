@@ -39,14 +39,18 @@ export default class Anime extends Component {
             {this.props.season.melodies.map((melody) =>
               <Melody key={melody.id} melody={melody} />
             )}
-            <span className='link' onClick={this.handleToggleMovies}>
-              {this.state.showMovies ? (
-                <span className='glyphicon glyphicon-chevron-down' />
-              ) : (
-                <span className='glyphicon glyphicon-chevron-right' />
-              )}
-              <span className='show-movie-link'>{'視聴する'}</span>
-            </span>
+            {(this.props.season.advertisements.length > 0 || this.props.season.movies.length > 0) ? (
+              <span className='link' onClick={this.handleToggleMovies}>
+                {this.state.showMovies ? (
+                  <span className='glyphicon glyphicon-chevron-down' />
+                ) : (
+                  <span className='glyphicon glyphicon-chevron-right' />
+                )}
+                <span className='show-movie-link'>{'視聴する'}</span>
+              </span>
+            ) : (
+              null
+            )}
             {this.state.showMovies ? (
               <div>
                 <Movies movies={this.props.season.movies} />
