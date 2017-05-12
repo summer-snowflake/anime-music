@@ -4,7 +4,8 @@ class Melody < ApplicationRecord
   belongs_to :anime
   belongs_to :season, optional: true
   belongs_to :singer
-  has_many :advertisements
+  has_one :advertisement
+  accepts_nested_attributes_for :advertisement
 
   validates :title, :kind, presence: true
   validates :youtube,

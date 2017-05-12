@@ -11,6 +11,7 @@ class Advertisement < ApplicationRecord
   validate :should_have_id
 
   def should_have_id
-    errors[:base] << '所属が不明な広告です' unless anime || season || actor
+    errors[:base] << '所属が不明な広告です' unless anime || season || actor || melody
+    # TODO: エラーメッセージにテーブル名が表示される問題を解消する
   end
 end
