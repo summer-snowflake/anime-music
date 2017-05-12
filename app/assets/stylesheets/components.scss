@@ -27,6 +27,18 @@
   padding-bottom: 10px;
 }
 
+.movieComponent {
+  .cd:hover {
+    .label {
+      visibility: visible;
+    }
+  }
+  .label {
+    position: absolute;
+    visibility: hidden;
+  }
+}
+
 .advertisementsComponent {
   .refresh-field {
     position: absolute;
