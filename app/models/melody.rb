@@ -4,8 +4,11 @@ class Melody < ApplicationRecord
   belongs_to :anime
   belongs_to :season, optional: true
   belongs_to :singer
-  has_one :advertisement
-  accepts_nested_attributes_for :advertisement
+  has_one :advertisement, inverse_of: :melody
+  accepts_nested_attributes_for :advertisement,
+                                reject_if: lambda { |advertisement|
+                                             advertisement[:body].blank?
+                                           }
 
   validates :title, :kind, presence: true
   validates :youtube,

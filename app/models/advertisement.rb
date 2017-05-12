@@ -4,7 +4,7 @@ class Advertisement < ApplicationRecord
   belongs_to :anime, optional: true
   belongs_to :actor, optional: true
   belongs_to :season, optional: true
-  belongs_to :melody, optional: true
+  belongs_to :melody, optional: true, inverse_of: :advertisement
 
   validates :body, presence: true,
                    format: { with: /\A<"\A*"|'\A*'|\A*>\z/i }
