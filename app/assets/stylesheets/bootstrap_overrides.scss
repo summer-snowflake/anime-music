@@ -11,7 +11,11 @@ h1 {
   padding: 5px;
 }
 
-.glyphicon-pencil:hover, .glyphicon-trash:hover {
+.glyphicon-pencil, .glyphicon-plus-sign {
+  visibility: hidden;
+}
+
+.glyphicon-pencil:hover, .glyphicon-trash:hover, .glyphicon-plus-sign:hover {
   background-color: rgba($blue, 0.3);
 }
 

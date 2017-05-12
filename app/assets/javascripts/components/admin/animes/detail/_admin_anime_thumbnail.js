@@ -9,8 +9,12 @@ export default class AdminAnimeThumbnail extends Component {
             {this.props.picture ? (
               <img alt={this.props.title} src={this.props.picture} />
             ) : (
-              <span className='no-image'>{'NO IMAGE'}</span>
+              <div className='no-image'>
+                <span>{'NO IMAGE'}</span>
+                <span className='glyphicon glyphicon-picture' />
+              </div>
             )}
+            <span className='link glyphicon glyphicon-plus-sign' />
           </span>
         </div>
       </div>
