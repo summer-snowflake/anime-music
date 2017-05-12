@@ -13,7 +13,7 @@ export default class Welcome extends Component {
   render() {
     return (
       <div className='welcomeComponent'>
-        <h1>{'放送中のアニソン'}</h1>
+        <h1>{'放送中のアニメ'}</h1>
         <div className='col-md-9'>
           <AnimeList />
         </div>
