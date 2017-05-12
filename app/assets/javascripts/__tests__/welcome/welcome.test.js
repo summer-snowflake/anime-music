@@ -19,7 +19,7 @@ describe('WelcomeComponent', () => {
     let actualElement = renderer.getRenderOutput()
     let expectedElement = (
       <div className='welcomeComponent'>
-        <h1>{'本日のアニソン'}</h1>
+        <h1>{'放送中のアニソン'}</h1>
         <div className='col-md-9'>
           <AnimeList />
         </div>

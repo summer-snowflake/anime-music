@@ -25,6 +25,21 @@
 .moviesComponent {
   padding-top: 15px;
   padding-bottom: 10px;
+  span {
+    display: table-cell;
+  }
+  span.cd {
+    padding-left: 5px;
+  }
+}
+
+.movieComponent {
+  padding-bottom: 10px;
+  //padding-right: 40px;
+  .label {
+    position: absolute;
+    background-color: rgba(#000, 0.7);
+  }
 }
 
 .advertisementsComponent {
@@ -160,6 +175,7 @@
 
 .adminSeasonMelodyFormComponent {
   .youtube {
+    padding-bottom: 10px;
     margin-top: 10px;
     display: block;
   }

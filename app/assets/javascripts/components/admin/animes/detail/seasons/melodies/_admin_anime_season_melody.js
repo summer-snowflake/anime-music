@@ -1,14 +1,17 @@
 import React, { Component, PropTypes } from 'react'
 import MovieModal from './_movie_modal'
+import AdvertisementModal from './_advertisement_modal'
 
 export default class AdminAnimeSeasonMelody extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showModal: false
+      showMovieModal: false,
+      showAdvertisementModal: false
     }
     this.handleClickEditIcon = this.handleClickEditIcon.bind(this)
-    this.handleClickModalIcon = this.handleClickModalIcon.bind(this)
+    this.handleClickMovieModalIcon = this.handleClickMovieModalIcon.bind(this)
+    this.handleClickAdvertisementModalIcon = this.handleClickAdvertisementModalIcon.bind(this)
     this.handleClickCloseButton = this.handleClickCloseButton.bind(this)
   }
 
@@ -16,12 +19,16 @@ export default class AdminAnimeSeasonMelody extends Component {
     this.props.onShowEditMelodyField(this.props.melody.id)
   }
 
-  handleClickModalIcon() {
-    this.setState({showModal: true})
+  handleClickMovieModalIcon() {
+    this.setState({showMovieModal: true})
+  }
+
+  handleClickAdvertisementModalIcon() {
+    this.setState({showAdvertisementModal: true})
   }
 
   handleClickCloseButton() {
-    this.setState({showModal: false})
+    this.setState({showMovieModal: false, showAdvertisementModal: false})
   }
 
   render() {
@@ -37,10 +44,20 @@ export default class AdminAnimeSeasonMelody extends Component {
         </div>
         {this.props.melody.youtube ? (
           <div className='youtube pull-right'>
-            <span className='label label-danger link' onClick={this.handleClickModalIcon}>
+            <span className='label label-danger link' onClick={this.handleClickMovieModalIcon}>
               <span className='glyphicon glyphicon-modal-window' />
             </span>
-            <MovieModal onClickCloseButton={this.handleClickCloseButton} showModal={this.state.showModal} youtube={this.props.melody.youtube} />
+            <MovieModal onClickCloseButton={this.handleClickCloseButton} showModal={this.state.showMovieModal} youtube={this.props.melody.youtube} />
+          </div>
+        ) : (
+          null
+        )}
+        {this.props.melody.advertisement_body ? (
+          <div className='youtube pull-right'>
+            <span className='label label-warning link' onClick={this.handleClickAdvertisementModalIcon}>
+              <span className='glyphicon glyphicon-modal-window' />
+            </span>
+            <AdvertisementModal body={this.props.melody.advertisement_body} onClickCloseButton={this.handleClickCloseButton} showModal={this.state.showAdvertisementModal} />
           </div>
         ) : (
           null

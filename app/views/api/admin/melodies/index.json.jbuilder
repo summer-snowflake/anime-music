@@ -7,5 +7,7 @@ json.melodies do
     json.title melody.title
     json.kind melody.kind
     json.youtube melody.youtube.try!(:html_safe)
+    json.advertisement_id melody.advertisement.try!(:id)
+    json.advertisement_body melody.advertisement.try!(:body).try!(:html_safe)
   end
 end
