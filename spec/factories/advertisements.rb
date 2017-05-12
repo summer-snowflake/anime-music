@@ -11,6 +11,10 @@ FactoryGirl.define do
       anime_id { nil }
       season
     end
+    trait :blongs_to_melody do
+      anime_id { nil }
+      melody
+    end
     sequence(:body) { |n| "<a href='https://url.com'>#{n}</a>" }
   end
 end
