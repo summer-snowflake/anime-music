@@ -6,12 +6,16 @@
   height: 70px;
 }
 
+.clear {
+  clear: both;
+}
+
 span.no-image {
   font-weight: bold;
   color: rgba($blue, 0.7);
 }
 
-span.link, a.link {
+span.link, a.link, .link {
   cursor: pointer;
   color: $blue-dark;
 }

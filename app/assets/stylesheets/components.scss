@@ -25,17 +25,20 @@
 .moviesComponent {
   padding-top: 15px;
   padding-bottom: 10px;
+  span {
+    display: table-cell;
+  }
+  span.cd {
+    padding-left: 5px;
+  }
 }
 
 .movieComponent {
-  .cd:hover {
-    .label {
-      visibility: visible;
-    }
-  }
+  padding-bottom: 10px;
+  //padding-right: 40px;
   .label {
     position: absolute;
-    visibility: hidden;
+    background-color: rgba(#000, 0.7);
   }
 }
 

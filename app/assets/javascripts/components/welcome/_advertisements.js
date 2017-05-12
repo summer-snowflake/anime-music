@@ -28,7 +28,7 @@ export default class Advertisements extends Component {
 
   render () {
     return (
-      <div className='advertisementsComponent'>
+      <div className='advertisementsComponent clear'>
         {this.props.advertisements.length > 0 ? (
           <div>
             <span className='label label-default'>{'PR'}</span>
