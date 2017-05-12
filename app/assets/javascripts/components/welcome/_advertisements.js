@@ -31,14 +31,20 @@ export default class Advertisements extends Component {
       <div className='advertisementsComponent'>
         {this.props.advertisements.length > 0 ? (
           <div>
-            <span className='pull-left label label-default'>{'PR'}</span>
-            <span className='link glyphicon glyphicon-refresh' onClick={this.handleRefreshAdvertisements} />
+            <span className='label label-default'>{'PR'}</span>
           </div>
         ) : (
           null
         )}
         {this.state.advertisements.map((advertisement) =>
           <Advertisement advertisement={advertisement} key={advertisement.id} />
+        )}
+        {this.props.advertisements.length > 0 ? (
+          <div className='refresh-field'>
+            <span className='pull-right link glyphicon glyphicon-refresh' onClick={this.handleRefreshAdvertisements} />
+          </div>
+        ) : (
+          null
         )}
       </div>
     )

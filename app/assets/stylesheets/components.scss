@@ -28,11 +28,13 @@
 }
 
 .advertisementsComponent {
+  .refresh-field {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
   .glyphicon-refresh {
-    position: relative;
-    top: -6px;
-    right: -3px;
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
