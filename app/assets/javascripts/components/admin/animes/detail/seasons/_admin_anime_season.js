@@ -151,12 +151,11 @@ export default class AdminAnimeSeason extends Component {
 
     return (
       <div className='adminAnimeSeasonComponent media' id={'season-' + this.state.season.id}>
-        {(() => {
-          if (this.state.showForm)
-            return editing_jsx
-          else
-            return not_editing_jsx
-        })()}
+        {this.state.showForm ? (
+          editing_jsx
+        ) : (
+          not_editing_jsx
+        )}
         <AdminAnimeSeasonMelodies season_id={this.state.season.id} />
         <DestroyModal handleCancel={this.onClickCancelButton} handleDestroy={this.onClickDeleteButton} showModal={this.state.showModal} />
       </div>

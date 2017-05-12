@@ -87,18 +87,18 @@ export default class AdminAnimeTitle extends Component {
 
     return (
       <div className='adminAnimeTitleComponent'>
-        {(() => {
-          if (this.state.editingTitle)
-            return editing_jsx
-          else
-            return not_editing_jsx
-        })()}
+        {this.state.editingTitle ? (
+          editing_jsx
+        ) : (
+          not_editing_jsx
+        )}
         <MessageBox message={this.state.message} message_type={this.state.message_type} />
         <LoadingImage loading={this.state.loadingTitle} />
-        {(() => {
-          if (this.props.airing)
-            return <span className='pull-right label label-default airing-label'>{'放送中'}</span>
-        })()}
+        {this.props.airing ? (
+          <span className='pull-right label label-default airing-label'>{'放送中'}</span>
+        ) : (
+          null
+        )}
       </div>
     )
   }
