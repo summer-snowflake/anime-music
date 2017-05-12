@@ -37,7 +37,7 @@ feature 'トップページ', js: true do
       find('.show-movie-link').click
     end
     within '.movieComponent' do
-      expect(page).to have_css "a[href='https://url.com']" 
+      expect(page).to have_css "a[href='https://url.com']"
     end
   end
 
