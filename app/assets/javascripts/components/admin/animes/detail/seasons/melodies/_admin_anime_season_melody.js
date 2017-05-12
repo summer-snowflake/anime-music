@@ -57,7 +57,7 @@ export default class AdminAnimeSeasonMelody extends Component {
             <span className='label label-warning link' onClick={this.handleClickAdvertisementModalIcon}>
               <span className='glyphicon glyphicon-modal-window' />
             </span>
-            <AdvertisementModal onClickCloseButton={this.handleClickCloseButton} showModal={this.state.showAdvertisementModal} body={this.props.melody.advertisement_body} />
+            <AdvertisementModal body={this.props.melody.advertisement_body} onClickCloseButton={this.handleClickCloseButton} showModal={this.state.showAdvertisementModal} />
           </div>
         ) : (
           null
