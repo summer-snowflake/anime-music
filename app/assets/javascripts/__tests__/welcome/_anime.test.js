@@ -32,10 +32,10 @@ describe('AnimeComponent', () => {
             </p>
             <hr />
             <Melody melody={melody} />
-            <span className='link' onClick={jest.fn()}>
+            <div className='link clear' onClick={jest.fn()}>
               <span className='glyphicon glyphicon-chevron-right' />
               <span className='show-movie-link'>{'視聴する'}</span>
-            </span>
+            </div>
           </div>
         </div>
       </div>
