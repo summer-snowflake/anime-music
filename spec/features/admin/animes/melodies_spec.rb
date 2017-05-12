@@ -52,6 +52,34 @@ feature '管理画面：シーズン', js: true do
       end
     end
 
+    scenario '対象の曲に広告を追加できること' do
+      within "#season-#{season2.id}" do
+        within '.adminAnimeSeasonMelodiesComponent' do
+          find("#melody-#{melody.id}").hover
+          find('.glyphicon-pencil').click
+        end
+        within '.adminSeasonMelodyEditFieldComponent' do
+          find('.label-default').click
+          fill_in 'title', with: '曲のタイトルを編集'
+          fill_in 'youtube', with: ''
+          fill_in 'body',
+                  with: '<a href="https://example.com" >LINK</a>'
+          find('.btn-danger').click
+        end
+        within '.adminAnimeSeasonMelodiesComponent' do
+          within "#melody-#{melody.id}" do
+            find('.glyphicon-modal-window').click
+          end
+        end
+      end
+      within '.modal-body' do
+        expect(page).to have_content 'LINK'
+      end
+      within '.modal-footer' do
+        find('.btn-default').click
+      end
+    end
+
     scenario '対象の曲が削除できること' do
       within "#season-#{season2.id}" do
         within '.adminAnimeSeasonMelodiesComponent' do
