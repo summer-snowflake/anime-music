@@ -84,6 +84,10 @@ GEM
     capybara-screenshot (1.0.14)
       capybara (>= 1.0, < 3)
       launchy
+    carrierwave (1.1.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     childprocess (0.7.0)
       ffi (~> 1.0, >= 1.0.11)
     cliver (0.3.2)
@@ -364,6 +368,7 @@ DEPENDENCIES
   capybara
   capybara-email
   capybara-screenshot
+  carrierwave (~> 1.1.0)
   database_rewinder
   dotenv-rails
   draper (> 3.x)
@@ -408,7 +413,6 @@ DEPENDENCIES
   tokens
   tzinfo-data
   validates_email_format_of
-
 
 RUBY VERSION
    ruby 2.4.1p111
