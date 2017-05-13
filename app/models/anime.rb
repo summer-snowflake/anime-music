@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Anime < ApplicationRecord
-  has_many :seasons, -> { order(created_at: :desc, id: :desc) }, dependent: :destroy
+  has_many :seasons, -> { order(created_at: :desc, id: :desc) },
+           dependent: :destroy
   has_many :melodies, dependent: :destroy
   has_many :appearances, dependent: :destroy
   has_many :advertisements, dependent: :destroy
