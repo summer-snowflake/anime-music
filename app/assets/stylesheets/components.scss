@@ -63,15 +63,33 @@
 .adminAnimeRowComponent {
   padding: 10px;
 
-  span.no-image {
-    text-align: center;
-    background-color: rgba($blue, 0.1);
-    font-size: 12px;
+  .no-image {
+    min-height: 128px;
   }
   h4 {
     font-size: 15px;
     font-weight: bold;
     padding-bottom: 8px;
+  }
+}
+
+.adminAnimeThumbnailComponent {
+  .thumbnail {
+    .glyphicon-plus-sign {
+      top: 145px;
+      right: -110px;
+      position: absolute;
+    }
+  }
+  .thumbnail:hover {
+    .glyphicon-plus-sign {
+      visibility: visible;
+    }
+  }
+  .messageBoxComponent {
+    position: absolute;
+    top: 190px;
+    left: 20px;
   }
 }
 
@@ -202,9 +220,6 @@
   display: inline-block;
   padding: 10px;
   width: 200px;
-  span.glyphicon-pencil {
-    visibility: hidden;
-  }
 }
 
 .adminAnimeSeasonMelodyComponent:hover {

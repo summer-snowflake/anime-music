@@ -7,6 +7,7 @@ ja:
         title: タイトル
         summary: あらすじ
         wiki_url: WikiのURL
+        picture: サムネイル
       actor:
         name: 声優名
       season:

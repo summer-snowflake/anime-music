@@ -14,6 +14,8 @@ class Anime < ApplicationRecord
   validates :wiki_url,
             length: { maximum: Settings.anime.wiki_url.maximum_length }
 
+  mount_uploader :picture, PictureUploader
+
   def airing?
     seasons.any? do |season|
       if season.start_on.present?
