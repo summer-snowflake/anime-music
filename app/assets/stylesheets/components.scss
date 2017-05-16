@@ -64,9 +64,7 @@
   padding: 10px;
 
   .no-image {
-    text-align: center;
-    background-color: rgba($blue, 0.1);
-    font-size: 12px;
+    min-height: 128px;
   }
   h4 {
     font-size: 15px;
@@ -82,18 +80,16 @@
       right: -110px;
       position: absolute;
     }
-    .glyphicon-picture {
-      font-size: 80px;
-      display: block;
-      color: rgba($blue, 0.2);
-      position: relative;
-      top: 20px;
-    }
   }
   .thumbnail:hover {
     .glyphicon-plus-sign {
       visibility: visible;
     }
+  }
+  .messageBoxComponent {
+    position: absolute;
+    top: 190px;
+    left: 20px;
   }
 }
 
