@@ -14,7 +14,7 @@ export default class AdminAnimeDetail extends Component {
     }
     this.loadAnimeFromServer = this.loadAnimeFromServer.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
-    this.handleUpload = this.handleUpload.bind(this)
+    this.onUpload = this.onUpload.bind(this)
   }
 
   componentDidMount() {
@@ -25,7 +25,7 @@ export default class AdminAnimeDetail extends Component {
     this.updateAnimeAgainstServer(params)
   }
 
-  handleUpload(params) {
+  onUpload(params) {
     this.uploadImageAgainstServer(params)
   }
 
@@ -110,7 +110,7 @@ export default class AdminAnimeDetail extends Component {
             <AdminAnimeTitle airing={this.state.anime.airing} handleUpdateTitle={this.onSubmit} ref='title' title={this.state.anime.title} />
             <div className="row">
               <div className="col-xs-6 col-md-3">
-                <AdminAnimeThumbnail handleUpdateThumbnail={this.handleUpload} picture={this.state.anime.picture} ref='thumbnail' title={this.state.anime.title} />
+                <AdminAnimeThumbnail handleUpdateThumbnail={this.onUpload} picture={this.state.anime.picture} ref='thumbnail' title={this.state.anime.title} />
               </div>
               <div className="col-xs-6 col-md-9">
                 <AdminAnimeBody handleUpdateBody={this.onSubmit} ref='body' summary={this.state.anime.summary} wiki_url={this.state.anime.wiki_url} />
