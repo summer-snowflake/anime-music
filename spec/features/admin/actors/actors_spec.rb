@@ -48,7 +48,7 @@ feature '管理画面：声優', js: true do
 
   scenario '正しい値と「登録」ボタンで、声優を新規作成できること' do
     within '.adminActorNewFormComponent' do
-      find('.btn-default').click
+      find('.btn-primary').click
       fill_in 'name', with: '新しい 声優名'
       find('.btn-danger').click
       expect(page).to have_content '登録しました'
@@ -59,7 +59,7 @@ feature '管理画面：声優', js: true do
 
   scenario '正しい値と「キャンセル」ボタンで、アニメが登録されないこと' do
     within '.adminActorNewFormComponent' do
-      find('.btn-default').click
+      find('.btn-primary').click
       fill_in 'name', with: '新しい 声優名'
       find('.btn-default').click
     end
@@ -69,7 +69,7 @@ feature '管理画面：声優', js: true do
 
   scenario '不正な値と「登録」ボタンで、アニメが登録されないこと' do
     within '.adminActorNewFormComponent' do
-      find('.btn-default').click
+      find('.btn-primary').click
       fill_in 'name', with: ''
       find('.btn-danger').click
       expect(page).to have_content '声優名を入力してください'

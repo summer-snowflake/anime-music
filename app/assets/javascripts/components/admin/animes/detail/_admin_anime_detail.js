@@ -4,6 +4,7 @@ import { origin } from './../../../../origin.js'
 import AdminAnimeTitle from './_admin_anime_title'
 import AdminAnimeThumbnail from './_admin_anime_thumbnail'
 import AdminAnimeBody from './_admin_anime_body'
+import AdminAnimeAdvertisements from './advertisements/_admin_anime_advertisements'
 
 export default class AdminAnimeDetail extends Component {
   constructor(props) {
@@ -86,6 +87,8 @@ export default class AdminAnimeDetail extends Component {
                 <AdminAnimeBody handleUpdateBody={this.onSubmit} ref='body' summary={this.state.anime.summary} wiki_url={this.state.anime.wiki_url} />
               </div>
             </div>
+            <hr />
+            <AdminAnimeAdvertisements anime_id={this.props.anime_id} />
           </div>
         </div>
       </div>

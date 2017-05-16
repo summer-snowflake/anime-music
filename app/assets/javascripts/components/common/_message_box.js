@@ -14,11 +14,11 @@ export default class MessageBox extends Component {
 
     return (
       <div className='messageBoxComponent'>
-        {(() => {
-          if (this.props.message != '') {
-            return message_box_jsx
-          }
-        })()}
+        {this.props.message != '' ? (
+          message_box_jsx
+        ) : (
+          null
+        )}
       </div>
     )
   }

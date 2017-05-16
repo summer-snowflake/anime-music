@@ -6,6 +6,11 @@ FactoryGirl.define do
     season
     kind { %i[op ed].sample }
     sequence(:title) { |n| "曲名タイトル#{n}" }
+    youtube do
+      '<iframe width="560" height="315" \
+      src="https://www.youtube.com/embed/vgFCRaymmI4" \
+      frameborder="0" allowfullscreen></iframe>'
+    end
     singer
     # TODO: 音楽データを設定する
     # music

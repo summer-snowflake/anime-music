@@ -2,7 +2,8 @@
 
 class Season < ApplicationRecord
   belongs_to :anime
-  has_many :melodies
+  has_many :melodies, dependent: :destroy
+  has_many :advertisements, dependent: :destroy
 
   validates :phase,
             presence: true,
@@ -14,5 +15,13 @@ class Season < ApplicationRecord
 
   def self.airing(date)
     where('start_on <= ?', date).where('end_on >= ? or end_on is null', date)
+  end
+
+  def movies
+    melodies.where.not(youtube: nil).where.not(youtube: '')
+  end
+
+  def welcome_advertisements
+    Advertisement.where(id: anime.advertisements.pluck(:id).sample(5))
   end
 end

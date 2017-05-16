@@ -1,7 +1,7 @@
 import React from 'react'
 import expect from 'expect'
 import { Link } from 'react-router'
-import { createRenderer } from 'react-addons-test-utils'
+import { createRenderer } from 'react-test-renderer/shallow'
 import expectJSX from 'expect-jsx'
 
 expect.extend(expectJSX)

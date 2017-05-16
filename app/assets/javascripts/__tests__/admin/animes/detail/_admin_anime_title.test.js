@@ -1,6 +1,6 @@
 import React from 'react'
 import expect from 'expect'
-import { createRenderer } from 'react-addons-test-utils'
+import { createRenderer } from 'react-test-renderer/shallow'
 import expectJSX from 'expect-jsx'
 import 'jest-fetch-mock'
 

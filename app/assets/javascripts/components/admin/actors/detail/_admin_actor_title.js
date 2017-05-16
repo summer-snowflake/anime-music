@@ -90,12 +90,11 @@ export default class AdminActorTitle extends Component {
 
     return (
       <div className='adminActorTitleComponent'>
-        {(() => {
-          if (this.state.editingTitle)
-            return editing_jsx
-          else
-            return not_editing_jsx
-        })()}
+        {this.state.editingTitle ? (
+          editing_jsx
+        ) : (
+          not_editing_jsx
+        )}
         <MessageBox message={this.state.message} message_type={this.state.message_type} />
         <LoadingImage loading={this.state.loadingTitle} />
       </div>

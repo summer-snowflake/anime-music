@@ -11,5 +11,14 @@ json.seasons do
       json.kind melody.kind
       json.title melody.title
     end
+    json.movies season.movies do |movie|
+      json.melody_id movie.id
+      json.youtube movie.youtube.html_safe
+      json.advertisement_body movie.advertisement.try!(:body)
+    end
+    json.advertisements season.welcome_advertisements do |advertisement|
+      json.id advertisement.id
+      json.body advertisement.body
+    end
   end
 end

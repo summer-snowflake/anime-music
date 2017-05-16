@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class Anime < ApplicationRecord
-  has_many :seasons
-  has_many :melodies
-  has_many :appearances
-  has_many :advertisements
+  has_many :seasons, -> { order(created_at: :desc, id: :desc) },
+           dependent: :destroy
+  has_many :melodies, dependent: :destroy
+  has_many :appearances, dependent: :destroy
+  has_many :advertisements, dependent: :destroy
 
   validates :title,
             presence: true,
@@ -15,8 +16,10 @@ class Anime < ApplicationRecord
 
   def airing?
     seasons.any? do |season|
-      season.start_on <= Time.zone.today &&
-        (season.end_on.nil? || season.end_on >= Time.zone.today)
+      if season.start_on.present?
+        season.start_on <= Time.zone.today &&
+          (season.end_on.nil? || season.end_on >= Time.zone.today)
+      end
     end
   end
 end

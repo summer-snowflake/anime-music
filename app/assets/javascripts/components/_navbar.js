@@ -16,14 +16,13 @@ export default class Navbar extends Component {
   render() {
     let admin_link_jsx = (
       <li>
-        {(() => {
-          if(this.props.user && this.props.user.admin == true)
-            return (
-              <Link className='animate-button' to='/admin'>
-                <span className='glyphicon glyphicon-cog' />
-              </Link>
-            )
-        })()}
+        {this.props.user && this.props.user.admin == true ? (
+          <Link className='animate-button' to='/admin'>
+            <span className='glyphicon glyphicon-cog' />
+          </Link>
+        ) : (
+          null
+        )}
       </li>
     )
 

@@ -10,108 +10,115 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170323121714) do
+ActiveRecord::Schema.define(version: 20170512121827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "actors", force: :cascade do |t|
-    t.string   "name",       null: false
+  create_table "actors", id: :serial, force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "admins", force: :cascade do |t|
-    t.integer  "user_id",    null: false
+  create_table "admins", id: :serial, force: :cascade do |t|
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_admins_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_admins_on_user_id"
   end
 
-  create_table "advertisements", force: :cascade do |t|
-    t.integer  "anime_id"
-    t.integer  "actor_id"
-    t.text     "body",       null: false
+  create_table "advertisements", id: :serial, force: :cascade do |t|
+    t.integer "anime_id"
+    t.integer "actor_id"
+    t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["actor_id"], name: "index_advertisements_on_actor_id", using: :btree
-    t.index ["anime_id"], name: "index_advertisements_on_anime_id", using: :btree
+    t.integer "season_id"
+    t.bigint "melody_id"
+    t.index ["actor_id"], name: "index_advertisements_on_actor_id"
+    t.index ["anime_id"], name: "index_advertisements_on_anime_id"
+    t.index ["melody_id"], name: "index_advertisements_on_melody_id"
+    t.index ["season_id"], name: "index_advertisements_on_season_id"
   end
 
-  create_table "animes", force: :cascade do |t|
-    t.string   "title",                   null: false
-    t.string   "summary",    default: "", null: false
-    t.string   "wiki_url"
-    t.string   "picture"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-  end
-
-  create_table "appearances", force: :cascade do |t|
-    t.integer  "anime_id",   null: false
-    t.integer  "actor_id",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["actor_id"], name: "index_appearances_on_actor_id", using: :btree
-    t.index ["anime_id"], name: "index_appearances_on_anime_id", using: :btree
-  end
-
-  create_table "melodies", force: :cascade do |t|
-    t.integer  "anime_id"
-    t.integer  "season_id"
-    t.integer  "kind",         null: false
-    t.string   "title",        null: false
-    t.integer  "singer_id"
-    t.string   "music"
-    t.string   "lyric_writer"
-    t.string   "composer"
-    t.string   "adapter"
-    t.text     "memo"
-    t.date     "start_on"
-    t.date     "end_on"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["anime_id"], name: "index_melodies_on_anime_id", using: :btree
-    t.index ["season_id"], name: "index_melodies_on_season_id", using: :btree
-    t.index ["singer_id"], name: "index_melodies_on_singer_id", using: :btree
-  end
-
-  create_table "seasons", force: :cascade do |t|
-    t.integer  "anime_id",               null: false
-    t.string   "name"
-    t.date     "start_on"
-    t.date     "end_on"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "phase",      default: 0
-  end
-
-  create_table "singers", force: :cascade do |t|
-    t.string   "name",       null: false
+  create_table "animes", id: :serial, force: :cascade do |t|
+    t.string "title", null: false
+    t.string "summary", default: "", null: false
+    t.string "wiki_url"
+    t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "tokens", force: :cascade do |t|
-    t.string   "name",             null: false
-    t.string   "tokenizable_type", null: false
-    t.integer  "tokenizable_id",   null: false
-    t.string   "token",            null: false
-    t.text     "data"
+  create_table "appearances", id: :serial, force: :cascade do |t|
+    t.integer "anime_id", null: false
+    t.integer "actor_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["actor_id"], name: "index_appearances_on_actor_id"
+    t.index ["anime_id"], name: "index_appearances_on_anime_id"
+  end
+
+  create_table "melodies", id: :serial, force: :cascade do |t|
+    t.integer "anime_id"
+    t.integer "season_id"
+    t.integer "kind", null: false
+    t.string "title", null: false
+    t.integer "singer_id"
+    t.string "music"
+    t.string "lyric_writer"
+    t.string "composer"
+    t.string "adapter"
+    t.text "memo"
+    t.date "start_on"
+    t.date "end_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "youtube"
+    t.index ["anime_id"], name: "index_melodies_on_anime_id"
+    t.index ["season_id"], name: "index_melodies_on_season_id"
+    t.index ["singer_id"], name: "index_melodies_on_singer_id"
+  end
+
+  create_table "seasons", id: :serial, force: :cascade do |t|
+    t.integer "anime_id", null: false
+    t.string "name"
+    t.date "start_on"
+    t.date "end_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "phase", default: 0
+  end
+
+  create_table "singers", id: :serial, force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tokens", id: :serial, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "tokenizable_type", null: false
+    t.integer "tokenizable_id", null: false
+    t.string "token", null: false
+    t.text "data"
     t.datetime "expires_at"
-    t.datetime "created_at",       null: false
-    t.index ["expires_at"], name: "index_tokens_on_expires_at", using: :btree
-    t.index ["token"], name: "index_tokens_on_token", using: :btree
-    t.index ["tokenizable_id", "tokenizable_type", "name"], name: "index_tokens_on_tokenizable_id_and_tokenizable_type_and_name", unique: true, using: :btree
-    t.index ["tokenizable_type", "tokenizable_id"], name: "index_tokens_on_tokenizable_type_and_tokenizable_id", using: :btree
+    t.datetime "created_at", null: false
+    t.index ["expires_at"], name: "index_tokens_on_expires_at"
+    t.index ["token"], name: "index_tokens_on_token"
+    t.index ["tokenizable_id", "tokenizable_type", "name"], name: "index_tokens_on_tokenizable_id_and_tokenizable_type_and_name", unique: true
+    t.index ["tokenizable_type", "tokenizable_id"], name: "index_tokens_on_tokenizable_type_and_tokenizable_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password_digest"
-    t.integer  "status"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+  create_table "users", id: :serial, force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "advertisements", "melodies"
+  add_foreign_key "advertisements", "seasons"
 end
