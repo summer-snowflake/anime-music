@@ -7,7 +7,7 @@ defaults: &defaults
     og:
       type: website
       locale: ja_JP
-  site_image_path: ''
+  site_image_path: '' # TODO: 画像を設定する
   access_token:
     length: 32
     expire_after: <%= 90.days.to_i %>
