@@ -28,6 +28,9 @@ doc/*
 # Ignore public files
 public/assets/*
 
+# Ignore public upload files
+public/anime-music-uploads/*
+
 # Ignore environment variables list
 .env
 
