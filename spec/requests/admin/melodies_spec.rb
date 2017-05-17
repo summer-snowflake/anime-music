@@ -6,7 +6,9 @@ describe 'GET /api/admin/seasons/1/melodies', autodoc: true do
   let!(:anime) { create(:anime) }
   let!(:season) { create(:season, anime: anime) }
   let!(:singer) { create(:singer) }
-  let!(:op_melody) { create(:melody, season: season, kind: :op, singer: singer) }
+  let!(:op_melody) do
+    create(:melody, season: season, kind: :op, singer: singer)
+  end
   let!(:ed_melody) { create(:melody, season: season, kind: :ed) }
   let!(:advertisement) { create(:advertisement, melody: op_melody) }
 
