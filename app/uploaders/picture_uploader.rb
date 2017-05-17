@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PictureUploader < CarrierWave::Uploader::Base
-  storage :file
+  storage Rails.env.production? ? :fog : :file
 
   # TODO: production環境では、S3にアップロードできるようにする
   def store_dir
