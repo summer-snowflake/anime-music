@@ -66,9 +66,18 @@ export default class AdminAnimeSeasonMelody extends Component {
           <span className='glyphicon glyphicon-music' />
           {this.props.melody.title}
         </div>
-        <span>
-          {'歌: ' + (this.props.melody.singer_name || '')}
-        </span>
+        <div className='singer_name'>
+          {'歌　: ' + (this.props.melody.singer_name || '')}
+        </div>
+        <div className='lyric_writer'>
+          {'作詞: ' + this.props.melody.lyric_writer}
+        </div>
+        <div className='composer'>
+          {'作曲: ' + this.props.melody.composer}
+        </div>
+         <div className='adapter'>
+          {'編曲: ' + this.props.melody.adapter}
+        </div>
       </div>
     )
   }
