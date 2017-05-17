@@ -11,7 +11,11 @@ h1 {
   padding: 5px;
 }
 
-.glyphicon-pencil:hover, .glyphicon-trash:hover {
+.glyphicon-pencil, .glyphicon-plus-sign {
+  visibility: hidden;
+}
+
+.glyphicon-pencil:hover, .glyphicon-trash:hover, .glyphicon-plus-sign:hover {
   background-color: rgba($blue, 0.3);
 }
 
@@ -70,13 +74,12 @@ h1 {
 
 .media-object {
   width: 128px;
-  height: 128px;
-  border: 1px solid $blue;
-  border-radius: 3px;
-}
-
-.media-object:hover {
-  border: 1pt solid $blue-dark;
+  height: auto;
+  border: solid 1px #ddd;
+  .glyphicon-picture {
+    top: 15px;
+    font-size: 50px;
+  }
 }
 
 .media-body {
@@ -98,11 +101,6 @@ h1 {
   border-top: solid 5px;
   border-color: rgba($blue, 0.2);
   border-top-right-radius: 3px;
-}
-
-.thumbnail {
-  border: 1px solid $blue;
-  text-align: center;
 }
 
 .nav > li > a {

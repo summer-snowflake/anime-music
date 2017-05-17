@@ -1,5 +1,6 @@
 ja:
   errors:
     messages:
+      extension_whitelist_error: にアップロードできる拡張子は、jpg/jpeg/png/gifのみです
       sessions:
         invalid_parameters: メールアドレスまたはパスワードが正しくありません

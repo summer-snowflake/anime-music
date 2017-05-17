@@ -48,11 +48,14 @@ export default class AdminAnimeRow extends Component {
     return (
       <div className='media adminAnimeRowComponent' id={'anime-' + this.props.anime.id}>
         <div className='media-left'>
-          <Link to={'/admin/animes/' + this.props.anime.id}>
+          <Link className='link' to={'/admin/animes/' + this.props.anime.id}>
             {this.props.anime.picture ? (
               <img alt={this.props.anime.title} className='media-object' src={this.props.anime.picture} />
             ) : (
-              <span className='media-object no-image'>{'NO IMAGE'}</span>
+              <span className='media-object no-image'>
+                <span>{'NO IMAGE'}</span>
+                <span className='glyphicon glyphicon-picture' />
+              </span>
             )}
           </Link>
         </div>

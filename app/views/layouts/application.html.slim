@@ -1,14 +1,15 @@
 doctype html
 html
-head
-  title アニソンタイム | アニメソング情報サイト
-  = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true
-  = javascript_include_tag 'data-turbolinks-track': true
-  = csrf_meta_tags
+  head
+    = render 'layouts/meta_tags'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true
+    = javascript_include_tag 'data-turbolinks-track': true
+    = csrf_meta_tags
 
-.container
-  .row
-    #content
-      = yield
+  body
+    .container
+      .row
+        #content
+          = yield
 
 = javascript_include_tag 'application'

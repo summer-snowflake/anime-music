@@ -28,7 +28,7 @@ describe 'GET /api/admin/animes', autodoc: true do
             title: anime2.title,
             summary: anime2.summary,
             wiki_url: anime2.wiki_url,
-            picture: anime2.picture,
+            picture: anime2.picture.url,
             airing: false
           },
           {
@@ -36,7 +36,7 @@ describe 'GET /api/admin/animes', autodoc: true do
             title: anime1.title,
             summary: anime1.summary,
             wiki_url: anime1.wiki_url,
-            picture: anime1.picture,
+            picture: anime1.picture.url,
             airing: true
           }
         ]
@@ -69,7 +69,7 @@ describe 'GET /api/admin/animes/:id', autodoc: true do
         title: anime.title,
         summary: anime.summary,
         wiki_url: anime.wiki_url,
-        picture: anime.picture,
+        picture: anime.picture.url,
         airing: true
       }
       expect(response.body).to be_json_as(json)
@@ -91,7 +91,7 @@ describe 'PATCH /api/admin/animes/:id' do
     let!(:user) { create(:user, :registered) }
 
     context 'タイトルの変更' do
-      let!(:params) { { anime: { id: anime.id, title: title } } }
+      let!(:params) { { id: anime.id, title: title } }
       let!(:title) { 'タイトル' }
       context 'タイトルが空の場合' do
         let(:title) { '' }
@@ -119,7 +119,7 @@ describe 'PATCH /api/admin/animes/:id' do
 
     context 'サマリとwiki URLの変更' do
       let!(:params) do
-        { anime: { id: anime.id, summary: 'アニメサマリ', wiki_url: 'wiki_url' } }
+        { id: anime.id, summary: 'アニメサマリ', wiki_url: 'wiki_url' }
       end
 
       it '200が返ってくること' do
@@ -164,7 +164,7 @@ describe 'POST /api/admin/animes', autodoc: true do
 
     context '正しい値を設定した場合' do
       let!(:params) do
-        { anime: { title: 'アニメタイトル', summary: 'アニメサマリ', wiki_url: 'wiki_url' } }
+        { title: 'アニメタイトル', summary: 'アニメサマリ', wiki_url: 'wiki_url' }
       end
 
       it '201が返ってくること' do
@@ -179,7 +179,7 @@ describe 'POST /api/admin/animes', autodoc: true do
 
     context 'タイトルを空で設定した場合' do
       let!(:params) do
-        { anime: { title: '', summary: 'アニメサマリ', wiki_url: 'wiki_url' } }
+        { title: '', summary: 'アニメサマリ', wiki_url: 'wiki_url' }
       end
 
       it '422とエラーメッセージが返ってくること' do

@@ -54,11 +54,11 @@ export default class AdminAnimeNewForm extends Component {
   }
 
   postAnimeAgainstServer() {
-    const params = { anime: {
+    const params = {
       title: this.state.unsaved_title,
       summary: this.state.unsaved_summary,
       wiki_url: this.state.unsaved_wiki_url
-    }}
+    }
     fetch(origin + 'api/admin/animes', {
       method: 'POST',
       headers: {

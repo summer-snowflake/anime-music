@@ -1,3 +1,9 @@
+.upload-file {
+  visibility: hidden;
+  position: relative;
+  top: -50px;
+}
+
 .brand-image {
   background-image: image-url('anime_time.gif');
   background-repeat: no-repeat;
@@ -10,9 +16,19 @@
   clear: both;
 }
 
-span.no-image {
+.no-image {
+  font-size: 12px;
   font-weight: bold;
   color: rgba($blue, 0.7);
+  text-align: center;
+  padding: 5px;
+  .glyphicon-picture {
+    font-size: 80px;
+    display: block;
+    color: rgba($blue, 0.2);
+    position: relative;
+    top: 20px;
+  }
 }
 
 span.link, a.link, .link {
@@ -71,6 +87,7 @@ span.link, a.link, .link {
 .thumbnail {
   width: 171px;
   height: 180px;
+  text-align: center;
 }
 
 .circle {
