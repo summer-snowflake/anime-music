@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Melody < ApplicationRecord
+  attr_accessor :singer_name
+
   belongs_to :anime
   belongs_to :season, optional: true
   belongs_to :singer
@@ -15,4 +17,11 @@ class Melody < ApplicationRecord
             format: { with: /\A<iframe "\A*"|'\A*'|\A*>\z/i, allow_blank: true }
 
   enum kind: %i[op ed]
+
+  before_save :find_or_create_singer, if: 'singer_name.present?'
+
+  def find_or_create_singer
+    new_singer = Singer.find_or_create_by!(name: singer_name)
+    self.singer = new_singer
+  end
 end

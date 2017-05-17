@@ -56,7 +56,7 @@ end
 describe 'POST /api/admin/seasons/:season_id/melodies', autodoc: true do
   let(:melody_title) { '音楽タイトル' }
   let!(:season) { create(:season) }
-  let!(:params) do
+  let(:params) do
     { melody: attributes_for(:melody, title: melody_title) }
   end
 
@@ -93,6 +93,40 @@ describe 'POST /api/admin/seasons/:season_id/melodies', autodoc: true do
           error_messages: ['タイトルを入力してください']
         }
         expect(response.body).to be_json_as(json)
+      end
+    end
+
+    context 'Singerデータにある「歌」を登録した場合' do
+      let(:singer) { create(:singer) }
+      let(:params) do
+        { melody: attributes_for(:melody, title: melody_title, singer_name: singer.name) }
+      end
+
+      it '201が返ってくること' do
+        post "/api/admin/seasons/#{season.id}/melodies",
+             params: params, headers: login_headers(user)
+        expect(response.status).to eq 201
+
+        melody = season.melodies.last
+        expect(melody.title).to eq '音楽タイトル'
+        expect(melody.singer).to eq singer
+      end
+    end
+
+    context 'Singerデータにない「歌」を登録した場合' do
+      let(:singer_name) { 'シンガーの名前' }
+      let(:params) do
+        { melody: attributes_for(:melody, title: melody_title, singer_name: singer_name) }
+      end
+
+      it '201が返ってくること' do
+        post "/api/admin/seasons/#{season.id}/melodies",
+             params: params, headers: login_headers(user)
+        expect(response.status).to eq 201
+
+        melody = season.melodies.last
+        expect(melody.title).to eq '音楽タイトル'
+        expect(melody.singer).to eq Singer.last
       end
     end
   end
@@ -134,6 +168,38 @@ describe 'PATCH /api/admin/seasons/:season_id/melodies/:id', autodoc: true do
           error_messages: ['タイトルを入力してください']
         }
         expect(response.body).to be_json_as(json)
+      end
+    end
+
+    context 'Singerデータにある「歌」に更新した場合' do
+      let(:singer) { create(:singer) }
+      let(:params) do
+        { melody: attributes_for(:melody, singer_name: singer.name) }
+      end
+
+      it '200が返ってくること' do
+        patch "/api/admin/seasons/#{season.id}/melodies/#{melody.id}",
+              params: params, headers: login_headers(user)
+        expect(response.status).to eq 200
+ 
+        melody = season.melodies.last
+        expect(melody.singer).to eq singer
+      end
+    end
+
+    context 'Singerデータにない「歌」を登録した場合' do
+      let(:singer_name) { 'シンガーの名前' }
+      let(:params) do
+        { melody: attributes_for(:melody, singer_name: singer_name) }
+      end
+
+      it '200が返ってくること' do
+        patch "/api/admin/seasons/#{season.id}/melodies/#{melody.id}",
+              params: params, headers: login_headers(user)
+        expect(response.status).to eq 200
+ 
+        melody = season.melodies.last
+        expect(melody.singer).to eq Singer.last
       end
     end
   end
