@@ -22,6 +22,7 @@ export default class AdminSeasonMelodyForm extends Component {
       melody: {
         kind: this.refs.kind.value.toLowerCase(),
         title: this.refs.title.value,
+        singer_name: this.refs.singer_name.value,
         youtube: this.refs.youtube.value,
         advertisement_attributes: {
           id: (this.props.melody || {}).advertisement_id,
@@ -67,6 +68,12 @@ export default class AdminSeasonMelodyForm extends Component {
               <span className='glyphicon glyphicon-music' />
             </label>
             <input className='form-control' defaultValue={(this.props.melody || {}).title} disabled={this.state.loadingForm} id='title' placeholder='タイトル' ref='title' type='text' />
+          </div>
+          <div className='form-group singer'>
+            <label htmlFor='singer_name'>
+              <span className='glyphicon glyphicon-user' />
+            </label>
+            <input className='form-control' defaultValue={(this.props.melody || {}).singer_name} disabled={this.state.loadingForm} id='singer_name' placeholder='歌' ref='singer_name' type='text' />
           </div>
           <div className='form-group youtube'>
             <textarea className='form-control' cols='80' defaultValue={(this.props.melody || {}).youtube} disabled={this.state.loadingForm} id='youtube' placeholder='Youtubeの埋め込みコード' ref='youtube' rows='4' />

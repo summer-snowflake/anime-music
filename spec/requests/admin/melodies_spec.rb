@@ -5,7 +5,8 @@ require 'rails_helper'
 describe 'GET /api/admin/seasons/1/melodies', autodoc: true do
   let!(:anime) { create(:anime) }
   let!(:season) { create(:season, anime: anime) }
-  let!(:op_melody) { create(:melody, season: season, kind: :op) }
+  let!(:singer) { create(:singer) }
+  let!(:op_melody) { create(:melody, season: season, kind: :op, singer: singer) }
   let!(:ed_melody) { create(:melody, season: season, kind: :ed) }
   let!(:advertisement) { create(:advertisement, melody: op_melody) }
 
@@ -31,6 +32,7 @@ describe 'GET /api/admin/seasons/1/melodies', autodoc: true do
               id: op_melody.id,
               season_id: op_melody.season.id,
               title: op_melody.title,
+              singer_name: singer.name,
               kind: op_melody.kind,
               youtube: op_melody.youtube,
               advertisement_id: op_melody.advertisement.id,
@@ -40,6 +42,7 @@ describe 'GET /api/admin/seasons/1/melodies', autodoc: true do
               id: ed_melody.id,
               season_id: ed_melody.season.id,
               title: ed_melody.title,
+              singer_name: ed_melody.singer.name,
               kind: ed_melody.kind,
               youtube: ed_melody.youtube,
               advertisement_id: nil,
