@@ -43,6 +43,7 @@ class Api::Admin::MelodiesController < Api::Admin::BaseController
   def melody_params
     params.require(:melody)
           .permit(:title, :singer_name, :kind, :youtube,
+                  :lyric_writer, :composer, :adapter, :memo,
                   advertisement_attributes: %i[id body])
   end
 end

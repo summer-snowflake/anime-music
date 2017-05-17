@@ -6,6 +6,10 @@ json.melodies do
     json.season_id melody.season.id
     json.title melody.title
     json.singer_name melody.singer.try!(:name)
+    json.lyric_writer melody.lyric_writer
+    json.composer melody.composer
+    json.adapter melody.adapter
+    json.memo melody.memo
     json.kind melody.kind
     json.youtube melody.youtube.try!(:html_safe)
     json.advertisement_id melody.advertisement.try!(:id)
