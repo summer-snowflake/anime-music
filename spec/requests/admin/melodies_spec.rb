@@ -35,6 +35,10 @@ describe 'GET /api/admin/seasons/1/melodies', autodoc: true do
               season_id: op_melody.season.id,
               title: op_melody.title,
               singer_name: singer.name,
+              lyric_writer: op_melody.lyric_writer,
+              composer: op_melody.composer,
+              adapter: op_melody.adapter,
+              memo: op_melody.memo,
               kind: op_melody.kind,
               youtube: op_melody.youtube,
               advertisement_id: op_melody.advertisement.id,
@@ -45,6 +49,10 @@ describe 'GET /api/admin/seasons/1/melodies', autodoc: true do
               season_id: ed_melody.season.id,
               title: ed_melody.title,
               singer_name: ed_melody.singer.name,
+              lyric_writer: ed_melody.lyric_writer,
+              composer: ed_melody.composer,
+              adapter: ed_melody.adapter,
+              memo: ed_melody.memo,
               kind: ed_melody.kind,
               youtube: ed_melody.youtube,
               advertisement_id: nil,
@@ -62,7 +70,7 @@ describe 'POST /api/admin/seasons/:season_id/melodies', autodoc: true do
   let(:melody_title) { '音楽タイトル' }
   let!(:season) { create(:season) }
   let(:params) do
-    { melody: attributes_for(:melody, title: melody_title) }
+    { melody: attributes_for(:melody, title: melody_title, memo: 'めも') }
   end
 
   context 'ログインしていない場合' do
@@ -83,6 +91,7 @@ describe 'POST /api/admin/seasons/:season_id/melodies', autodoc: true do
 
         melody = season.melodies.last
         expect(melody.title).to eq '音楽タイトル'
+        expect(melody.memo).to eq 'めも'
       end
     end
 
