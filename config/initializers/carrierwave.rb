@@ -1,4 +1,4 @@
-CarrierWave::SanitizedFile.sanitize_regexp = /[\/\\]/
+CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
 
 CarrierWave.configure do |config|
   config.fog_credentials = {
@@ -7,6 +7,7 @@ CarrierWave.configure do |config|
     aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
     region: ENV['AWS_REGION']
   }
+  config.cache_storage = :fog if Rails.env.production?
+  config.fog_public = true
   config.fog_directory = ENV['AWS_FOG_DIRECTORY']
-  config.asset_host = ENV['AWS_FOG_ASSET_HOST']
 end

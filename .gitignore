@@ -29,7 +29,7 @@ doc/*
 public/assets/*
 
 # Ignore public upload files
-public/uploads/*
+public/anime-music-uploads/*
 
 # Ignore environment variables list
 .env
