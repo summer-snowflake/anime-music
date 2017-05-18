@@ -34,7 +34,9 @@ describe 'GET /api/welcome', autodoc: true do
               title: melody1.title,
               youtube: melody1.youtube,
               advertisement_body: melody1.advertisement.body,
-              info: "歌: #{melody1.singer.name}<br />作詞: #{melody1.lyric_writer}<br />作曲: #{melody1.composer}<br />編曲: #{melody1.adapter}<br />"
+              info: "歌: #{melody1.singer.name}<br />" \
+                "作詞: #{melody1.lyric_writer}<br />" \
+                "作曲: #{melody1.composer}<br />編曲: #{melody1.adapter}<br />"
             }
           ],
           advertisements: [
@@ -60,7 +62,9 @@ describe 'GET /api/welcome', autodoc: true do
               title: melody2.title,
               youtube: melody2.youtube,
               advertisement_body: nil,
-              info: "歌: #{melody2.singer.name}<br />作詞: #{melody2.lyric_writer}<br />作曲: #{melody2.composer}<br />編曲: #{melody2.adapter}<br />"
+              info: "歌: #{melody2.singer.name}<br />" \
+                "作詞: #{melody2.lyric_writer}<br />" \
+                "作曲: #{melody2.composer}<br />編曲: #{melody2.adapter}<br />"
             }
           ],
           advertisements: []
