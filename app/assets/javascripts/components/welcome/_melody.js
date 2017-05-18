@@ -24,7 +24,7 @@ export default class Melody extends Component {
         <table className='table'>
           <tbody>
             <tr>
-              <td rowSpan='2' className='music-thumbnail'>
+              <td className='music-thumbnail' rowSpan='2'>
                 <span className='circle'>
                   <span className='glyphicon glyphicon-music' />
                 </span>
