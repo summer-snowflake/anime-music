@@ -7,6 +7,7 @@ expect.extend(expectJSX)
 
 import Anime from '../../components/welcome/_anime'
 import Melody from '../../components/welcome/_melody'
+import Advertisements from '../../components/welcome/_advertisements'
 jest.unmock('../../components/welcome/_anime')
 
 describe('AnimeComponent', () => {
@@ -15,7 +16,8 @@ describe('AnimeComponent', () => {
   it('propsに設定した値が出力される', () => {
     const anime = { title: 'アニメタイトル', summary: 'アニメサマリ' }
     const melody = { id: 1, kind: 'ed', title: 'エンディング曲'}
-    const season = { id: 1, phase: '1', name: 'シーズン名', anime: anime, melodies: [melody], movies: [], advertisements: [{id: 1, body: '<a href=""></a>'}] }
+    const advertisement = { id: 1, body: '<a href=""></a>'}
+    const season = { id: 1, phase: '1', name: 'シーズン名', anime: anime, melodies: [melody], movies: [], advertisements: [advertisement] }
     renderer.render(
       <Anime season={season} />
     )
@@ -32,10 +34,7 @@ describe('AnimeComponent', () => {
             </p>
             <hr />
             <Melody melody={melody} />
-            <div className='link clear' onClick={jest.fn()}>
-              <span className='glyphicon glyphicon-chevron-right' />
-              <span className='show-movie-link'>{'視聴する'}</span>
-            </div>
+            <Advertisements advertisements={[advertisement]} season_id={1} />
           </div>
         </div>
       </div>
