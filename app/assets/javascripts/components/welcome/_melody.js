@@ -34,9 +34,12 @@ export default class Melody extends Component {
                   {this.props.melody.kind.toUpperCase()}
                 </span>
               </td>
+              <td className='info' rowSpan='2'>
+                <div dangerouslySetInnerHTML={{__html: this.props.melody.info}} />
+              </td>
             </tr>
             <tr>
-              <td>
+              <td className='title'>
                 <span className='title'>
                   {this.props.melody.title}
                 </span>
