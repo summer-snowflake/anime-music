@@ -44,16 +44,22 @@ export default class Melody extends Component {
             </tr>
           </tbody>
         </table>
-        <span className='link' onClick={this.handleToggleMovies}>
-          {this.state.showMovie ? (
-            <span className='glyphicon glyphicon-chevron-down' />
-          ) : (
-            <span className='glyphicon glyphicon-chevron-right' />
-          )}
-          <span className='show-movie-link'>{'視聴する'}</span>
-        </span>
-        {this.state.showMovie ? (
-          <Movie advertisement_body={this.props.melody.advertisement_body} youtube={this.props.melody.youtube} />
+        {this.props.melody.youtube || this.props.melody.advertisement_body ? (
+          <div>
+            <span className='link' onClick={this.handleToggleMovies}>
+              {this.state.showMovie ? (
+                <span className='glyphicon glyphicon-chevron-down' />
+              ) : (
+                <span className='glyphicon glyphicon-chevron-right' />
+              )}
+              <span className='show-movie-link'>{'視聴する'}</span>
+            </span>
+            {this.state.showMovie ? (
+              <Movie advertisement_body={this.props.melody.advertisement_body} youtube={this.props.melody.youtube} />
+            ) : (
+              null
+            )}
+          </div>
         ) : (
           null
         )}
