@@ -22,23 +22,27 @@
   }
 }
 
-.moviesComponent {
-  padding-top: 15px;
-  padding-bottom: 10px;
-  span {
-    display: table-cell;
+.melodyComponent {
+  padding-bottom: 25px;
+  .music-thumbnail {
+    width: 70px;
   }
-  span.cd {
-    padding-left: 5px;
+  .glyphicon-music {
+    font-size: 21px;
+    color: #aaa;
+    margin: 8px;
+    padding: 5px;
   }
 }
 
 .movieComponent {
-  padding-bottom: 10px;
-  //padding-right: 40px;
+  padding: 10px 0px;
   .label {
     position: absolute;
     background-color: rgba(#000, 0.7);
+  }
+  span.cd {
+    padding-left: 5px;
   }
 }
 
@@ -164,31 +168,6 @@
     padding-left: 5px;
     padding-right: 5px;
   }
-}
-
-.melodyComponent {
-  .glyphicon-music {
-    font-size: 21px;
-    color: #aaa;
-    margin: 8px;
-    padding: 5px;
-  }
-  .kind-label {
-    display: inline-block;
-    margin: 8px;
-    position: relative;
-    top: -35px;
-    left: 10px;
-  }
-  .title {
-    display: inline-block;
-    margin: 8px;
-    position: relative;
-    top: -7px;
-    left: -34px;
-  }
-  float: left;
-  width: 200px;
 }
 
 .adminSeasonMelodyFormComponent {
