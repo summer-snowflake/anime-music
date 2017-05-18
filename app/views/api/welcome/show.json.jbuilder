@@ -10,6 +10,8 @@ json.seasons do
       json.id melody.id
       json.kind melody.kind
       json.title melody.title
+      json.youtube melody.youtube.try!(:html_safe)
+      json.advertisement_body melody.advertisement.try!(:body)
     end
     json.movies season.movies do |movie|
       json.melody_id movie.id
