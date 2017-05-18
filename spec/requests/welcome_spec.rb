@@ -31,14 +31,9 @@ describe 'GET /api/welcome', autodoc: true do
             {
               id: melody1.id,
               kind: melody1.kind,
-              title: melody1.title
-            }
-          ],
-          movies: [
-            {
-              melody_id: melody1.id,
+              title: melody1.title,
               youtube: melody1.youtube,
-              advertisement_body: melody_advertisement.body
+              advertisement_body: melody1.advertisement.body
             }
           ],
           advertisements: [
@@ -61,12 +56,7 @@ describe 'GET /api/welcome', autodoc: true do
             {
               id: melody2.id,
               kind: melody2.kind,
-              title: melody2.title
-            }
-          ],
-          movies: [
-            {
-              melody_id: melody2.id,
+              title: melody2.title,
               youtube: melody2.youtube,
               advertisement_body: nil
             }
