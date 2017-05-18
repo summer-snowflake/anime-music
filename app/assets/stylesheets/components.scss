@@ -24,14 +24,22 @@
 
 .melodyComponent {
   padding-bottom: 25px;
-  .music-thumbnail {
-    width: 70px;
-  }
   .glyphicon-music {
     font-size: 21px;
     color: #aaa;
     margin: 8px;
     padding: 5px;
+  }
+  td.music-thumbnail {
+    width: 70px;
+  }
+  td.title {
+    width: 150px;
+  }
+  td.info {
+    font-size: 12px;
+    border-radius: 3px;
+    background-color: rgba($blue, 0.3);
   }
 }
 

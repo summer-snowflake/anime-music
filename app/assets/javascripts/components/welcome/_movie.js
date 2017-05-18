@@ -13,6 +13,7 @@ export default class Movie extends Component {
         ) : (
           null
         )}
+        <div className='clear' />
       </div>
     )
   }
