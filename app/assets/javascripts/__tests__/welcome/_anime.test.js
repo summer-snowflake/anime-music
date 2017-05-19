@@ -29,10 +29,15 @@ describe('AnimeComponent', () => {
             <h2 className='title'>
               {'アニメタイトル シーズン名 （第1期）'}
             </h2>
-            <p className='summary'>
-              {'アニメサマリ'}
-            </p>
-            <hr />
+            <div>
+              <div className='thumbnail'>
+                <img alt={'アニメタイトル'} className='img-rounded' src={undefined} />
+              </div>
+              <p className='summary'>
+                {'アニメサマリ'}
+              </p>
+            </div>
+            <hr className='clear' />
             <Melody melody={melody} />
             <Advertisements advertisements={[advertisement]} season_id={1} />
           </div>

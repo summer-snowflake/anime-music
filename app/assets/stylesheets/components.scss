@@ -22,6 +22,19 @@
   }
 }
 
+.animeComponent {
+  .thumbnail {
+    display: inline-block;
+    float: left;
+    border: none;
+    height: auto;
+    padding-right: 20px;
+  }
+  .summary {
+    padding: 5px;
+  }
+}
+
 .melodyComponent {
   padding-bottom: 25px;
   .glyphicon-music {
@@ -36,10 +49,10 @@
   td.title {
     width: 150px;
   }
-  td.info {
+  td.melody-info {
     font-size: 12px;
     border-radius: 3px;
-    background-color: rgba($blue, 0.3);
+    background-color: rgba($blue, 0.1);
   }
 }
 

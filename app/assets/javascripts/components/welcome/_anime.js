@@ -11,11 +11,16 @@ export default class Anime extends Component {
             <h2 className='title'>
               { this.props.season.anime.title } {this.props.season.name} {'（第'}{ this.props.season.phase }{'期）'}
             </h2>
-            <p className='summary'>
-              { this.props.season.anime.summary }
-            </p>
+            <div>
+              <div className='thumbnail'>
+                <img alt={this.props.season.anime.title} className='img-rounded' src={this.props.season.thumbnail} />
+              </div>
+              <p className='summary'>
+                { this.props.season.anime.summary }
+              </p>
+            </div>
             {this.props.season.melodies.length > 0 ? (
-              <hr />
+              <hr className='clear' />
             ) : (
               null
             )}

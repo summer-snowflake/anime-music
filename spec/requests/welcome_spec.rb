@@ -22,6 +22,7 @@ describe 'GET /api/welcome', autodoc: true do
           id: season1.id,
           phase: season1.phase,
           name: season1.name,
+          thumbnail: nil,
           anime: {
             id: anime1.id,
             title: anime1.title,
@@ -50,6 +51,7 @@ describe 'GET /api/welcome', autodoc: true do
           id: season2.id,
           phase: season2.phase,
           name: season2.name,
+          thumbnail: nil,
           anime: {
             id: anime2.id,
             title: anime2.title,

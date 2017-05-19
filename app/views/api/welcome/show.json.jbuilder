@@ -5,6 +5,7 @@ json.seasons do
     json.id season.id
     json.phase season.phase
     json.name season.name
+    json.thumbnail season.anime.picture.url
     json.anime season.anime, :id, :title, :summary
     json.melodies season.melodies do |melody|
       json.id melody.id
