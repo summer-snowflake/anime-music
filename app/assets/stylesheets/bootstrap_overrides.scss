@@ -19,6 +19,14 @@ h1 {
   background-color: rgba($blue, 0.3);
 }
 
+.table {
+  margin-bottom: 5px;
+}
+
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+  border-top: none;
+}
+
 .panel-title {
   position: relative;
   left: 5px;

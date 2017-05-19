@@ -22,6 +22,7 @@ describe 'GET /api/welcome', autodoc: true do
           id: season1.id,
           phase: season1.phase,
           name: season1.name,
+          thumbnail: nil,
           anime: {
             id: anime1.id,
             title: anime1.title,
@@ -31,14 +32,12 @@ describe 'GET /api/welcome', autodoc: true do
             {
               id: melody1.id,
               kind: melody1.kind,
-              title: melody1.title
-            }
-          ],
-          movies: [
-            {
-              melody_id: melody1.id,
+              title: melody1.title,
               youtube: melody1.youtube,
-              advertisement_body: melody_advertisement.body
+              advertisement_body: melody1.advertisement.body,
+              info: "歌: #{melody1.singer.name}<br />" \
+                "作詞: #{melody1.lyric_writer}<br />" \
+                "作曲: #{melody1.composer}<br />編曲: #{melody1.adapter}<br />"
             }
           ],
           advertisements: [
@@ -52,6 +51,7 @@ describe 'GET /api/welcome', autodoc: true do
           id: season2.id,
           phase: season2.phase,
           name: season2.name,
+          thumbnail: nil,
           anime: {
             id: anime2.id,
             title: anime2.title,
@@ -61,14 +61,12 @@ describe 'GET /api/welcome', autodoc: true do
             {
               id: melody2.id,
               kind: melody2.kind,
-              title: melody2.title
-            }
-          ],
-          movies: [
-            {
-              melody_id: melody2.id,
+              title: melody2.title,
               youtube: melody2.youtube,
-              advertisement_body: nil
+              advertisement_body: nil,
+              info: "歌: #{melody2.singer.name}<br />" \
+                "作詞: #{melody2.lyric_writer}<br />" \
+                "作曲: #{melody2.composer}<br />編曲: #{melody2.adapter}<br />"
             }
           ],
           advertisements: []
