@@ -39,12 +39,6 @@ describe 'GET /api/welcome', autodoc: true do
                 "作詞: #{melody1.lyric_writer}<br />" \
                 "作曲: #{melody1.composer}<br />編曲: #{melody1.adapter}<br />"
             }
-          ],
-          advertisements: [
-            {
-              id: advertisement.id,
-              body: advertisement.body
-            }
           ]
         },
         {
@@ -68,8 +62,7 @@ describe 'GET /api/welcome', autodoc: true do
                 "作詞: #{melody2.lyric_writer}<br />" \
                 "作曲: #{melody2.composer}<br />編曲: #{melody2.adapter}<br />"
             }
-          ],
-          advertisements: []
+          ]
         }
       ]
     }

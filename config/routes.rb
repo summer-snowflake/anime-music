@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   namespace :api, only: %i(index), format: 'json' do
     resource :user, only: %i(show)
     resource :session, only: %i(create)
+    resources :advertisements, only: %i(index)
     resources :seasons, only: :none do
       resources :advertisements, only: %i(index)
     end

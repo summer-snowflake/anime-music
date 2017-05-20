@@ -17,7 +17,7 @@ class Season < ApplicationRecord
     where('start_on <= ?', date).where('end_on >= ? or end_on is null', date)
   end
 
-  def welcome_advertisements
-    Advertisement.where(id: anime.advertisements.pluck(:id).sample(5))
+  def anime_advertisements
+    Advertisement.where(id: anime.advertisements.pluck(:id).sample(2))
   end
 end
