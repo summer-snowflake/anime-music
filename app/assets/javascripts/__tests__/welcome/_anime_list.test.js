@@ -25,8 +25,8 @@ describe('AnimeListComponent', () => {
     let actualElement = component.single(reactElementToJSXString)
     let expectedElement = (
       <div className='animeListComponent'>
-        <Anime handleDisplayAdvertisements={jest.fn()} season={season1} />
-        <Anime handleDisplayAdvertisements={jest.fn()} season={season2} />
+        <Anime onDisplayAdvertisements={jest.fn()} season={season1} />
+        <Anime onDisplayAdvertisements={jest.fn()} season={season2} />
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)

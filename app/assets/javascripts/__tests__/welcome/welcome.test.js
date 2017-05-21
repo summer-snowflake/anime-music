@@ -23,7 +23,7 @@ describe('WelcomeComponent', () => {
       <div className='welcomeComponent'>
         <h1>{'放送中のアニメ'}</h1>
         <div className='col-md-9'>
-          <AnimeList handleDisplayAdvertisements={jest.fn()} />
+          <AnimeList onDisplayAdvertisements={jest.fn()} />
         </div>
         <div className='col-md-3'>
           <div className="clear" />
