@@ -17,11 +17,13 @@ describe 'GET /api/seasons/:season_id/advertisements', autodoc: true do
         advertisements: [
           {
             id: advertisement1.id,
-            body: advertisement1.body
+            body: advertisement1.body,
+            tag_name: advertisement1.tag_name
           },
           {
             id: advertisement2.id,
-            body: advertisement2.body
+            body: advertisement2.body,
+            tag_name: advertisement2.tag_name
           }
         ]
       }
@@ -43,11 +45,13 @@ describe 'GET /api/advertisements', autodoc: true do
 
       json1 = {
         id: advertisement1.id,
-        body: advertisement1.body
+        body: advertisement1.body,
+        tag_name: advertisement1.tag_name
       }
       json2 = {
         id: advertisement2.id,
-        body: advertisement2.body
+        body: advertisement2.body,
+        tag_name: advertisement1.tag_name
       }
 
       json = JSON.parse(response.body, symbolize_names: true)[:advertisements]
