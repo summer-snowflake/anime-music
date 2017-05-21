@@ -21,8 +21,7 @@ export default class AdminAdvertisementForm extends Component {
 
   handleClickSubmitButton() {
     this.setState({loadingForm: true})
-    const body = this.refs.body.value
-    this.props.onSubmit(body)
+    this.props.onSubmit(this.refs.tag_name.value, this.refs.body.value)
   }
 
   handleTimeout() {
@@ -41,7 +40,10 @@ export default class AdminAdvertisementForm extends Component {
   render() {
     return (
       <div className='adminAdvertisementFormComponent'>
-        <form className='form-inline' onSubmit={this.handleClickSubmitButton}>
+        <form className='form' onSubmit={this.handleClickSubmitButton}>
+          <div className='form-group'>
+            <input className='form-control tag-name' id='tag_name' placeholder='タグ名' ref='tag_name' type='text' />
+          </div>
           <div className='form-group body'>
             <textarea autoFocus className='form-control' cols='120' defaultValue={(this.props.advertisement || {}).body} disabled={this.state.loadingForm} id='body' placeholder='htmlタグ' ref='body' rows='4' />
           </div>

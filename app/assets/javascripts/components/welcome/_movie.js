@@ -7,7 +7,7 @@ export default class Movie extends Component {
         <span className='pull-left' dangerouslySetInnerHTML={{__html: this.props.youtube}} />
         {this.props.advertisement_body ? (
           <span className='cd pull-left'>
-            <span className='label label-default'>{'CD'}</span>
+            <span className='label label-default' id='tag-name'>{'CD'}</span>
             <span dangerouslySetInnerHTML={{__html: this.props.advertisement_body}} />
           </span>
         ) : (
