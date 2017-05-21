@@ -38,23 +38,20 @@ describe 'GET /api/advertisements', autodoc: true do
 
   context 'ログインしていない場合' do
     it '200とデータが返ってくること' do
-      get "/api/advertisements"
+      get '/api/advertisements'
       expect(response.status).to eq 200
 
-      json = {
-        advertisements: contain_exactly(
-          {
-            id: advertisement1.id,
-            body: advertisement1.body
-          },
-          {
-            id: advertisement2.id,
-            body: advertisement2.body
-          }
-        )
+      json1 = {
+        id: advertisement1.id,
+        body: advertisement1.body
       }
-      json = JSON.parse(response.body)
-      expect(response.body).to be_json_as(json)
+      json2 = {
+        id: advertisement2.id,
+        body: advertisement2.body
+      }
+
+      json = JSON.parse(response.body, symbolize_names: true)[:advertisements]
+      expect(json).to contain_exactly(json1, json2)
     end
   end
 end
