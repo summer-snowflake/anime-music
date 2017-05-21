@@ -8,7 +8,7 @@ export default class Anime extends Component {
   }
 
   handleClickPR() {
-    this.props.handleDisplayAdvertisements(this.props.season.id)
+    this.props.onDisplayAdvertisements(this.props.season.id)
   }
 
   render () {
@@ -47,5 +47,5 @@ export default class Anime extends Component {
 
 Anime.propTypes = {
   season: PropTypes.object.isRequired,
-  handleDisplayAdvertisements: PropTypes.func.isRequired
+  onDisplayAdvertisements: PropTypes.func.isRequired
 }

@@ -32,7 +32,7 @@ export default class Welcome extends Component {
       })
   }
 
-  loadAdvertisementsBySeasonsFromServer(season_id) {
+  loadAdvertisementsBySeasonsFromServer() {
     fetch(origin + 'api/advertisements')
       .then((res) => res.json())
       .then((res) => {
@@ -48,7 +48,7 @@ export default class Welcome extends Component {
       <div className='welcomeComponent'>
         <h1>{'放送中のアニメ'}</h1>
         <div className='col-md-9'>
-          <AnimeList handleDisplayAdvertisements={this.handleDisplayAdvertisements} />
+          <AnimeList onDisplayAdvertisements={this.handleDisplayAdvertisements} />
         </div>
         <div className='col-md-3'>
           {this.state.advertisements.length > 0 ? (

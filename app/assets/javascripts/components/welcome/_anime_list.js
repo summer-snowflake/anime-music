@@ -16,7 +16,7 @@ export default class AnimeList extends Component {
   }
 
   handleDisplayAdvertisements(season_id) {
-    this.props.handleDisplayAdvertisements(season_id)
+    this.props.onDisplayAdvertisements(season_id)
   }
 
   loadAnimesFromServer() {
@@ -34,7 +34,7 @@ export default class AnimeList extends Component {
     return (
       <div className='animeListComponent'>
         {this.state.seasons.map((season) =>
-          <Anime key={season.id} handleDisplayAdvertisements={this.handleDisplayAdvertisements} season={season} />
+          <Anime key={season.id} onDisplayAdvertisements={this.handleDisplayAdvertisements} season={season} />
         )}
       </div>
     )
@@ -42,5 +42,5 @@ export default class AnimeList extends Component {
 }
 
 AnimeList.propTypes = {
-  handleDisplayAdvertisements: PropTypes.func.isRequired
+  onDisplayAdvertisements: PropTypes.func.isRequired
 }
