@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import Advertisement from './_advertisement'
-import { origin } from './../../origin.js'
 
 export default class Advertisements extends Component {
   constructor(props) {
