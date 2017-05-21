@@ -13,7 +13,7 @@ defaults: &defaults
     expire_after: <%= 90.days.to_i %>
   anime:
     summary:
-      maximum_length: 250
+      maximum_length: 50000
     title:
       maximum_length: 250
     wiki_url:
