@@ -26,7 +26,9 @@ describe('AnimeComponent', () => {
         <div className="panel panel-default">
           <div className='panel-body'>
             <h2 className='title'>
-              {'アニメタイトル シーズン名 （第1期）'}
+              <span>
+                {'アニメタイトル シーズン名 （第1期）'}
+              </span>
             </h2>
             <div>
               <div className='thumbnail'>
