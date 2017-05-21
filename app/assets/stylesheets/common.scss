@@ -36,6 +36,11 @@ span.link, a.link, .link {
   color: $blue-dark;
 }
 
+.label.link {
+  cursor: pointer;
+  color: #fff;
+}
+
 .right-icon {
   padding-left: 10px;
 }
