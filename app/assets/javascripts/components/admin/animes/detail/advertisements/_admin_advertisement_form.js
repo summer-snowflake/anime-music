@@ -42,7 +42,7 @@ export default class AdminAdvertisementForm extends Component {
       <div className='adminAdvertisementFormComponent'>
         <form className='form' onSubmit={this.handleClickSubmitButton}>
           <div className='form-group'>
-            <input className='form-control tag-name' placeholder='タグ名' ref='tag_name' type='text' />
+            <input className='form-control tag-name' id='tag_name' placeholder='タグ名' ref='tag_name' type='text' />
           </div>
           <div className='form-group body'>
             <textarea autoFocus className='form-control' cols='120' defaultValue={(this.props.advertisement || {}).body} disabled={this.state.loadingForm} id='body' placeholder='htmlタグ' ref='body' rows='4' />

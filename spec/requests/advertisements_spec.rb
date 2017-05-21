@@ -51,7 +51,7 @@ describe 'GET /api/advertisements', autodoc: true do
       json2 = {
         id: advertisement2.id,
         body: advertisement2.body,
-        tag_name: advertisement1.tag_name
+        tag_name: advertisement2.tag_name
       }
 
       json = JSON.parse(response.body, symbolize_names: true)[:advertisements]
