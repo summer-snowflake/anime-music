@@ -26,9 +26,13 @@ export default class Anime extends Component {
               )}
             </h2>
             <div>
-              <div className='thumbnail'>
-                <img alt={this.props.season.anime.title} className='img-rounded' src={this.props.season.thumbnail} />
-              </div>
+              {this.props.season.anime.thumbnail ? (
+                <div className='thumbnail'>
+                  <img alt={this.props.season.anime.title} className='img-rounded' src={this.props.season.thumbnail} />
+                </div>
+              ) : (
+                null
+              )}
               <p className='summary'>
                 <div dangerouslySetInnerHTML={{ __html: this.props.season.anime.summary.replace(/\r?\n/g, '<br>') }} />
               </p>
