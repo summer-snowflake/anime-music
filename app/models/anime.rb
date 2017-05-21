@@ -24,4 +24,12 @@ class Anime < ApplicationRecord
       end
     end
   end
+
+  def self.airing_advertisements(date)
+    Advertisement.where(anime_id: Anime.airing_ids(date)).sample(2)
+  end
+
+  def self.airing_ids(date)
+    Season.airing(date).pluck(:anime_id).uniq
+  end
 end

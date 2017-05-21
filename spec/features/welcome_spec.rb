@@ -24,26 +24,42 @@ feature 'トップページ', js: true do
   end
 
   scenario '動画データがある場合動画が表示されること' do
+    expect(page).to have_no_css '.movieComponent'
     within "#season-#{season1.id}" do
       find('.show-movie-link').click
     end
     within '.movieComponent' do
       expect(page).to have_css 'iframe'
     end
+    within "#season-#{season1.id}" do
+      find('.show-movie-link').click
+    end
+    expect(page).to have_no_css '.movieComponent'
   end
 
   scenario '曲に広告データがある場合広告が表示されること' do
+    expect(page).to have_no_css '.movieComponent'
     within "#season-#{season1.id}" do
       find('.show-movie-link').click
     end
     within '.movieComponent' do
       expect(page).to have_css "a[href='https://url.com']"
     end
+    within "#season-#{season1.id}" do
+      find('.show-movie-link').click
+    end
+    expect(page).to have_no_css '.movieComponent'
   end
 
   scenario '広告一覧が表示されること' do
+    within '.advertisementComponent' do
+      expect(page).to have_css "a[href='https://url.com']"
+    end
+  end
+
+  scenario 'PRラベルクリックで、広告一覧が更新されること' do
     within "#season-#{season1.id}" do
-      find('.show-movie-link').click
+      find('.glyphicon-refresh').click
     end
     within '.advertisementComponent' do
       expect(page).to have_css "a[href='https://url.com']"

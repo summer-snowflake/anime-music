@@ -16,6 +16,16 @@
   clear: both;
 }
 
+.label .glyphicon-refresh {
+  padding-right: 0px;
+}
+
+.menu-title {
+  text-align: left;
+  padding: 10px 15px;
+  background-color: rgba($blue, 0.2);
+}
+
 .no-image {
   font-size: 12px;
   font-weight: bold;
@@ -34,6 +44,11 @@
 span.link, a.link, .link {
   cursor: pointer;
   color: $blue-dark;
+}
+
+.label.link {
+  cursor: pointer;
+  color: #fff;
 }
 
 .right-icon {

@@ -68,19 +68,12 @@
 }
 
 .advertisementsComponent {
-  .refresh-field {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-  }
-  .glyphicon-refresh {
-    font-size: 18px;
-  }
+  text-align: center;
 }
 
 .advertisementComponent {
-  padding: 10px 25px;
-  float: left;
+  display: inline-block;
+  padding: 5px 10px 20px 10px;
 }
 
 // == 管理画面：アニメ ==

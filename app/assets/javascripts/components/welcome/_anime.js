@@ -1,8 +1,16 @@
 import React, { Component, PropTypes } from 'react'
 import Melody from './_melody'
-import Advertisements from './_advertisements'
 
 export default class Anime extends Component {
+  constructor(props) {
+    super(props)
+    this.handleClickPR = this.handleClickPR.bind(this)
+  }
+
+  handleClickPR() {
+    this.props.onDisplayAdvertisements(this.props.season.id)
+  }
+
   render () {
     return (
       <div className='animeComponent' id={'season-' + this.props.season.id}>
@@ -18,6 +26,12 @@ export default class Anime extends Component {
               <p className='summary'>
                 { this.props.season.anime.summary }
               </p>
+              <p className='pull-right'>
+                <span className='label label-default link' onClick={this.handleClickPR}>
+                  {'PR'}
+                  <span className='glyphicon glyphicon-refresh' />
+                </span>
+              </p>
             </div>
             {this.props.season.melodies.length > 0 ? (
               <hr className='clear' />
@@ -27,7 +41,6 @@ export default class Anime extends Component {
             {this.props.season.melodies.map((melody) =>
               <Melody key={melody.id} melody={melody} />
             )}
-            <Advertisements advertisements={this.props.season.advertisements} season_id={this.props.season.id} />
           </div>
         </div>
       </div>
@@ -36,5 +49,6 @@ export default class Anime extends Component {
 }
 
 Anime.propTypes = {
-  season: PropTypes.object.isRequired
+  season: PropTypes.object.isRequired,
+  onDisplayAdvertisements: PropTypes.func.isRequired
 }
