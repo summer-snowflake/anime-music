@@ -3,6 +3,7 @@
 json.id @season.id
 json.phase @season.phase
 json.name @season.name
+json.disabled @season.disabled
 json.start_on @season.start_on
 json.end_on @season.end_on
 json.period @season.decorate.period
