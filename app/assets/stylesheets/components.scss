@@ -58,10 +58,6 @@
 
 .movieComponent {
   padding: 10px 0px;
-  .label {
-    position: absolute;
-    background-color: rgba(#000, 0.7);
-  }
   span.cd {
     padding-left: 5px;
   }
@@ -165,6 +161,12 @@
 
   .summary {
     min-height: 85px;
+  }
+}
+
+.adminAnimeAdvertisementComponent {
+  .label#tag-name {
+    left: 10px;
   }
 }
 

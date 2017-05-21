@@ -26,14 +26,16 @@ describe('AnimeComponent', () => {
         <div className="panel panel-default">
           <div className='panel-body'>
             <h2 className='title'>
-              {'アニメタイトル シーズン名 （第1期）'}
+              <span>
+                {'アニメタイトル シーズン名 （第1期）'}
+              </span>
             </h2>
             <div>
               <div className='thumbnail'>
                 <img alt={'アニメタイトル'} className='img-rounded' src={undefined} />
               </div>
               <p className='summary'>
-                {'アニメサマリ'}
+                 <div dangerouslySetInnerHTML={{ __html: 'アニメサマリ' }} />
               </p>
               <p className='pull-right'>
                 <span className='label label-default link' onClick={jest.fn()}>

@@ -46,6 +46,7 @@ export default class AdminAnimeAdvertisement extends Component {
   render() {
     return (
       <div className='adminAnimeAdvertisementComponent media' id={'advertisement-' + this.props.advertisement.id}>
+        <span className='label label-default' id='tag-name'>{this.props.advertisement.tag_name}</span>
         <div className='body' dangerouslySetInnerHTML={{__html: this.props.advertisement.body}} />
         <span className='glyphicon glyphicon-trash link pull-right' onClick={this.handleClickTrashIcon} />
         <DestroyModal handleCancel={this.onClickCancelButton} handleDestroy={this.onClickDeleteButton} showModal={this.state.showModal} />

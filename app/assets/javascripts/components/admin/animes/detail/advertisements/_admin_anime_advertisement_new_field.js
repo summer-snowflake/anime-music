@@ -30,9 +30,10 @@ export default class AdminAnimeAdvertisementNewField extends Component {
     this.setState({message: ''})
   }
 
-  handleClickSubmitButton(body) {
+  handleClickSubmitButton(tag_name, body) {
     const params = { advertisement: {
       anime_id: this.props.anime_id,
+      tag_name: tag_name,
       body: body
     }}
     this.postAdvertisementAgainstServer(params)

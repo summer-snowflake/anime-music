@@ -30,14 +30,16 @@ describe 'GET /api/admin/animes/:anime_id/advertisements', autodoc: true do
             anime_id: advertisement1.anime_id,
             season_id: advertisement1.season_id,
             season_phase: nil,
-            body: advertisement1.body
+            body: advertisement1.body,
+            tag_name: advertisement1.tag_name
           },
           {
             id: advertisement2.id,
             anime_id: advertisement2.anime_id,
             season_id: advertisement2.season_id,
             season_phase: nil,
-            body: advertisement2.body
+            body: advertisement2.body,
+            tag_name: advertisement2.tag_name
           }
         ]
       }

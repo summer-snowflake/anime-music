@@ -17,7 +17,7 @@ defaults: &defaults
     title:
       maximum_length: 250
     wiki_url:
-      maximum_length: 250
+      maximum_length: 50000
   season:
     name:
       maximum_length: 250
