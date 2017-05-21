@@ -36,6 +36,7 @@ export default class AdminAnimeSeasonNewField extends Component {
 
   handleClickSubmitButton() {
     const params = { season: {
+      disabled: this.refs.form.refs.disabled.checked,
       start_on: this.refs.form.refs.start_on.value,
       end_on: this.refs.form.refs.end_on.value,
       phase: this.refs.form.refs.phase.value,
