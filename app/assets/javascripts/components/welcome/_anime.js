@@ -27,7 +27,10 @@ export default class Anime extends Component {
                 { this.props.season.anime.summary }
               </p>
               <p className='pull-right'>
-                <span className='label label-default link' onClick={this.handleClickPR}>{'PR'}</span>
+                <span className='label label-default link' onClick={this.handleClickPR}>
+                  {'PR'}
+                  <span className='glyphicon glyphicon-refresh' />
+                </span>
               </p>
             </div>
             {this.props.season.melodies.length > 0 ? (

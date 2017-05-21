@@ -36,7 +36,10 @@ describe('AnimeComponent', () => {
                 {'アニメサマリ'}
               </p>
               <p className='pull-right'>
-                <span className='label label-default link' onClick={jest.fn()}>{'PR'}</span>
+                <span className='label label-default link' onClick={jest.fn()}>
+                  {'PR'}
+                  <span className='glyphicon glyphicon-refresh' />
+                </span>
               </p>
             </div>
             <hr className='clear' />

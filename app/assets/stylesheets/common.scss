@@ -16,6 +16,16 @@
   clear: both;
 }
 
+.label .glyphicon {
+  padding-right: 0px;
+}
+
+.menu-title {
+  text-align: left;
+  padding: 10px 15px;
+  background-color: rgba($blue, 0.2);
+}
+
 .no-image {
   font-size: 12px;
   font-weight: bold;

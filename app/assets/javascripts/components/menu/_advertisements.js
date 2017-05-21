@@ -27,6 +27,7 @@ export default class Advertisements extends Component {
     return (
       <div className='advertisementsComponent'>
         <div className='panel panel-default'>
+          <p className='menu-title'>{'おすすめPR'}</p>
           {this.props.advertisements.map((advertisement) =>
             <Advertisement advertisement={advertisement} key={advertisement.id} />
           )}
