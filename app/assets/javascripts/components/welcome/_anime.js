@@ -17,7 +17,13 @@ export default class Anime extends Component {
         <div className='panel panel-default'>
           <div className='panel-body'>
             <h2 className='title'>
-              { this.props.season.anime.title } {this.props.season.name} {'（第'}{ this.props.season.phase }{'期）'}
+              {this.props.season.disabled ? (
+                <span>{this.props.season.anime.title} {this.props.season.name}</span>
+              ) : (
+                <span>
+                  {this.props.season.anime.title} {this.props.season.name} {'（第'}{ this.props.season.phase }{'期）'}
+                </span>
+              )}
             </h2>
             <div>
               <div className='thumbnail'>

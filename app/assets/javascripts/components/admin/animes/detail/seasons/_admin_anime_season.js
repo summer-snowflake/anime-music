@@ -41,6 +41,7 @@ export default class AdminAnimeSeason extends Component {
   handleClickSubmitButton() {
     let params = {
       season: {
+        disabled: this.refs.form.refs.disabled.checked,
         phase: this.refs.form.refs.phase.value,
         name: this.refs.form.refs.name.value,
         start_on: this.refs.form.refs.start_on.value,
