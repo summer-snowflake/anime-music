@@ -7,7 +7,6 @@ expect.extend(expectJSX)
 
 import Anime from '../../components/welcome/_anime'
 import Melody from '../../components/welcome/_melody'
-import Advertisements from '../../components/welcome/_advertisements'
 jest.unmock('../../components/welcome/_anime')
 
 describe('AnimeComponent', () => {
@@ -36,10 +35,12 @@ describe('AnimeComponent', () => {
               <p className='summary'>
                 {'アニメサマリ'}
               </p>
+              <p className='pull-right'>
+                <span className='label label-default link' onClick={jest.fn()}>{'PR'}</span>
+              </p>
             </div>
             <hr className='clear' />
             <Melody melody={melody} />
-            <Advertisements advertisements={[advertisement]} season_id={1} />
           </div>
         </div>
       </div>
