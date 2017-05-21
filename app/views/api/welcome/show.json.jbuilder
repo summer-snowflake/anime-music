@@ -15,9 +15,5 @@ json.seasons do
       json.advertisement_body melody.advertisement.try!(:body)
       json.info melody.decorate.info.html_safe
     end
-    json.advertisements season.welcome_advertisements do |advertisement|
-      json.id advertisement.id
-      json.body advertisement.body
-    end
   end
 end
