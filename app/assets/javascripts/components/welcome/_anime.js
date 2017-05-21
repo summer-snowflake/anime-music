@@ -30,7 +30,7 @@ export default class Anime extends Component {
                 <img alt={this.props.season.anime.title} className='img-rounded' src={this.props.season.thumbnail} />
               </div>
               <p className='summary'>
-                { this.props.season.anime.summary }
+                <div dangerouslySetInnerHTML={{ __html: this.props.season.anime.summary.replace(/\r?\n/g, '<br>') }} />
               </p>
               <p className='pull-right'>
                 <span className='label label-default link' onClick={this.handleClickPR}>
