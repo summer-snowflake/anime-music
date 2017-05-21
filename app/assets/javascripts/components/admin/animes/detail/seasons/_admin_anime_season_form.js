@@ -50,7 +50,7 @@ export default class AdminAnimeSeasonForm extends Component {
     this.setState({unsaved_name: e.target.value})
   }
 
-  handleChangeDisabled(e) {
+  handleChangeDisabled() {
     this.setState({unsaved_disabled: !this.state.unsaved_disabled})
   }
 
@@ -87,7 +87,7 @@ export default class AdminAnimeSeasonForm extends Component {
             <div className='form-group'>
               <div className='col-sm-2 form-control' id='disabled'>
                 {'非表示'}
-                <input className='pull-right' checked={this.state.unsaved_disabled} defaultValue={(this.props.season || {}).disabled || false} onChange={this.handleChangeDisabled} type='checkbox' ref='disabled' name='disabled' />
+                <input checked={this.state.unsaved_disabled} className='pull-right' defaultValue={(this.props.season || {}).disabled || false} name='disabled' onChange={this.handleChangeDisabled} ref='disabled' type='checkbox' />
               </div>
               <div className='col-sm-2'>
                 <input className='form-control' defaultValue={(this.props.season || {}).start_on} disabled={this.state.loadingForm} id='start_on' name='start_on' onChange={this.handleChangeStartOn} ref='start_on' type='date' />
