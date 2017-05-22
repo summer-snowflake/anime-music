@@ -3,6 +3,7 @@
 FactoryGirl.define do
   factory :advertisement do
     anime
+    tag_name { %w[CD DVD Novels Comics].sample }
     trait :belongs_to_actor do
       anime_id { nil }
       actor

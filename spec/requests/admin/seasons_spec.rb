@@ -28,6 +28,7 @@ describe 'GET /api/admin/animes/1/seasons', autodoc: true do
             anime_id: season2.anime_id,
             phase: season2.phase,
             name: season2.name,
+            disabled: season2.disabled,
             start_on: season2.start_on.strftime('%Y-%m-%d'),
             end_on: season2.end_on.try(:strftime, '%Y-%m-%d'),
             period: season2.period
@@ -37,6 +38,7 @@ describe 'GET /api/admin/animes/1/seasons', autodoc: true do
             anime_id: season1.anime_id,
             phase: season1.phase,
             name: season1.name,
+            disabled: season1.disabled,
             start_on: season1.start_on.strftime('%Y-%m-%d'),
             end_on: season1.end_on.try(:strftime, '%Y-%m-%d'),
             period: season1.period
@@ -71,6 +73,7 @@ describe 'GET /api/admin/animes/:anime_id/seasons/:id', autodoc: true do
         id: season.id,
         phase: season.phase,
         name: season.name,
+        disabled: season.disabled,
         start_on: season.start_on.strftime('%Y-%m-%d'),
         end_on: season.end_on.try(:strftime, '%Y-%m-%d'),
         period: season.period

@@ -5,20 +5,16 @@ json.seasons do
     json.id season.id
     json.phase season.phase
     json.name season.name
+    json.disabled season.disabled
+    json.thumbnail season.anime.picture.url
     json.anime season.anime, :id, :title, :summary
     json.melodies season.melodies do |melody|
       json.id melody.id
       json.kind melody.kind
       json.title melody.title
-    end
-    json.movies season.movies do |movie|
-      json.melody_id movie.id
-      json.youtube movie.youtube.html_safe
-      json.advertisement_body movie.advertisement.try!(:body)
-    end
-    json.advertisements season.welcome_advertisements do |advertisement|
-      json.id advertisement.id
-      json.body advertisement.body
+      json.youtube melody.youtube.try!(:html_safe)
+      json.advertisement_body melody.advertisement.try!(:body)
+      json.info melody.decorate.info.html_safe
     end
   end
 end

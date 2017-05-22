@@ -1,23 +1,14 @@
 import React, { Component, PropTypes } from 'react'
 import Melody from './_melody'
-import Movies from './_movies'
-import Advertisements from './_advertisements'
 
 export default class Anime extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      showMovies: false
-    }
-    this.handleToggleMovies = this.handleToggleMovies.bind(this)
+    this.handleClickPR = this.handleClickPR.bind(this)
   }
 
-  handleToggleMovies() {
-    if (this.state.showMovies) {
-      this.setState({showMovies: false})
-    } else {
-      this.setState({showMovies: true})
-    }
+  handleClickPR() {
+    this.props.onDisplayAdvertisements(this.props.season.id)
   }
 
   render () {
@@ -26,38 +17,39 @@ export default class Anime extends Component {
         <div className='panel panel-default'>
           <div className='panel-body'>
             <h2 className='title'>
-              { this.props.season.anime.title } {this.props.season.name} {'（第'}{ this.props.season.phase }{'期）'}
+              {this.props.season.disabled ? (
+                <span>{this.props.season.anime.title} {this.props.season.name}</span>
+              ) : (
+                <span>
+                  {this.props.season.anime.title} {this.props.season.name} {'（第'}{ this.props.season.phase }{'期）'}
+                </span>
+              )}
             </h2>
-            <p className='summary'>
-              { this.props.season.anime.summary }
-            </p>
+            <div>
+              {this.props.season.anime.thumbnail ? (
+                <div className='thumbnail'>
+                  <img alt={this.props.season.anime.title} className='img-rounded' src={this.props.season.thumbnail} />
+                </div>
+              ) : (
+                null
+              )}
+              <p className='summary'>
+                <div dangerouslySetInnerHTML={{ __html: this.props.season.anime.summary.replace(/\r?\n/g, '<br>') }} />
+              </p>
+              <p className='pull-right'>
+                <span className='label label-default link' onClick={this.handleClickPR}>
+                  {'PR'}
+                  <span className='glyphicon glyphicon-refresh' />
+                </span>
+              </p>
+            </div>
             {this.props.season.melodies.length > 0 ? (
-              <hr />
+              <hr className='clear' />
             ) : (
               null
             )}
             {this.props.season.melodies.map((melody) =>
               <Melody key={melody.id} melody={melody} />
-            )}
-            {(this.props.season.advertisements.length > 0 || this.props.season.movies.length > 0) ? (
-              <div className='link clear' onClick={this.handleToggleMovies}>
-                {this.state.showMovies ? (
-                  <span className='glyphicon glyphicon-chevron-down' />
-                ) : (
-                  <span className='glyphicon glyphicon-chevron-right' />
-                )}
-                <span className='show-movie-link'>{'視聴する'}</span>
-              </div>
-            ) : (
-              null
-            )}
-            {this.state.showMovies ? (
-              <div>
-                <Movies movies={this.props.season.movies} />
-                <Advertisements advertisements={this.props.season.advertisements} season_id={this.props.season.id} />
-              </div>
-            ) : (
-              null
             )}
           </div>
         </div>
@@ -67,5 +59,6 @@ export default class Anime extends Component {
 }
 
 Anime.propTypes = {
-  season: PropTypes.object.isRequired
+  season: PropTypes.object.isRequired,
+  onDisplayAdvertisements: PropTypes.func.isRequired
 }

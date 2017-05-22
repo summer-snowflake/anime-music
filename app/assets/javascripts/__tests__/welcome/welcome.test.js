@@ -2,11 +2,13 @@ import React from 'react'
 import expect from 'expect'
 import { createRenderer } from 'react-test-renderer/shallow'
 import expectJSX from 'expect-jsx'
+import 'jest-fetch-mock'
 
 expect.extend(expectJSX)
 
 import Welcome from '../../components/welcome/welcome'
 import AnimeList from '../../components/welcome/_anime_list'
+import Tweets from '../../components/menu/_tweets'
 jest.unmock('../../components/welcome/welcome')
 
 describe('WelcomeComponent', () => {
@@ -21,12 +23,11 @@ describe('WelcomeComponent', () => {
       <div className='welcomeComponent'>
         <h1>{'放送中のアニメ'}</h1>
         <div className='col-md-9'>
-          <AnimeList />
+          <AnimeList onDisplayAdvertisements={jest.fn()} />
         </div>
-        <div className='col-md-3 twitter-widget'>
-          <div className='panel panel-default'>
-            <a className='twitter-timeline' data-width='500' href='https://twitter.com/anison_time'>{'Tweets by anison_time'}</a>
-          </div>
+        <div className='col-md-3'>
+          <div className="clear" />
+          <Tweets />
         </div>
       </div>
     )

@@ -1,3 +1,9 @@
+.upload-file {
+  visibility: hidden;
+  position: relative;
+  top: -50px;
+}
+
 .brand-image {
   background-image: image-url('anime_time.gif');
   background-repeat: no-repeat;
@@ -10,14 +16,44 @@
   clear: both;
 }
 
-span.no-image {
+.label .glyphicon-refresh {
+  padding-right: 0px;
+}
+
+.label#tag-name {
+  position: absolute;
+  background-color: rgba(#000, 0.7);
+}
+
+.menu-title {
+  text-align: left;
+  padding: 10px 15px;
+  background-color: rgba($blue, 0.2);
+}
+
+.no-image {
+  font-size: 12px;
   font-weight: bold;
   color: rgba($blue, 0.7);
+  text-align: center;
+  padding: 5px;
+  .glyphicon-picture {
+    font-size: 80px;
+    display: block;
+    color: rgba($blue, 0.2);
+    position: relative;
+    top: 20px;
+  }
 }
 
 span.link, a.link, .link {
   cursor: pointer;
   color: $blue-dark;
+}
+
+.label.link {
+  cursor: pointer;
+  color: #fff;
 }
 
 .right-icon {
@@ -71,6 +107,7 @@ span.link, a.link, .link {
 .thumbnail {
   width: 171px;
   height: 180px;
+  text-align: center;
 }
 
 .circle {

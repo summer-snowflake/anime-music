@@ -14,14 +14,16 @@ feature '管理画面：シーズン', js: true do
 
   context 'シーズンが登録されていた場合' do
     let!(:season1) { create(:season, anime: anime1) }
-    let!(:season2) { create(:season, anime: anime1) }
+    let!(:season2) { create(:season, anime: anime1, disabled: true) }
     let!(:season3) { create(:season, anime: anime2) }
 
     scenario 'アニメ詳細画面で該当アニメのシーズン一覧が表示されること' do
       visit admin_anime_path(id: anime1.id)
 
       within '.adminAnimeSeasonsComponent' do
+        expect(page).to have_content '第' + season1.phase.to_s + '期'
         expect(page).to have_content season1.name
+        expect(page).to have_content '第' + season2.phase.to_s + '期'
         expect(page).to have_content season2.name
         expect(page).not_to have_content season3.name
       end
@@ -35,11 +37,13 @@ feature '管理画面：シーズン', js: true do
       fill_in 'end_on', with: 1.month.ago.to_date
       fill_in 'phase', with: '1'
       fill_in 'name', with: '新しいシーズン名'
+      check 'disabled'
       find('.btn-danger').click
     end
 
     expect(page).to have_content '新しいシーズン名'
     expect(anime1.seasons.count).to eq 1
+    expect(anime1.seasons.last.disabled).to be_truthy
   end
 
   context 'シーズンが登録されていた場合' do
@@ -61,7 +65,7 @@ feature '管理画面：シーズン', js: true do
 
         fill_in 'start_on', with: 3.months.ago.to_date
         fill_in 'end_on', with: 1.month.ago.to_date
-        fill_in 'phase', with: '8'
+        fill_in 'phase', with: '1'
         fill_in 'name', with: '編集したシーズン名'
         find('.btn-danger').click
 

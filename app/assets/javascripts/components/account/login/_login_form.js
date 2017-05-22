@@ -18,7 +18,8 @@ export default class LoginForm extends Component {
     this.updateFailed = this.updateFailed.bind(this)
   }
 
-  handleClickSubmitButton() {
+  handleClickSubmitButton(e) {
+    e.preventDefault()
     let params = { email: this.refs.email.value, password: this.refs.password.value }
     this.props.handleClickLoginButton(params)
   }
@@ -44,20 +45,21 @@ export default class LoginForm extends Component {
   render() {
     return (
       <div className='loginFormComponent'>
-        <div className='form-group'>
-          <label htmlFor='email'>{'Emailアドレス'}</label>
-          <input className='form-control' id='email' ref='email' type='text' />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='password'>{'パスワード'}</label>
-          <input className='form-control' id='password' ref='password' type='password' />
-        </div>
-        <a className='btn btn-danger animate-button'
-          disabled={this.state.loadingLogin}
-          onClick={this.handleClickSubmitButton}
-          type='submit'>
-          {'ログイン'}
-        </a>
+        <form onSubmit={this.handleClickSubmitButton}>
+          <div className='form-group'>
+            <label htmlFor='email'>{'Emailアドレス'}</label>
+            <input className='form-control' id='email' ref='email' type='text' />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='password'>{'パスワード'}</label>
+            <input className='form-control' id='password' ref='password' type='password' />
+          </div>
+          <button className='btn btn-danger animate-button'
+            disabled={this.state.loadingLogin}
+            type='submit'>
+            {'ログイン'}
+          </button>
+        </form>
         <LoadingImage loading={this.state.loadingLogin} />
         <MessageBox message={this.state.message} message_type={this.state.message_type} />
       </div>

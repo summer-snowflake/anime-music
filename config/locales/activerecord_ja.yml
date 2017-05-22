@@ -7,6 +7,7 @@ ja:
         title: タイトル
         summary: あらすじ
         wiki_url: WikiのURL
+        picture: サムネイル
       actor:
         name: 声優名
       season:
@@ -14,3 +15,7 @@ ja:
       melody:
         title: タイトル
         kind: 種類
+        singer_id: 歌
+        rylic_writer: 作詞
+        composer: 作曲
+        adapter: 編曲

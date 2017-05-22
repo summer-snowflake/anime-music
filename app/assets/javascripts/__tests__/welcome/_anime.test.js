@@ -15,7 +15,8 @@ describe('AnimeComponent', () => {
   it('propsに設定した値が出力される', () => {
     const anime = { title: 'アニメタイトル', summary: 'アニメサマリ' }
     const melody = { id: 1, kind: 'ed', title: 'エンディング曲'}
-    const season = { id: 1, phase: '1', name: 'シーズン名', anime: anime, melodies: [melody], movies: [], advertisements: [{id: 1, body: '<a href=""></a>'}] }
+    const advertisement = { id: 1, body: '<a href=""></a>'}
+    const season = { id: 1, phase: '1', name: 'シーズン名', anime: anime, melodies: [melody], movies: [], advertisements: [advertisement] }
     renderer.render(
       <Anime season={season} />
     )
@@ -25,17 +26,23 @@ describe('AnimeComponent', () => {
         <div className="panel panel-default">
           <div className='panel-body'>
             <h2 className='title'>
-              {'アニメタイトル シーズン名 （第1期）'}
+              <span>
+                {'アニメタイトル シーズン名 （第1期）'}
+              </span>
             </h2>
-            <p className='summary'>
-              {'アニメサマリ'}
-            </p>
-            <hr />
-            <Melody melody={melody} />
-            <div className='link clear' onClick={jest.fn()}>
-              <span className='glyphicon glyphicon-chevron-right' />
-              <span className='show-movie-link'>{'視聴する'}</span>
+            <div>
+              <p className='summary'>
+                 <div dangerouslySetInnerHTML={{ __html: 'アニメサマリ' }} />
+              </p>
+              <p className='pull-right'>
+                <span className='label label-default link' onClick={jest.fn()}>
+                  {'PR'}
+                  <span className='glyphicon glyphicon-refresh' />
+                </span>
+              </p>
             </div>
+            <hr className='clear' />
+            <Melody melody={melody} />
           </div>
         </div>
       </div>

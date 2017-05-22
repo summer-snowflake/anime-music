@@ -22,40 +22,54 @@
   }
 }
 
-.moviesComponent {
-  padding-top: 15px;
-  padding-bottom: 10px;
-  span {
-    display: table-cell;
+.animeComponent {
+  .thumbnail {
+    display: inline-block;
+    float: left;
+    border: none;
+    height: auto;
+    padding-right: 20px;
   }
+  .summary {
+    padding: 5px;
+  }
+}
+
+.melodyComponent {
+  padding-bottom: 25px;
+  .glyphicon-music {
+    font-size: 21px;
+    color: #aaa;
+    margin: 8px;
+    padding: 5px;
+  }
+  td.music-thumbnail {
+    width: 70px;
+  }
+  td.title {
+    width: 150px;
+  }
+  td.melody-info {
+    font-size: 12px;
+    border-radius: 3px;
+    background-color: rgba($blue, 0.1);
+  }
+}
+
+.movieComponent {
+  padding: 10px 0px;
   span.cd {
     padding-left: 5px;
   }
 }
 
-.movieComponent {
-  padding-bottom: 10px;
-  //padding-right: 40px;
-  .label {
-    position: absolute;
-    background-color: rgba(#000, 0.7);
-  }
-}
-
 .advertisementsComponent {
-  .refresh-field {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-  }
-  .glyphicon-refresh {
-    font-size: 18px;
-  }
+  text-align: center;
 }
 
 .advertisementComponent {
-  padding: 10px 25px;
-  float: left;
+  display: inline-block;
+  padding: 5px 10px 20px 10px;
 }
 
 // == 管理画面：アニメ ==
@@ -63,15 +77,36 @@
 .adminAnimeRowComponent {
   padding: 10px;
 
-  span.no-image {
-    text-align: center;
-    background-color: rgba($blue, 0.1);
-    font-size: 12px;
+  .no-image {
+    min-height: 128px;
   }
   h4 {
     font-size: 15px;
     font-weight: bold;
     padding-bottom: 8px;
+  }
+  .wiki-url {
+    word-break: break-all;
+  }
+}
+
+.adminAnimeThumbnailComponent {
+  .thumbnail {
+    .glyphicon-plus-sign {
+      top: 145px;
+      right: -110px;
+      position: absolute;
+    }
+  }
+  .thumbnail:hover {
+    .glyphicon-plus-sign {
+      visibility: visible;
+    }
+  }
+  .messageBoxComponent {
+    position: absolute;
+    top: 190px;
+    left: 20px;
   }
 }
 
@@ -105,6 +140,7 @@
     padding: 20px;
     .wiki-url {
       margin-left: 3px;
+      word-break: break-all;
     }
     .summary {
       margin-top: -3px;
@@ -132,6 +168,12 @@
   }
 }
 
+.adminAnimeAdvertisementComponent {
+  .label#tag-name {
+    left: 10px;
+  }
+}
+
 .adminAnimeSeasonComponent {
   padding: 10px;
   .not-editing-body, .edit-form-field {
@@ -148,36 +190,14 @@
   }
 }
 
-.melodyComponent {
-  .glyphicon-music {
-    font-size: 21px;
-    color: #aaa;
-    margin: 8px;
-    padding: 5px;
-  }
-  .kind-label {
-    display: inline-block;
-    margin: 8px;
-    position: relative;
-    top: -35px;
-    left: 10px;
-  }
-  .title {
-    display: inline-block;
-    margin: 8px;
-    position: relative;
-    top: -7px;
-    left: -34px;
-  }
-  float: left;
-  width: 200px;
-}
-
 .adminSeasonMelodyFormComponent {
   .youtube {
     padding-bottom: 10px;
     margin-top: 10px;
     display: block;
+  }
+  .lyric_writer, .composer, .adapter {
+    padding: 10px;
   }
 }
 
@@ -202,9 +222,6 @@
   display: inline-block;
   padding: 10px;
   width: 200px;
-  span.glyphicon-pencil {
-    visibility: hidden;
-  }
 }
 
 .adminAnimeSeasonMelodyComponent:hover {

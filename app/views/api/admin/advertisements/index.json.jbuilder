@@ -7,5 +7,6 @@ json.advertisements do
     json.season_id advertisement.season_id
     json.season_phase advertisement.season.try!(:phase)
     json.body advertisement.body.html_safe
+    json.tag_name advertisement.tag_name
   end
 end

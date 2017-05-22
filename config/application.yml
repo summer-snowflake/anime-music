@@ -1,14 +1,23 @@
 defaults: &defaults
+  site:
+    site: アニソンタイム
+    title: アニメソング情報サイト
+    description: アニソンタイムは、放送中のアニメのオープニングテーマやエンディングテーマの詳細な情報を確認できるサイトです。
+    keywords: アニメ,アニソン,音楽,曲,オープニング,エンディング
+    og:
+      type: website
+      locale: ja_JP
+  site_image_path: '' # TODO: 画像を設定する
   access_token:
     length: 32
     expire_after: <%= 90.days.to_i %>
   anime:
     summary:
-      maximum_length: 250
+      maximum_length: 50000
     title:
       maximum_length: 250
     wiki_url:
-      maximum_length: 250
+      maximum_length: 50000
   season:
     name:
       maximum_length: 250
