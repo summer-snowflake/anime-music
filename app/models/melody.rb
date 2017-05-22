@@ -18,6 +18,8 @@ class Melody < ApplicationRecord
 
   enum kind: %i[op ed]
 
+  mount_uploader :picture, PictureUploader
+
   before_save :find_or_create_singer, if: :singer_name_present?
 
   def find_or_create_singer
