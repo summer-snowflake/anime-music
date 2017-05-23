@@ -6,8 +6,12 @@ json.seasons do
     json.phase season.phase
     json.name season.name
     json.disabled season.disabled
-    json.thumbnail season.anime.picture.url
-    json.anime season.anime, :id, :title, :summary
+    json.anime do |json|
+      json.id season.anime.id
+      json.title season.anime.title
+      json.summary season.anime.summary
+      json.thumbnail season.anime.picture.url
+    end
     json.melodies season.melodies do |melody|
       json.id melody.id
       json.kind melody.kind
