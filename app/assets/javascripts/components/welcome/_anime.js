@@ -12,6 +12,7 @@ export default class Anime extends Component {
   }
 
   render () {
+    const summary = { __html: this.props.season.anime.summary.replace(/\r?\n/g, '<br>') }
     return (
       <div className='animeComponent' id={'season-' + this.props.season.id}>
         <div className='panel panel-default'>
@@ -33,9 +34,9 @@ export default class Anime extends Component {
               ) : (
                 null
               )}
-              <p className='summary'>
-                <div dangerouslySetInnerHTML={{ __html: this.props.season.anime.summary.replace(/\r?\n/g, '<br>') }} />
-              </p>
+              <div className='summary'>
+                <div dangerouslySetInnerHTML={summary} />
+              </div>
               <p className='pull-right'>
                 <span className='label label-default link' onClick={this.handleClickPR}>
                   {'PR'}

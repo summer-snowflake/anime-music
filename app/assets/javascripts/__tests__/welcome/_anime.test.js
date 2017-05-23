@@ -31,9 +31,9 @@ describe('AnimeComponent', () => {
               </span>
             </h2>
             <div>
-              <p className='summary'>
+              <div className='summary'>
                  <div dangerouslySetInnerHTML={{ __html: 'アニメサマリ' }} />
-              </p>
+              </div>
               <p className='pull-right'>
                 <span className='label label-default link' onClick={jest.fn()}>
                   {'PR'}
