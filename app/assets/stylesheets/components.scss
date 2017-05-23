@@ -85,8 +85,20 @@
     font-weight: bold;
     padding-bottom: 8px;
   }
-  .wiki-url {
-    word-break: break-all;
+  .seasons {
+    li {
+      list-style-type: none;
+      padding-bottom: 10px;
+    }
+  }
+  .melodies {
+    li {
+      display: inline;
+      padding: 5px;
+    }
+    .glyphicon {
+      padding: 5px 5px 5px 0px;
+    }
   }
 }
 
