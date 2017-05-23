@@ -5,7 +5,7 @@ require 'rails_helper'
 feature 'トップページ', js: true do
   let!(:anime1) { create(:anime) }
   let!(:anime2) { create(:anime) }
-  let!(:anime3) { create(:anime) }
+  let!(:anime3) { create(:anime, picture: nil) }
   let!(:season1) { create(:season, anime: anime1) }
   let!(:season2) { create(:season, anime: anime2, disabled: true) }
   let!(:season3) { create(:season, anime: anime3, end_on: Time.zone.yesterday) }
@@ -32,6 +32,18 @@ feature 'トップページ', js: true do
     expect(page).to have_content season2.name
     expect(page).to have_no_content '第' + season2.phase.to_s + '期'
     expect(page).to have_content season2.name
+  end
+
+  scenario '画像データがある場合のみ画像が表示されること' do
+    within "#season-#{season1.id}" do
+      expect(page).to have_css '.thumbnail'
+    end
+    within "#season-#{season2.id}" do
+      expect(page).to have_css '.thumbnail'
+    end
+    within "#season-#{season3.id}" do
+      expect(page).to have_not_css '.thumbnail'
+    end
   end
 
   scenario '動画データがある場合動画が表示されること' do
