@@ -29,8 +29,6 @@ feature '管理画面：アニメ', js: true do
 
     expect(current_path).to eq admin_anime_path(id: anime1.id)
     expect(page).to have_content anime1.title
-    expect(page).to have_content anime1.summary
-    expect(page).to have_content anime1.wiki_url
   end
 
   scenario 'アニメ一覧から対象のアニメを削除できること' do

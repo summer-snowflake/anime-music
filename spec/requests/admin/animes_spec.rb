@@ -26,16 +26,12 @@ describe 'GET /api/admin/animes', autodoc: true do
           {
             id: anime2.id,
             title: anime2.title,
-            summary: anime2.summary,
-            wiki_url: anime2.wiki_url,
             picture: anime2.picture.url,
             airing: false
           },
           {
             id: anime1.id,
             title: anime1.title,
-            summary: anime1.summary,
-            wiki_url: anime1.wiki_url,
             picture: anime1.picture.url,
             airing: true
           }
@@ -67,8 +63,6 @@ describe 'GET /api/admin/animes/:id', autodoc: true do
       json = {
         id: anime.id,
         title: anime.title,
-        summary: anime.summary,
-        wiki_url: anime.wiki_url,
         picture: anime.picture.url,
         airing: true
       }
