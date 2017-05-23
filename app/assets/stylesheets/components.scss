@@ -199,6 +199,19 @@
   .lyric_writer, .composer, .adapter {
     padding: 10px;
   }
+  .img-thumbnail {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    background-color: #fff;
+  }
+  .melody-image:hover {
+    .glyphicon {
+      top: 19px;
+      visibility: visible;
+      display: absolute;
+    }
+  }
 }
 
 .adminAnimeSeasonMelodiesComponent {

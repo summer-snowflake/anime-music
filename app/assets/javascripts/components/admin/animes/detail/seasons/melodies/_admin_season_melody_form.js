@@ -67,12 +67,15 @@ export default class AdminSeasonMelodyForm extends Component {
             </label>
             <input ref='kind' type='hidden' value={this.state.kind} />
           </div>
-          <div className='form-group'>
+          <div className='form-group melody-image'>
             {this.props.melody ? (
-              <img className='melody-image' src={this.props.melody.picture} />
+              <img className='img-thumbnail' src={this.props.melody.picture} />
             ) : (
-              <img className='melody-image' />
+              <div className='no-image img-thumbnail'>
+                <span>{'NO IMAGE'}</span>
+              </div>
             )}
+            <span className='link glyphicon glyphicon-plus-sign' onClick={this.handleClickUploadIcon} />
           </div>
           <div className='form-group title'>
             <label htmlFor='title'>
