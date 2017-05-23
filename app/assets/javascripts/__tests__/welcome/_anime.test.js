@@ -31,9 +31,6 @@ describe('AnimeComponent', () => {
               </span>
             </h2>
             <div>
-              <div className='thumbnail'>
-                <img alt={'アニメタイトル'} className='img-rounded' src={undefined} />
-              </div>
               <p className='summary'>
                  <div dangerouslySetInnerHTML={{ __html: 'アニメサマリ' }} />
               </p>
