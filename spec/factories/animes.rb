@@ -5,6 +5,6 @@ FactoryGirl.define do
     sequence(:title) { |n| "アニメタイトル#{n}" }
     sequence(:summary) { |n| "あらすじ#{n}" }
     wiki_url Faker::Internet.url
-    picture Faker::Avatar.image
+    picture { fixture_file_upload('spec/fixtures/clover.gif', 'image/gif') }
   end
 end
