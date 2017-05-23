@@ -21,11 +21,11 @@ describe 'GET /api/welcome', autodoc: true do
         {
           id: season1.id,
           name: season1.name,
-          thumbnail: nil,
           anime: {
             id: anime1.id,
             title: anime1.title,
-            summary: anime1.summary
+            summary: anime1.summary,
+            thumbnail: anime1.picture.url
           },
           melodies: [
             {
@@ -43,11 +43,11 @@ describe 'GET /api/welcome', autodoc: true do
         {
           id: season2.id,
           name: season2.name,
-          thumbnail: nil,
           anime: {
             id: anime2.id,
             title: anime2.title,
-            summary: anime2.summary
+            summary: anime2.summary,
+            thumbnail: anime2.picture.url
           },
           melodies: [
             {

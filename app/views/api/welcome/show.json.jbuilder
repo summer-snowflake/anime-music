@@ -4,8 +4,12 @@ json.seasons do
   json.array! @seasons do |season|
     json.id season.id
     json.name season.name
-    json.thumbnail season.anime.picture.url
-    json.anime season.anime, :id, :title, :summary
+    json.anime do |json|
+      json.id season.anime.id
+      json.title season.anime.title
+      json.summary season.anime.summary
+      json.thumbnail season.anime.picture.url
+    end
     json.melodies season.melodies do |melody|
       json.id melody.id
       json.kind melody.kind
