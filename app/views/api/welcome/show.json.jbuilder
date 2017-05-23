@@ -3,10 +3,9 @@
 json.seasons do
   json.array! @seasons do |season|
     json.id season.id
-    json.name season.name
+    json.anime_title season.decorate.anime_title
     json.anime do |json|
       json.id season.anime.id
-      json.title season.anime.title
       json.summary season.anime.summary
       json.thumbnail season.anime.picture.url
     end
