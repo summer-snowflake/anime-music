@@ -20,9 +20,7 @@ describe 'GET /api/welcome', autodoc: true do
       seasons: [
         {
           id: season1.id,
-          phase: season1.phase,
           name: season1.name,
-          disabled: season1.disabled,
           thumbnail: nil,
           anime: {
             id: anime1.id,
@@ -44,9 +42,7 @@ describe 'GET /api/welcome', autodoc: true do
         },
         {
           id: season2.id,
-          phase: season2.phase,
           name: season2.name,
-          disabled: season2.disabled,
           thumbnail: nil,
           anime: {
             id: anime2.id,
