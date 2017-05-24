@@ -3,9 +3,11 @@
 require 'rails_helper'
 
 describe 'GET /api/admin/animes', autodoc: true do
-  let!(:anime1) { create(:anime) }
+  let!(:anime1) { create(:anime, created_at: 2.minutes.ago) }
   let!(:anime2) { create(:anime) }
-  let!(:season) { create(:season, anime: anime1) }
+  let!(:season) { create(:season, anime: anime1).decorate }
+  let!(:melody1) { create(:melody, :op, season: season) }
+  let!(:melody2) { create(:melody, :ed, season: season) }
 
   context 'ログインしていない場合' do
     it '401が返ってくること' do
@@ -27,13 +29,30 @@ describe 'GET /api/admin/animes', autodoc: true do
             id: anime2.id,
             title: anime2.title,
             picture: anime2.picture.url,
-            airing: false
+            airing: false,
+            seasons: []
           },
           {
             id: anime1.id,
             title: anime1.title,
             picture: anime1.picture.url,
-            airing: true
+            airing: true,
+            seasons: [
+              {
+                id: season.id,
+                anime_title: season.anime_title,
+                melodies: [
+                  {
+                    id: melody1.id,
+                    title: melody1.title
+                  },
+                  {
+                    id: melody2.id,
+                    title: melody2.title
+                  }
+                ]
+              }
+            ]
           }
         ]
       }

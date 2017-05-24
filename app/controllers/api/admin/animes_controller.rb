@@ -5,6 +5,7 @@ class Api::Admin::AnimesController < Api::Admin::BaseController
 
   def index
     @animes = Anime.includes(seasons: :melodies).references(:seasons)
+                   .order(created_at: :desc)
   end
 
   def show; end

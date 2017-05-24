@@ -9,6 +9,12 @@ FactoryGirl.define do
       season
     end
     kind { %i[op ed].sample }
+    trait :op do
+      kind :op
+    end
+    trait :ed do
+      kind :ed
+    end
     sequence(:title) { |n| "曲名タイトル#{n}" }
     youtube do
       '<iframe width="560" height="315" \

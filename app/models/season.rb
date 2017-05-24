@@ -2,7 +2,7 @@
 
 class Season < ApplicationRecord
   belongs_to :anime
-  has_many :melodies, -> { order(:kind) },
+  has_many :melodies, -> { order(kind: :asc, created_at: :desc) },
            dependent: :destroy
   has_many :advertisements, dependent: :destroy
 
