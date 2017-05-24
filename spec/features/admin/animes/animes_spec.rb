@@ -5,7 +5,11 @@ require 'rails_helper'
 feature '管理画面：アニメ', js: true do
   let!(:user) { create(:user, :registered, :admin_user) }
   let!(:anime1) { create(:anime) }
+  let!(:season1) { create(:season, anime: anime1).decorate }
+  let!(:melody1) { create(:melody, season: season1) }
+  let!(:melody2) { create(:melody, season: season1) }
   let!(:anime2) { create(:anime) }
+  let!(:season2) { create(:season, anime: anime2).decorate }
 
   background do
     login(user)
@@ -15,6 +19,9 @@ feature '管理画面：アニメ', js: true do
     visit admin_animes_path
     within "#anime-#{anime1.id}" do
       expect(page).to have_content anime1.title
+      expect(page).to have_content season1.anime_title
+      expect(page).to have_content melody1.title
+      expect(page).to have_content melody2.title
     end
     within "#anime-#{anime2.id}" do
       expect(page).to have_content anime2.title

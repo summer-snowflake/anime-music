@@ -2,8 +2,12 @@
 
 FactoryGirl.define do
   factory :melody do
-    anime
-    season
+    trait :with_anime do
+      anime
+    end
+    trait :with_season do
+      season
+    end
     kind { %i[op ed].sample }
     sequence(:title) { |n| "曲名タイトル#{n}" }
     youtube do
