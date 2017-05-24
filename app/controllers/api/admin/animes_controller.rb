@@ -4,8 +4,10 @@ class Api::Admin::AnimesController < Api::Admin::BaseController
   before_action :set_anime, only: %i[show update destroy]
 
   def index
-    @animes = Anime.includes(seasons: :melodies).references(:seasons)
+    @animes = Anime.includes(seasons: :melodies)
+                   .references(:seasons)
                    .order(created_at: :desc)
+                   .order('seasons.phase desc, melodies.kind asc')
   end
 
   def show; end
