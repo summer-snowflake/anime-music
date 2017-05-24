@@ -12,30 +12,25 @@ export default class Anime extends Component {
   }
 
   render () {
+    const summary = { __html: this.props.season.anime.summary.replace(/\r?\n/g, '<br>') }
     return (
       <div className='animeComponent' id={'season-' + this.props.season.id}>
         <div className='panel panel-default'>
           <div className='panel-body'>
             <h2 className='title'>
-              {this.props.season.disabled ? (
-                <span>{this.props.season.anime.title} {this.props.season.name}</span>
-              ) : (
-                <span>
-                  {this.props.season.anime.title} {this.props.season.name} {'（第'}{ this.props.season.phase }{'期）'}
-                </span>
-              )}
+              <span>{this.props.season.anime_title}</span>
             </h2>
             <div>
               {this.props.season.anime.thumbnail ? (
                 <div className='thumbnail'>
-                  <img alt={this.props.season.anime.title} className='img-rounded' src={this.props.season.thumbnail} />
+                  <img alt={this.props.season.anime.title} className='img-rounded' src={this.props.season.anime.thumbnail} />
                 </div>
               ) : (
                 null
               )}
-              <p className='summary'>
-                <div dangerouslySetInnerHTML={{ __html: this.props.season.anime.summary.replace(/\r?\n/g, '<br>') }} />
-              </p>
+              <div className='summary'>
+                <div dangerouslySetInnerHTML={summary} />
+              </div>
               <p className='pull-right'>
                 <span className='label label-default link' onClick={this.handleClickPR}>
                   {'PR'}

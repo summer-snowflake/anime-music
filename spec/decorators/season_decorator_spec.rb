@@ -3,6 +3,21 @@
 require 'rails_helper'
 
 RSpec.describe SeasonDecorator, type: :decorator do
+  describe '#anime_title' do
+    let!(:disabled) { false }
+    let!(:season) { create(:season, phase: 2, disabled: disabled).decorate }
+    subject { season.anime_title }
+
+    context 'disabledがfalseの場合' do
+      it { is_expected.to eq "#{season.anime.title} #{season.name} （第2期）" }
+    end
+
+    context 'disabledがtrueの場合' do
+      let(:disabled) { true }
+      it { is_expected.to eq "#{season.anime.title} #{season.name}" }
+    end
+  end
+
   describe '#period' do
     let!(:start_on) { 3.months.ago.to_date.to_s }
     let!(:end_on) { 1.month.ago.to_date.to_s }

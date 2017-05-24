@@ -38,7 +38,6 @@ feature '管理画面：アニメ詳細：広告', js: true do
         find('.btn-danger').click
       end
       expect(page).to have_no_css "#advertisement-#{advertisement1.id}"
-      expect(page).to have_no_content advertisement1.tag_name
       expect(page).to have_css "#advertisement-#{advertisement2.id}"
       expect(page).to have_content advertisement2.tag_name
     end

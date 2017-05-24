@@ -260,7 +260,7 @@ GEM
     fog-voxel (0.1.0)
       fog-core
       fog-xml
-    fog-vsphere (1.9.2)
+    fog-vsphere (1.10.0)
       fog-core
       rbvmomi (~> 1.9)
     fog-xenserver (0.3.0)
@@ -471,7 +471,7 @@ GEM
       railties (>= 3.1)
       slim (~> 3.0)
     slop (3.6.0)
-    spring (2.0.1)
+    spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -566,6 +566,7 @@ DEPENDENCIES
   tokens
   tzinfo-data
   validates_email_format_of
+
 
 RUBY VERSION
    ruby 2.4.1p111
