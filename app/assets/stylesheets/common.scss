@@ -106,7 +106,8 @@ span.link, a.link, .link {
 
 .thumbnail {
   width: 171px;
-  height: 180px;
+  height: auto;
+  min-height: 180px;
   text-align: center;
 }
 
