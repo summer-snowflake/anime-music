@@ -2,8 +2,7 @@
 
 class Anime < ApplicationRecord
   has_many :seasons, dependent: :destroy
-  has_many :melodies, -> { order(kind: :asc, created_at: :desc) },
-           dependent: :destroy
+  has_many :melodies, dependent: :destroy
   has_many :appearances, dependent: :destroy
   has_many :advertisements, dependent: :destroy
 
