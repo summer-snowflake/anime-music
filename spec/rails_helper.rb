@@ -33,7 +33,14 @@ Capybara.register_driver :selenium do |app|
 end
 
 ActiveRecord::Migration.maintain_test_schema!
-SimpleCov.start 'rails'
+SimpleCov.start do
+  add_group 'Models', 'app/models'
+  add_group 'Controllers', 'app/controllers'
+  add_group 'Helpers', 'app/helpers'
+  add_group 'Libraries', 'lib'
+  add_group 'Decorators', 'app/decorators'
+  add_group 'Uploaders', 'app/uploaders'
+end
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
