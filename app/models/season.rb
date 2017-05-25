@@ -18,6 +18,6 @@ class Season < ApplicationRecord
   end
 
   def anime_advertisements
-    Advertisement.where(id: anime.advertisements.pluck(:id).sample(2))
+    Advertisement.where(id: anime.advertisements.pluck(:id).sample)
   end
 end
