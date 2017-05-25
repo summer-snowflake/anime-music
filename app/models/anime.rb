@@ -25,7 +25,8 @@ class Anime < ApplicationRecord
   end
 
   def self.airing_advertisements(date)
-    advertisement_id = Advertisement.where(anime_id: Anime.airing_ids(date)).pluck(:id).sample
+    advertisement_id = Advertisement.where(anime_id: Anime.airing_ids(date))
+                                    .pluck(:id).sample
     Advertisement.where(id: advertisement_id)
   end
 
