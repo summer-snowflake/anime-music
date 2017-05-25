@@ -28,7 +28,7 @@ FactoryGirl.define do
     sequence(:composer) { |n| "作曲家#{n}" }
     sequence(:adapter) { |n| "編曲者#{n}" }
     sequence(:memo) { |n| "メモ#{n}" }
-    picture Faker::Avatar.image
+    picture { fixture_file_upload('spec/fixtures/clover.gif', 'image/gif') }
     start_on { Time.zone.today - 6.months }
     end_on { Time.zone.today - 2.months }
   end
