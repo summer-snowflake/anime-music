@@ -70,9 +70,20 @@ export default class AdminAnimeRow extends Component {
               null
             )}
           </h4>
-          <div className='summary'>
-            {this.props.anime.summary}
-          </div>
+          <ul className='seasons'>
+            {this.props.anime.seasons.map((season) => (
+              <li key={season.id}>{season.anime_title}
+                <ul className='melodies'>
+                  {season.melodies.map((melody) => (
+                    <li key={melody.id}><label className='label label-primary'>
+                      <span className='glyphicon glyphicon-music' />
+                      {melody.title}
+                    </label></li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
           <div className='wiki-url'>
             <a href={this.props.anime.wiki_url} target='_blank'>{this.props.anime.wiki_url}</a>
           </div>

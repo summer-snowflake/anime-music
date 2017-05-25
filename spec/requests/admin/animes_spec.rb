@@ -3,9 +3,12 @@
 require 'rails_helper'
 
 describe 'GET /api/admin/animes', autodoc: true do
-  let!(:anime1) { create(:anime) }
+  let!(:anime1) { create(:anime, created_at: 2.minutes.ago) }
   let!(:anime2) { create(:anime) }
-  let!(:season) { create(:season, anime: anime1) }
+  let!(:season1) { create(:season, anime: anime1, phase: 1).decorate }
+  let!(:season2) { create(:season, anime: anime1, phase: 2).decorate }
+  let!(:melody1) { create(:melody, :op, season: season1) }
+  let!(:melody2) { create(:melody, :ed, season: season1) }
 
   context 'ログインしていない場合' do
     it '401が返ってくること' do
@@ -26,18 +29,36 @@ describe 'GET /api/admin/animes', autodoc: true do
           {
             id: anime2.id,
             title: anime2.title,
-            summary: anime2.summary,
-            wiki_url: anime2.wiki_url,
             picture: anime2.picture.url,
-            airing: false
+            airing: false,
+            seasons: []
           },
           {
             id: anime1.id,
             title: anime1.title,
-            summary: anime1.summary,
-            wiki_url: anime1.wiki_url,
             picture: anime1.picture.url,
-            airing: true
+            airing: true,
+            seasons: [
+              {
+                id: season2.id,
+                anime_title: season2.anime_title,
+                melodies: []
+              },
+              {
+                id: season1.id,
+                anime_title: season1.anime_title,
+                melodies: [
+                  {
+                    id: melody1.id,
+                    title: melody1.title
+                  },
+                  {
+                    id: melody2.id,
+                    title: melody2.title
+                  }
+                ]
+              }
+            ]
           }
         ]
       }
@@ -67,9 +88,9 @@ describe 'GET /api/admin/animes/:id', autodoc: true do
       json = {
         id: anime.id,
         title: anime.title,
+        picture: anime.picture.url,
         summary: anime.summary,
         wiki_url: anime.wiki_url,
-        picture: anime.picture.url,
         airing: true
       }
       expect(response.body).to be_json_as(json)
