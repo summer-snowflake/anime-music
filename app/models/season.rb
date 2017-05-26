@@ -2,8 +2,7 @@
 
 class Season < ApplicationRecord
   belongs_to :anime
-  has_many :melodies, -> { order(kind: :asc, created_at: :desc) },
-           dependent: :destroy
+  has_many :melodies, dependent: :destroy
   has_many :advertisements, dependent: :destroy
 
   validates :phase,
@@ -19,6 +18,6 @@ class Season < ApplicationRecord
   end
 
   def anime_advertisements
-    Advertisement.where(id: anime.advertisements.pluck(:id).sample(2))
+    Advertisement.where(id: anime.advertisements.pluck(:id).sample)
   end
 end

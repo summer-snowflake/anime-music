@@ -2,8 +2,7 @@
 
 class Anime < ApplicationRecord
   has_many :seasons, dependent: :destroy
-  has_many :melodies, -> { order(kind: :asc, created_at: :desc) },
-           dependent: :destroy
+  has_many :melodies, dependent: :destroy
   has_many :appearances, dependent: :destroy
   has_many :advertisements, dependent: :destroy
 
@@ -26,7 +25,9 @@ class Anime < ApplicationRecord
   end
 
   def self.airing_advertisements(date)
-    Advertisement.where(anime_id: Anime.airing_ids(date)).sample(2)
+    advertisement_id = Advertisement.where(anime_id: Anime.airing_ids(date))
+                                    .pluck(:id).sample
+    Advertisement.where(id: advertisement_id)
   end
 
   def self.airing_ids(date)

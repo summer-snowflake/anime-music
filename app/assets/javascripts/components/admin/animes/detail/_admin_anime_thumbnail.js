@@ -58,7 +58,7 @@ export default class AdminAnimeThumbnail extends Component {
         <div className='col-xs-6 col-md-3'>
           <span className='thumbnail'>
             {this.props.picture ? (
-              <img alt={this.props.title} className='img-thumbnail' src={this.props.picture} />
+              <img alt={this.props.title} src={this.props.picture} />
             ) : (
               <div className='no-image'>
                 <span>{'NO IMAGE'}</span>
