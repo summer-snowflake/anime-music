@@ -6,7 +6,7 @@ SIMPLECOV_TARGET_URL="https://$CIRCLE_BUILD_NUM-71275953-gh.circle-artifacts.com
 SIMPLECOV_DESCRIPTION="${COVERED_PERCENT}% covered"
 GITHUB_STATUS="failure"
 
-if ${GITHUB_STATUS} -gt 98 ; then
+if ${GITHUB_STATUS} -gt 90 ; then
   GITHUB_STATUS="success"
 fi
 
