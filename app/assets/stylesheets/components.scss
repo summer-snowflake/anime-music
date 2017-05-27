@@ -225,12 +225,8 @@
   .melody-image {
     display: block;
   }
-  .melody-image:hover {
-    .glyphicon {
-      top: 19px;
-      visibility: visible;
-      display: absolute;
-    }
+  .upload-trigger-field {
+    padding-top: 5px;
   }
 }
 

@@ -101,8 +101,10 @@ export default class AdminSeasonMelodyForm extends Component {
                   <span>{'NO IMAGE'}</span>
                 </div>
               )}
-              <span className='link glyphicon glyphicon-plus-sign' onClick={this.handleClickUploadIcon} />
-              <input className='upload-file' onChange={this.handleChangeFile} multiple='multiple' ref='file' type='file' />
+              <div className='clear upload-trigger-field'>
+                <a className='btn btn-primary' onClick={this.handleClickUploadIcon}>{'Add Picture'}</a>
+                <input className='upload-file' onChange={this.handleChangeFile} multiple='multiple' ref='file' type='file' />
+              </div>
             </div>
           ) : (
             null
