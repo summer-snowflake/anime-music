@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Api::Admin::MelodyImagesController < Api::Admin::BaseController
-  before_action :set_melody, only: %i[index create]
+  before_action :set_melody, only: %i[index create destroy]
+  before_action :set_melody_image, only: %i[destroy]
 
   def index
     @melody_images = @melody.melody_images
@@ -27,6 +28,10 @@ class Api::Admin::MelodyImagesController < Api::Admin::BaseController
 
   def set_melody
     @melody = Melody.find(params[:melody_id])
+  end
+
+  def set_melody_image
+    @melody_image = @melody.melody_images.find(params[:id])
   end
 
   def melody_image_params

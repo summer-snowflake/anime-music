@@ -41,3 +41,25 @@ describe 'GET /api/admin/melodies/:melody_id/melody_images', autodoc: true do
     end
   end
 end
+
+describe 'DELETE /api/admin/melodies/:melody_id/melody_images/:id', autodoc: true do
+  let!(:melody) { create(:melody) }
+  let!(:melody_image) { create(:melody_image, melody: melody) }
+
+  context 'ログインしていない場合' do
+    it '401が返ってくること' do
+      delete "/api/admin/melodies/#{melody.id}/melody_images/#{melody_image.id}"
+      expect(response.status).to eq 401
+    end
+  end
+
+  context 'ログインしている場合' do
+    let!(:user) { create(:user, :registered) }
+
+    it '200が返ってくること' do
+      delete "/api/admin/melodies/#{melody.id}/melody_images/#{melody_image.id}",
+             headers: login_headers(user)
+      expect(response.status).to eq 200
+    end
+  end
+end
