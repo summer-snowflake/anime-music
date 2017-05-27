@@ -7,10 +7,13 @@ class Melody < ApplicationRecord
   belongs_to :season, optional: true
   belongs_to :singer
   has_one :advertisement, inverse_of: :melody
+  has_many :melody_images
+
   accepts_nested_attributes_for :advertisement,
                                 reject_if: lambda { |advertisement|
                                              advertisement[:body].blank?
                                            }
+  accepts_nested_attributes_for :melody_images
 
   validates :title, :kind, presence: true
   validates :youtube,
@@ -18,7 +21,6 @@ class Melody < ApplicationRecord
 
   enum kind: %i[op ed]
 
-  mount_uploader :picture, PictureUploader
 
   before_save :find_or_create_singer, if: :singer_name_present?
 
