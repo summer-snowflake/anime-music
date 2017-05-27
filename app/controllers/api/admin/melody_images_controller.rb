@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 class Api::Admin::MelodyImagesController < Api::Admin::BaseController
-  before_action :set_melody, only: %i[create]
+  before_action :set_melody, only: %i[index create]
+
+  def index
+    @melody_images = @melody.melody_images
+  end
 
   def create
     ActiveRecord::Base.transaction do
