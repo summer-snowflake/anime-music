@@ -1,6 +1,5 @@
 require 'exception_notification/rails'
-
-
+require 'slack-notifier'
 
 ExceptionNotification.configure do |config|
   # Ignore additional exception types.
