@@ -39,4 +39,4 @@ end
 p response
 p JSON.parse(response.body)
 
-exit 1 unless response.code == '201'
+exit 1 unless github_status == 'success' && response.code == '201'
