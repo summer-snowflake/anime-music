@@ -13,7 +13,6 @@ class Melody < ApplicationRecord
                                 reject_if: lambda { |advertisement|
                                              advertisement[:body].blank?
                                            }
-  accepts_nested_attributes_for :melody_images
 
   validates :title, :kind, presence: true
   validates :youtube,

@@ -31,6 +31,9 @@ Rails.application.routes.draw do
         resources :advertisements, only: %i(index)
         resources :melodies, only: %i(index create update destroy)
       end
+      resources :melodies, only: :none do
+        resources :melody_images, only: %i(create)
+      end
     end
   end
 end

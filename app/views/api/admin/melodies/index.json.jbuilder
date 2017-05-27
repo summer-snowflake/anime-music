@@ -14,5 +14,9 @@ json.melodies do
     json.youtube melody.youtube.try!(:html_safe)
     json.advertisement_id melody.advertisement.try!(:id)
     json.advertisement_body melody.advertisement.try!(:body).try!(:html_safe)
+    json.melody_images melody.melody_images do |image|
+      json.id image.id
+      json.picture image.picture.url
+    end
   end
 end
