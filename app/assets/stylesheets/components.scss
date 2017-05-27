@@ -217,9 +217,12 @@
     text-align: center;
     background-color: #fff;
   }
+  .exist-image {
+    width: 200px;
+    height: auto;
+  }
   .melody-image {
     display: block;
-    padding-bottom: 10px;
   }
   .melody-image:hover {
     .glyphicon {

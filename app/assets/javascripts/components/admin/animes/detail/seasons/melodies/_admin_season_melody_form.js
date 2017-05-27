@@ -12,8 +12,29 @@ export default class AdminSeasonMelodyForm extends Component {
     }
     this.handleClickSubmitButton = this.handleClickSubmitButton.bind(this)
     this.handleClickCancelButton = this.handleClickCancelButton.bind(this)
+    this.handleClickUploadIcon = this.handleClickUploadIcon.bind(this)
     this.handleChangeKind = this.handleChangeKind.bind(this)
+    this.handleChangeFile = this.handleChangeFile.bind(this)
     this.updateFailed = this.updateFailed.bind(this)
+    this.uploadFiles = this.uploadFiles.bind(this)
+  }
+
+  handleClickUploadIcon() {
+    this.refs.file.click()
+  }
+
+  handleChangeFile(e) {
+    if(e.target.files[0] != undefined) {
+      let formData = new FormData()
+      for(let i=0, f; f=e.target.files[i]; ++i) {
+        formData.append('picture[]', f)
+      }
+      this.uploadFiles(formData)
+    }
+  }
+
+  uploadFiles(files) {
+    this.props.onUpload(files)
   }
 
   handleClickSubmitButton(e) {
@@ -69,14 +90,19 @@ export default class AdminSeasonMelodyForm extends Component {
           </div>
           {this.props.melody ? (
             <div className='form-group melody-image'>
-              {this.props.melody.picture ? (
-                <img className='img-thumbnail' src={this.props.melody.picture} />
+              {this.props.melody.melody_images.length > 0 ? (
+                <div className='image-field'>
+                  {this.props.melody.melody_images.map((image) =>
+                    <img className='img-thumbnail exist-image' key={image.id} src={image.picture} />
+                  )}
+                </div>
               ) : (
                 <div className='no-image img-thumbnail'>
                   <span>{'NO IMAGE'}</span>
                 </div>
               )}
               <span className='link glyphicon glyphicon-plus-sign' onClick={this.handleClickUploadIcon} />
+              <input className='upload-file' onChange={this.handleChangeFile} multiple='multiple' ref='file' type='file' />
             </div>
           ) : (
             null
@@ -132,5 +158,6 @@ AdminSeasonMelodyForm.propTypes = {
   season_id: PropTypes.number.isRequired,
   melody: PropTypes.object,
   onClose: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  onUpload: PropTypes.func
 }

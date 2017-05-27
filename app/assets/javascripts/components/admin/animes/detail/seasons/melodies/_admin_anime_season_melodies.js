@@ -12,6 +12,7 @@ export default class AdminAnimeSeasonMelodies extends Component {
       showForm: false
     }
     this.loadMelodiesFromServer = this.loadMelodiesFromServer.bind(this)
+    this.loadMelodyImagesFromServer = this.loadMelodyImagesFromServer.bind(this)
     this.handleShowNewForm = this.handleShowNewForm.bind(this)
     this.handleShowEditMelodyField = this.handleShowEditMelodyField.bind(this)
     this.handleCloseEditMelodyField = this.handleCloseEditMelodyField.bind(this)
@@ -58,6 +59,25 @@ export default class AdminAnimeSeasonMelodies extends Component {
       })
   }
 
+  loadMelodyImagesFromServer(melody_id) {
+    fetch(origin + 'api/admin/melodies/' + melody_id + '/melody_images', {
+      headers: {'Authorization': 'Token token=' + localStorage.getItem('access_token')}
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        for (let index in this.state.melodies) {
+          if (this.state.melodies[index].id == melody_id) {
+            let melodies = this.state.melodies
+            melodies[index].melody_images = res.melody_images
+            this.setState({melodies: melodies})
+          }
+        }
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }
+
   render() {
     return (
       <div className='adminAnimeSeasonMelodiesComponent'>
@@ -66,7 +86,7 @@ export default class AdminAnimeSeasonMelodies extends Component {
           <AdminAnimeSeasonMelody key={melody.id} melody={melody} onShowEditMelodyField={this.handleShowEditMelodyField} />
         )}
         {this.state.melodies.map((melody) =>
-          <AdminSeasonMelodyEditField handleLoadMelodies={this.loadMelodiesFromServer} key={melody.id} melody={melody} onCloseEditMelodyField={this.handleCloseEditMelodyField} />
+          <AdminSeasonMelodyEditField handleLoadMelodies={this.loadMelodiesFromServer} handleLoadMelodyImages={this.loadMelodyImagesFromServer} key={melody.id} melody={melody} onCloseEditMelodyField={this.handleCloseEditMelodyField} />
         )}
       </div>
     )
