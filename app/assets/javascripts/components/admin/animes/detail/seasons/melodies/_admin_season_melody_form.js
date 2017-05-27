@@ -26,8 +26,8 @@ export default class AdminSeasonMelodyForm extends Component {
   handleChangeFile(e) {
     if(e.target.files[0] != undefined) {
       let formData = new FormData()
-      for(let i=0, f; f=e.target.files[i]; ++i) {
-        formData.append('picture[]', f)
+      for (let i=0; e.target.files[i]; ++i) {
+        formData.append('picture[]', e.target.files[i])
       }
       this.uploadFiles(formData)
     }
@@ -103,7 +103,7 @@ export default class AdminSeasonMelodyForm extends Component {
               )}
               <div className='clear upload-trigger-field'>
                 <a className='btn btn-primary' onClick={this.handleClickUploadIcon}>{'Add Picture'}</a>
-                <input className='upload-file' onChange={this.handleChangeFile} multiple='multiple' ref='file' type='file' />
+                <input className='upload-file' multiple='multiple' onChange={this.handleChangeFile} ref='file' type='file' />
               </div>
             </div>
           ) : (

@@ -66,7 +66,7 @@ export default class AdminSeasonMelodyEditField extends Component {
       headers: {'Authorization': 'Token token=' + localStorage.getItem('access_token')}
     })
       .then((res) => res.json())
-      .then((res) => {
+      .then(() => {
         this.props.handleLoadMelodyImages()
       })
       .catch((error) => {
@@ -125,7 +125,7 @@ export default class AdminSeasonMelodyEditField extends Component {
       <div>
         {this.props.melody.showEditForm ? (
           <div className='adminSeasonMelodyEditFieldComponent new-form-field media-body non-bordered'>
-            <AdminSeasonMelodyForm melody={this.props.melody} onClose={this.handleClickCancelButton} onSubmit={this.handleClickSubmitButton} ref='form' onUpload={this.handleUploadImages} season_id={this.props.melody.season_id} />
+            <AdminSeasonMelodyForm melody={this.props.melody} onClose={this.handleClickCancelButton} onSubmit={this.handleClickSubmitButton} onUpload={this.handleUploadImages} ref='form' season_id={this.props.melody.season_id} />
             <div className='pull-right'>
               <span className='link' onClick={this.handleClickTrashIcon}>
                 <span className='glyphicon glyphicon-trash' />
