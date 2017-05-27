@@ -24,11 +24,6 @@ export default class Melody extends Component {
         <table className='table'>
           <tbody>
             <tr>
-              <td className='music-thumbnail' rowSpan='2'>
-                <span className='circle'>
-                  <span className='glyphicon glyphicon-music' />
-                </span>
-              </td>
               <td>
                 <span className='label label-info kind-label'>
                   {this.props.melody.kind.toUpperCase()}
