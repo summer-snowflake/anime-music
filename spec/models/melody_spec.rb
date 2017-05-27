@@ -7,6 +7,7 @@ RSpec.describe Melody, type: :model do
   it { is_expected.to belong_to(:season) }
   it { is_expected.to belong_to(:singer) }
   it { is_expected.to have_one(:advertisement) }
+  it { is_expected.to have_many(:melody_images) }
 
   describe 'バリデーション' do
     it { is_expected.to validate_presence_of(:title) }
