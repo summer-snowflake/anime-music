@@ -38,3 +38,5 @@ end
 
 p response
 p JSON.parse(response.body)
+
+exit 1 unless response.code == '201'
