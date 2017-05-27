@@ -211,6 +211,23 @@
   .lyric_writer, .composer, .adapter {
     padding: 10px;
   }
+  .img-thumbnail {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    background-color: #fff;
+  }
+  .exist-image {
+    width: 207px;
+    height: auto;
+    margin: 5px;
+  }
+  .melody-image {
+    display: block;
+  }
+  .upload-trigger-field {
+    padding-top: 5px;
+  }
 }
 
 .adminAnimeSeasonMelodiesComponent {

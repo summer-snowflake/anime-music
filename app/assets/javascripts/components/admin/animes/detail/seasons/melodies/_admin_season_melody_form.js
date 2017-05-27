@@ -12,8 +12,29 @@ export default class AdminSeasonMelodyForm extends Component {
     }
     this.handleClickSubmitButton = this.handleClickSubmitButton.bind(this)
     this.handleClickCancelButton = this.handleClickCancelButton.bind(this)
+    this.handleClickUploadIcon = this.handleClickUploadIcon.bind(this)
     this.handleChangeKind = this.handleChangeKind.bind(this)
+    this.handleChangeFile = this.handleChangeFile.bind(this)
     this.updateFailed = this.updateFailed.bind(this)
+    this.uploadFiles = this.uploadFiles.bind(this)
+  }
+
+  handleClickUploadIcon() {
+    this.refs.file.click()
+  }
+
+  handleChangeFile(e) {
+    if(e.target.files[0] != undefined) {
+      let formData = new FormData()
+      for (let i=0; e.target.files[i]; ++i) {
+        formData.append('picture[]', e.target.files[i])
+      }
+      this.uploadFiles(formData)
+    }
+  }
+
+  uploadFiles(files) {
+    this.props.onUpload(files)
   }
 
   handleClickSubmitButton(e) {
@@ -67,6 +88,27 @@ export default class AdminSeasonMelodyForm extends Component {
             </label>
             <input ref='kind' type='hidden' value={this.state.kind} />
           </div>
+          {this.props.melody ? (
+            <div className='form-group melody-image'>
+              {this.props.melody.melody_images.length > 0 ? (
+                <div className='image-field'>
+                  {this.props.melody.melody_images.map((image) =>
+                    <img className='img-thumbnail exist-image' key={image.id} src={image.picture} />
+                  )}
+                </div>
+              ) : (
+                <div className='no-image img-thumbnail'>
+                  <span>{'NO IMAGE'}</span>
+                </div>
+              )}
+              <div className='clear upload-trigger-field'>
+                <a className='btn btn-primary' onClick={this.handleClickUploadIcon}>{'Add Picture'}</a>
+                <input className='upload-file' multiple='multiple' onChange={this.handleChangeFile} ref='file' type='file' />
+              </div>
+            </div>
+          ) : (
+            null
+          )}
           <div className='form-group title'>
             <label htmlFor='title'>
               <span className='glyphicon glyphicon-music' />
@@ -118,5 +160,6 @@ AdminSeasonMelodyForm.propTypes = {
   season_id: PropTypes.number.isRequired,
   melody: PropTypes.object,
   onClose: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  onUpload: PropTypes.func
 }

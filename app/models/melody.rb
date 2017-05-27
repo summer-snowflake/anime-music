@@ -7,6 +7,8 @@ class Melody < ApplicationRecord
   belongs_to :season, optional: true
   belongs_to :singer
   has_one :advertisement, inverse_of: :melody
+  has_many :melody_images
+
   accepts_nested_attributes_for :advertisement,
                                 reject_if: lambda { |advertisement|
                                              advertisement[:body].blank?
