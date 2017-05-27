@@ -42,7 +42,8 @@ describe 'GET /api/admin/melodies/:melody_id/melody_images', autodoc: true do
   end
 end
 
-describe 'DELETE /api/admin/melodies/:melody_id/melody_images/:id', autodoc: true do
+describe 'DELETE /api/admin/melodies/:melody_id/melody_images/:id',
+         autodoc: true do
   let!(:melody) { create(:melody) }
   let!(:melody_image) { create(:melody_image, melody: melody) }
 
@@ -57,7 +58,8 @@ describe 'DELETE /api/admin/melodies/:melody_id/melody_images/:id', autodoc: tru
     let!(:user) { create(:user, :registered) }
 
     it '200が返ってくること' do
-      delete "/api/admin/melodies/#{melody.id}/melody_images/#{melody_image.id}",
+      id = melody_image.id
+      delete "/api/admin/melodies/#{melody.id}/melody_images/#{id}",
              headers: login_headers(user)
       expect(response.status).to eq 200
     end
