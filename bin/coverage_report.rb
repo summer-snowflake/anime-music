@@ -37,5 +37,4 @@ response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
 end
 
 p response
-p response.code
-p response.body
+p JSON.parse(response.body)
