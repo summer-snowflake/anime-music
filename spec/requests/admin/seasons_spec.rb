@@ -22,10 +22,12 @@ describe 'GET /api/admin/animes/1/seasons', autodoc: true do
       expect(response.status).to eq 200
 
       json = {
+        anime_title: anime.title,
         seasons: [
           {
             id: season2.id,
             anime_id: season2.anime_id,
+            anime_title: season2.anime_title,
             phase: season2.phase,
             name: season2.name,
             disabled: season2.disabled,
@@ -36,6 +38,7 @@ describe 'GET /api/admin/animes/1/seasons', autodoc: true do
           {
             id: season1.id,
             anime_id: season1.anime_id,
+            anime_title: season1.anime_title,
             phase: season1.phase,
             name: season1.name,
             disabled: season1.disabled,
