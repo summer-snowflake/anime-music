@@ -251,6 +251,19 @@
   background-color: rgba($blue, 0.1);
 }
 
+.adminMelodyImageComponent {
+  display: inline-block;
+  span.glyphicon-trash {
+    visibility: hidden;
+  }
+}
+
+.adminMelodyImageComponent:hover {
+  span.glyphicon-trash {
+    visibility: visible;
+  }
+}
+
 .adminSeasonMelodyNewFieldComponent, .adminSeasonMelodyEditFieldComponent {
   .kind {
     display: block;

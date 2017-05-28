@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import MessageBox from './../../../../../common/_message_box'
+import AdminMelodyImage from './_admin_melody_image'
+import { origin } from './../../../../../../origin.js'
 
 export default class AdminSeasonMelodyForm extends Component {
   constructor(props) {
@@ -15,6 +17,7 @@ export default class AdminSeasonMelodyForm extends Component {
     this.handleClickUploadIcon = this.handleClickUploadIcon.bind(this)
     this.handleChangeKind = this.handleChangeKind.bind(this)
     this.handleChangeFile = this.handleChangeFile.bind(this)
+    this.handleDeleteMelodyImage = this.handleDeleteMelodyImage.bind(this)
     this.updateFailed = this.updateFailed.bind(this)
     this.uploadFiles = this.uploadFiles.bind(this)
   }
@@ -66,6 +69,27 @@ export default class AdminSeasonMelodyForm extends Component {
     this.setState({kind: e.target.getAttribute('value')})
   }
 
+  handleDeleteMelodyImage(melody_image_id) {
+    fetch(origin + 'api/admin/melodies/' + this.props.melody.id + '/melody_images/' + melody_image_id, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Token token=' + localStorage.getItem('access_token')
+      }
+    })
+      .then((res) => {
+        if(res.status == '200') {
+          this.props.onLoadImages(this.props.melody.id)
+        } else {
+          alert('削除できませんでした')
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
   updateFailed(message) {
     this.setState({
       loadingForm: false,
@@ -92,8 +116,8 @@ export default class AdminSeasonMelodyForm extends Component {
             <div className='form-group melody-image'>
               {this.props.melody.melody_images.length > 0 ? (
                 <div className='image-field'>
-                  {this.props.melody.melody_images.map((image) =>
-                    <img className='img-thumbnail exist-image' key={image.id} src={image.picture} />
+                  {this.props.melody.melody_images.map((melody_image) =>
+                    <AdminMelodyImage handleDeleteMelodyImage={this.handleDeleteMelodyImage} key={melody_image.id} melody_image={melody_image} />
                   )}
                 </div>
               ) : (
@@ -161,5 +185,6 @@ AdminSeasonMelodyForm.propTypes = {
   melody: PropTypes.object,
   onClose: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  onUpload: PropTypes.func
+  onUpload: PropTypes.func,
+  onLoadImages: PropTypes.func
 }
