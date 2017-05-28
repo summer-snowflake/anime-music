@@ -53,7 +53,7 @@ export default class Melody extends Component {
               <span className='show-movie-link'>{'視聴する'}</span>
             </span>
             {this.state.showMovie ? (
-              <Movie advertisement_body={this.props.melody.advertisement_body} youtube={this.props.melody.youtube} />
+              <Movie advertisement_body={this.props.melody.advertisement_body} comment={this.props.melody.comment} youtube={this.props.melody.youtube} />
             ) : (
               null
             )}

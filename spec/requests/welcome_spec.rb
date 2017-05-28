@@ -32,6 +32,7 @@ describe 'GET /api/welcome', autodoc: true do
               kind: melody1.kind,
               title: melody1.title,
               youtube: melody1.youtube,
+              comment: melody1.memo,
               advertisement_body: melody1.advertisement.body,
               info: "歌: #{melody1.singer.name}<br />" \
                 "作詞: #{melody1.lyric_writer}<br />" \
@@ -53,6 +54,7 @@ describe 'GET /api/welcome', autodoc: true do
               kind: melody2.kind,
               title: melody2.title,
               youtube: melody2.youtube,
+              comment: melody2.memo,
               advertisement_body: nil,
               info: "歌: #{melody2.singer.name}<br />" \
                 "作詞: #{melody2.lyric_writer}<br />" \
