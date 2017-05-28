@@ -80,8 +80,9 @@ export default class AdminAnimeSeasonForm extends Component {
               </div>
             </div>
             <div className='col-sm-10'>
-              <div className='form-group name'>
-                <input autoFocus className='form-control' defaultValue={(this.props.season || {}).name} disabled={this.state.loadingForm} id='name' name='name' onChange={this.handleChangeName} placeholder='シーズン名' ref='name' type='text' />
+              <div className='form-group season-anime-title'>
+                <span>{this.props.anime_title}</span>
+                <input autoFocus className='form-control' defaultValue={(this.props.season || {}).name} disabled={this.state.loadingForm} id='season-behind-name' name='name' onChange={this.handleChangeName} ref='name' type='text' />
               </div>
             </div>
             <div className='form-group'>
@@ -118,6 +119,7 @@ export default class AdminAnimeSeasonForm extends Component {
 }
 
 AdminAnimeSeasonForm.propTypes = {
+  anime_title: PropTypes.string.isRequired,
   season: PropTypes.object,
   onClose: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
