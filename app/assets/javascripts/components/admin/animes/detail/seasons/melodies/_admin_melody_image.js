@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import { Modal } from 'react-bootstrap'
 
 export default class AdminMelodyImage extends Component {
   constructor(props) {

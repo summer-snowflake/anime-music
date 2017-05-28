@@ -17,7 +17,7 @@ export default class AdminSeasonMelodyForm extends Component {
     this.handleClickUploadIcon = this.handleClickUploadIcon.bind(this)
     this.handleChangeKind = this.handleChangeKind.bind(this)
     this.handleChangeFile = this.handleChangeFile.bind(this)
-    this.handleDeleteMelodyImage = this.handleDeleteMelodyImage.bind(this)
+    this.onDeleteMelodyImage = this.onDeleteMelodyImage.bind(this)
     this.updateFailed = this.updateFailed.bind(this)
     this.uploadFiles = this.uploadFiles.bind(this)
   }
@@ -69,7 +69,7 @@ export default class AdminSeasonMelodyForm extends Component {
     this.setState({kind: e.target.getAttribute('value')})
   }
 
-  handleDeleteMelodyImage(melody_image_id) {
+  onDeleteMelodyImage(melody_image_id) {
     fetch(origin + 'api/admin/melodies/' + this.props.melody.id + '/melody_images/' + melody_image_id, {
       method: 'DELETE',
       headers: {
@@ -117,7 +117,7 @@ export default class AdminSeasonMelodyForm extends Component {
               {this.props.melody.melody_images.length > 0 ? (
                 <div className='image-field'>
                   {this.props.melody.melody_images.map((melody_image) =>
-                    <AdminMelodyImage handleDeleteMelodyImage={this.handleDeleteMelodyImage} key={melody_image.id} melody_image={melody_image} />
+                    <AdminMelodyImage handleDeleteMelodyImage={this.onDeleteMelodyImage} key={melody_image.id} melody_image={melody_image} />
                   )}
                 </div>
               ) : (
