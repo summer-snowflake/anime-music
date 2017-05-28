@@ -19,14 +19,14 @@ describe('AdminAnimeSeasonsComponent', () => {
     const component = shallow(
       <AdminAnimeSeasons anime_id='1' />
     )
-    component.setState({seasons: [season1, season2]})
+    component.setState({anime_title: 'アニメタイトル', seasons: [season1, season2]})
 
     let actualElement = component.single(reactElementToJSXString)
     let expectedElement = (
       <div className='adminAnimeSeasonsComponent'>
-        <AdminAnimeSeasonNewField anime_id='1' handleLoadSeasons={jest.fn()} />
-        <AdminAnimeSeason handleLoad={jest.fn()} key={1} season={season1} />
-        <AdminAnimeSeason handleLoad={jest.fn()} key={2} season={season2} />
+        <AdminAnimeSeasonNewField anime_id='1' anime_title={'アニメタイトル'} handleLoadSeasons={jest.fn()} />
+        <AdminAnimeSeason anime_title={'アニメタイトル'} handleLoad={jest.fn()} key={1} season={season1} />
+        <AdminAnimeSeason anime_title={'アニメタイトル'} handleLoad={jest.fn()} key={2} season={season2} />
       </div>
     )
     expect(actualElement).toEqualJSX(expectedElement)
