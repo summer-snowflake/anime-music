@@ -75,6 +75,7 @@ describe 'GET /api/admin/animes/:anime_id/seasons/:id', autodoc: true do
       json = {
         id: season.id,
         phase: season.phase,
+        anime_title: season.decorate.anime_title,
         behind_name: season.behind_name,
         disabled: season.disabled,
         start_on: season.start_on.strftime('%Y-%m-%d'),
