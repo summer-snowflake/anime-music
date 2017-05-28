@@ -34,38 +34,50 @@ export default class AdminAnimeSeasonMelody extends Component {
   render() {
     return (
       <div className='adminAnimeSeasonMelodyComponent' id={'melody-' + this.props.melody.id}>
-        <div className='label label-info kind-label'>
-          {this.props.melody.kind.toUpperCase()}
-        </div>
         <div className='label pull-right'>
           <span className='link' onClick={this.handleClickEditIcon}>
             <span className='glyphicon glyphicon-pencil' />
           </span>
         </div>
-        {this.props.melody.youtube ? (
-          <div className='youtube pull-right'>
-            <span className='label label-danger link' onClick={this.handleClickMovieModalIcon}>
-              <span className='glyphicon glyphicon-modal-window' />
-            </span>
-            <MovieModal onClickCloseButton={this.handleClickCloseButton} showModal={this.state.showMovieModal} youtube={this.props.melody.youtube} />
-          </div>
-        ) : (
-          null
-        )}
-        {this.props.melody.advertisement_body ? (
-          <div className='youtube pull-right'>
-            <span className='label label-warning link' onClick={this.handleClickAdvertisementModalIcon}>
-              <span className='glyphicon glyphicon-modal-window' />
-            </span>
-            <AdvertisementModal body={this.props.melody.advertisement_body} onClickCloseButton={this.handleClickCloseButton} showModal={this.state.showAdvertisementModal} />
-          </div>
-        ) : (
-          null
-        )}
+        <div className='glyphicon-icon-field'>
+          {this.props.melody.youtube ? (
+            <div className='youtube pull-right'>
+              <span className='label label-danger link' onClick={this.handleClickMovieModalIcon}>
+                <span className='glyphicon glyphicon-modal-window' />
+              </span>
+              <MovieModal onClickCloseButton={this.handleClickCloseButton} showModal={this.state.showMovieModal} youtube={this.props.melody.youtube} />
+            </div>
+          ) : (
+            null
+          )}
+          {this.props.melody.advertisement_body ? (
+            <div className='youtube pull-right'>
+              <span className='label label-warning link' onClick={this.handleClickAdvertisementModalIcon}>
+                <span className='glyphicon glyphicon-modal-window' />
+              </span>
+              <AdvertisementModal body={this.props.melody.advertisement_body} onClickCloseButton={this.handleClickCloseButton} showModal={this.state.showAdvertisementModal} />
+            </div>
+          ) : (
+            null
+          )}
+          {this.props.melody.memo ? (
+            <div className='memo pull-right'>
+              <span className='label label-success'>
+                <span className='glyphicon glyphicon-comment' />
+              </span>
+            </div>
+          ) : (
+            null
+          )}
+        </div>
+        <div className='label label-info kind-label'>
+          {this.props.melody.kind.toUpperCase()}
+        </div>
         <div className='title'>
           <span className='glyphicon glyphicon-music' />
           {this.props.melody.title}
         </div>
+
         <div className='singer_name'>
           {'歌　: ' + (this.props.melody.singer_name || '')}
         </div>
