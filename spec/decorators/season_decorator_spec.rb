@@ -9,12 +9,12 @@ RSpec.describe SeasonDecorator, type: :decorator do
     subject { season.anime_title }
 
     context 'disabledがfalseの場合' do
-      it { is_expected.to eq "#{season.anime.title} #{season.name} （第2期）" }
+      it { is_expected.to eq "#{season.anime.title} #{season.behind_name} （第2期）" }
     end
 
     context 'disabledがtrueの場合' do
       let(:disabled) { true }
-      it { is_expected.to eq "#{season.anime.title} #{season.name}" }
+      it { is_expected.to eq "#{season.anime.title} #{season.behind_name}" }
     end
   end
 
