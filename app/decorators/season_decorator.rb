@@ -4,7 +4,7 @@ class SeasonDecorator < Draper::Decorator
   delegate_all
 
   def anime_title
-    title = "#{anime.title} #{name}"
+    title = "#{anime.title} #{behind_name}"
     title += " （第#{phase}期）" unless disabled
     title
   end

@@ -43,7 +43,7 @@ export default class AdminAnimeSeason extends Component {
       season: {
         disabled: this.refs.form.refs.disabled.checked,
         phase: this.refs.form.refs.phase.value,
-        name: this.refs.form.refs.name.value,
+        behind_name: this.refs.form.refs.behind_name.value,
         start_on: this.refs.form.refs.start_on.value,
         end_on: this.refs.form.refs.end_on.value
       }
@@ -135,7 +135,7 @@ export default class AdminAnimeSeason extends Component {
     let not_editing_jsx = (
       <div className='media-body not-editing-body'>
         <div className='media-heading'>
-          {this.props.season.anime_title}
+          {this.state.season.anime_title}
         </div>
         <div className='period'>
           {this.state.season.period}

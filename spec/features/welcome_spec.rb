@@ -25,13 +25,13 @@ feature 'トップページ', js: true do
 
   scenario 'disabledがtrueの場合のみ(第n期)は非表示になること' do
     expect(page).to have_content anime1.title
-    expect(page).to have_content season1.name
+    expect(page).to have_content season1.behind_name
     expect(page).to have_content '第' + season1.phase.to_s + '期'
 
     expect(page).to have_content anime2.title
-    expect(page).to have_content season2.name
+    expect(page).to have_content season2.behind_name
     expect(page).to have_no_content '第' + season2.phase.to_s + '期'
-    expect(page).to have_content season2.name
+    expect(page).to have_content season2.behind_name
   end
 
   scenario '画像データがある場合のみ画像が表示されること' do

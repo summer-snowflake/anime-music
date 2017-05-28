@@ -29,7 +29,7 @@ describe 'GET /api/admin/animes/1/seasons', autodoc: true do
             anime_id: season2.anime_id,
             anime_title: season2.anime_title,
             phase: season2.phase,
-            name: season2.name,
+            behind_name: season2.behind_name,
             disabled: season2.disabled,
             start_on: season2.start_on.strftime('%Y-%m-%d'),
             end_on: season2.end_on.try(:strftime, '%Y-%m-%d'),
@@ -40,7 +40,7 @@ describe 'GET /api/admin/animes/1/seasons', autodoc: true do
             anime_id: season1.anime_id,
             anime_title: season1.anime_title,
             phase: season1.phase,
-            name: season1.name,
+            behind_name: season1.behind_name,
             disabled: season1.disabled,
             start_on: season1.start_on.strftime('%Y-%m-%d'),
             end_on: season1.end_on.try(:strftime, '%Y-%m-%d'),
@@ -75,7 +75,7 @@ describe 'GET /api/admin/animes/:anime_id/seasons/:id', autodoc: true do
       json = {
         id: season.id,
         phase: season.phase,
-        name: season.name,
+        behind_name: season.behind_name,
         disabled: season.disabled,
         start_on: season.start_on.strftime('%Y-%m-%d'),
         end_on: season.end_on.try(:strftime, '%Y-%m-%d'),
@@ -89,13 +89,13 @@ end
 describe 'POST /api/admin/animes/:anime_id/seasons', autodoc: true do
   let!(:anime) { create(:anime) }
   let!(:season_phase) { 1 }
-  let!(:season_name) { 'シーズンワン' }
+  let!(:season_behind_name) { 'シーズンワン' }
   let!(:three_months_ago) { 3.months.ago.to_date }
   let!(:one_month_ago) { 1.month.ago.to_date }
   let!(:params) do
     { season: {
       phase: season_phase,
-      name: season_name,
+      behind_name: season_behind_name,
       start_on: three_months_ago,
       end_on: one_month_ago
     } }
@@ -118,7 +118,7 @@ describe 'POST /api/admin/animes/:anime_id/seasons', autodoc: true do
         expect(response.status).to eq 201
         season = anime.seasons.last
         expect(season.phase).to eq 1
-        expect(season.name).to eq 'シーズンワン'
+        expect(season.behind_name).to eq 'シーズンワン'
         expect(season.start_on).to eq three_months_ago
         expect(season.end_on).to eq one_month_ago
       end

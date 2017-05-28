@@ -9,7 +9,7 @@ export default class AdminAnimeSeasonForm extends Component {
       unsaved_start_on: '',
       unsaved_end_on: '',
       unsaved_phase: '',
-      unsaved_name: '',
+      unsaved_behind_name: '',
       unsaved_disabled: (this.props.season || {}).disabled || false,
       message_type: 'danger',
       message: ''
@@ -19,7 +19,7 @@ export default class AdminAnimeSeasonForm extends Component {
     this.handleChangeStartOn = this.handleChangeStartOn.bind(this)
     this.handleChangeEndOn = this.handleChangeEndOn.bind(this)
     this.handleChangePhase = this.handleChangePhase.bind(this)
-    this.handleChangeName = this.handleChangeName.bind(this)
+    this.handleChangeBehindName = this.handleChangeBehindName.bind(this)
     this.handleChangeDisabled = this.handleChangeDisabled.bind(this)
     this.handleTimeout = this.handleTimeout.bind(this)
     this.updateFailed = this.updateFailed.bind(this)
@@ -46,8 +46,8 @@ export default class AdminAnimeSeasonForm extends Component {
     this.setState({unsaved_phase: e.target.value})
   }
 
-  handleChangeName(e) {
-    this.setState({unsaved_name: e.target.value})
+  handleChangeBehindName(e) {
+    this.setState({unsaved_behind_name: e.target.value})
   }
 
   handleChangeDisabled() {
@@ -82,7 +82,7 @@ export default class AdminAnimeSeasonForm extends Component {
             <div className='col-sm-10'>
               <div className='form-group season-anime-title'>
                 <span>{this.props.anime_title}</span>
-                <input autoFocus className='form-control' defaultValue={(this.props.season || {}).name} disabled={this.state.loadingForm} id='season-behind-name' name='name' onChange={this.handleChangeName} ref='name' type='text' />
+                <input autoFocus className='form-control' defaultValue={(this.props.season || {}).behind_name} disabled={this.state.loadingForm} id='season-behind-name' name='behind_name' onChange={this.handleChangeBehindName} ref='behind_name' type='text' />
               </div>
             </div>
             <div className='form-group'>

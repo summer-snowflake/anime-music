@@ -2,7 +2,8 @@
 
 json.id @season.id
 json.phase @season.phase
-json.name @season.name
+json.anime_title @season.decorate.anime_title
+json.behind_name @season.behind_name
 json.disabled @season.disabled
 json.start_on @season.start_on
 json.end_on @season.end_on

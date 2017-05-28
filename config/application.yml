@@ -19,7 +19,7 @@ defaults: &defaults
     wiki_url:
       maximum_length: 50000
   season:
-    name:
+    behind_name:
       maximum_length: 250
   user:
     email:
