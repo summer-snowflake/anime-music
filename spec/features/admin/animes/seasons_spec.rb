@@ -38,12 +38,13 @@ feature '管理画面：シーズン', js: true do
       fill_in 'start_on', with: 3.months.ago.to_date
       fill_in 'end_on', with: 1.month.ago.to_date
       fill_in 'phase', with: '1'
+      fill_in 'previous_name', with: '続'
       fill_in 'behind_name', with: '新しいシーズン名'
       check 'disabled'
       find('.btn-danger').click
     end
 
-    expect(page).to have_content '新しいシーズン名'
+    expect(page).to have_content '続 ' + anime1.title + ' 新しいシーズン名'
     expect(anime1.seasons.count).to eq 1
     expect(anime1.seasons.last.disabled).to be_truthy
   end
@@ -68,10 +69,12 @@ feature '管理画面：シーズン', js: true do
         fill_in 'start_on', with: 3.months.ago.to_date
         fill_in 'end_on', with: 1.month.ago.to_date
         fill_in 'phase', with: '1'
+        fill_in 'previous_name', with: '編集した先頭シーズン名'
         fill_in 'behind_name', with: '編集したシーズン名'
         find('.btn-danger').click
 
         expect(page).not_to have_content season1.behind_name
+        expect(page).to have_content '編集した先頭シーズン名'
         expect(page).to have_content '編集したシーズン名'
       end
     end
