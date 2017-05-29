@@ -29,6 +29,7 @@ describe 'GET /api/admin/animes/1/seasons', autodoc: true do
             anime_id: season2.anime_id,
             anime_title: season2.anime_title,
             phase: season2.phase,
+            previous_name: season2.previous_name,
             behind_name: season2.behind_name,
             disabled: season2.disabled,
             start_on: season2.start_on.strftime('%Y-%m-%d'),
@@ -40,6 +41,7 @@ describe 'GET /api/admin/animes/1/seasons', autodoc: true do
             anime_id: season1.anime_id,
             anime_title: season1.anime_title,
             phase: season1.phase,
+            previous_name: season1.previous_name,
             behind_name: season1.behind_name,
             disabled: season1.disabled,
             start_on: season1.start_on.strftime('%Y-%m-%d'),
@@ -76,6 +78,7 @@ describe 'GET /api/admin/animes/:anime_id/seasons/:id', autodoc: true do
         id: season.id,
         phase: season.phase,
         anime_title: season.decorate.anime_title,
+        previous_name: season.previous_name,
         behind_name: season.behind_name,
         disabled: season.disabled,
         start_on: season.start_on.strftime('%Y-%m-%d'),
@@ -88,14 +91,16 @@ describe 'GET /api/admin/animes/:anime_id/seasons/:id', autodoc: true do
 end
 
 describe 'POST /api/admin/animes/:anime_id/seasons', autodoc: true do
-  let!(:anime) { create(:anime) }
+  let!(:anime) { create(:anime, title: 'アニメタイトル') }
   let!(:season_phase) { 1 }
+  let!(:season_previous_name) { '続' }
   let!(:season_behind_name) { 'シーズンワン' }
   let!(:three_months_ago) { 3.months.ago.to_date }
   let!(:one_month_ago) { 1.month.ago.to_date }
   let!(:params) do
     { season: {
       phase: season_phase,
+      previous_name: season_previous_name,
       behind_name: season_behind_name,
       start_on: three_months_ago,
       end_on: one_month_ago
@@ -119,6 +124,8 @@ describe 'POST /api/admin/animes/:anime_id/seasons', autodoc: true do
         expect(response.status).to eq 201
         season = anime.seasons.last
         expect(season.phase).to eq 1
+        expect(season.decorate.anime_title).to eq "続 アニメタイトル シーズンワン （第1期）"
+        expect(season.previous_name).to eq '続'
         expect(season.behind_name).to eq 'シーズンワン'
         expect(season.start_on).to eq three_months_ago
         expect(season.end_on).to eq one_month_ago

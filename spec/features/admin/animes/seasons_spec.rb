@@ -22,8 +22,10 @@ feature '管理画面：シーズン', js: true do
 
       within '.adminAnimeSeasonsComponent' do
         expect(page).to have_content '第' + season1.phase.to_s + '期'
+        expect(page).to have_content season1.previous_name
         expect(page).to have_content season1.behind_name
         expect(page).to have_no_content '第' + season2.phase.to_s + '期'
+        expect(page).to have_content season2.previous_name
         expect(page).to have_content season2.behind_name
         expect(page).not_to have_content season3.behind_name
       end
