@@ -43,6 +43,7 @@ export default class AdminAnimeSeason extends Component {
       season: {
         disabled: this.refs.form.refs.disabled.checked,
         phase: this.refs.form.refs.phase.value,
+        previous_name: this.refs.form.refs.previous_name.value,
         behind_name: this.refs.form.refs.behind_name.value,
         start_on: this.refs.form.refs.start_on.value,
         end_on: this.refs.form.refs.end_on.value

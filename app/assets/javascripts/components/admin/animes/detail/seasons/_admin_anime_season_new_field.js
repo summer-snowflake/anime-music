@@ -39,6 +39,7 @@ export default class AdminAnimeSeasonNewField extends Component {
       start_on: this.refs.form.refs.start_on.value,
       end_on: this.refs.form.refs.end_on.value,
       phase: this.refs.form.refs.phase.value,
+      previous_name: this.refs.form.refs.previous_name.value,
       behind_name: this.refs.form.refs.behind_name.value
     }}
     this.postAnimeSeasonAgainstServer(params)
@@ -57,13 +58,17 @@ export default class AdminAnimeSeasonNewField extends Component {
       .then((res) => {
         if(res.status == '201') {
           let behind_name = ''
+          let previous_name = ''
+          if(this.refs.form.refs.previous_name.value) {
+            previous_name = '「' + this.refs.form.refs.previous_name.value + '」'
+          }
           if(this.refs.form.refs.behind_name.value) {
-            behind_name = '「' + this.refs.form.refs.behind_name.value + '」を'
+            behind_name = '「' + this.refs.form.refs.behind_name.value + '」'
           }
           this.setState({
             showForm: false,
             message_type: 'success',
-            message: behind_name + '登録しました'
+            message: previous_name + behind_name + '登録しました'
           })
           setTimeout(this.handleTimeout, 2000)
           this.props.handleLoadSeasons()
