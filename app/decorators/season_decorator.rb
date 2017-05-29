@@ -4,7 +4,10 @@ class SeasonDecorator < Draper::Decorator
   delegate_all
 
   def anime_title
-    title = "#{anime.title} #{name}"
+    title = ''
+    title += "#{previous_name} " if previous_name.present?
+    title += anime.title
+    title += " #{behind_name}" if behind_name.present?
     title += " （第#{phase}期）" unless disabled
     title
   end

@@ -9,7 +9,8 @@ export default class AdminAnimeSeasonForm extends Component {
       unsaved_start_on: '',
       unsaved_end_on: '',
       unsaved_phase: '',
-      unsaved_name: '',
+      unsaved_previous_name: '',
+      unsaved_behind_name: '',
       unsaved_disabled: (this.props.season || {}).disabled || false,
       message_type: 'danger',
       message: ''
@@ -19,7 +20,8 @@ export default class AdminAnimeSeasonForm extends Component {
     this.handleChangeStartOn = this.handleChangeStartOn.bind(this)
     this.handleChangeEndOn = this.handleChangeEndOn.bind(this)
     this.handleChangePhase = this.handleChangePhase.bind(this)
-    this.handleChangeName = this.handleChangeName.bind(this)
+    this.handleChangePreviousName = this.handleChangePreviousName.bind(this)
+    this.handleChangeBehindName = this.handleChangeBehindName.bind(this)
     this.handleChangeDisabled = this.handleChangeDisabled.bind(this)
     this.handleTimeout = this.handleTimeout.bind(this)
     this.updateFailed = this.updateFailed.bind(this)
@@ -46,8 +48,12 @@ export default class AdminAnimeSeasonForm extends Component {
     this.setState({unsaved_phase: e.target.value})
   }
 
-  handleChangeName(e) {
-    this.setState({unsaved_name: e.target.value})
+  handleChangePreviousName(e) {
+    this.setState({unsaved_previous_name: e.target.value})
+  }
+
+  handleChangeBehindName(e) {
+    this.setState({unsaved_behind_name: e.target.value})
   }
 
   handleChangeDisabled() {
@@ -80,8 +86,10 @@ export default class AdminAnimeSeasonForm extends Component {
               </div>
             </div>
             <div className='col-sm-10'>
-              <div className='form-group name'>
-                <input autoFocus className='form-control' defaultValue={(this.props.season || {}).name} disabled={this.state.loadingForm} id='name' name='name' onChange={this.handleChangeName} placeholder='シーズン名' ref='name' type='text' />
+              <div className='form-group season-anime-title'>
+                <input autoFocus className='form-control' defaultValue={(this.props.season || {}).previous_name} disabled={this.state.loadingForm} id='season-previous-name' name='previous_name' onChange={this.handleChangePreviousName} ref='previous_name' type='text' />
+                <span>{this.props.anime_title}</span>
+                <input autoFocus className='form-control' defaultValue={(this.props.season || {}).behind_name} disabled={this.state.loadingForm} id='season-behind-name' name='behind_name' onChange={this.handleChangeBehindName} ref='behind_name' type='text' />
               </div>
             </div>
             <div className='form-group'>
@@ -118,6 +126,7 @@ export default class AdminAnimeSeasonForm extends Component {
 }
 
 AdminAnimeSeasonForm.propTypes = {
+  anime_title: PropTypes.string.isRequired,
   season: PropTypes.object,
   onClose: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired

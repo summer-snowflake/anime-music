@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525171831) do
+ActiveRecord::Schema.define(version: 20170528140546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,13 +92,14 @@ ActiveRecord::Schema.define(version: 20170525171831) do
 
   create_table "seasons", id: :serial, force: :cascade do |t|
     t.integer "anime_id", null: false
-    t.string "name"
+    t.string "behind_name"
     t.date "start_on"
     t.date "end_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "phase", default: 0
     t.boolean "disabled", default: false, null: false
+    t.string "previous_name"
   end
 
   create_table "singers", id: :serial, force: :cascade do |t|

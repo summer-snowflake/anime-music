@@ -11,7 +11,6 @@ export default class AdminAnimeSeasonNewField extends Component {
       unsaved_start_on: '',
       unsaved_end_on: '',
       unsaved_phase: '',
-      unsaved_name: '',
       message_type: 'success',
       message: ''
     }
@@ -40,7 +39,8 @@ export default class AdminAnimeSeasonNewField extends Component {
       start_on: this.refs.form.refs.start_on.value,
       end_on: this.refs.form.refs.end_on.value,
       phase: this.refs.form.refs.phase.value,
-      name: this.refs.form.refs.name.value
+      previous_name: this.refs.form.refs.previous_name.value,
+      behind_name: this.refs.form.refs.behind_name.value
     }}
     this.postAnimeSeasonAgainstServer(params)
   }
@@ -57,14 +57,18 @@ export default class AdminAnimeSeasonNewField extends Component {
     })
       .then((res) => {
         if(res.status == '201') {
-          let name = ''
-          if(this.refs.form.refs.name.value) {
-            name = '「' + this.refs.form.refs.name.value + '」を'
+          let behind_name = ''
+          let previous_name = ''
+          if(this.refs.form.refs.previous_name.value) {
+            previous_name = '「' + this.refs.form.refs.previous_name.value + '」'
+          }
+          if(this.refs.form.refs.behind_name.value) {
+            behind_name = '「' + this.refs.form.refs.behind_name.value + '」'
           }
           this.setState({
             showForm: false,
             message_type: 'success',
-            message: name + '登録しました'
+            message: previous_name + behind_name + '登録しました'
           })
           setTimeout(this.handleTimeout, 2000)
           this.props.handleLoadSeasons()
@@ -83,7 +87,7 @@ export default class AdminAnimeSeasonNewField extends Component {
     return (
       <div className='adminAnimeSeasonNewFieldComponent new-form-field'>
         {this.state.showForm ? (
-          <AdminAnimeSeasonForm anime_id={this.props.anime_id} onClose={this.handleClickCancelButton} onSubmit={this.handleClickSubmitButton} ref='form' />
+          <AdminAnimeSeasonForm anime_id={this.props.anime_id} anime_title={this.props.anime_title} onClose={this.handleClickCancelButton} onSubmit={this.handleClickSubmitButton} ref='form' />
           ) : (
           <AdminNewButtonField message={this.state.message} message_type={this.state.message_type} name='Anime Season' onLoadNewForm={this.handleShowNewForm} />
           )}
@@ -94,5 +98,6 @@ export default class AdminAnimeSeasonNewField extends Component {
 
 AdminAnimeSeasonNewField.propTypes = {
   anime_id: PropTypes.string.isRequired,
+  anime_title: PropTypes.string,
   handleLoadSeasons: PropTypes.func.isRequired
 }

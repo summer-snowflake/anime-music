@@ -43,7 +43,8 @@ export default class AdminAnimeSeason extends Component {
       season: {
         disabled: this.refs.form.refs.disabled.checked,
         phase: this.refs.form.refs.phase.value,
-        name: this.refs.form.refs.name.value,
+        previous_name: this.refs.form.refs.previous_name.value,
+        behind_name: this.refs.form.refs.behind_name.value,
         start_on: this.refs.form.refs.start_on.value,
         end_on: this.refs.form.refs.end_on.value
       }
@@ -123,7 +124,7 @@ export default class AdminAnimeSeason extends Component {
   render() {
     let editing_jsx = (
       <div className='media-body editing-body edit-form-field'>
-        <AdminAnimeSeasonForm anime_id={this.props.season.anime_id} onClose={this.handleClickCancelButton} onSubmit={this.handleClickSubmitButton} ref='form' season={this.state.season} />
+        <AdminAnimeSeasonForm anime_id={this.props.season.anime_id} anime_title={this.props.anime_title} onClose={this.handleClickCancelButton} onSubmit={this.handleClickSubmitButton} ref='form' season={this.state.season} />
         <div className='pull-right'>
           <span className='link' onClick={this.handleClickTrashIcon}>
             <span className='glyphicon glyphicon-trash' />
@@ -135,8 +136,7 @@ export default class AdminAnimeSeason extends Component {
     let not_editing_jsx = (
       <div className='media-body not-editing-body'>
         <div className='media-heading'>
-          {'第' + this.state.season.phase + '期：'}
-          {this.state.season.name}
+          {this.state.season.anime_title}
         </div>
         <div className='period'>
           {this.state.season.period}
@@ -165,6 +165,7 @@ export default class AdminAnimeSeason extends Component {
 }
 
 AdminAnimeSeason.propTypes = {
+  anime_title: PropTypes.string.isRequired,
   season: PropTypes.object.isRequired,
   handleLoad: PropTypes.func.isRequired
 }
