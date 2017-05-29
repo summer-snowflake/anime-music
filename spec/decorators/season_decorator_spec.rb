@@ -8,7 +8,8 @@ RSpec.describe SeasonDecorator, type: :decorator do
     let(:previous_name) { '続' }
     let(:behind_name) { 'シーズン2' }
     let!(:season) do
-      create(:season, previous_name: previous_name, behind_name: behind_name, phase: 2, disabled: disabled).decorate
+      create(:season, previous_name: previous_name, behind_name: behind_name,
+                      phase: 2, disabled: disabled).decorate
     end
     subject { season.anime_title }
 

@@ -44,6 +44,7 @@ class Api::Admin::SeasonsController < Api::Admin::BaseController
 
   def season_params
     params.require(:season)
-          .permit(:phase, :previous_name, :behind_name, :disabled, :start_on, :end_on)
+          .permit(:phase, :disabled, :previous_name, :behind_name,
+                  :start_on, :end_on)
   end
 end

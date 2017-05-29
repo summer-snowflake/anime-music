@@ -124,7 +124,7 @@ describe 'POST /api/admin/animes/:anime_id/seasons', autodoc: true do
         expect(response.status).to eq 201
         season = anime.seasons.last
         expect(season.phase).to eq 1
-        expect(season.decorate.anime_title).to eq "続 アニメタイトル シーズンワン （第1期）"
+        expect(season.decorate.anime_title).to eq '続 アニメタイトル シーズンワン （第1期）'
         expect(season.previous_name).to eq '続'
         expect(season.behind_name).to eq 'シーズンワン'
         expect(season.start_on).to eq three_months_ago
