@@ -75,7 +75,6 @@ export default class AdminSeasonMelodyForm extends Component {
 
   handleChangeDraft(e) {
     this.setState({unsaved_draft: !this.state.unsaved_draft})
-    console.log('dd')
   }
 
   onDeleteMelodyImage(melody_image_id) {
