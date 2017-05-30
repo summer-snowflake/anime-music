@@ -48,7 +48,7 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     arel (8.0.0)
     ast (2.3.0)
-    autodoc (0.6.0)
+    autodoc (0.6.1)
       actionpack
       activesupport (>= 3.0.0)
       rspec
