@@ -73,7 +73,7 @@ export default class AdminSeasonMelodyForm extends Component {
     this.setState({kind: e.target.getAttribute('value')})
   }
 
-  handleChangeDraft(e) {
+  handleChangeDraft() {
     this.setState({unsaved_draft: !this.state.unsaved_draft})
   }
 
