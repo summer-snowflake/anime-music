@@ -11,5 +11,7 @@ html
       .row
         #content
           = yield
+    .footer
+      = render 'google_analytics' if Rails.env.production?
 
 = javascript_include_tag 'application'
