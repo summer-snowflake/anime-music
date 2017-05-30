@@ -9,9 +9,10 @@ feature 'トップページ', js: true do
   let!(:season1) { create(:season, anime: anime1) }
   let!(:season2) { create(:season, anime: anime2, disabled: true) }
   let!(:season3) { create(:season, anime: anime3, end_on: Time.zone.yesterday) }
-  let!(:melody) { create(:melody, season: season1) }
+  let!(:melody1) { create(:melody, season: season1) }
+  let!(:melody2) { create(:melody, season: season2) }
   let!(:advertisement) { create(:advertisement, anime: anime1) }
-  let!(:melody_advertisement) { create(:advertisement, melody: melody) }
+  let!(:melody_advertisement) { create(:advertisement, melody: melody1) }
 
   background do
     visit root_path

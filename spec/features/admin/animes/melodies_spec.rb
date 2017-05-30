@@ -135,6 +135,36 @@ feature '管理画面：シーズン', js: true do
         find('.btn-danger').click
       end
 
+      expect(page).to have_no_css '.draft'
+      within '.adminAnimeSeasonMelodiesComponent' do
+        expect(page).to have_content 'ED'
+        expect(page).to have_content '曲のタイトル'
+        expect(page).to have_content '歌　: 歌手氏名'
+        expect(page).to have_content '作詞: 作詞者氏名'
+        expect(page).to have_content '作曲: 作曲者氏名'
+        expect(page).to have_content '編曲: 編曲者氏名'
+      end
+    end
+  end
+
+  scenario '対象のシーズンに下書きとして曲が登録できること' do
+    within "#season-#{season1.id}" do
+      within '.adminNewButtonFieldComponent' do
+        find('.btn-primary').click
+      end
+      within '.adminSeasonMelodyNewFieldComponent' do
+        find('.label-default').click
+        fill_in 'title', with: '曲のタイトル'
+        fill_in 'singer_name', with: '歌手氏名'
+        fill_in 'lyric_writer', with: '作詞者氏名'
+        fill_in 'composer', with: '作曲者氏名'
+        fill_in 'adapter', with: '編曲者氏名'
+        fill_in 'memo', with: 'めも・備考'
+        check 'draft'
+        find('.btn-danger').click
+      end
+
+      expect(page).to have_css '.draft'
       within '.adminAnimeSeasonMelodiesComponent' do
         expect(page).to have_content 'IN'
         expect(page).to have_content '曲のタイトル'

@@ -170,7 +170,7 @@ export default class AdminSeasonMelodyForm extends Component {
           </div>
           <div className='form-group draft checkbox'>
             <label>
-              <input checked={this.state.unsaved_draft} defaultValue={this.state.unsaved_draft} onChange={this.handleChangeDraft} ref='draft' type='checkbox' />
+              <input checked={this.state.unsaved_draft} defaultValue={this.state.unsaved_draft} name='draft' onChange={this.handleChangeDraft} ref='draft' type='checkbox' />
               {'下書きとして保存'}
             </label>
           </div>

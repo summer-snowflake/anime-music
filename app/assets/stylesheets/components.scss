@@ -259,6 +259,10 @@
   width: 200px;
 }
 
+.adminAnimeSeasonMelodyComponent.draft {
+  background-color: #eee;
+}
+
 .adminAnimeSeasonMelodyComponent:hover {
   span.glyphicon-pencil {
     visibility: visible;

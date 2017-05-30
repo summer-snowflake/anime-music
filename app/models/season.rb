@@ -15,7 +15,8 @@ class Season < ApplicationRecord
             length: { maximum: Settings.season.name.maximum_length }
 
   def self.airing(date)
-    where('start_on <= ?', date).where('end_on >= ? or end_on is null', date)
+    where('seasons.start_on <= ?', date)
+      .where('seasons.end_on >= ? or seasons.end_on is null', date)
   end
 
   def anime_advertisements
