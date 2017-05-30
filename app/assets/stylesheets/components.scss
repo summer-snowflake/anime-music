@@ -228,6 +228,12 @@
   .upload-trigger-field {
     padding-top: 5px;
   }
+  .draft {
+    display: block;
+    input {
+      margin: 5px;
+    }
+  }
 }
 
 .adminAnimeSeasonMelodiesComponent {
