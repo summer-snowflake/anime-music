@@ -7,7 +7,7 @@ export default class SelectKind extends Component {
   }
 
   handleChangeKind(e) {
-    this.props.handleChangeKind(e)
+    this.props.onChangeKind(e)
   }
 
   render () {
@@ -25,5 +25,6 @@ export default class SelectKind extends Component {
 }
 
 SelectKind.propTypes = {
-  handleChangeKind: PropTypes.func.isRequired
+  kind: PropTypes.string.isRequired,
+  onChangeKind: PropTypes.func.isRequired
 }

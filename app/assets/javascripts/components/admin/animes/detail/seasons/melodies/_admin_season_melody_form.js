@@ -105,7 +105,7 @@ export default class AdminSeasonMelodyForm extends Component {
       <div className='adminSeasonMelodyFormComponent'>
         <form className='form-inline' onSubmit={this.handleClickSubmitButton}>
           <div className='form-group kind'>
-            <SelectKind kind={this.state.kind} handleChangeKind={this.handleChangeKind} ref='select_kind' />
+            <SelectKind kind={this.state.kind} onChangeKind={this.handleChangeKind} ref='select_kind' />
           </div>
           {this.props.melody ? (
             <div className='form-group melody-image'>
