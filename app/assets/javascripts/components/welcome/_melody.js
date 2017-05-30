@@ -24,11 +24,6 @@ export default class Melody extends Component {
         <table className='table'>
           <tbody>
             <tr>
-              <td className='music-thumbnail' rowSpan='2'>
-                <span className='circle'>
-                  <span className='glyphicon glyphicon-music' />
-                </span>
-              </td>
               <td>
                 <span className='label label-info kind-label'>
                   {this.props.melody.kind.toUpperCase()}
@@ -58,7 +53,7 @@ export default class Melody extends Component {
               <span className='show-movie-link'>{'視聴する'}</span>
             </span>
             {this.state.showMovie ? (
-              <Movie advertisement_body={this.props.melody.advertisement_body} youtube={this.props.melody.youtube} />
+              <Movie advertisement_body={this.props.melody.advertisement_body} comment={this.props.melody.comment} youtube={this.props.melody.youtube} />
             ) : (
               null
             )}

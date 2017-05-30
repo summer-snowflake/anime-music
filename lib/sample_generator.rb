@@ -17,7 +17,7 @@ module SampleGenerator
   def create_melody1
     singer1 = FactoryGirl.create(:singer, name: '喜多修平')
     season1 = FactoryGirl.create(
-      :season, anime: @anime, name: '',
+      :season, anime: @anime, behind_name: '',
                start_on: '2008-07-08', end_on: '2008-09-30'
     )
 
@@ -31,7 +31,7 @@ module SampleGenerator
   def create_melody2
     singer2 = FactoryGirl.create(:singer, name: 'Aimer')
     season5 = FactoryGirl.create(
-      :season, anime: @anime, name: '伍', start_on: '2016-10-04'
+      :season, anime: @anime, behind_name: '伍', start_on: '2016-10-04'
     )
 
     FactoryGirl.create(

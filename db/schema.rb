@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170521182508) do
+ActiveRecord::Schema.define(version: 20170530010033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,20 +77,30 @@ ActiveRecord::Schema.define(version: 20170521182508) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "youtube"
+    t.boolean "draft", default: false, null: false
     t.index ["anime_id"], name: "index_melodies_on_anime_id"
     t.index ["season_id"], name: "index_melodies_on_season_id"
     t.index ["singer_id"], name: "index_melodies_on_singer_id"
   end
 
+  create_table "melody_images", force: :cascade do |t|
+    t.bigint "melody_id", null: false
+    t.string "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["melody_id"], name: "index_melody_images_on_melody_id"
+  end
+
   create_table "seasons", id: :serial, force: :cascade do |t|
     t.integer "anime_id", null: false
-    t.string "name"
+    t.string "behind_name"
     t.date "start_on"
     t.date "end_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "phase", default: 0
     t.boolean "disabled", default: false, null: false
+    t.string "previous_name"
   end
 
   create_table "singers", id: :serial, force: :cascade do |t|

@@ -14,6 +14,7 @@ export default class AdminSeasonMelodyEditField extends Component {
     this.handleClickTrashIcon = this.handleClickTrashIcon.bind(this)
     this.handleClickCancelButton = this.handleClickCancelButton.bind(this)
     this.handleClickSubmitButton = this.handleClickSubmitButton.bind(this)
+    this.handleUploadImages = this.handleUploadImages.bind(this)
     this.onClickDeleteCancelButton = this.onClickDeleteCancelButton.bind(this)
     this.onClickDeleteButton = this.onClickDeleteButton.bind(this)
   }
@@ -32,6 +33,45 @@ export default class AdminSeasonMelodyEditField extends Component {
 
   handleClickSubmitButton(params) {
     this.postAnimeSeasonMelodyAgainsServer(params)
+  }
+
+  handleUploadImages(params) {
+    this.uploadImagesAgainstServer(params)
+  }
+
+  uploadImagesAgainstServer(params) {
+    fetch(origin + 'api/admin/melodies/' + this.props.melody.id + '/melody_images', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Token token=' + localStorage.getItem('access_token')
+      },
+      body: params
+    })
+      .then((res) => {
+        if(res.status == '201') {
+          // this.refs.thumbnail.uploadSuccess()
+          // TODO: アップロード成功のメッセージ
+          this.props.handleLoadMelodyImages(this.props.melody.id)
+        } else {
+          console.log('error')
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
+  loadMelodyImagesFromServer() {
+    fetch(origin + 'api/admin/melodies/' + this.props.melody.id + '/melody_images', {
+      headers: {'Authorization': 'Token token=' + localStorage.getItem('access_token')}
+    })
+      .then((res) => res.json())
+      .then(() => {
+        this.props.handleLoadMelodyImages()
+      })
+      .catch((error) => {
+        console.error(error)
+      })
   }
 
   onClickDeleteButton() {
@@ -85,7 +125,7 @@ export default class AdminSeasonMelodyEditField extends Component {
       <div>
         {this.props.melody.showEditForm ? (
           <div className='adminSeasonMelodyEditFieldComponent new-form-field media-body non-bordered'>
-            <AdminSeasonMelodyForm melody={this.props.melody} onClose={this.handleClickCancelButton} onSubmit={this.handleClickSubmitButton} ref='form' season_id={this.props.melody.season_id} />
+            <AdminSeasonMelodyForm melody={this.props.melody} onClose={this.handleClickCancelButton} onLoadImages={this.props.handleLoadMelodyImages} onSubmit={this.handleClickSubmitButton} onUpload={this.handleUploadImages} ref='form' season_id={this.props.melody.season_id} />
             <div className='pull-right'>
               <span className='link' onClick={this.handleClickTrashIcon}>
                 <span className='glyphicon glyphicon-trash' />
@@ -104,5 +144,6 @@ export default class AdminSeasonMelodyEditField extends Component {
 AdminSeasonMelodyEditField.propTypes = {
   melody: PropTypes.object.isRequired,
   handleLoadMelodies: PropTypes.func.isRequired,
+  handleLoadMelodyImages: PropTypes.func.isRequired,
   onCloseEditMelodyField: PropTypes.func.isRequired
 }

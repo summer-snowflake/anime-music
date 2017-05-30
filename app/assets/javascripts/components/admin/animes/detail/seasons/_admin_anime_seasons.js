@@ -22,7 +22,7 @@ export default class AdminAnimeSeasons extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        this.setState({seasons: res.seasons})
+        this.setState({anime_title: res.anime_title, seasons: res.seasons})
       })
       .catch((error) => {
         console.error(error)
@@ -32,9 +32,9 @@ export default class AdminAnimeSeasons extends Component {
   render() {
     return (
       <div className='adminAnimeSeasonsComponent'>
-        <AdminAnimeSeasonNewField anime_id={this.props.anime_id} handleLoadSeasons={this.loadSeasonsFromServer} />
+        <AdminAnimeSeasonNewField anime_id={this.props.anime_id} anime_title={this.state.anime_title} handleLoadSeasons={this.loadSeasonsFromServer} />
         {this.state.seasons.map((season) =>
-          <AdminAnimeSeason handleLoad={this.loadSeasonsFromServer} key={season.id} season={season} />
+          <AdminAnimeSeason anime_title={this.state.anime_title} handleLoad={this.loadSeasonsFromServer} key={season.id} season={season} />
         )}
       </div>
     )

@@ -166,6 +166,19 @@ button:focus {
   width: 100px;
 }
 
+.form-control#season-behind-name, .form-control#season-previous-name {
+  display: inline-block;
+  width: 100px;
+}
+
+.form-control#season-behind-name {
+  margin-left: 5px;
+}
+
+.form-control#season-previous-name {
+  margin-left: 5px;
+}
+
 .form-control#disabled {
   display: inline-block;
   width: 100px;

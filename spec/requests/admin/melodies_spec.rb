@@ -11,6 +11,7 @@ describe 'GET /api/admin/seasons/1/melodies', autodoc: true do
   end
   let!(:ed_melody) { create(:melody, season: season, kind: :ed) }
   let!(:advertisement) { create(:advertisement, melody: op_melody) }
+  let!(:melody_image) { create(:melody_image, melody: ed_melody) }
 
   context 'ログインしていない場合' do
     it '401が返ってくること' do
@@ -42,7 +43,9 @@ describe 'GET /api/admin/seasons/1/melodies', autodoc: true do
               kind: op_melody.kind,
               youtube: op_melody.youtube,
               advertisement_id: op_melody.advertisement.id,
-              advertisement_body: op_melody.advertisement.body
+              advertisement_body: op_melody.advertisement.body,
+              draft: false,
+              melody_images: []
             },
             {
               id: ed_melody.id,
@@ -56,7 +59,12 @@ describe 'GET /api/admin/seasons/1/melodies', autodoc: true do
               kind: ed_melody.kind,
               youtube: ed_melody.youtube,
               advertisement_id: nil,
-              advertisement_body: nil
+              advertisement_body: nil,
+              draft: false,
+              melody_images: [
+                id: melody_image.id,
+                picture: melody_image.picture.url
+              ]
             }
           ]
         }

@@ -9,6 +9,7 @@ describe 'GET /api/welcome', autodoc: true do
   let!(:season2) { create(:season, anime: anime2) }
   let!(:melody1) { create(:melody, season: season1) }
   let!(:melody2) { create(:melody, season: season2) }
+  let!(:melody3) { create(:melody, season: season2, draft: true) }
   let!(:advertisement) { create(:advertisement, anime: anime1) }
   let!(:melody_advertisement) { create(:advertisement, melody: melody1) }
 
@@ -32,6 +33,7 @@ describe 'GET /api/welcome', autodoc: true do
               kind: melody1.kind,
               title: melody1.title,
               youtube: melody1.youtube,
+              comment: melody1.memo,
               advertisement_body: melody1.advertisement.body,
               info: "歌: #{melody1.singer.name}<br />" \
                 "作詞: #{melody1.lyric_writer}<br />" \
@@ -53,6 +55,7 @@ describe 'GET /api/welcome', autodoc: true do
               kind: melody2.kind,
               title: melody2.title,
               youtube: melody2.youtube,
+              comment: melody2.memo,
               advertisement_body: nil,
               info: "歌: #{melody2.singer.name}<br />" \
                 "作詞: #{melody2.lyric_writer}<br />" \

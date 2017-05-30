@@ -30,5 +30,6 @@ FactoryGirl.define do
     sequence(:memo) { |n| "メモ#{n}" }
     start_on { Time.zone.today - 6.months }
     end_on { Time.zone.today - 2.months }
+    draft false
   end
 end
