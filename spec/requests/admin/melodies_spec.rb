@@ -44,6 +44,7 @@ describe 'GET /api/admin/seasons/1/melodies', autodoc: true do
               youtube: op_melody.youtube,
               advertisement_id: op_melody.advertisement.id,
               advertisement_body: op_melody.advertisement.body,
+              draft: false,
               melody_images: []
             },
             {
@@ -59,6 +60,7 @@ describe 'GET /api/admin/seasons/1/melodies', autodoc: true do
               youtube: ed_melody.youtube,
               advertisement_id: nil,
               advertisement_body: nil,
+              draft: false,
               melody_images: [
                 id: melody_image.id,
                 picture: melody_image.picture.url

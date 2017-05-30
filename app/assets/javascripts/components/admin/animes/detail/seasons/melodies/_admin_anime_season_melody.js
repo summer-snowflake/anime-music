@@ -33,7 +33,7 @@ export default class AdminAnimeSeasonMelody extends Component {
 
   render() {
     return (
-      <div className='adminAnimeSeasonMelodyComponent' id={'melody-' + this.props.melody.id}>
+      <div className={'adminAnimeSeasonMelodyComponent' + (this.props.melody.draft ? ' draft' : '')} id={'melody-' + this.props.melody.id}>
         <div className='label pull-right'>
           <span className='link' onClick={this.handleClickEditIcon}>
             <span className='glyphicon glyphicon-pencil' />

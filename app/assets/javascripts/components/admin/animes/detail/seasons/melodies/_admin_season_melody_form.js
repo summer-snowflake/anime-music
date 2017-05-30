@@ -10,6 +10,7 @@ export default class AdminSeasonMelodyForm extends Component {
     this.state = {
       loadingForm: false,
       kind: ((this.props.melody || {}).kind || 'op').toUpperCase(),
+      unsaved_draft: (this.props.melody || {}).draft || false,
       message_type: 'danger',
       message: '' 
     }
@@ -17,6 +18,7 @@ export default class AdminSeasonMelodyForm extends Component {
     this.handleClickCancelButton = this.handleClickCancelButton.bind(this)
     this.handleClickUploadIcon = this.handleClickUploadIcon.bind(this)
     this.handleChangeKind = this.handleChangeKind.bind(this)
+    this.handleChangeDraft = this.handleChangeDraft.bind(this)
     this.handleChangeFile = this.handleChangeFile.bind(this)
     this.onDeleteMelodyImage = this.onDeleteMelodyImage.bind(this)
     this.updateFailed = this.updateFailed.bind(this)
@@ -45,6 +47,7 @@ export default class AdminSeasonMelodyForm extends Component {
     e.preventDefault()
     const params = {
       melody: {
+        draft: this.refs.draft.checked,
         kind: this.refs.select_kind.refs.kind.value.toLowerCase(),
         title: this.refs.title.value,
         singer_name: this.refs.singer_name.value,
@@ -68,6 +71,10 @@ export default class AdminSeasonMelodyForm extends Component {
 
   handleChangeKind(e) {
     this.setState({kind: e.target.getAttribute('value')})
+  }
+
+  handleChangeDraft() {
+    this.setState({unsaved_draft: !this.state.unsaved_draft})
   }
 
   onDeleteMelodyImage(melody_image_id) {
@@ -159,6 +166,12 @@ export default class AdminSeasonMelodyForm extends Component {
           </div>
           <div className='form-group body'>
             <textarea className='form-control' cols='80' defaultValue={(this.props.melody || {}).advertisement_body} disabled={this.state.loadingForm} id='body' placeholder='htmlタグ' ref='body' rows='4' />
+          </div>
+          <div className='form-group draft checkbox'>
+            <label>
+              <input checked={this.state.unsaved_draft} defaultValue={this.state.unsaved_draft} name='draft' onChange={this.handleChangeDraft} ref='draft' type='checkbox' />
+              {'下書きとして保存'}
+            </label>
           </div>
           <div className='submit-button-field'>
             <a className='btn btn-danger animate-button' disabled={this.state.loadingForm} onClick={this.handleClickSubmitButton}>

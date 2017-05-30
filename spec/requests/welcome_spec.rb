@@ -9,6 +9,7 @@ describe 'GET /api/welcome', autodoc: true do
   let!(:season2) { create(:season, anime: anime2) }
   let!(:melody1) { create(:melody, season: season1) }
   let!(:melody2) { create(:melody, season: season2) }
+  let!(:melody3) { create(:melody, season: season2, draft: true) }
   let!(:advertisement) { create(:advertisement, anime: anime1) }
   let!(:melody_advertisement) { create(:advertisement, melody: melody1) }
 
