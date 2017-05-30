@@ -137,7 +137,7 @@ feature '管理画面：シーズン', js: true do
 
       expect(page).to have_no_css '.draft'
       within '.adminAnimeSeasonMelodiesComponent' do
-        expect(page).to have_content 'ED'
+        expect(page).to have_content 'IN'
         expect(page).to have_content '曲のタイトル'
         expect(page).to have_content '歌　: 歌手氏名'
         expect(page).to have_content '作詞: 作詞者氏名'
@@ -153,7 +153,7 @@ feature '管理画面：シーズン', js: true do
         find('.btn-primary').click
       end
       within '.adminSeasonMelodyNewFieldComponent' do
-        find('.label-default').click
+        find('#IN').click
         fill_in 'title', with: '曲のタイトル'
         fill_in 'singer_name', with: '歌手氏名'
         fill_in 'lyric_writer', with: '作詞者氏名'
