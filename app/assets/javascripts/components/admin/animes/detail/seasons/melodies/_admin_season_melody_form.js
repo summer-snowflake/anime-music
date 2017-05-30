@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import MessageBox from './../../../../../common/_message_box'
 import AdminMelodyImage from './_admin_melody_image'
+import SelectKind from './_select_kind'
 import { origin } from './../../../../../../origin.js'
 
 export default class AdminSeasonMelodyForm extends Component {
@@ -44,7 +45,7 @@ export default class AdminSeasonMelodyForm extends Component {
     e.preventDefault()
     const params = {
       melody: {
-        kind: this.refs.kind.value.toLowerCase(),
+        kind: this.refs.select_kind.refs.kind.value.toLowerCase(),
         title: this.refs.title.value,
         singer_name: this.refs.singer_name.value,
         lyric_writer: this.refs.lyric_writer.value,
@@ -104,13 +105,7 @@ export default class AdminSeasonMelodyForm extends Component {
       <div className='adminSeasonMelodyFormComponent'>
         <form className='form-inline' onSubmit={this.handleClickSubmitButton}>
           <div className='form-group kind'>
-            <label className={'label ' + (this.state.kind == 'OP' ? 'label-info' : 'label-default')} onClick={this.handleChangeKind} value='OP'>
-              {'OP'}
-            </label>
-            <label className={'label ' + (this.state.kind == 'ED' ? 'label-info' : 'label-default')} onClick={this.handleChangeKind} value='ED'>
-              {'ED'}
-            </label>
-            <input ref='kind' type='hidden' value={this.state.kind} />
+            <SelectKind kind={this.state.kind} onChangeKind={this.handleChangeKind} ref='select_kind' />
           </div>
           {this.props.melody ? (
             <div className='form-group melody-image'>
