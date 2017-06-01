@@ -13,11 +13,11 @@ export default class SelectKind extends Component {
   render () {
     return (
       <div className='selectKindComponent'>
-        {['OP', 'ED', 'IM', 'IN'].map((kind, i) =>
+        {['OP', 'ED', 'IM', 'IN'].map((kind, i) => (
           <label className={'label ' + (this.props.kind == kind ? 'label-info' : 'label-default')} id={kind} key={i} onClick={this.handleChangeKind} value={kind}>
             {kind}
           </label>
-        )}
+        ))}
         <input ref='kind' type='hidden' value={this.props.kind} />
       </div>
     )
