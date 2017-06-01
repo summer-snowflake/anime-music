@@ -99,6 +99,9 @@
       border-color: #ddd;
       box-shadow: none;
     }
+    button.btn-default.is-draft, button.btn-default.is-draft:hover {
+      background-color: #ddd;
+    }
     .label {
       margin-right: 5px;
     }
