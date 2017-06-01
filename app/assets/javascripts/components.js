@@ -12,7 +12,6 @@ window.onerror = function(errorMsg, fileName, lineNumber) {
       'url_disp_page': location.href,      // エラー発生時に閲覧していた URL
       'user_agent'   : navigator.userAgent // エラーが発生したクライアントのユーザエージェント
     }
-    console.log(errorInfo)
     fetch(origin + 'api/notification', {
       method: 'POST',
       headers: {
