@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import { origin } from './../../../../../origin'
 import AdminAnimeAdvertisement from './_admin_anime_advertisement'
 import AdminAnimeAdvertisementNewField from './_admin_anime_advertisement_new_field'

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import LoadingImage from './../../../common/_loading_image'
 import MessageBox from './../../../common/_message_box'
 
