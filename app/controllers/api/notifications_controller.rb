@@ -2,7 +2,7 @@
 
 class Api::NotificationsController < Api::BaseController
   def create
-    info = error_info_params.each{|k| k }.map{|k| k.join(': ')}.join("\n")
+    info = error_info_params.each { |k| k }.map { |k| k.join(': ') }.join("\n")
     text = <<~EOC
       ```
       #{info}
@@ -16,6 +16,7 @@ class Api::NotificationsController < Api::BaseController
   private
 
   def error_info_params
-    params.permit(:error_msg, :file_name, :line_number, :url_disp_page, :user_agent)
+    params.permit(:error_msg, :file_name, :line_number,
+                  :url_disp_page, :user_agent)
   end
 end
