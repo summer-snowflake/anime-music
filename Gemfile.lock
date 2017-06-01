@@ -111,9 +111,6 @@ GEM
     erubi (1.6.0)
     erubis (2.7.0)
     eventmachine (1.2.3)
-    exception_notification (4.2.1)
-      actionmailer (>= 4.0, < 6)
-      activesupport (>= 4.0, < 6)
     excon (0.56.0)
     execjs (2.7.0)
     factory_girl (4.8.0)
@@ -524,7 +521,6 @@ DEPENDENCIES
   database_rewinder
   dotenv-rails
   draper (> 3.x)
-  exception_notification
   factory_girl_rails
   faker
   fog
@@ -567,9 +563,8 @@ DEPENDENCIES
   tzinfo-data
   validates_email_format_of
 
-
 RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.14.6
+   1.15.0
