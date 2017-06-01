@@ -44,7 +44,6 @@ export default class Welcome extends Component {
   }
 
   render() {
-throw new Error('bom')
     return (
       <div className='welcomeComponent'>
         <h1>{'放送中のアニメ'}</h1>
