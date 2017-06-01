@@ -77,7 +77,7 @@ export default class AdminAnimeRow extends Component {
                 <p>{season.anime_title}</p>
                 <div className='btn-group' id='melodies'>
                   {season.melodies.map((melody) => (
-                    <button className='btn btn-default' key={melody.id} type='button'>
+                    <button className={'btn btn-default' + (melody.draft ? ' is-draft' : '')} key={melody.id} type='button'>
                       <label className='label label-info link'>{melody.kind}</label>
                       {melody.title}
                     </button>

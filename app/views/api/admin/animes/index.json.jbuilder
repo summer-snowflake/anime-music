@@ -13,6 +13,7 @@ json.animes do
         json.id melody.id
         json.title melody.title
         json.kind melody.kind
+        json.draft melody.draft
       end
     end
   end

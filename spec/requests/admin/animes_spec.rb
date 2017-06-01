@@ -51,12 +51,14 @@ describe 'GET /api/admin/animes', autodoc: true do
                   {
                     id: melody1.id,
                     kind: melody1.kind,
-                    title: melody1.title
+                    title: melody1.title,
+                    draft: melody1.draft
                   },
                   {
                     id: melody2.id,
                     kind: melody2.kind,
-                    title: melody2.title
+                    title: melody2.title,
+                    draft: melody2.draft
                   }
                 ]
               }
