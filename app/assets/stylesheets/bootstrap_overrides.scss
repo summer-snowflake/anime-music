@@ -161,6 +161,10 @@ button:focus {
   border-color: $orange;
 }
 
+.btn-group#melodies {
+  display: block;
+}
+
 .form-control#phase {
   display: inline-block;
   width: 100px;
