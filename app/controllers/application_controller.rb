@@ -42,11 +42,16 @@ class ApplicationController < ActionController::Base
   private
 
   def exception_notifier(e)
-    origin = "#{request.protocol}#{request.host_with_port}"
-    ExceptionNotifier.notify_exception(
-      e,
-      env: request.env,
-      data: { url: origin, user_id: current_user.try(:id) }
+    text = <<~EOC
+      ```
+      url: #{request.protocol}#{request.host_with_port}
+      user_id: #{current_user.try(:id) || ''}
+      error: #{e.inspect}
+      #{[e, *e.backtrace].first(20).join("\n")}
+      ```
+    EOC
+    Slack.chat_postMessage(
+      text: text, username: 'Rails Error Notifier', channel: '#rails-error'
     )
   end
 
