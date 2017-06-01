@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import MessageBox from './../../../../../common/_message_box'
 import AdminMelodyImage from './_admin_melody_image'
 import SelectKind from './_select_kind'

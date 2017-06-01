@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import AdminActorDetail from './_admin_actor_detail.js'
 
 export default class AdminActor extends Component {

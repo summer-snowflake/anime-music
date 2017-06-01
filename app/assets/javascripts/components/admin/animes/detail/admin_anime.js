@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import AdminAnimeDetail from './_admin_anime_detail.js'
 import AdminAnimeSeasons from './seasons/_admin_anime_seasons.js'
 
