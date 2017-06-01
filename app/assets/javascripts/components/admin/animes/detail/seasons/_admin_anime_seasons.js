@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import { origin } from './../../../../../origin.js'
 import AdminAnimeSeason from './_admin_anime_season'
 import AdminAnimeSeasonNewField from './_admin_anime_season_new_field'

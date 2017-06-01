@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import MovieModal from './_movie_modal'
 import AdvertisementModal from './_advertisement_modal'
 

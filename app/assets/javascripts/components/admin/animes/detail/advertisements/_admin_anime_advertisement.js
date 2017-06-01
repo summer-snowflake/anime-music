@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import { origin } from './../../../../../origin.js'
 import DestroyModal from './../../../../common/_destroy_modal'
 

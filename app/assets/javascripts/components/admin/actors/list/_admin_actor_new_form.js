@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import { origin } from './../../../../origin.js'
 import MessageBox from './../../../common/_message_box'
 import AdminNewButtonField from './../../_admin_new_button_field'

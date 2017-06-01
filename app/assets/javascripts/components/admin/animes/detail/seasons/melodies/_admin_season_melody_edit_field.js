@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import AdminSeasonMelodyForm from './_admin_season_melody_form'
 import DestroyModal from './../../../../../common/_destroy_modal'
 import { origin } from './../../../../../../origin.js'

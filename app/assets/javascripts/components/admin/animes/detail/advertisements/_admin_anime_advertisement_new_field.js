@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import { origin } from './../../../../../origin'
 import AdminNewButtonField from './../../../_admin_new_button_field'
 import AdminAdvertisementForm from './_admin_advertisement_form'

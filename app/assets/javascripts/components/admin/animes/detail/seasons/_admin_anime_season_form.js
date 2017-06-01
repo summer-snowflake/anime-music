@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import MessageBox from './../../../../common/_message_box'
 
 export default class AdminAnimeSeasonForm extends Component {
