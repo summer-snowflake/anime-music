@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
   def exception_notifier(e)
     text = <<~EOC
       ```
-      url: #{request.protocol}#{request.host_with_port}
+      url: #{request.url}
       user_id: #{current_user.try(:id) || ''}
       error: #{e.inspect}
       #{[e, *e.backtrace].first(20).join("\n")}
