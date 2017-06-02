@@ -37,6 +37,7 @@ export default class Melody extends Component {
             <tr>
               <td className='title'>
                 <span className='title'>
+                  <span className='glyphicon glyphicon-music' />
                   {this.props.melody.title}
                 </span>
               </td>
