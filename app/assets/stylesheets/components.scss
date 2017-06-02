@@ -86,18 +86,24 @@
     padding-bottom: 8px;
   }
   .seasons {
-    li {
-      list-style-type: none;
-      padding-bottom: 10px;
-    }
+    padding-left: 10px;
   }
-  .melodies {
-    li {
-      display: inline;
-      padding: 5px;
+  .season {
+    display: grid;
+    padding-bottom: 15px;
+  }
+  .btn-group {
+    button.btn-default, button.btn-default:hover {
+      outline: none;
+      background-color: #fff;
+      border-color: #ddd;
+      box-shadow: none;
     }
-    .glyphicon {
-      padding: 5px 5px 5px 0px;
+    button.btn-default.is-draft, button.btn-default.is-draft:hover {
+      background-color: #ddd;
+    }
+    .label {
+      margin-right: 5px;
     }
   }
 }
@@ -257,6 +263,7 @@
   display: inline-block;
   padding: 10px;
   width: 200px;
+  vertical-align: top;
 }
 
 .adminAnimeSeasonMelodyComponent.draft {

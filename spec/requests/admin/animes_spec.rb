@@ -50,11 +50,15 @@ describe 'GET /api/admin/animes', autodoc: true do
                 melodies: [
                   {
                     id: melody1.id,
-                    title: melody1.title
+                    kind: melody1.kind,
+                    title: melody1.title,
+                    draft: melody1.draft
                   },
                   {
                     id: melody2.id,
-                    title: melody2.title
+                    kind: melody2.kind,
+                    title: melody2.title,
+                    draft: melody2.draft
                   }
                 ]
               }

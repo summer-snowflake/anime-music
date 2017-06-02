@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import { Link } from 'react-router'
 import { origin } from './../../../../origin.js'
 import DestroyModal from './../../../common/_destroy_modal'
@@ -70,20 +71,21 @@ export default class AdminAnimeRow extends Component {
               null
             )}
           </h4>
-          <ul className='seasons'>
+          <div className='seasons'>
             {this.props.anime.seasons.map((season) => (
-              <li key={season.id}>{season.anime_title}
-                <ul className='melodies'>
+              <div className='season' key={season.id}>
+                <p>{season.anime_title}</p>
+                <div className='btn-group' id='melodies'>
                   {season.melodies.map((melody) => (
-                    <li key={melody.id}><label className='label label-primary'>
-                      <span className='glyphicon glyphicon-music' />
+                    <button className={'btn btn-default' + (melody.draft ? ' is-draft' : '')} key={melody.id} type='button'>
+                      <label className='label label-info link'>{melody.kind}</label>
                       {melody.title}
-                    </label></li>
+                    </button>
                   ))}
-                </ul>
-              </li>
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
           <div className='wiki-url'>
             <a href={this.props.anime.wiki_url} target='_blank'>{this.props.anime.wiki_url}</a>
           </div>

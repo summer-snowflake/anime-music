@@ -12,6 +12,8 @@ json.animes do
       json.melodies season.melodies do |melody|
         json.id melody.id
         json.title melody.title
+        json.kind melody.kind
+        json.draft melody.draft
       end
     end
   end
