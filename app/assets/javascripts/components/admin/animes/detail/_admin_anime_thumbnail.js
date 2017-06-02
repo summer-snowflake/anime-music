@@ -1,20 +1,32 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import MessageBox from './../../../common/_message_box'
+import DestroyModal from './../../../common/_destroy_modal'
 
 export default class AdminAnimeThumbnail extends Component {
   constructor(props) {
     super(props)
     this.state = {
       message_type: 'success',
-      message: ''
+      message: '',
+      showModal: false
     }
     this.handleClickUploadIcon = this.handleClickUploadIcon.bind(this)
     this.handleClickTrashIcon = this.handleClickTrashIcon.bind(this)
+    this.onClickDeleteButton = this.onClickDeleteButton.bind(this)
+    this.onClickCancelButton = this.onClickCancelButton.bind(this)
     this.handleChangeFile = this.handleChangeFile.bind(this)
     this.handleTimeout = this.handleTimeout.bind(this)
     this.uploadSuccess = this.uploadSuccess.bind(this)
     this.uploadFailed = this.uploadFailed.bind(this)
+  }
+
+  onClickDeleteButton() {
+    this.setState({showModal: false})
+  }
+
+  onClickCancelButton() {
+    this.setState({showModal: false})
   }
 
   handleTimeout() {
@@ -26,6 +38,7 @@ export default class AdminAnimeThumbnail extends Component {
   }
 
   handleClickTrashIcon() {
+    this.setState({showModal: true}) 
   }
 
   handleChangeFile(e) {
@@ -63,7 +76,10 @@ export default class AdminAnimeThumbnail extends Component {
         <div className='col-xs-6 col-md-3'>
           <span className='thumbnail'>
             {this.props.picture ? (
-              <span className='link glyphicon glyphicon-trash' onClick={this.handleClickTrashIcon} />
+              <span>
+                <span className='link glyphicon glyphicon-trash' onClick={this.handleClickTrashIcon} />
+                <DestroyModal handleCancel={this.onClickCancelButton} handleDestroy={this.onClickDeleteButton} showModal={this.state.showModal} />
+              </span>
             ) : (
               null
             )}
