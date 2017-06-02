@@ -10,6 +10,7 @@ export default class AdminAnimeThumbnail extends Component {
       message: ''
     }
     this.handleClickUploadIcon = this.handleClickUploadIcon.bind(this)
+    this.handleClickTrashIcon = this.handleClickTrashIcon.bind(this)
     this.handleChangeFile = this.handleChangeFile.bind(this)
     this.handleTimeout = this.handleTimeout.bind(this)
     this.uploadSuccess = this.uploadSuccess.bind(this)
@@ -22,6 +23,9 @@ export default class AdminAnimeThumbnail extends Component {
 
   handleClickUploadIcon() {
     this.refs.file.click()
+  }
+
+  handleClickTrashIcon() {
   }
 
   handleChangeFile(e) {
@@ -58,6 +62,11 @@ export default class AdminAnimeThumbnail extends Component {
         <MessageBox message={this.state.message} message_type={this.state.message_type} />
         <div className='col-xs-6 col-md-3'>
           <span className='thumbnail'>
+            {this.props.picture ? (
+              <span className='link glyphicon glyphicon-trash' onClick={this.handleClickTrashIcon} />
+            ) : (
+              null
+            )}
             {this.props.picture ? (
               <img alt={this.props.title} src={this.props.picture} />
             ) : (
