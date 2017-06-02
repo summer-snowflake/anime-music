@@ -22,7 +22,7 @@ export default class AdminAnimeThumbnail extends Component {
   }
 
   onClickDeleteButton() {
-    this.setState({showModal: false})
+    this.props.handleDeleteThumbnail()
   }
 
   onClickCancelButton() {
@@ -56,7 +56,8 @@ export default class AdminAnimeThumbnail extends Component {
   uploadSuccess() {
     this.setState({
       message_type: 'success',
-      message: 'アップロードしました'
+      message: 'アップロードしました',
+      showModal: false
     })
     setTimeout(this.handleTimeout, 2000)
   }
@@ -103,5 +104,6 @@ export default class AdminAnimeThumbnail extends Component {
 AdminAnimeThumbnail.propTypes = {
   title: PropTypes.string.isRequired,
   picture: PropTypes.string,
-  handleUpdateThumbnail: PropTypes.func.isRequired
+  handleUpdateThumbnail: PropTypes.func.isRequired,
+  handleDeleteThumbnail: PropTypes.func.isRequired
 }

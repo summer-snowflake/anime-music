@@ -41,6 +41,6 @@ class Api::Admin::AnimesController < Api::Admin::BaseController
   end
 
   def anime_params
-    params.permit(:title, :summary, :wiki_url, :picture)
+    params.permit(:title, :summary, :wiki_url, :picture, :remove_picture)
   end
 end
