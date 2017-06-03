@@ -16,9 +16,15 @@
     font-weight: bold;
     margin-top: 10px;
     padding-bottom: 7px;
+    .glyphicon.glyphicon-music {
+      color: $pink;
+    }
   }
   .twitter-widget {
     width: 292px;
+  }
+  .thumbnail {
+    min-height: 120px;
   }
 }
 
