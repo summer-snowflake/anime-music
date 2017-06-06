@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import Melody from './_melody'
 
-export default class Anime extends Component {
+export default class Season extends Component {
   constructor(props) {
     super(props)
     this.handleClickPR = this.handleClickPR.bind(this)
@@ -15,7 +15,7 @@ export default class Anime extends Component {
   render () {
     const summary = { __html: this.props.season.anime.summary.replace(/\r?\n/g, '<br>') }
     return (
-      <div className='animeComponent' id={'season-' + this.props.season.id}>
+      <div className='seasonComponent' id={'season-' + this.props.season.id}>
         <div className='panel panel-default'>
           <div className='panel-body'>
             <h2 className='title'>
@@ -54,7 +54,7 @@ export default class Anime extends Component {
   }
 }
 
-Anime.propTypes = {
+Season.propTypes = {
   season: PropTypes.object.isRequired,
   onDisplayAdvertisements: PropTypes.func.isRequired
 }
