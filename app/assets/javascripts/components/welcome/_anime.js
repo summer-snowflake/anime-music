@@ -8,7 +8,7 @@ export default class Anime extends Component {
   }
 
   handleClickPR() {
-    this.props.handleClickPR()
+    this.props.onClickPR()
   }
 
   render () {
@@ -43,5 +43,6 @@ export default class Anime extends Component {
 
 Anime.propTypes = {
   anime: PropTypes.object.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  onClickPR: PropTypes.func.isRequired
 }

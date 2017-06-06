@@ -14,12 +14,11 @@ export default class Season extends Component {
   }
 
   render () {
-    const summary = { __html: this.props.season.anime.summary.replace(/\r?\n/g, '<br>') }
     return (
       <div className='seasonComponent' id={'season-' + this.props.season.id}>
         <div className='panel panel-default'>
           <div className='panel-body'>
-            <Anime anime={this.props.season.anime} title={this.props.season.anime_title} handleClickPR={this.handleClickPR} />
+            <Anime anime={this.props.season.anime} onClickPR={this.handleClickPR} title={this.props.season.anime_title} />
             {this.props.season.melodies.length > 0 ? (
               <hr className='clear' />
             ) : (
