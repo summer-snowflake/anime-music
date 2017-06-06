@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import Anime from './_anime'
 import Melody from './_melody'
 
 export default class Season extends Component {
@@ -18,27 +19,7 @@ export default class Season extends Component {
       <div className='seasonComponent' id={'season-' + this.props.season.id}>
         <div className='panel panel-default'>
           <div className='panel-body'>
-            <h2 className='title'>
-              <span>{this.props.season.anime_title}</span>
-            </h2>
-            <div>
-              {this.props.season.anime.thumbnail ? (
-                <div className='thumbnail'>
-                  <img alt={this.props.season.anime.title} className='img-rounded' src={this.props.season.anime.thumbnail} />
-                </div>
-              ) : (
-                null
-              )}
-              <div className='summary'>
-                <div dangerouslySetInnerHTML={summary} />
-              </div>
-              <p className='pull-right'>
-                <span className='label label-default link' onClick={this.handleClickPR}>
-                  {'PR'}
-                  <span className='glyphicon glyphicon-refresh' />
-                </span>
-              </p>
-            </div>
+            <Anime anime={this.props.season.anime} title={this.props.season.anime_title} handleClickPR={this.handleClickPR} />
             {this.props.season.melodies.length > 0 ? (
               <hr className='clear' />
             ) : (
