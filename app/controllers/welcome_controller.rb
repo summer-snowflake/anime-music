@@ -8,7 +8,7 @@ class WelcomeController < ApplicationController
                      .references(:melodies)
                      .order(:id)
                      .order('melodies.kind asc')
-    @anime_titles = @seasons.map{|s| s.anime.title}.join(', ')
+    @anime_titles = @seasons.map { |s| s.anime.title }.join(', ')
     @advertisements = Anime.airing_advertisements(Time.zone.today)
   end
 end
