@@ -21,7 +21,8 @@ export default class Movie extends Component {
         )}
         {this.props.comment ? (
           <span className='comment pull-left'>
-            <span className='glyphicon glyphicon-comment' /><br />
+            <span className='glyphicon glyphicon-comment' />
+            <br />
             <span dangerouslySetInnerHTML={comment} />
           </span>
         ) : (

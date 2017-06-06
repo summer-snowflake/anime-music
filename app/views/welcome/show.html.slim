@@ -1,2 +1,65 @@
-- title "#{@anime.title} - #{Settings.site.title}"
-- keywords "#{Settings.site.keywords}, #{@anime.title}"
+- title "放送中のアニメ - #{Settings.site.title}"
+- keywords "#{Settings.site.keywords}, #{@anime_titles}"
+
+= render 'header'
+
+.welcomeComponent
+  h1 放送中のアニメ
+  .col-md-9
+    .animeListComponent
+      - @seasons.each do |season|
+        .animeComponent(id="season-#{season.id}")
+          .panel.panel-default
+            .panel-body
+              h2.title= season.decorate.anime_title
+              .thumbnail= image_tag season.anime.picture
+              .summary= season.anime.summary
+              p.pull-right
+                span.label.label-default.link
+                  | PR
+                  span.glyphicon.glyphicon-refresh
+              - if season.melodies.size > 0
+                hr.clear
+              - season.melodies.each do |melody|
+                .melodyComponent
+                  table.table
+                    tbody
+                      tr
+                        td
+                          span.label.label-info.kind-label
+                            = melody.kind.upcase
+                        td.melody-info(rowspan='2')
+                          div= melody.decorate.info.html_safe
+                      tr
+                        td.title
+                          span.title
+                            span.glyphicon.glyphicon-music
+                            h2= melody.title
+                  - if melody.youtube.present? || melody.advertisement.present?
+                    div
+                      span.link
+                        span.glyphicon.glyphicon-chevron-down
+                        span.show-movie-link
+                          | 視聴する
+                      .movieComponent
+                        - if melody.youtube.present?
+                          span.movie.pull-left= raw melody.youtube
+                        - if melody.advertisement.present?
+                          span.cd.pull-left
+                            span.label.label-default#tag-name
+                              | CD
+                            span= raw melody.advertisement.body
+                        - if melody.memo.present?
+                          span.comment.pull-left
+                            span.glyphicon.glyphicon-comment
+                            br
+                            span= melody.memo
+                        .clear
+  .col-md-3
+    .advertisementsComponent
+      .panel.panel-default
+        p.menu-title
+          | おすすめPR
+        = render @advertisements
+    .clear
+    = render 'tweets'
