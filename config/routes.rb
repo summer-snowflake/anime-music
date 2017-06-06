@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'welcome#index'
+  root to: 'welcome#show'
 
   get 'login', to: 'sessions#new'
   delete 'logout', to: 'sessions#destroy'
