@@ -1,42 +1,42 @@
 import React, { Component } from 'react'
 import Seasons from './_seasons.js'
 import Tweets from './../menu/_tweets.js'
-import Advertisements from './../menu/_advertisements.js'
+import Advertisement from './../menu/_advertisement.js'
 import { origin } from './../../origin.js'
 
 export default class Welcome extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      advertisements: []
+      advertisement: null
     }
-    this.handleDisplayAdvertisements = this.handleDisplayAdvertisements.bind(this)
+    this.handleDisplayAdvertisement = this.handleDisplayAdvertisement.bind(this)
   }
 
   componentWillMount() {
-    this.loadAdvertisementsBySeasonsFromServer() // TODO: 日付で取得できるようにする
+    this.loadAdvertisementsFromServer() // TODO: 日付で取得できるようにする
   }
 
-  handleDisplayAdvertisements(season_id) {
-    this.loadAdvertisementsBySeasonFromServer(season_id)
+  handleDisplayAdvertisement(anime_id) {
+    this.loadAdvertisementsByAnimeFromServer(anime_id)
   }
 
-  loadAdvertisementsBySeasonFromServer(season_id) {
-    fetch(origin + 'api/seasons/' + season_id + '/advertisements')
+  loadAdvertisementsByAnimeFromServer(anime_id) {
+    fetch(origin + 'api/animes/' + anime_id + '/advertisements')
       .then((res) => res.json())
       .then((res) => {
-        this.setState({advertisements: res.advertisements})
+        this.setState({advertisement: res})
       })
       .catch((error) => {
         console.error(error)
       })
   }
 
-  loadAdvertisementsBySeasonsFromServer() {
+  loadAdvertisementsFromServer() {
     fetch(origin + 'api/advertisements')
       .then((res) => res.json())
       .then((res) => {
-        this.setState({advertisements: res.advertisements})
+        this.setState({advertisement: res})
       })
       .catch((error) => {
         console.error(error)
@@ -48,11 +48,11 @@ export default class Welcome extends Component {
       <div className='welcomeComponent'>
         <h1>{'放送中のアニメ'}</h1>
         <div className='col-md-9'>
-          <Seasons onDisplayAdvertisements={this.handleDisplayAdvertisements} />
+          <Seasons onDisplayAdvertisement={this.handleDisplayAdvertisement} />
         </div>
         <div className='col-md-3'>
-          {this.state.advertisements.length > 0 ? (
-            <Advertisements advertisements={this.state.advertisements} />
+          {this.state.advertisement ? (
+            <Advertisement advertisement={this.state.advertisement} />
           ) : (
             null
           )}

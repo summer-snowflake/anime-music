@@ -56,10 +56,11 @@
                             span= melody.memo
                         .clear
   .col-md-3
-    .advertisementsComponent
+    .advertisementComponent
       .panel.panel-default
         p.menu-title
           | おすすめPR
-        = render @advertisements
+        span.label.label-default#tag-name= @advertisement.tag_name
+        span= @advertisement.body.html_safe
     .clear
     = render 'tweets'
