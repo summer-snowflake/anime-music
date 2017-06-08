@@ -71,6 +71,8 @@ RSpec.configure do |config|
   end
 
   config.after :each do
+    messages = page.driver.browser.manage.logs.get(:browser).map(&:message).join("\n")
+    puts messages if messages.present?
     DatabaseRewinder.clean_all
   end
 
