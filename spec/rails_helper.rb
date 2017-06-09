@@ -71,9 +71,12 @@ RSpec.configure do |config|
   end
 
   config.after :each do
+    DatabaseRewinder.clean_all
+  end
+
+  config.after :each, type: :feature do
     messages = page.driver.browser.manage.logs.get(:browser).map(&:message).join("\n")
     puts messages if messages.present?
-    DatabaseRewinder.clean_all
   end
 
   Autodoc.configuration.template =
