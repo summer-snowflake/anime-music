@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'builder'
 require 'json'
 
 class BrakemanReport
