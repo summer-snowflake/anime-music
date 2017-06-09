@@ -75,7 +75,8 @@ RSpec.configure do |config|
   end
 
   config.after :each, type: :feature do
-    messages = page.driver.browser.manage.logs.get(:browser).map(&:message).join("\n")
+    messages = page.driver.browser.manage.logs
+                   .get(:browser).map(&:message).join("\n")
     puts messages if messages.present?
   end
 
