@@ -17,5 +17,5 @@ test:
     - bundle exec rubocop app/ spec/ lib/
     - eslint app/
   post:
-    - bundle exec rake brakeman:run
+    - ruby ./bin/brakeman.rb
     - ruby ./bin/coverage_report.rb

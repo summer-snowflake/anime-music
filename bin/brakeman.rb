@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 require 'builder'
+require 'json'
 
 class BrakemanReport
   def run
     run_brakeman
-    filename = File.join(Rails.root, 'brakeman', 'output.json')
-    @json = JSON.parse File.read(filename)
+    filename = './../brakeman/output.json'
+    @json = JSON.parse(File.read(filename))
   end
 
   def warned?
@@ -52,7 +53,7 @@ class BrakemanReport
   end
 
   def run_brakeman
-    dir = File.join Rails.root, 'brakeman'
+    dir = './../brakeman'
     system('bin/bundle', 'exec', 'brakeman',
            '-o', "#{dir}/output.html",
            '-o', "#{dir}/output.json")
@@ -76,4 +77,13 @@ class BrakemanReport
   def warnings
     json['warnings']
   end
+end
+
+reporter = BrakemanReport.new
+reporter.run
+
+if reporter.warned?
+  reporter.generate_report
+  puts 'Error: Security errors have been detected.'
+  exit 1
 end
