@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import Anime from './_anime.js'
+import Season from './_season.js'
 import { origin } from './../../origin.js'
 
-export default class AnimeList extends Component {
+export default class Seasons extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -33,15 +33,15 @@ export default class AnimeList extends Component {
 
   render() {
     return (
-      <div className='animeListComponent'>
+      <div className='seasonsComponent'>
         {this.state.seasons.map((season) =>
-          <Anime key={season.id} onDisplayAdvertisements={this.handleDisplayAdvertisements} season={season} />
+          <Season key={season.id} onDisplayAdvertisements={this.handleDisplayAdvertisements} season={season} />
         )}
       </div>
     )
   }
 }
 
-AnimeList.propTypes = {
+Seasons.propTypes = {
   onDisplayAdvertisements: PropTypes.func.isRequired
 }
