@@ -25,11 +25,11 @@ class Anime < ApplicationRecord
   end
 
   def sample_advertisement
-    advertisements.sample
+    advertisements.sample || Advertisement.new
   end
 
   def self.sample_airing_advertisement(date)
-    Advertisement.where(anime_id: airing_ids(date)).sample
+    Advertisement.where(anime_id: airing_ids(date)).sample || Advertisement.new
   end
 
   def self.airing_ids(date)
