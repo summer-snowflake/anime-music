@@ -10,7 +10,7 @@ export default class Season extends Component {
   }
 
   handleClickPR() {
-    this.props.onDisplayAdvertisement(this.props.season.id)
+    this.props.onDisplayAdvertisement(this.props.season.anime.id)
   }
 
   render () {

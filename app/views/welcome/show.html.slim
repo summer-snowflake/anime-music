@@ -56,10 +56,12 @@
                             span= melody.memo
                         .clear
   .col-md-3
-    .advertisementsComponent
-      .panel.panel-default
-        p.menu-title
-          | おすすめPR
-        = render @advertisements
-    .clear
+    - if @advertisement
+      .advertisementComponent
+        .panel.panel-default
+          p.menu-title
+            | おすすめPR
+          span.label.label-default#tag-name= @advertisement.tag_name
+          span= raw @advertisement.body
+      .clear
     = render 'tweets'
