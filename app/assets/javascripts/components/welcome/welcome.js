@@ -10,19 +10,19 @@ export default class Welcome extends Component {
     this.state = {
       advertisements: []
     }
-    this.handleDisplayAdvertisements = this.handleDisplayAdvertisements.bind(this)
+    this.handleDisplayAdvertisement = this.handleDisplayAdvertisement.bind(this)
   }
 
   componentWillMount() {
-    this.loadAdvertisementsBySeasonsFromServer() // TODO: 日付で取得できるようにする
+    this.loadAdvertisementBySeasonsFromServer() // TODO: 日付で取得できるようにする
   }
 
-  handleDisplayAdvertisements(season_id) {
-    this.loadAdvertisementsBySeasonFromServer(season_id)
+  handleDisplayAdvertisement(anime_id) {
+    this.loadAdvertisementByAnimeFromServer(anime_id)
   }
 
-  loadAdvertisementsBySeasonFromServer(season_id) {
-    fetch(origin + 'api/seasons/' + season_id + '/advertisements')
+  loadAdvertisementByAnimeFromServer(anime_id) {
+    fetch(origin + 'api/seasons/' + anime_id + '/advertisements')
       .then((res) => res.json())
       .then((res) => {
         this.setState({advertisements: res.advertisements})
@@ -32,7 +32,7 @@ export default class Welcome extends Component {
       })
   }
 
-  loadAdvertisementsBySeasonsFromServer() {
+  loadAdvertisementBySeasonsFromServer() {
     fetch(origin + 'api/advertisements')
       .then((res) => res.json())
       .then((res) => {
@@ -48,7 +48,7 @@ export default class Welcome extends Component {
       <div className='welcomeComponent'>
         <h1>{'放送中のアニメ'}</h1>
         <div className='col-md-9'>
-          <Seasons onDisplayAdvertisements={this.handleDisplayAdvertisements} />
+          <Seasons onDisplayAdvertisement={this.handleDisplayAdvertisement} />
         </div>
         <div className='col-md-3'>
           {this.state.advertisements.length > 0 ? (
