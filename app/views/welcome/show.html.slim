@@ -61,7 +61,8 @@
         .panel.panel-default
           p.menu-title
             | おすすめPR
-          span.label.label-default#tag-name= @advertisement.tag_name
-          span= raw @advertisement.body
+          .advertisement
+            span.label.label-default#tag-name= @advertisement.tag_name
+            span= raw @advertisement.body
       .clear
     = render 'tweets'
