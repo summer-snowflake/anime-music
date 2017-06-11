@@ -23,7 +23,6 @@ end
 
 describe 'GET /api/advertisements', autodoc: true do
   let!(:anime) { create(:anime) }
-  let!(:season) { create(:season, anime: anime) }
   let!(:advertisement) { create(:advertisement, anime: anime) }
 
   context 'ログインしていない場合' do
