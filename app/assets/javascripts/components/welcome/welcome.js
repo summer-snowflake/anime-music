@@ -8,20 +8,20 @@ export default class Welcome extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      advertisement: null
+      advertisement: {}
     }
     this.handleDisplayAdvertisement = this.handleDisplayAdvertisement.bind(this)
   }
 
   componentWillMount() {
-    this.loadAdvertisementsFromServer() // TODO: 日付で取得できるようにする
+    this.loadAdvertisementBySeasonsFromServer() // TODO: 日付で取得できるようにする
   }
 
   handleDisplayAdvertisement(anime_id) {
-    this.loadAdvertisementsByAnimeFromServer(anime_id)
+    this.loadAdvertisementByAnimeFromServer(anime_id)
   }
 
-  loadAdvertisementsByAnimeFromServer(anime_id) {
+  loadAdvertisementByAnimeFromServer(anime_id) {
     fetch(origin + 'api/animes/' + anime_id + '/advertisements')
       .then((res) => res.json())
       .then((res) => {
@@ -32,7 +32,7 @@ export default class Welcome extends Component {
       })
   }
 
-  loadAdvertisementsFromServer() {
+  loadAdvertisementBySeasonsFromServer() {
     fetch(origin + 'api/advertisements')
       .then((res) => res.json())
       .then((res) => {
@@ -51,11 +51,7 @@ export default class Welcome extends Component {
           <Seasons onDisplayAdvertisement={this.handleDisplayAdvertisement} />
         </div>
         <div className='col-md-3'>
-          {this.state.advertisement ? (
-            <Advertisement advertisement={this.state.advertisement} />
-          ) : (
-            null
-          )}
+          <Advertisement advertisement={this.state.advertisement} />
           <div className='clear' />
           <Tweets />
         </div>
