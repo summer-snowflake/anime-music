@@ -43,12 +43,12 @@
                           | 視聴する
                       .movieComponent
                         - if melody.youtube.present?
-                          span.movie.pull-left= raw melody.youtube
+                          span.movie.pull-left= sanitize melody.youtube, tags: %w[iframe]
                         - if melody.advertisement.present?
                           span.cd.pull-left
                             span.label.label-default#tag-name
                               | CD
-                            span= raw melody.advertisement.body
+                            span= sanitize melody.advertisement.body, tags: %w[a img]
                         - if melody.memo.present?
                           span.comment.pull-left
                             span.glyphicon.glyphicon-comment
@@ -63,6 +63,6 @@
             | おすすめPR
           .advertisement
             span.label.label-default#tag-name= @advertisement.tag_name
-            span= raw @advertisement.body
+            span= sanitize @advertisement.body, tags: %w[a img]
       .clear
     = render 'tweets'
