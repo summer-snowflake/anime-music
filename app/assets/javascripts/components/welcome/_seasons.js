@@ -9,15 +9,15 @@ export default class Seasons extends Component {
     this.state = {
       seasons: []
     }
-    this.handleDisplayAdvertisements = this.handleDisplayAdvertisements.bind(this)
+    this.handleDisplayAdvertisement = this.handleDisplayAdvertisement.bind(this)
   }
 
   componentDidMount() {
     this.loadAnimesFromServer()
   }
 
-  handleDisplayAdvertisements(season_id) {
-    this.props.onDisplayAdvertisements(season_id)
+  handleDisplayAdvertisement(anime_id) {
+    this.props.onDisplayAdvertisement(anime_id)
   }
 
   loadAnimesFromServer() {
@@ -35,7 +35,7 @@ export default class Seasons extends Component {
     return (
       <div className='seasonsComponent'>
         {this.state.seasons.map((season) =>
-          <Season key={season.id} onDisplayAdvertisements={this.handleDisplayAdvertisements} season={season} />
+          <Season key={season.id} onDisplayAdvertisement={this.handleDisplayAdvertisement} season={season} />
         )}
       </div>
     )
@@ -43,5 +43,5 @@ export default class Seasons extends Component {
 }
 
 Seasons.propTypes = {
-  onDisplayAdvertisements: PropTypes.func.isRequired
+  onDisplayAdvertisement: PropTypes.func.isRequired
 }

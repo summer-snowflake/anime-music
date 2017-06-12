@@ -28,7 +28,7 @@
   }
 }
 
-.animeComponent {
+.seasonComponent {
   .thumbnail {
     display: inline-block;
     float: left;
@@ -46,6 +46,7 @@
   td.title {
     width: 25%;
     h2 {
+      font-weight: bold;
       font-size: 15px;
       margin-top: 5px;
       display: inline-block;
@@ -75,13 +76,12 @@
   }
 }
 
-.advertisementsComponent {
-  text-align: center;
-}
-
 .advertisementComponent {
-  display: inline-block;
-  padding: 5px 10px 20px 10px;
+  text-align: center;
+  .advertisement {
+    display: inline-block;
+    padding: 5px 10px 20px 10px;
+  }
 }
 
 // == 管理画面：アニメ ==
