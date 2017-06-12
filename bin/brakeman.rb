@@ -54,6 +54,7 @@ class BrakemanReport
   def run_brakeman
     dir = './../brakeman'
     system('bin/bundle', 'exec', 'brakeman',
+           '--ignore-model-output',
            '-o', "#{dir}/output.html",
            '-o', "#{dir}/output.json")
   end
