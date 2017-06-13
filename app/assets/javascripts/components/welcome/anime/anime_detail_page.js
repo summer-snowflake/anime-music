@@ -14,7 +14,7 @@ export default class AnimeDetailPage extends Component {
         <div className='col-md-9'>
         </div>
         <div className='col-md-3'>
-          <Advertisement anime_id={this.props.params.animeId} />
+          <Advertisement anime_id={Number(this.props.params.animeId)} />
           <div className='clear' />
           <Tweets />
         </div>
