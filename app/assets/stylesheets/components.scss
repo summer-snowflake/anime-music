@@ -9,6 +9,10 @@
   }
 }
 
+.tweetsComponent {
+  width: 292px;
+}
+
 .welcomeComponent {
   padding-top: 30px;
   .title {
@@ -19,9 +23,6 @@
     .glyphicon.glyphicon-music {
       color: $pink;
     }
-  }
-  .twitter-widget {
-    width: 292px;
   }
   .thumbnail {
     min-height: 120px;
