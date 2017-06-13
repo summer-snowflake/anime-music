@@ -14,7 +14,7 @@ export default class Advertisement extends Component {
     this.loadAdvertisementBySeasonsFromServer() // TODO: 日付で取得できるようにする
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps() {
     if(this.props.anime_id) {
       this.loadAdvertisementByAnimeFromServer()
     } else {
