@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Tweets from './../../menu/_tweets.js'
+import Advertisement from './../../menu/_advertisement'
+import Tweets from './../../menu/_tweets'
 //import { origin } from './../../origin.js'
 
 export default class AnimeDetailPage extends Component {
@@ -13,6 +14,7 @@ export default class AnimeDetailPage extends Component {
         <div className='col-md-9'>
         </div>
         <div className='col-md-3'>
+          <Advertisement />
           <div className='clear' />
           <Tweets />
         </div>
