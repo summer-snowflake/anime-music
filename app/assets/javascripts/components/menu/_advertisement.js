@@ -22,6 +22,10 @@ export default class Advertisement extends Component {
     }
   }
 
+  refreshAnimeAdvertisement() {
+    this.loadAdvertisementByAnimeFromServer()
+  }
+
   loadAdvertisementBySeasonsFromServer() {
     fetch(origin + 'api/advertisements')
       .then((res) => res.json())

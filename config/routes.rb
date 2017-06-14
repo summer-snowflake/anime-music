@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resource :user, only: %i(show)
     resource :session, only: %i(create)
     resources :advertisements, only: %i(index)
-    resources :animes, only: :none do
+    resources :animes, only: %i(show) do
       resources :advertisements, only: %i(index)
     end
     get :welcome, to: 'welcome#show'
