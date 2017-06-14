@@ -12,6 +12,10 @@ general:
     - "~/anime-music/brakeman"
     - "~/anime-music/coverage"
 
+dependencies:
+  pre:
+    - gem install bundler --pre
+
 test:
   pre:
     - bundle exec rubocop app/ spec/ lib/
