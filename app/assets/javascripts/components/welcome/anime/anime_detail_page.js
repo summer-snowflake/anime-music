@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Advertisement from './../../menu/_advertisement'
 import Tweets from './../../menu/_tweets'
 import Anime from './../_anime'
@@ -13,12 +14,12 @@ export default class AnimeDetailPage extends Component {
     this.handleClickPR = this.handleClickPR.bind(this)
   }
 
-  handleClickPR() {
-    this.refs.advertisement.refreshAnimeAdvertisement()
-  }
-
   componentWillMount() {
     this.loadAnimeFromServer()
+  }
+
+  handleClickPR() {
+    this.refs.advertisement.refreshAnimeAdvertisement()
   }
 
   loadAnimeFromServer() {
@@ -57,4 +58,8 @@ export default class AnimeDetailPage extends Component {
       </div>
     )
   }
+}
+
+AnimeDetailPage.propTypes = {
+  params: PropTypes.object.isRequired
 }
