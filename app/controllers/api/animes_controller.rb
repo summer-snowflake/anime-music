@@ -3,8 +3,7 @@
 class Api::AnimesController < Api::BaseController
   before_action :set_anime, only: %i[show]
 
-  def show
-  end
+  def show; end
 
   private
 
