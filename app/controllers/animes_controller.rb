@@ -3,7 +3,9 @@
 class AnimesController < ApplicationController
   before_action :set_anime, only: %i[show]
 
-  def show; end
+  def show
+    @advertisement = @anime.sample_advertisement
+  end
 
   private
 
