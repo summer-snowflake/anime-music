@@ -35,8 +35,10 @@ export default class AnimeDetailPage extends Component {
   render() {
     return (
       <div className='animeDetailPageComponent'>
-        <div className='col-md-9'>
+        <div className='col-md-12'>
           <h1>{(this.state.anime || {}).title}</h1>
+        </div>
+        <div className='col-md-9'>
           <div className='panel panel-default'>
             <div className='panel-body'>
               {this.state.anime ? (
