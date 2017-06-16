@@ -1,5 +1,6 @@
 .navbarComponent {
   height: 80px;
+  margin-bottom: 25px;
 }
 
 .loginPageComponent {
@@ -9,8 +10,11 @@
   }
 }
 
+.tweetsComponent {
+  width: 292px;
+}
+
 .welcomeComponent {
-  padding-top: 30px;
   .title {
     font-size: 15px;
     font-weight: bold;
@@ -20,16 +24,11 @@
       color: $pink;
     }
   }
-  .twitter-widget {
-    width: 292px;
-  }
-  .thumbnail {
-    min-height: 120px;
-  }
 }
 
-.seasonComponent {
+.animeComponent {
   .thumbnail {
+    min-height: 120px;
     display: inline-block;
     float: left;
     border: none;
@@ -81,6 +80,7 @@
   .advertisement {
     display: inline-block;
     padding: 5px 10px 20px 10px;
+    min-height: 180px;
   }
 }
 

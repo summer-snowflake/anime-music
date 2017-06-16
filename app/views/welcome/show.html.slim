@@ -4,7 +4,8 @@
 = render 'header'
 
 .welcomeComponent
-  h1 放送中のアニメ
+  .col-md-12
+    h1 放送中のアニメ
   .col-md-9
     .animeListComponent
       - @seasons.each do |season|
@@ -57,12 +58,5 @@
                         .clear
   .col-md-3
     - if @advertisement.persisted?
-      .advertisementComponent
-        .panel.panel-default
-          p.menu-title
-            | おすすめPR
-          .advertisement
-            span.label.label-default#tag-name= @advertisement.tag_name
-            span= sanitize @advertisement.body, tags: %w[a img]
-      .clear
+      = render 'advertisement', advertisement: @advertisement
     = render 'tweets'

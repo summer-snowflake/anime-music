@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   delete 'logout', to: 'sessions#destroy'
 
+  resources :animes, only: %i(show)
+
   namespace :admin do
     root to: 'top#index', as: :top
     resources :animes, only: %i(index show)
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
     resource :user, only: %i(show)
     resource :session, only: %i(create)
     resources :advertisements, only: %i(index)
-    resources :animes, only: :none do
+    resources :animes, only: %i(show) do
       resources :advertisements, only: %i(index)
     end
     get :welcome, to: 'welcome#show'
