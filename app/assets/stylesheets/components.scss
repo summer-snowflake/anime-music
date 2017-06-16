@@ -121,15 +121,21 @@
 }
 
 .adminAnimeThumbnailComponent {
+  .glyphicon-trash {
+    visibility: hidden;
+  }
   .thumbnail {
     .glyphicon-plus-sign {
-      top: 145px;
-      right: -110px;
+      right: -68px;
+    }
+    .glyphicon-trash {
+      top: 5px;
+      right: -114px;
       position: absolute;
     }
   }
   .thumbnail:hover {
-    .glyphicon-plus-sign {
+    .glyphicon-plus-sign, .glyphicon-trash {
       visibility: visible;
     }
   }
