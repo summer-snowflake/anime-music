@@ -54,7 +54,6 @@ export default class Advertisement extends Component {
         <div className='panel panel-default'>
           <p className='menu-title'>{'おすすめPR'}</p>
           <div className='advertisement'>
-            <span className='label label-default' id='tag-name'>{this.state.advertisement.tag_name}</span>
             <span dangerouslySetInnerHTML={{__html: this.state.advertisement.body}} />
           </div>
         </div>
