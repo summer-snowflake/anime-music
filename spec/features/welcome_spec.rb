@@ -75,7 +75,6 @@ feature 'トップページ', js: true do
   scenario '広告が表示されること' do
     within '.advertisementComponent' do
       expect(page).to have_css "a[href='https://url.com']"
-      expect(page).to have_content advertisement.tag_name
     end
   end
 
@@ -85,7 +84,6 @@ feature 'トップページ', js: true do
     end
     within '.advertisementComponent' do
       expect(page).to have_css "a[href='https://url.com']"
-      expect(page).to have_content advertisement.tag_name
     end
   end
 end
