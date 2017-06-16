@@ -13,8 +13,7 @@ describe 'GET /api/animes/:anime_id/advertisements', autodoc: true do
 
       json = {
         id: advertisement.id,
-        body: advertisement.body,
-        tag_name: advertisement.tag_name
+        body: advertisement.body
       }
       expect(response.body).to be_json_as(json)
     end
@@ -33,8 +32,7 @@ describe 'GET /api/advertisements', autodoc: true do
 
       json = {
         id: advertisement.id,
-        body: advertisement.body,
-        tag_name: advertisement.tag_name
+        body: advertisement.body
       }
       expect(response.body).to be_json_as(json)
     end
