@@ -3,6 +3,5 @@
     p.menu-title
       | おすすめPR
     .advertisement
-      span.label.label-default#tag-name= advertisement.tag_name
       span= sanitize advertisement.body, tags: %w[a img]
 .clear
