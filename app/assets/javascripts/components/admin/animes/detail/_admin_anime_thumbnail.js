@@ -95,7 +95,7 @@ export default class AdminAnimeThumbnail extends Component {
             <span className='link glyphicon glyphicon-plus-sign' onClick={this.handleClickUploadIcon} />
           </span>
         </div>
-        <input className='upload-file' onChange={this.handleChangeFile} ref='file' type='file' />
+        <input className='upload-file' name='upload-file' onChange={this.handleChangeFile} ref='file' type='file' />
       </div>
     )
   }
