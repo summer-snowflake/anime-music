@@ -21,9 +21,11 @@ feature '管理画面：アニメ', js: true do
         file_path = Rails.root.join('spec', 'fixtures', 'cat.jpg')
         attach_file('upload-file', file_path, make_visible: true)
 
-        expect(find('img')['src']).to have_content "/anime-music-uploads/anime/#{anime1.id}/cat.jpg"
+        expect(find('img')['src'])
+          .to have_content "/anime-music-uploads/anime/#{anime1.id}/cat.jpg"
         anime1.reload
-        expect(anime1.picture.url).to eq "/anime-music-uploads/anime/#{anime1.id}/cat.jpg"
+        expect(anime1.picture.url)
+          .to eq "/anime-music-uploads/anime/#{anime1.id}/cat.jpg"
       end
     end
   end
@@ -32,26 +34,32 @@ feature '管理画面：アニメ', js: true do
     background do
       visit admin_anime_path(id: anime2.id)
     end
- 
+
     scenario '詳細画面でサムネイルをファイルアップロードできること' do
       within '.adminAnimeThumbnailComponent' do
-        expect(find('img')['src']).to have_content "/anime-music-uploads/anime/#{anime2.id}/clover.gif"
-        expect(anime2.picture.url).to eq "/anime-music-uploads/anime/#{anime2.id}/clover.gif"
+        expect(find('img')['src'])
+          .to have_content "/anime-music-uploads/anime/#{anime2.id}/clover.gif"
+        expect(anime2.picture.url)
+          .to eq "/anime-music-uploads/anime/#{anime2.id}/clover.gif"
 
         file_path = Rails.root.join('spec', 'fixtures', 'cat.jpg')
         attach_file('upload-file', file_path, make_visible: true)
 
         sleep 1
-        expect(find('img')['src']).to have_content "/anime-music-uploads/anime/#{anime2.id}/cat.jpg"
+        expect(find('img')['src'])
+          .to have_content "/anime-music-uploads/anime/#{anime2.id}/cat.jpg"
         anime2.reload
-        expect(anime2.picture.url).to eq "/anime-music-uploads/anime/#{anime2.id}/cat.jpg"
+        expect(anime2.picture.url)
+          .to eq "/anime-music-uploads/anime/#{anime2.id}/cat.jpg"
       end
     end
-  
+
     scenario '詳細画面でサムネイルを削除できること' do
       within '.adminAnimeThumbnailComponent' do
-        expect(find('img')['src']).to have_content "/anime-music-uploads/anime/#{anime2.id}/clover.gif"
-        expect(anime2.picture.url).to eq "/anime-music-uploads/anime/#{anime2.id}/clover.gif"
+        expect(find('img')['src'])
+          .to have_content "/anime-music-uploads/anime/#{anime2.id}/clover.gif"
+        expect(anime2.picture.url)
+          .to eq "/anime-music-uploads/anime/#{anime2.id}/clover.gif"
 
         find('.thumbnail').hover
         find('.glyphicon-trash').click
