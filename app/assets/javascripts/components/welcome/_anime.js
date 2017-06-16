@@ -15,9 +15,13 @@ export default class Anime extends Component {
     const summary = { __html: this.props.anime.summary.replace(/\r?\n/g, '<br>') }
     return (
       <div className='animeComponent' id={'anime-' + this.props.anime.id}>
-        <h2 className='title'>
-          <span>{this.props.title}</span>
-        </h2>
+        {this.props.title ? (
+          <h2 className='title'>
+            <span>{this.props.title}</span>
+          </h2>
+        ) : (
+          null
+        )}
         <div>
           {this.props.anime.thumbnail ? (
             <div className='thumbnail'>
@@ -43,6 +47,6 @@ export default class Anime extends Component {
 
 Anime.propTypes = {
   anime: PropTypes.object.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   onClickPR: PropTypes.func.isRequired
 }
