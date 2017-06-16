@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
 class Api::AdvertisementsController < Api::BaseController
-  before_action :set_season, only: %i[index]
+  before_action :set_anime, only: %i[index]
 
   def index
-    @advertisements =
-      if @season
-        @season.anime_advertisements
+    @advertisement =
+      if @anime
+        @anime.sample_advertisement
       else
-        Anime.airing_advertisements(Time.zone.today)
+        Anime.sample_airing_advertisement(Time.zone.today)
       end
   end
 
   private
 
-  def set_season
-    @season = Season.find(params[:season_id]) if params[:season_id]
+  def set_anime
+    @anime = Anime.find(params[:anime_id]) if params[:anime_id]
   end
 end

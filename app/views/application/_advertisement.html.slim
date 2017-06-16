@@ -1,0 +1,7 @@
+.advertisementComponent
+  .panel.panel-default
+    p.menu-title
+      | おすすめPR
+    .advertisement
+      span= sanitize advertisement.body, tags: %w[a img]
+.clear

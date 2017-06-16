@@ -2,6 +2,7 @@
 
 class Api::NotificationsController < Api::BaseController
   def create
+    return unless Rails.env.production?
     info = error_info_params.each { |k| k }.map { |k| k.join(': ') }.join("\n")
     text = <<~EOC
       ```

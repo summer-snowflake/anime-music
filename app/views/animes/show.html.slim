@@ -1,0 +1,24 @@
+- title "#{@anime.title} - #{Settings.site.title}"
+- keywords "#{Settings.site.keywords}, #{@anime.title}"
+
+= render 'header'
+
+.animeDetailPageComponent
+  .col-md-12
+    h1= @anime.title
+  .col-md-9
+    .panel.panel-default
+      .panel-body
+        div
+          .thumbnail
+            img.img-rounded(alt="#{@anime.title}" src="#{@anime.picture.url}")
+          .summary
+            = @anime.summary
+          p.pull-right
+            span.label.label-default.link
+              | PR
+              span.glyphicon.glyphicon-refresh
+  .col-md-3
+    - if @advertisement.persisted?
+      = render 'advertisement', advertisement: @advertisement
+    = render 'tweets'

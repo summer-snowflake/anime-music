@@ -1,5 +1,6 @@
 .navbarComponent {
   height: 80px;
+  margin-bottom: 25px;
 }
 
 .loginPageComponent {
@@ -9,21 +10,25 @@
   }
 }
 
+.tweetsComponent {
+  width: 292px;
+}
+
 .welcomeComponent {
-  padding-top: 30px;
   .title {
     font-size: 15px;
     font-weight: bold;
     margin-top: 10px;
     padding-bottom: 7px;
-  }
-  .twitter-widget {
-    width: 292px;
+    .glyphicon.glyphicon-music {
+      color: $pink;
+    }
   }
 }
 
 .animeComponent {
   .thumbnail {
+    min-height: 120px;
     display: inline-block;
     float: left;
     border: none;
@@ -39,6 +44,12 @@
   padding-bottom: 25px;
   td.title {
     width: 25%;
+    h2 {
+      font-weight: bold;
+      font-size: 15px;
+      margin-top: 5px;
+      display: inline-block;
+    }
   }
   td.melody-info {
     font-size: 12px;
@@ -64,13 +75,13 @@
   }
 }
 
-.advertisementsComponent {
-  text-align: center;
-}
-
 .advertisementComponent {
-  display: inline-block;
-  padding: 5px 10px 20px 10px;
+  text-align: center;
+  .advertisement {
+    display: inline-block;
+    padding: 5px 10px 20px 10px;
+    min-height: 180px;
+  }
 }
 
 // == 管理画面：アニメ ==
