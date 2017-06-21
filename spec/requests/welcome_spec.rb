@@ -11,7 +11,9 @@ describe 'GET /api/welcome', autodoc: true do
   let!(:melody2) { create(:melody, season: season2) }
   let!(:melody3) { create(:melody, season: season2, draft: true) }
   let!(:advertisement) { create(:advertisement, anime: anime1) }
-  let!(:melody_advertisement) { create(:advertisement, :blongs_to_melody, melody: melody1) }
+  let!(:melody_advertisement) do
+    create(:advertisement, :blongs_to_melody, melody: melody1)
+  end
 
   it '200とアニメ一覧が返ってくること' do
     get '/api/welcome'
