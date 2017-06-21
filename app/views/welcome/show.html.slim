@@ -36,26 +36,6 @@
                           span.title
                             span.glyphicon.glyphicon-music
                             h2= melody.title
-                  - if melody.youtube.present? || melody.advertisement.present?
-                    div
-                      span.link
-                        span.glyphicon.glyphicon-chevron-down
-                        span.show-movie-link
-                          | 視聴する
-                      .movieComponent
-                        - if melody.youtube.present?
-                          span.movie.pull-left= sanitize melody.youtube, tags: %w[iframe]
-                        - if melody.advertisement.present?
-                          span.cd.pull-left
-                            span.label.label-default#tag-name
-                              | CD
-                            span= sanitize melody.advertisement.body, tags: %w[a img]
-                        - if melody.memo.present?
-                          span.comment.pull-left
-                            span.glyphicon.glyphicon-comment
-                            br
-                            span= melody.memo
-                        .clear
   .col-md-3
     - if @advertisement.persisted?
       = render 'advertisement', advertisement: @advertisement

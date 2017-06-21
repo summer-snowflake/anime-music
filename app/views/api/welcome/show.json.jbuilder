@@ -15,7 +15,9 @@ json.seasons do
       json.title melody.title
       json.youtube melody.youtube.try!(:html_safe)
       json.comment melody.memo
-      json.advertisement_body melody.advertisement.try!(:body)
+      json.advertisements melody.advertisements do |advertisement|
+        json.body advertisement.body
+      end
       json.info melody.decorate.info.html_safe
     end
   end
