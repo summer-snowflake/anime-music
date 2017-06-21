@@ -21,21 +21,33 @@
                   span.glyphicon.glyphicon-refresh
               - if season.melodies.size > 0
                 hr.clear
-              - season.melodies.each do |melody|
-                .melodyComponent
-                  table.table
-                    tbody
-                      tr
-                        td
-                          span.label.label-info.kind-label
-                            = melody.kind.upcase
-                        td.melody-info(rowspan='2')
-                          div= melody.decorate.info.html_safe
-                      tr
-                        td.title
-                          span.title
+              table.table
+                - season.melodies.each do |melody|
+                  tbody.melodyComponent
+                    tr
+                      td.advertisement
+                        - if melody.advertisements.first
+                          span= melody.advertisements.first.body.html_safe
+                        - else
+                          span.circle
                             span.glyphicon.glyphicon-music
-                            h2= melody.title
+                      td.title
+                        span.label.label-info.kind-label
+                          = melody.kind.upcase
+                        h2
+                          span.glyphicon.glyphicon-music
+                          = melody.title
+                      td.melody-info
+                        div= melody.decorate.info.html_safe
+                    tr
+                      td(colspan='3')
+                        - if melody.memo.present?
+                          span.comment
+                            span.glyphicon.glyphicon-comment
+                            = melody.memo.html_safe
+                        - if melody.youtube.present?
+                          span.movie= melody.youtube.html_safe
+
   .col-md-3
     - if @advertisement.persisted?
       = render 'advertisement', advertisement: @advertisement
