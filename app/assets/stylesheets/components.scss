@@ -40,37 +40,51 @@
   }
 }
 
+.seasonComponent {
+  table {
+    border-collapse: separate;
+    border-spacing: 0px 20px;
+  }
+}
+
 .melodyComponent {
-  padding-bottom: 25px;
+  td.advertisement {
+    width: 10%;
+    vertical-align: middle;
+    .glyphicon-music {
+      font-size: 21px;
+      color: #aaa;
+      margin: 8px;
+      padding: 5px;
+    }
+  }
   td.title {
-    width: 25%;
+    min-width: 200px;
     h2 {
       font-weight: bold;
       font-size: 15px;
       margin-top: 5px;
-      display: inline-block;
+      padding-top: 10px;
     }
   }
   td.melody-info {
     font-size: 12px;
-    border-radius: 3px;
+    border-radius: 5px;
     background-color: rgba($blue, 0.1);
+    line-height: 200%;
+    width: 50%;
   }
-}
-
-.movieComponent {
-  padding: 10px 0px;
   span.movie {
-    padding-right: 5px;
+    display: block;
   }
   span.comment {
-    padding-top: 10px;
-    padding-left: 10px;
+    display: block;
+    padding-bottom: 10px;
     font-size: 12px;
     font-style: italic;
-    max-width: 200px;
     .glyphicon {
       padding: 0px;
+      padding-right: 5px;
     }
   }
 }
