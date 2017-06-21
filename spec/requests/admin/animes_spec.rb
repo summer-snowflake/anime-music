@@ -153,6 +153,21 @@ describe 'PATCH /api/admin/animes/:id' do
         expect(response.status).to eq 200
       end
     end
+
+    context 'サムネイルの削除' do
+      let!(:params) do
+        { id: anime.id, remove_picture: 'true' }
+      end
+
+      it '200が返り、サムネイルが削除されること' do
+        patch "/api/admin/animes/#{anime.id}",
+              params: params, headers: login_headers(user)
+        expect(response.status).to eq 200
+
+        anime.reload
+        expect(anime.picture.url).to be_nil
+      end
+    end
   end
 end
 

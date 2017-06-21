@@ -1,5 +1,6 @@
 .navbarComponent {
   height: 80px;
+  margin-bottom: 25px;
 }
 
 .loginPageComponent {
@@ -9,21 +10,25 @@
   }
 }
 
+.tweetsComponent {
+  width: 292px;
+}
+
 .welcomeComponent {
-  padding-top: 30px;
   .title {
     font-size: 15px;
     font-weight: bold;
     margin-top: 10px;
     padding-bottom: 7px;
-  }
-  .twitter-widget {
-    width: 292px;
+    .glyphicon.glyphicon-music {
+      color: $pink;
+    }
   }
 }
 
 .animeComponent {
   .thumbnail {
+    min-height: 120px;
     display: inline-block;
     float: left;
     border: none;
@@ -35,41 +40,62 @@
   }
 }
 
-.melodyComponent {
-  padding-bottom: 25px;
-  td.title {
-    width: 25%;
-  }
-  td.melody-info {
-    font-size: 12px;
-    border-radius: 3px;
-    background-color: rgba($blue, 0.1);
+.seasonComponent {
+  table {
+    border-collapse: separate;
+    border-spacing: 0px 20px;
   }
 }
 
-.movieComponent {
-  padding: 10px 0px;
+.melodyComponent {
+  td.advertisement {
+    width: 10%;
+    vertical-align: middle;
+    .glyphicon-music {
+      font-size: 21px;
+      color: #aaa;
+      margin: 8px;
+      padding: 5px;
+    }
+  }
+  td.title {
+    min-width: 200px;
+    h2 {
+      font-weight: bold;
+      font-size: 15px;
+      margin-top: 5px;
+      padding-top: 10px;
+    }
+  }
+  td.melody-info {
+    font-size: 12px;
+    border-radius: 5px;
+    background-color: rgba($blue, 0.1);
+    line-height: 200%;
+    width: 50%;
+  }
   span.movie {
-    padding-right: 5px;
+    display: block;
   }
   span.comment {
-    padding-top: 10px;
-    padding-left: 10px;
+    display: block;
+    padding-bottom: 10px;
     font-size: 12px;
     font-style: italic;
     .glyphicon {
       padding: 0px;
+      padding-right: 5px;
     }
   }
 }
 
-.advertisementsComponent {
-  text-align: center;
-}
-
 .advertisementComponent {
-  display: inline-block;
-  padding: 5px 10px 20px 10px;
+  text-align: center;
+  .advertisement {
+    display: inline-block;
+    padding: 5px 10px 20px 10px;
+    min-height: 180px;
+  }
 }
 
 // == 管理画面：アニメ ==
@@ -109,15 +135,21 @@
 }
 
 .adminAnimeThumbnailComponent {
+  .glyphicon-trash {
+    visibility: hidden;
+  }
   .thumbnail {
     .glyphicon-plus-sign {
-      top: 145px;
-      right: -110px;
+      right: -68px;
+    }
+    .glyphicon-trash {
+      top: 5px;
+      right: -114px;
       position: absolute;
     }
   }
   .thumbnail:hover {
-    .glyphicon-plus-sign {
+    .glyphicon-plus-sign, .glyphicon-trash {
       visibility: visible;
     }
   }

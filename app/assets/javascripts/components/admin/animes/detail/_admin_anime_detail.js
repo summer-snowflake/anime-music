@@ -15,6 +15,7 @@ export default class AdminAnimeDetail extends Component {
     }
     this.loadAnimeFromServer = this.loadAnimeFromServer.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
+    this.onDeleteThumbnail = this.onDeleteThumbnail.bind(this)
     this.onUpload = this.onUpload.bind(this)
   }
 
@@ -30,6 +31,10 @@ export default class AdminAnimeDetail extends Component {
     this.uploadImageAgainstServer(params)
   }
 
+  onDeleteThumbnail() {
+    this.destroyUploadImageAgainstServer()
+  }
+
   loadAnimeFromServer() {
     fetch(origin + 'api/admin/animes/' + this.props.anime_id, {
       headers: {'Authorization': 'Token token=' + localStorage.getItem('access_token')}
@@ -40,6 +45,26 @@ export default class AdminAnimeDetail extends Component {
       })
       .catch((error) => {
         console.error(error)
+      })
+  }
+
+  destroyUploadImageAgainstServer() {
+    fetch(origin + 'api/admin/animes/' + this.props.anime_id, {
+      method: 'PATCH',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Token token=' + localStorage.getItem('access_token')
+      },
+      body: JSON.stringify({'remove_picture': true})
+    })
+      .then((res) => {
+        if(res.status == '200') {
+          this.loadAnimeFromServer()
+        }
+      })
+      .catch((error) => {
+        console.log(error)
       })
   }
 
@@ -111,7 +136,7 @@ export default class AdminAnimeDetail extends Component {
             <AdminAnimeTitle airing={this.state.anime.airing} handleUpdateTitle={this.onSubmit} ref='title' title={this.state.anime.title} />
             <div className="row">
               <div className="col-xs-6 col-md-3">
-                <AdminAnimeThumbnail handleUpdateThumbnail={this.onUpload} picture={this.state.anime.picture} ref='thumbnail' title={this.state.anime.title} />
+                <AdminAnimeThumbnail handleDeleteThumbnail={this.onDeleteThumbnail} handleUpdateThumbnail={this.onUpload} picture={this.state.anime.picture} ref='thumbnail' title={this.state.anime.title} />
               </div>
               <div className="col-xs-6 col-md-9">
                 <AdminAnimeBody handleUpdateBody={this.onSubmit} ref='body' summary={this.state.anime.summary} wiki_url={this.state.anime.wiki_url} />

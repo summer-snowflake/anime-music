@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import Melody from './_melody'
 
 export default class Anime extends Component {
   constructor(props) {
@@ -9,45 +8,37 @@ export default class Anime extends Component {
   }
 
   handleClickPR() {
-    this.props.onDisplayAdvertisements(this.props.season.id)
+    this.props.onClickPR()
   }
 
   render () {
-    const summary = { __html: this.props.season.anime.summary.replace(/\r?\n/g, '<br>') }
+    const summary = { __html: this.props.anime.summary.replace(/\r?\n/g, '<br>') }
     return (
-      <div className='animeComponent' id={'season-' + this.props.season.id}>
-        <div className='panel panel-default'>
-          <div className='panel-body'>
-            <h2 className='title'>
-              <span>{this.props.season.anime_title}</span>
-            </h2>
-            <div>
-              {this.props.season.anime.thumbnail ? (
-                <div className='thumbnail'>
-                  <img alt={this.props.season.anime.title} className='img-rounded' src={this.props.season.anime.thumbnail} />
-                </div>
-              ) : (
-                null
-              )}
-              <div className='summary'>
-                <div dangerouslySetInnerHTML={summary} />
-              </div>
-              <p className='pull-right'>
-                <span className='label label-default link' onClick={this.handleClickPR}>
-                  {'PR'}
-                  <span className='glyphicon glyphicon-refresh' />
-                </span>
-              </p>
+      <div className='animeComponent' id={'anime-' + this.props.anime.id}>
+        {this.props.title ? (
+          <h2 className='title'>
+            <span>{this.props.title}</span>
+          </h2>
+        ) : (
+          null
+        )}
+        <div>
+          {this.props.anime.thumbnail ? (
+            <div className='thumbnail'>
+              <img alt={this.props.anime.title} className='img-rounded' src={this.props.anime.thumbnail} />
             </div>
-            {this.props.season.melodies.length > 0 ? (
-              <hr className='clear' />
-            ) : (
-              null
-            )}
-            {this.props.season.melodies.map((melody) =>
-              <Melody key={melody.id} melody={melody} />
-            )}
+          ) : (
+            null
+          )}
+          <div className='summary'>
+            <div dangerouslySetInnerHTML={summary} />
           </div>
+          <p className='pull-right'>
+            <span className='label label-default link' onClick={this.handleClickPR}>
+              {'PR'}
+              <span className='glyphicon glyphicon-refresh' />
+            </span>
+          </p>
         </div>
       </div>
     )
@@ -55,6 +46,7 @@ export default class Anime extends Component {
 }
 
 Anime.propTypes = {
-  season: PropTypes.object.isRequired,
-  onDisplayAdvertisements: PropTypes.func.isRequired
+  anime: PropTypes.object.isRequired,
+  title: PropTypes.string,
+  onClickPR: PropTypes.func.isRequired
 }

@@ -7,5 +7,6 @@ class Api::WelcomeController < Api::BaseController
                      .where('melodies.draft = ?', false)
                      .references(:melodies)
                      .order(:id)
+                     .order('melodies.kind asc')
   end
 end

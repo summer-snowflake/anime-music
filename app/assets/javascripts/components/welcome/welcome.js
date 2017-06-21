@@ -1,61 +1,32 @@
 import React, { Component } from 'react'
-import AnimeList from './_anime_list.js'
+import Seasons from './_seasons.js'
 import Tweets from './../menu/_tweets.js'
-import Advertisements from './../menu/_advertisements.js'
-import { origin } from './../../origin.js'
+import Advertisement from './../menu/_advertisement.js'
 
 export default class Welcome extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      advertisements: []
+      anime_id: undefined
     }
-    this.handleDisplayAdvertisements = this.handleDisplayAdvertisements.bind(this)
+    this.handleDisplayAdvertisement = this.handleDisplayAdvertisement.bind(this)
   }
 
-  componentWillMount() {
-    this.loadAdvertisementsBySeasonsFromServer() // TODO: 日付で取得できるようにする
-  }
-
-  handleDisplayAdvertisements(season_id) {
-    this.loadAdvertisementsBySeasonFromServer(season_id)
-  }
-
-  loadAdvertisementsBySeasonFromServer(season_id) {
-    fetch(origin + 'api/seasons/' + season_id + '/advertisements')
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({advertisements: res.advertisements})
-      })
-      .catch((error) => {
-        console.error(error)
-      })
-  }
-
-  loadAdvertisementsBySeasonsFromServer() {
-    fetch(origin + 'api/advertisements')
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({advertisements: res.advertisements})
-      })
-      .catch((error) => {
-        console.error(error)
-      })
+  handleDisplayAdvertisement(anime_id) {
+    this.setState({anime_id: anime_id})
   }
 
   render() {
     return (
       <div className='welcomeComponent'>
-        <h1>{'放送中のアニメ'}</h1>
+        <div className='col-md-12'>
+          <h1>{'放送中のアニメ'}</h1>
+        </div>
         <div className='col-md-9'>
-          <AnimeList onDisplayAdvertisements={this.handleDisplayAdvertisements} />
+          <Seasons onDisplayAdvertisement={this.handleDisplayAdvertisement} />
         </div>
         <div className='col-md-3'>
-          {this.state.advertisements.length > 0 ? (
-            <Advertisements advertisements={this.state.advertisements} />
-          ) : (
-            null
-          )}
+          <Advertisement anime_id={this.state.anime_id} />
           <div className='clear' />
           <Tweets />
         </div>
