@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import Movie from './_movie'
 
 export default class Melody extends Component {
   constructor(props) {
@@ -20,50 +19,54 @@ export default class Melody extends Component {
   }
 
   render () {
+    const comment = { __html: this.props.melody.comment.replace(/\r?\n/g, '<br>') }
     return (
-      <div className='melodyComponent'>
-        <table className='table'>
-          <tbody>
-            <tr>
-              <td>
-                <span className='label label-info kind-label'>
-                  {this.props.melody.kind.toUpperCase()}
-                </span>
-              </td>
-              <td className='melody-info' rowSpan='2'>
-                <div dangerouslySetInnerHTML={{__html: this.props.melody.info}} />
-              </td>
-            </tr>
-            <tr>
-              <td className='title'>
-                <span className='title'>
-                  <span className='glyphicon glyphicon-music' />
-                  <h2>{this.props.melody.title}</h2>
-                </span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        {this.props.melody.youtube || this.props.melody.advertisement_body ? (
-          <div>
-            <span className='link' onClick={this.handleToggleMovies}>
-              {this.state.showMovie ? (
-                <span className='glyphicon glyphicon-chevron-down' />
-              ) : (
-                <span className='glyphicon glyphicon-chevron-right' />
-              )}
-              <span className='show-movie-link'>{'視聴する'}</span>
-            </span>
-            {this.state.showMovie ? (
-              <Movie advertisement_body={this.props.melody.advertisement_body} comment={this.props.melody.comment} youtube={this.props.melody.youtube} />
+      <tbody className='melodyComponent'>
+        <tr>
+          <td className='advertisement'>
+            {this.props.melody.advertisement_body ? (
+              <span dangerouslySetInnerHTML={{__html: this.props.melody.advertisement_body}} />
             ) : (
-              null
+              <span className='circle'>
+                <span className='glyphicon glyphicon-music' />
+              </span>
             )}
-          </div>
+          </td>
+          <td className='title'>
+            <span className='label label-info kind-label'>
+              {this.props.melody.kind.toUpperCase()}
+            </span>
+            <h2>
+              <span className='glyphicon glyphicon-music' />
+              {this.props.melody.title}
+            </h2>
+          </td>
+          <td className='melody-info'>
+            <div dangerouslySetInnerHTML={{__html: this.props.melody.info}} />
+          </td>
+        </tr>
+        {this.props.melody.youtube || this.props.melody.advertisement_body ? (
+          <tr>
+            <td colSpan='3'>
+              {this.props.melody.comment ? (
+                <span className='comment'>
+                  <span className='glyphicon glyphicon-comment' />
+                  <span dangerouslySetInnerHTML={comment} />
+                </span>
+              ) : (
+                null
+              )}
+              {this.props.melody.youtube ? (
+                <span className='movie' dangerouslySetInnerHTML={{__html: this.props.melody.youtube}} />
+              ) : (
+                null
+              )}
+            </td>
+          </tr>
         ) : (
           null
         )}
-      </div>
+      </tbody>
     )
   }
 }

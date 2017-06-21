@@ -24,9 +24,11 @@ export default class Season extends Component {
             ) : (
               null
             )}
-            {this.props.season.melodies.map((melody) =>
-              <Melody key={melody.id} melody={melody} />
-            )}
+            <table className='table'>
+              {this.props.season.melodies.map((melody) =>
+                <Melody key={melody.id} melody={melody} />
+              )}
+            </table>
           </div>
         </div>
       </div>
