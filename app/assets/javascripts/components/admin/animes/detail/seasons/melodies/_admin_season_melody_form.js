@@ -56,11 +56,7 @@ export default class AdminSeasonMelodyForm extends Component {
         composer: this.refs.composer.value,
         adapter: this.refs.adapter.value,
         memo: this.refs.memo.value,
-        youtube: this.refs.youtube.value,
-        advertisement_attributes: {
-          id: (this.props.melody || {}).advertisement_id,
-          body: this.refs.body.value
-        }
+        youtube: this.refs.youtube.value
       },
     }
     this.props.onSubmit(params)
@@ -164,9 +160,6 @@ export default class AdminSeasonMelodyForm extends Component {
           </div>
           <div className='form-group youtube'>
             <textarea className='form-control' cols='80' defaultValue={(this.props.melody || {}).youtube} disabled={this.state.loadingForm} id='youtube' placeholder='Youtubeの埋め込みコード' ref='youtube' rows='4' />
-          </div>
-          <div className='form-group body'>
-            <textarea className='form-control' cols='80' defaultValue={(this.props.melody || {}).advertisement_body} disabled={this.state.loadingForm} id='body' placeholder='htmlタグ' ref='body' rows='4' />
           </div>
           <div className='form-group draft checkbox'>
             <label>

@@ -24,8 +24,8 @@ export default class Melody extends Component {
       <tbody className='melodyComponent'>
         <tr>
           <td className='advertisement'>
-            {this.props.melody.advertisement_body ? (
-              <span dangerouslySetInnerHTML={{__html: this.props.melody.advertisement_body}} />
+            {this.props.melody.advertisements[0] ? (
+              <span dangerouslySetInnerHTML={{__html: this.props.melody.advertisements[0].body}} />
             ) : (
               <span className='circle'>
                 <span className='glyphicon glyphicon-music' />
