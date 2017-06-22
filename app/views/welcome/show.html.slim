@@ -12,14 +12,19 @@
         .animeComponent(id="season-#{season.id}")
           .panel.panel-default
             .panel-body
-              h2.title= season.decorate.anime_title
-              .thumbnail= image_tag season.anime.picture
-              .summary= season.anime.summary
-              p.pull-right
-                span.label.label-default.link
-                  | PR
-                  span.glyphicon.glyphicon-refresh
-              - if season.melodies.size > 0
+              .animeComponent(id="anime-#{season.anime.id}")
+                h2.title
+                  span= season.decorate.anime_title
+                div
+                  - if season.anime.picture.present?
+                    .thumbnail= image_tag season.anime.picture
+                  .summary
+                    div= season.anime.summary
+                  p.pull-right
+                    span.label.label-default.link
+                      | PR
+                      span.glyphicon.glyphicon-refresh
+              - if season.melodies.present?
                 hr.clear
               table.table
                 - season.melodies.each do |melody|
@@ -47,7 +52,6 @@
                             = melody.memo.html_safe
                         - if melody.youtube.present?
                           span.movie= melody.youtube.html_safe
-
   .col-md-3
     - if @advertisement.persisted?
       = render 'advertisement', advertisement: @advertisement
