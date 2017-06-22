@@ -31,8 +31,8 @@
                   tbody.melodyComponent
                     tr
                       td.advertisement
-                        - if melody.advertisement.present?
-                          span= melody.advertisement.body.html_safe
+                        - if melody.advertisements.first
+                          span= melody.advertisements.first.body.html_safe
                         - else
                           span.circle
                             span.glyphicon.glyphicon-music

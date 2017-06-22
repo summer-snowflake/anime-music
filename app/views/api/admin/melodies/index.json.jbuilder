@@ -12,8 +12,10 @@ json.melodies do
     json.memo melody.memo
     json.kind melody.kind
     json.youtube melody.youtube.try!(:html_safe)
-    json.advertisement_id melody.advertisement.try!(:id)
-    json.advertisement_body melody.advertisement.try!(:body).try!(:html_safe)
+    json.advertisements melody.advertisements do |advertisement|
+      json.id advertisement.id
+      json.body advertisement.body
+    end
     json.draft melody.draft
     json.melody_images melody.melody_images do |image|
       json.id image.id
