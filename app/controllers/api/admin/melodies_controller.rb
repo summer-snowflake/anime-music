@@ -1,12 +1,16 @@
 # frozen_string_literal: true
 
 class Api::Admin::MelodiesController < Api::Admin::BaseController
-  before_action :set_season, only: %i[index create update destroy]
-  before_action :set_melody, only: %i[update destroy]
+  before_action :set_season, only: %i[index show create update destroy]
+  before_action :set_melody, only: %i[show update destroy]
 
+  # /api/admin/seasons/:season_id/melodies
   def index
     @melodies = Melody::Fetcher.all(season: @season, params: nil)
   end
+
+  # /api/admin/seasons/:season_id/melodies/:id
+  def show; end
 
   def create
     @melody = @season.melodies.new(melody_params)

@@ -77,6 +77,63 @@ describe 'GET /api/admin/seasons/1/melodies', autodoc: true do
   end
 end
 
+describe 'GET /api/admin/seasons/:season_id/melodies/:id', autodoc: true do
+  let!(:anime) { create(:anime) }
+  let!(:season) { create(:season, anime: anime) }
+  let!(:singer) { create(:singer) }
+  let!(:melody) do
+    create(:melody, season: season, kind: :op, singer: singer)
+  end
+  let!(:advertisement) { create(:advertisement, melody: melody) }
+  let!(:melody_image) { create(:melody_image, melody: melody) }
+
+  context 'ログインしていない場合' do
+    it '401が返ってくること' do
+      get "/api/admin/seasons/#{season.id}/melodies/#{melody.id}"
+      expect(response.status).to eq 401
+    end
+  end
+
+  context 'ログインしている場合' do
+    let!(:user) { create(:user, :registered) }
+
+    context 'kindの指定がない場合' do
+      it '200と曲一覧が返ってくること' do
+        get "/api/admin/seasons/#{season.id}/melodies/#{melody.id}",
+            headers: login_headers(user)
+        expect(response.status).to eq 200
+
+        json = {
+          id: melody.id,
+          season_anime_title: melody.season.decorate.anime_title,
+          kind: melody.kind,
+          title: melody.title,
+          singer_name: singer.name,
+          lyric_writer: melody.lyric_writer,
+          composer: melody.composer,
+          adapter: melody.adapter,
+          info: melody.decorate.info,
+          memo: melody.memo,
+          youtube: melody.youtube,
+          advertisements: [
+            {
+              id: advertisement.id,
+              body: advertisement.body
+            }
+          ],
+          draft: false,
+          melody_images: [
+            id: melody_image.id,
+            picture: melody_image.picture.url
+          ]
+        }
+        expect(response.body).to be_json_as(json)
+      end
+    end
+  end
+end
+
+
 describe 'POST /api/admin/seasons/:season_id/melodies', autodoc: true do
   let(:melody_title) { '音楽タイトル' }
   let!(:season) { create(:season) }
