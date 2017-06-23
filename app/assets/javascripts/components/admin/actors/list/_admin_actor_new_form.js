@@ -82,8 +82,9 @@ export default class AdminActorNewForm extends Component {
   }
 
   render() {
+    let field_status = this.state.showForm ? 'opened' : 'closed'
     return (
-      <div className='adminActorNewFormComponent new-form-field'>
+      <div className={'adminActorNewFormComponent new-form-field ' + field_status}>
         {this.state.showForm ? (
           <div className='media'>
             <div className='media-body non-bordered'>

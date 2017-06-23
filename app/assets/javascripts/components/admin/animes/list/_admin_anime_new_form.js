@@ -100,8 +100,9 @@ export default class AdminAnimeNewForm extends Component {
   }
 
   render() {
+    let field_status = this.state.showForm ? 'opened' : 'closed'
     return (
-      <div className='adminAnimeNewFormComponent new-form-field'>
+      <div className={'adminAnimeNewFormComponent new-form-field ' + field_status}>
         {this.state.showForm ? (
           <div className='media'>
             <div className='media-left'>
@@ -131,7 +132,7 @@ export default class AdminAnimeNewForm extends Component {
             </div>
           </div>
           ) : (
-          <AdminNewButtonField message={this.state.message} message_type={this.state.message_type} name='Anime' onLoadNewForm={this.handleShowNewForm} />
+          <AdminNewButtonField message={this.state.message} message_type={this.state.message_type} name='アニメ' onLoadNewForm={this.handleShowNewForm} />
           )}
       </div>
     )
