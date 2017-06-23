@@ -133,7 +133,6 @@ describe 'GET /api/admin/seasons/:season_id/melodies/:id', autodoc: true do
   end
 end
 
-
 describe 'POST /api/admin/seasons/:season_id/melodies', autodoc: true do
   let(:melody_title) { '音楽タイトル' }
   let!(:season) { create(:season) }
