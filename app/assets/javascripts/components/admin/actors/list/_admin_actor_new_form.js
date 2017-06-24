@@ -89,8 +89,7 @@ export default class AdminActorNewForm extends Component {
           <div className='media'>
             <div className='media-body non-bordered'>
               <div className='form-group name'>
-                <label htmlFor='name'>{'声優名'}</label>
-                <input autoFocus className='form-control' disabled={this.state.loadingForm} id='name' name='name' onChange={this.handleChangeName} type='text' />
+                <input autoFocus className='form-control' disabled={this.state.loadingForm} id='name' name='name' onChange={this.handleChangeName} placeholder='声優名' type='text' />
               </div>
               <a className='btn btn-danger animate-button' disabled={this.state.loadingForm} onClick={this.handleClickSubmitButton} type='submit'>
                 {'登録'}
