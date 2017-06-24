@@ -82,14 +82,14 @@ export default class AdminActorNewForm extends Component {
   }
 
   render() {
+    let field_status = this.state.showForm ? 'opened' : 'closed'
     return (
-      <div className='adminActorNewFormComponent new-form-field'>
+      <div className={'adminActorNewFormComponent new-form-field ' + field_status}>
         {this.state.showForm ? (
           <div className='media'>
             <div className='media-body non-bordered'>
               <div className='form-group name'>
-                <label htmlFor='name'>{'声優名'}</label>
-                <input autoFocus className='form-control' disabled={this.state.loadingForm} id='name' name='name' onChange={this.handleChangeName} type='text' />
+                <input autoFocus className='form-control' disabled={this.state.loadingForm} id='name' name='name' onChange={this.handleChangeName} placeholder='声優名' type='text' />
               </div>
               <a className='btn btn-danger animate-button' disabled={this.state.loadingForm} onClick={this.handleClickSubmitButton} type='submit'>
                 {'登録'}
@@ -101,7 +101,7 @@ export default class AdminActorNewForm extends Component {
             </div>
           </div>
           ) : (
-          <AdminNewButtonField message={this.state.message} message_type={this.state.message_type} name='Actor' onLoadNewForm={this.handleShowNewForm} />
+          <AdminNewButtonField message={this.state.message} message_type={this.state.message_type} name='声優' onLoadNewForm={this.handleShowNewForm} />
           )}
       </div>
     )

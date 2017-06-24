@@ -93,9 +93,7 @@ feature '管理画面：シーズン', js: true do
 
   scenario '対象のシーズンに曲が登録できること' do
     within "#season-#{season1.id}" do
-      within '.adminNewButtonFieldComponent' do
-        find('.btn-primary').click
-      end
+      find('.adminNewButtonFieldComponent').click
       within '.adminSeasonMelodyNewFieldComponent' do
         find('#IN').click
         fill_in 'title', with: '曲のタイトル'
@@ -121,9 +119,7 @@ feature '管理画面：シーズン', js: true do
 
   scenario '対象のシーズンに下書きとして曲が登録できること' do
     within "#season-#{season1.id}" do
-      within '.adminNewButtonFieldComponent' do
-        find('.btn-primary').click
-      end
+      find('.adminNewButtonFieldComponent').click
       within '.adminSeasonMelodyNewFieldComponent' do
         find('#IN').click
         fill_in 'title', with: '曲のタイトル'

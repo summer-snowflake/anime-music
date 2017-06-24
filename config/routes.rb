@@ -32,7 +32,7 @@ Rails.application.routes.draw do
       resources :actors, only: %i(index show create update destroy)
       resources :seasons, only: :none do
         resources :advertisements, only: %i(index)
-        resources :melodies, only: %i(index create update destroy)
+        resources :melodies, only: %i(index show create update destroy)
       end
       resources :melodies, only: :none do
         resources :melody_images, only: %i(index create destroy)
