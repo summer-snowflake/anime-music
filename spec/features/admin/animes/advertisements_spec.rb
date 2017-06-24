@@ -44,8 +44,10 @@ feature '管理画面：アニメ詳細：広告', js: true do
   end
 
   scenario 'アニメの広告を登録できること' do
+    within '.adminAnimeAdvertisementsComponent' do
+      find('.adminNewButtonFieldComponent').click
+    end
     within '.adminAnimeAdvertisementNewFieldComponent' do
-      find('.btn-primary').click
       fill_in 'tag_name', with: '広告のタグ名'
       fill_in 'body', with: "<a href='https://example.com'>URL</a>"
       find('.btn-danger').click
