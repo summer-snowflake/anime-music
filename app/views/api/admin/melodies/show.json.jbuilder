@@ -5,7 +5,7 @@ json.season_anime_title @melody.season.decorate.anime_title
 json.kind @melody.kind
 json.title @melody.title
 json.youtube @melody.youtube
-json.singer_name @melody.singer.name
+json.singer_name @melody.singer.try(:name)
 json.lyric_writer @melody.lyric_writer
 json.composer @melody.composer
 json.adapter @melody.adapter

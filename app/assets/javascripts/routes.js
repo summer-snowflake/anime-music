@@ -34,7 +34,7 @@ module.exports = (
       </Route>
       <Route component={AdminMelodiesPage} path="/admin/melodies">
         <IndexRoute component={AdminMelodies} />
-        <Route component={AdminActor} path="/admin/melodies/:melodyId" />
+        <Route component={AdminMelody} path="/admin/melodies/:melodyId" />
       </Route>
     </Route>
   </Route>

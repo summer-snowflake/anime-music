@@ -6,7 +6,17 @@ export default class AdminMelodyDetail extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      melody: { title: '' }
+      melody: {
+        title: '',
+        kind: '',
+        youtube: '',
+        singer_name: '',
+        lyric_writer: '',
+        composer: '',
+        adapter: '',
+        memo: '',
+
+      }
     }
   }
 
@@ -32,7 +42,31 @@ export default class AdminMelodyDetail extends Component {
       <div className='adminMelodyDetailComponent'>
         <div className='panel panel-default'>
           <div className='panel-body'>
-            {this.state.melody.title}
+            <div className='label label-info kind-label'>
+              {this.state.melody.kind.toUpperCase()}
+            </div>
+            <div className='title'>
+              <span className='glyphicon glyphicon-music' />
+              {this.state.melody.title}
+            </div>
+            <div className='singer_name'>
+              {'歌　: ' + (this.state.melody.singer_name || '')}
+            </div>
+            <div className='lyric_writer'>
+              {'作詞: ' + this.state.melody.lyric_writer}
+            </div>
+            <div className='composer'>
+              {'作曲: ' + this.state.melody.composer}
+            </div>
+            <div className='adapter'>
+              {'編曲: ' + this.state.melody.adapter}
+            </div>
+            <div className='memo'>
+              {'メモ: ' + this.state.melody.memo}
+            </div>
+            <div className='youtube'>
+              <span dangerouslySetInnerHTML={{__html: this.state.melody.youtube}} />
+            </div>
           </div>
         </div>
       </div>

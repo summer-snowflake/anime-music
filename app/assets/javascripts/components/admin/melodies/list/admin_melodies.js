@@ -4,7 +4,7 @@ export default class AdminMelodies extends Component {
   render() {
     return (
       <div className='adminMelodiesComponent'>
-        melodies
+        {'melodieas'}
       </div>
     )
   }
