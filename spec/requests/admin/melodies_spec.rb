@@ -77,7 +77,7 @@ describe 'GET /api/admin/seasons/1/melodies', autodoc: true do
   end
 end
 
-describe 'GET /api/admin/seasons/:season_id/melodies/:id', autodoc: true do
+describe 'GET /api/admin/melodies/:id', autodoc: true do
   let!(:anime) { create(:anime) }
   let!(:season) { create(:season, anime: anime) }
   let!(:singer) { create(:singer) }
@@ -89,7 +89,7 @@ describe 'GET /api/admin/seasons/:season_id/melodies/:id', autodoc: true do
 
   context 'ログインしていない場合' do
     it '401が返ってくること' do
-      get "/api/admin/seasons/#{season.id}/melodies/#{melody.id}"
+      get "/api/admin/melodies/#{melody.id}"
       expect(response.status).to eq 401
     end
   end
@@ -99,7 +99,7 @@ describe 'GET /api/admin/seasons/:season_id/melodies/:id', autodoc: true do
 
     context 'kindの指定がない場合' do
       it '200と曲一覧が返ってくること' do
-        get "/api/admin/seasons/#{season.id}/melodies/#{melody.id}",
+        get "/api/admin/melodies/#{melody.id}",
             headers: login_headers(user)
         expect(response.status).to eq 200
 
