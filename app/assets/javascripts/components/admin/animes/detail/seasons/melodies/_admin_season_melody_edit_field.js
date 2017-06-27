@@ -134,9 +134,9 @@ export default class AdminSeasonMelodyEditField extends Component {
             </div>
             <DestroyModal handleCancel={this.onClickDeleteCancelButton} handleDestroy={this.onClickDeleteButton} showModal={this.state.showModal} />
           </div>
-          ) : (
-            null
-          )}
+        ) : (
+          null
+        )}
       </div>
     )
   }
