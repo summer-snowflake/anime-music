@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     root to: 'top#index', as: :top
     resources :animes, only: %i(index show)
     resources :actors, only: %i(index show)
-    # resources :melodies, only: %i(index show)
+    resources :melodies, only: %i(index show)
   end
 
   namespace :api, only: %i(index), format: 'json' do
@@ -32,9 +32,9 @@ Rails.application.routes.draw do
       resources :actors, only: %i(index show create update destroy)
       resources :seasons, only: :none do
         resources :advertisements, only: %i(index)
-        resources :melodies, only: %i(index show create update destroy)
+        resources :melodies, only: %i(index create update destroy), module: :seasons
       end
-      resources :melodies, only: :none do
+      resources :melodies, only: %i(show) do
         resources :melody_images, only: %i(index create destroy)
       end
     end
