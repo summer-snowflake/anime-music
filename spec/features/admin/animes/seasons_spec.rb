@@ -34,7 +34,7 @@ feature '管理画面：シーズン', js: true do
 
   scenario 'シーズンを登録できること' do
     within '.adminAnimeSeasonNewFieldComponent' do
-      find('.btn-primary').click
+      find('.adminNewButtonFieldComponent').click
       fill_in 'start_on', with: 3.months.ago.to_date
       fill_in 'end_on', with: 1.month.ago.to_date
       fill_in 'phase', with: '1'

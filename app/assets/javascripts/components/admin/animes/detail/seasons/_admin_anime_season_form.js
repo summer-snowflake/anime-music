@@ -95,7 +95,7 @@ export default class AdminAnimeSeasonForm extends Component {
             </div>
             <div className='form-group'>
               <div className='col-sm-2 form-control' id='disabled'>
-                {'非表示'}
+                {'期 非表示'}
                 <input checked={this.state.unsaved_disabled} className='pull-right' defaultValue={(this.props.season || {}).disabled || false} name='disabled' onChange={this.handleChangeDisabled} ref='disabled' type='checkbox' />
               </div>
               <div className='col-sm-2'>

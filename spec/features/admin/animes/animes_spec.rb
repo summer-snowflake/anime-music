@@ -55,8 +55,8 @@ feature '管理画面：アニメ', js: true do
 
   scenario '正しい値と「登録」ボタンで、アニメを新規作成できること' do
     visit admin_animes_path
+    find('.adminNewButtonFieldComponent').click
     within '.adminAnimeNewFormComponent' do
-      find('.btn-primary').click
       fill_in 'title', with: '新しいタイトル'
       fill_in 'summary', with: '新しいあらすじ'
       fill_in 'wiki-url', with: 'http://new-wiki.com'
@@ -69,8 +69,8 @@ feature '管理画面：アニメ', js: true do
 
   scenario '正しい値と「キャンセル」ボタンで、アニメが登録されないこと' do
     visit admin_animes_path
+    find('.adminNewButtonFieldComponent').click
     within '.adminAnimeNewFormComponent' do
-      find('.btn-primary').click
       fill_in 'title', with: '新しいタイトル'
       fill_in 'summary', with: '新しいあらすじ'
       fill_in 'wiki-url', with: 'http://new-wiki.com'
@@ -82,8 +82,8 @@ feature '管理画面：アニメ', js: true do
 
   scenario '不正な値と「登録」ボタンで、アニメが登録されないこと' do
     visit admin_animes_path
+    find('.adminNewButtonFieldComponent').click
     within '.adminAnimeNewFormComponent' do
-      find('.btn-primary').click
       fill_in 'title', with: ''
       fill_in 'summary', with: '新しいあらすじ'
       fill_in 'wiki-url', with: 'http://new-wiki.com'

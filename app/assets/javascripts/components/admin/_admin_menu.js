@@ -15,6 +15,9 @@ export default class AdminMenu extends Component {
           <li role='presentation'>
             <Link activeClassName='active' className='animate-button' to="/admin/actors">{'声優'}</Link>
           </li>
+          <li role='presentation'>
+            <Link activeClassName='active' className='animate-button' to='/admin/melodies'>{'曲'}</Link>
+          </li>
         </ul>
       </div>
     )
