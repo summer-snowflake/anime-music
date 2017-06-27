@@ -88,7 +88,7 @@ export default class AdminAnimeSeasonMelody extends Component {
         <div className='composer'>
           {'作曲: ' + this.props.melody.composer}
         </div>
-         <div className='adapter'>
+        <div className='adapter'>
           {'編曲: ' + this.props.melody.adapter}
         </div>
       </div>

@@ -69,11 +69,7 @@ export default class AdminActorDetail extends Component {
       <div className='adminActorDetailComponent'>
         <div className='panel panel-default'>
           <div className='panel-body'>
-            <AdminActorTitle
-              handleUpdateName={this.onSubmit}
-              name={this.state.actor.name}
-              ref='name'
-              />
+            <AdminActorTitle handleUpdateName={this.onSubmit} name={this.state.actor.name} ref='name' />
           </div>
         </div>
       </div>

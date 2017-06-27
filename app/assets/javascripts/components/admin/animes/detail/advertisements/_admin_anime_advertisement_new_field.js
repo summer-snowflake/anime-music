@@ -75,9 +75,9 @@ export default class AdminAnimeAdvertisementNewField extends Component {
       <div className='adminAnimeAdvertisementNewFieldComponent new-form-field'>
         {this.state.showForm ? (
           <AdminAdvertisementForm onClose={this.handleClickCancelButton} onSubmit={this.handleClickSubmitButton} ref='form' />
-          ) : (
+        ) : (
           <AdminNewButtonField message={this.state.message} message_type={this.state.message_type} name='Advertisement' onLoadNewForm={this.handleShowNewForm} />
-          )}
+        )}
       </div>
     )
   }
