@@ -89,7 +89,7 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
-    childprocess (0.7.0)
+    childprocess (0.7.1)
       ffi (~> 1.0, >= 1.0.11)
     cliver (0.3.2)
     coderay (1.1.1)
@@ -257,7 +257,7 @@ GEM
     fog-voxel (0.1.0)
       fog-core
       fog-xml
-    fog-vsphere (1.10.0)
+    fog-vsphere (1.11.0)
       fog-core
       rbvmomi (~> 1.9)
     fog-xenserver (0.3.0)
