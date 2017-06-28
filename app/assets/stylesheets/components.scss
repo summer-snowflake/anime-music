@@ -43,7 +43,7 @@
 .seasonComponent {
   table {
     border-collapse: separate;
-    border-spacing: 0px 20px;
+    border-spacing: 0 20px;
   }
 }
 
@@ -53,7 +53,7 @@
     vertical-align: middle;
     .glyphicon-music {
       font-size: 21px;
-      color: #aaa;
+      color: #AAA;
       margin: 8px;
       padding: 5px;
     }
@@ -70,7 +70,7 @@
   td.melody-info {
     font-size: 12px;
     border-radius: 5px;
-    background-color: rgba($blue, 0.1);
+    background-color: rgba($blue, .1);
     line-height: 200%;
     width: 50%;
   }
@@ -83,7 +83,7 @@
     font-size: 12px;
     font-style: italic;
     .glyphicon {
-      padding: 0px;
+      padding: 0;
       padding-right: 5px;
     }
   }
@@ -121,12 +121,12 @@
   .btn-group {
     button.btn-default, button.btn-default:hover {
       outline: none;
-      background-color: #fff;
-      border-color: #ddd;
+      background-color: #FFF;
+      border-color: #DDD;
       box-shadow: none;
     }
     button.btn-default.is-draft, button.btn-default.is-draft:hover {
-      background-color: #ddd;
+      background-color: #DDD;
     }
     .label {
       margin-right: 5px;
@@ -205,7 +205,7 @@
   .editing-body {
     height: 230px;
     padding: 20px;
-    background-color: rgba($blue, 0.1);
+    background-color: rgba($blue, .1);
   }
 
   .wiki-url {
@@ -227,7 +227,7 @@
 .adminAnimeSeasonComponent {
   padding: 10px;
   .not-editing-body, .edit-form-field {
-    border-left: solid 5px rgba($blue, 0.2);
+    border-left: solid 5px rgba($blue, .2);
   }
 }
 
@@ -253,7 +253,7 @@
     width: 60px;
     height: 60px;
     text-align: center;
-    background-color: #fff;
+    background-color: #FFF;
   }
   .exist-image {
     width: 207px;
@@ -276,7 +276,7 @@
 
 .adminAnimeSeasonMelodiesComponent {
   padding: 10px;
-  border-left: solid 5px rgba($blue, 0.2);
+  border-left: solid 5px rgba($blue, .2);
 }
 
 .adminAnimeSeasonMelodyComponent {
@@ -289,7 +289,7 @@
   }
   .youtube {
     .link {
-      color: #fff;
+      color: #FFF;
     }
   }
   display: inline-block;
@@ -299,14 +299,14 @@
 }
 
 .adminAnimeSeasonMelodyComponent.draft {
-  background-color: #eee;
+  background-color: #EEE;
 }
 
 .adminAnimeSeasonMelodyComponent:hover {
   span.glyphicon-pencil {
     visibility: visible;
   }
-  background-color: rgba($blue, 0.1);
+  background-color: rgba($blue, .1);
 }
 
 .adminMelodyImageComponent {
