@@ -1,19 +1,19 @@
-$orange: #f7af40;
+$orange: #F7AF40;
 $orange-dark: darken($orange, 15%);
 
-$blue: #48b5ee;
+$blue: #48B5EE;
 $blue-dark: darken($blue, 10%);
 
-$pink: #ed399c;
+$pink: #ED399C;
 
-$yellow: #fff438;
+$yellow: #FFF438;
 
 $link-color: $blue-dark;
 
-@import "common";
+@import 'common';
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
 
-@import "components";
-@import "bootstrap_overrides";
+@import 'components';
+@import 'bootstrap_overrides';
