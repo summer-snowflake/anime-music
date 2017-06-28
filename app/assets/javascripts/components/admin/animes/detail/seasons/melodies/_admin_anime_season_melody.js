@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 import MovieModal from './_movie_modal'
 import AdvertisementModal from './_advertisement_modal'
 
@@ -75,8 +76,10 @@ export default class AdminAnimeSeasonMelody extends Component {
           {this.props.melody.kind.toUpperCase()}
         </div>
         <div className='title'>
-          <span className='glyphicon glyphicon-music' />
-          {this.props.melody.title}
+          <Link className='link' key={this.props.melody.id} to={'/admin/melodies/' + this.props.melody.id}>
+            <span className='glyphicon glyphicon-music' />
+            {this.props.melody.title}
+          </Link>
         </div>
 
         <div className='singer_name'>
