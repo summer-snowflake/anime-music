@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { origin } from './../../../../../origin'
 import AdminNewButtonField from './../../../_admin_new_button_field'
-import AdminAdvertisementForm from './_admin_advertisement_form'
+import AdminAdvertisementForm from './../../../common/_admin_advertisement_form'
 
 export default class AdminAnimeAdvertisementNewField extends Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import AdminNewButtonField from './../../../../_admin_new_button_field'
+import AdminNewButtonField from './../../../../common/_admin_new_button_field'
 import AdminSeasonMelodyForm from './_admin_season_melody_form'
 import { origin } from './../../../../../../origin.js'
 
