@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import MessageBox from './../common/_message_box'
+import MessageBox from './../../common/_message_box'
 
 export default class AdminNewButtonField extends Component {
   constructor(props) {
