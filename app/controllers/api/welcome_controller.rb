@@ -3,7 +3,7 @@
 class Api::WelcomeController < Api::BaseController
   def show
     @seasons = Season.airing(Time.zone.today)
-                     .includes(%i[anime melodies])
+                     .includes(%i[anime melodies advertisements])
                      .where('melodies.draft = ?', false)
                      .references(:melodies)
                      .order(:id)

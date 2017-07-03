@@ -100,8 +100,9 @@ export default class AdminAnimeNewForm extends Component {
   }
 
   render() {
+    let field_status = this.state.showForm ? 'opened' : 'closed'
     return (
-      <div className='adminAnimeNewFormComponent new-form-field'>
+      <div className={'adminAnimeNewFormComponent new-form-field ' + field_status}>
         {this.state.showForm ? (
           <div className='media'>
             <div className='media-left'>
@@ -109,18 +110,14 @@ export default class AdminAnimeNewForm extends Component {
             </div>
             <div className='media-body non-bordered'>
               <div className='form-group title'>
-                <label htmlFor='title'>{'タイトル'}</label>
-                <input autoFocus className='form-control' disabled={this.state.loadingForm} id='title' name='title' onChange={this.handleChangeTitle} type='text' />
+                <input autoFocus className='form-control' disabled={this.state.loadingForm} id='title' name='title' onChange={this.handleChangeTitle} placeholder='タイトル' type='text' />
               </div>
               <div className='form-group summary'>
-                <label htmlFor='summary'>{'あらすじ'}</label>
-                <textarea className='form-control' disabled={this.state.loadingForm} id='summary' name='summary' onChange={this.handleChangeSummary} rows='4' />
+                <textarea className='form-control' disabled={this.state.loadingForm} id='summary' name='summary' onChange={this.handleChangeSummary} placeholder='あらすじ' rows='4' />
               </div>
               <div className='form-group wiki-url'>
-                <label htmlFor='wiki-url'>{'WikiのURL'}</label>
-                <input className='form-control' disabled={this.state.loadingForm} name='wiki-url' onChange={this.handleChangeWikiUrl} type='text' />
+                <input className='form-control' disabled={this.state.loadingForm} name='wiki-url' onChange={this.handleChangeWikiUrl} placeholder='WikiのURL' type='text' />
               </div>
-
               <a className='btn btn-danger animate-button' disabled={this.state.loadingForm} onClick={this.handleClickSubmitButton} type='submit'>
                 {'登録'}
               </a>
@@ -130,9 +127,9 @@ export default class AdminAnimeNewForm extends Component {
               <MessageBox message={this.state.message} message_type={this.state.message_type} />
             </div>
           </div>
-          ) : (
-          <AdminNewButtonField message={this.state.message} message_type={this.state.message_type} name='Anime' onLoadNewForm={this.handleShowNewForm} />
-          )}
+        ) : (
+          <AdminNewButtonField message={this.state.message} message_type={this.state.message_type} name='アニメ' onLoadNewForm={this.handleShowNewForm} />
+        )}
       </div>
     )
   }

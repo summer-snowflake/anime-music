@@ -35,11 +35,11 @@ export default class AdminAnimeAdvertisements extends Component {
       <div className='adminAnimeAdvertisementsComponent'>
         <AdminAnimeAdvertisementNewField anime_id={this.props.anime_id} handleLoadAdvertisements={this.loadAdvertisementsFromServer} />
         <ul className='advertisements'>
-        {this.state.advertisements.map((advertisement) => (
-          <li key={advertisement.id}>
-            <AdminAnimeAdvertisement advertisement={advertisement} handleLoadAdvertisements={this.loadAdvertisementsFromServer} />
-          </li>
-        ))}
+          {this.state.advertisements.map((advertisement) => (
+            <li key={advertisement.id}>
+              <AdminAnimeAdvertisement advertisement={advertisement} handleLoadAdvertisements={this.loadAdvertisementsFromServer} />
+            </li>
+          ))}
         </ul>
       </div>
     )

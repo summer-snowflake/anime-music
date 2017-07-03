@@ -13,6 +13,9 @@ import AdminAnime from './components/admin/animes/detail/admin_anime.js'
 import AdminActorsPage from './components/admin/actors/admin_actors_page.js'
 import AdminActors from './components/admin/actors/list/admin_actors.js'
 import AdminActor from './components/admin/actors/detail/admin_actor.js'
+import AdminMelodiesPage from './components/admin/melodies/admin_melodies_page'
+import AdminMelodies from './components/admin/melodies/list/admin_melodies'
+import AdminMelody from './components/admin/melodies/detail/admin_melody.js'
 
 module.exports = (
   <Route component={App} path="/">
@@ -28,6 +31,10 @@ module.exports = (
       <Route component={AdminActorsPage} path="/admin/actors">
         <IndexRoute component={AdminActors} />
         <Route component={AdminActor} path="/admin/actors/:actorId" />
+      </Route>
+      <Route component={AdminMelodiesPage} path="/admin/melodies">
+        <IndexRoute component={AdminMelodies} />
+        <Route component={AdminMelody} path="/admin/melodies/:melodyId" />
       </Route>
     </Route>
   </Route>

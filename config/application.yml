@@ -3,7 +3,7 @@ defaults: &defaults
     site: アニソンタイム
     title: アニメソング情報サイト
     description: アニソンタイムは、放送中のアニメのオープニングテーマやエンディングテーマの詳細な情報を確認できるサイトです。
-    keywords: アニメ,アニソン,データベース,音楽,曲,名曲,神曲,オープニング,エンディング
+    keywords: アニメ,アニソン,アニソン情報,データベース,音楽,歌,歌手,曲,名曲,神曲,オープニング,エンディング,anison,anime,anisontime,アニソンタイム,アニソン★タイム
     og:
       type: website
       locale: ja_JP

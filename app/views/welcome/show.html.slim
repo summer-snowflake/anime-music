@@ -12,50 +12,46 @@
         .animeComponent(id="season-#{season.id}")
           .panel.panel-default
             .panel-body
-              h2.title= season.decorate.anime_title
-              .thumbnail= image_tag season.anime.picture
-              .summary= season.anime.summary
-              p.pull-right
-                span.label.label-default.link
-                  | PR
-                  span.glyphicon.glyphicon-refresh
-              - if season.melodies.size > 0
+              .animeComponent(id="anime-#{season.anime.id}")
+                h2.title
+                  span= season.decorate.anime_title
+                div
+                  - if season.anime.picture.present?
+                    .thumbnail= image_tag season.anime.picture
+                  .summary
+                    div= season.anime.summary
+                  p.pull-right
+                    span.label.label-default.link
+                      | PR
+                      span.glyphicon.glyphicon-refresh
+              - if season.melodies.present?
                 hr.clear
-              - season.melodies.each do |melody|
-                .melodyComponent
-                  table.table
-                    tbody
-                      tr
-                        td
-                          span.label.label-info.kind-label
-                            = melody.kind.upcase
-                        td.melody-info(rowspan='2')
-                          div= melody.decorate.info.html_safe
-                      tr
-                        td.title
-                          span.title
+              table.table
+                - season.melodies.each do |melody|
+                  tbody.melodyComponent
+                    tr
+                      td.advertisement
+                        - if melody.advertisements.first
+                          span= melody.advertisements.first.body.html_safe
+                        - else
+                          span.circle
                             span.glyphicon.glyphicon-music
-                            h2= melody.title
-                  - if melody.youtube.present? || melody.advertisement.present?
-                    div
-                      span.link
-                        span.glyphicon.glyphicon-chevron-down
-                        span.show-movie-link
-                          | 視聴する
-                      .movieComponent
-                        - if melody.youtube.present?
-                          span.movie.pull-left= sanitize melody.youtube, tags: %w[iframe]
-                        - if melody.advertisement.present?
-                          span.cd.pull-left
-                            span.label.label-default#tag-name
-                              | CD
-                            span= sanitize melody.advertisement.body, tags: %w[a img]
+                      td.title
+                        span.label.label-info.kind-label
+                          = melody.kind.upcase
+                        h2
+                          span.glyphicon.glyphicon-music
+                          = melody.title
+                      td.melody-info
+                        div= melody.decorate.info.html_safe
+                    tr
+                      td(colspan='3')
                         - if melody.memo.present?
-                          span.comment.pull-left
+                          span.comment
                             span.glyphicon.glyphicon-comment
-                            br
-                            span= melody.memo
-                        .clear
+                            = melody.memo.html_safe
+                        - if melody.youtube.present?
+                          span.movie= melody.youtube.html_safe
   .col-md-3
     - if @advertisement.persisted?
       = render 'advertisement', advertisement: @advertisement

@@ -18,6 +18,6 @@ class Melody::Fetcher
   def all
     melodies = @season.melodies.order(:created_at)
     melodies = melodies.send(@kind) if valid? && @kind
-    melodies.includes(:singer)
+    melodies.includes(:singer, :advertisements)
   end
 end

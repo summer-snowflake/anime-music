@@ -1,8 +1,8 @@
 h1 {
-  margin-top: 0px;
+  margin-top: 0;
   font-size: 19px;
   margin-bottom: 18px;
-  border-left: 5px solid #eeeeee;
+  border-left: 5px solid #EEE;
   padding: 10px 20px;
 }
 
@@ -16,7 +16,7 @@ h1 {
 }
 
 .glyphicon-pencil:hover, .glyphicon-trash:hover, .glyphicon-plus-sign:hover {
-  background-color: rgba($blue, 0.3);
+  background-color: rgba($blue, .3);
 }
 
 .table {
@@ -24,6 +24,10 @@ h1 {
 }
 
 .table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+  border-top: none;
+}
+
+.table > tbody + tbody {
   border-top: none;
 }
 
@@ -42,7 +46,7 @@ h1 {
 
 .alert {
   padding: 5px 10px 5px 10px;
-  margin: 0px;
+  margin: 0;
   animation-name: rotation;
   animation-duration: 3s;
   animation-timing-function: ease;
@@ -56,19 +60,16 @@ h1 {
 .alert-success {
   color: $blue;
   border-color: $blue;
-  background-color: rgba($blue, 0.2)
+  background-color: rgba($blue, .2);
 }
 
 .alert-danger {
   color: $pink;
   border-color: $pink;
-  background-color: rgba($pink, 0.2)
+  background-color: rgba($pink, .2);
 }
 
 @keyframes rotation {
-  0% {
-  }
-
   50% {
     background-color: transparent;
   }
@@ -83,7 +84,7 @@ h1 {
 .media-object {
   width: 128px;
   height: auto;
-  border: solid 1px #ddd;
+  border: solid 1px #DDD;
   .glyphicon-picture {
     top: 15px;
     font-size: 50px;
@@ -96,7 +97,7 @@ h1 {
   padding-bottom: 10px;
   padding-right: 10px;
   border-top: solid 5px;
-  border-color: rgba($blue, 0.2);
+  border-color: rgba($blue, .2);
   border-top-left-radius: 3px;
 }
 
@@ -107,7 +108,7 @@ h1 {
 .media-right {
   vertical-align: bottom;
   border-top: solid 5px;
-  border-color: rgba($blue, 0.2);
+  border-color: rgba($blue, .2);
   border-top-right-radius: 3px;
 }
 
@@ -125,7 +126,7 @@ h1 {
 }
 
 .nav-pills > li > a.active {
-  color: #fff;
+  color: #FFF;
   background: $orange;
 }
 
@@ -146,18 +147,18 @@ button:focus {
 }
 
 .btn-danger {
-  background-color: #fff;
-  border-color: #ccc;
+  background-color: #FFF;
+  border-color: #CCC;
   color: #333;
 }
 
 .btn-danger:hover {
-  background-color: #fff;
+  background-color: #FFF;
   border-color: $orange-dark;
 }
 
 .btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled.focus, .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled].focus, fieldset[disabled] .btn-danger:hover, fieldset[disabled] .btn-danger:focus, fieldset[disabled] .btn-danger.focus {
-  background-color: #fff;
+  background-color: #FFF;
   border-color: $orange;
 }
 
