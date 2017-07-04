@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { origin } from './../../../../../origin.js'
-import DestroyModal from './../../../../common/_destroy_modal'
+import { origin } from './../../../origin.js'
+import DestroyModal from './../../common/_destroy_modal'
 
-export default class AdminAnimeAdvertisement extends Component {
+export default class AdminAdvertisement extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -46,7 +46,7 @@ export default class AdminAnimeAdvertisement extends Component {
 
   render() {
     return (
-      <div className='adminAnimeAdvertisementComponent media' id={'advertisement-' + this.props.advertisement.id}>
+      <div className='adminAdvertisementComponent media' id={'advertisement-' + this.props.advertisement.id}>
         <span className='label label-default' id='tag-name'>{this.props.advertisement.tag_name}</span>
         <div className='body' dangerouslySetInnerHTML={{__html: this.props.advertisement.body}} />
         <span className='glyphicon glyphicon-trash link pull-right' onClick={this.handleClickTrashIcon} />
@@ -56,7 +56,7 @@ export default class AdminAnimeAdvertisement extends Component {
   }
 }
 
-AdminAnimeAdvertisement.propTypes = {
+AdminAdvertisement.propTypes = {
   advertisement: PropTypes.object.isRequired,
   handleLoadAdvertisements: PropTypes.func.isRequired
 }

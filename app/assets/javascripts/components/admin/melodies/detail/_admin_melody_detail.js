@@ -14,8 +14,7 @@ export default class AdminMelodyDetail extends Component {
         lyric_writer: '',
         composer: '',
         adapter: '',
-        memo: '',
-
+        memo: ''
       }
     }
   }
@@ -67,6 +66,7 @@ export default class AdminMelodyDetail extends Component {
             <div className='youtube'>
               <span dangerouslySetInnerHTML={{__html: this.state.melody.youtube}} />
             </div>
+            <hr />
           </div>
         </div>
       </div>

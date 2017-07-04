@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { origin } from './../../../../../origin'
-import AdminAnimeAdvertisement from './_admin_anime_advertisement'
+import AdminAdvertisement from './../../../common/_admin_advertisement'
 import AdminAnimeAdvertisementNewField from './_admin_anime_advertisement_new_field'
 
 export default class AdminAnimeAdvertisements extends Component {
@@ -37,7 +37,7 @@ export default class AdminAnimeAdvertisements extends Component {
         <ul className='advertisements'>
           {this.state.advertisements.map((advertisement) => (
             <li key={advertisement.id}>
-              <AdminAnimeAdvertisement advertisement={advertisement} handleLoadAdvertisements={this.loadAdvertisementsFromServer} />
+              <AdminAdvertisement advertisement={advertisement} handleLoadAdvertisements={this.loadAdvertisementsFromServer} />
             </li>
           ))}
         </ul>
