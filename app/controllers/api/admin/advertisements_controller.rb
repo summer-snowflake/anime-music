@@ -48,6 +48,7 @@ class Api::Admin::AdvertisementsController < Api::Admin::BaseController
 
   def advertisement_params
     params.require(:advertisement)
-          .permit(:anime_id, :actor_id, :season_id, :melody_id, :tag_name, :body)
+          .permit(:anime_id, :actor_id, :season_id, :melody_id,
+                  :tag_name, :body)
   end
 end
