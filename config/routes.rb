@@ -35,6 +35,7 @@ Rails.application.routes.draw do
         resources :melodies, only: %i(index create update destroy), module: :seasons
       end
       resources :melodies, only: %i(show) do
+        resources :advertisements, only: %i(index)
         resources :melody_images, only: %i(index create destroy)
       end
     end

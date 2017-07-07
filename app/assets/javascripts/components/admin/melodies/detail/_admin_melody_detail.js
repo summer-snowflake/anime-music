@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { origin } from './../../../../origin.js'
+import AdminMelodyAdvertisements from './advertisements/_admin_melody_advertisements'
 
 export default class AdminMelodyDetail extends Component {
   constructor(props) {
@@ -67,6 +68,7 @@ export default class AdminMelodyDetail extends Component {
               <span dangerouslySetInnerHTML={{__html: this.state.melody.youtube}} />
             </div>
             <hr />
+            <AdminMelodyAdvertisements melody_id={this.props.melody_id} />
           </div>
         </div>
       </div>
