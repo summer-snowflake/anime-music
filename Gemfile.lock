@@ -52,7 +52,7 @@ GEM
       actionpack
       activesupport (>= 3.0.0)
       rspec
-    autoprefixer-rails (7.1.2.1)
+    autoprefixer-rails (7.1.2.2)
       execjs
     awesome_print (1.8.0)
     bcrypt (3.1.11)
@@ -82,7 +82,7 @@ GEM
     capybara-email (2.5.0)
       capybara (~> 2.4)
       mail
-    capybara-screenshot (1.0.14)
+    capybara-screenshot (1.0.16)
       capybara (>= 1.0, < 3)
       launchy
     carrierwave (1.1.0)
@@ -118,7 +118,7 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
-    faker (1.8.0)
+    faker (1.8.4)
       i18n (~> 0.5)
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
@@ -257,7 +257,7 @@ GEM
     fog-voxel (0.1.0)
       fog-core
       fog-xml
-    fog-vsphere (1.11.1)
+    fog-vsphere (1.11.2)
       fog-core
       rbvmomi (~> 1.9)
     fog-xenserver (0.3.0)
@@ -436,7 +436,11 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
     rubyzip (1.2.1)
-    sass (3.4.25)
+    sass (3.5.0)
+      sass-listen (~> 3.0.7)
+    sass-listen (3.0.7)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9.7)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
       sass (~> 3.1)
@@ -448,14 +452,14 @@ GEM
       rubyzip (~> 1.0)
     settingslogic (2.0.9)
     shellany (0.0.1)
-    shoulda-matchers (3.1.1)
+    shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
     simplecov (0.14.1)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.1)
-    slack-api (1.5.0)
+    slack-api (1.6.0)
       faraday (~> 0.11)
       faraday_middleware (~> 0.10.0)
       faye-websocket (~> 0.10.6)
