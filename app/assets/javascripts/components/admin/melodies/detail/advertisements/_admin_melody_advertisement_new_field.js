@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import AdminNewButtonField from './../../../../common/_admin_new_button_field'
-import AdminSeasonMelodyForm from './_admin_season_melody_form'
-import { origin } from './../../../../../../origin.js'
+import { origin } from './../../../../../origin'
+import AdminNewButtonField from './../../../common/_admin_new_button_field'
+import AdminAdvertisementForm from './../../../common/_admin_advertisement_form'
 
-export default class AdminSeasonMelodyNewField extends Component {
+export default class AdminMelodyAdvertisementNewField extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -12,10 +12,11 @@ export default class AdminSeasonMelodyNewField extends Component {
       message_type: 'success',
       message: ''
     }
-    this.handleShowNewForm = this.handleShowNewForm.bind(this)
     this.handleClickCancelButton = this.handleClickCancelButton.bind(this)
     this.handleClickSubmitButton = this.handleClickSubmitButton.bind(this)
     this.handleTimeout = this.handleTimeout.bind(this)
+    this.handleShowNewForm = this.handleShowNewForm.bind(this)
+    this.postAdvertisementAgainstServer = this.postAdvertisementAgainstServer.bind(this)
   }
 
   handleShowNewForm() {
@@ -30,37 +31,38 @@ export default class AdminSeasonMelodyNewField extends Component {
     this.setState({message: ''})
   }
 
-  handleClickSubmitButton(params) {
-    this.postAnimeSeasonMelodyAgainsServer(params)
+  handleClickSubmitButton(tag_name, body) {
+    const params = { advertisement: {
+      melody_id: this.props.melody_id,
+      tag_name: tag_name,
+      body: body
+    }}
+    this.postAdvertisementAgainstServer(params)
   }
 
-  postAnimeSeasonMelodyAgainsServer(params) {
-    fetch(origin + 'api/admin/seasons/' + this.props.season_id + '/melodies', {
+  postAdvertisementAgainstServer(params) {
+    fetch(origin + 'api/admin/advertisements', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': 'Token token=' + localStorage.getItem('access_token')
-      },  
+      },
       body: JSON.stringify(params)
-    })  
+    })
       .then((res) => {
         if(res.status == '201') {
-          let title = ''
-          if(this.refs.form.refs.title.value) {
-            title = '「' + this.refs.form.refs.title.value + '」を'
-          }
           this.setState({
             showForm: false,
             message_type: 'success',
-            message: title + '登録しました'
-          })  
+            message: name + '登録しました'
+          })
           setTimeout(this.handleTimeout, 2000)
-          this.props.handleLoadMelodies()
+          this.props.handleLoadAdvertisements()
         } else {
           res.json().then((json) => {
             this.refs.form.updateFailed(json.error_messages[0])
-          })  
+          })
         }
       })
       .catch((error) => {
@@ -71,18 +73,18 @@ export default class AdminSeasonMelodyNewField extends Component {
   render() {
     let field_status = this.state.showForm ? 'opened' : 'closed'
     return (
-      <div className={'adminSeasonMelodyNewFieldComponent new-form-field ' + field_status}>
+      <div className={'adminMelodyAdvertisementNewFieldComponent new-form-field ' + field_status}>
         {this.state.showForm ? (
-          <AdminSeasonMelodyForm onClose={this.handleClickCancelButton} onSubmit={this.handleClickSubmitButton} ref='form' season_id={this.props.season_id} />
+          <AdminAdvertisementForm onClose={this.handleClickCancelButton} onSubmit={this.handleClickSubmitButton} ref='form' />
         ) : (
-          <AdminNewButtonField message={this.state.message} message_type={this.state.message_type} name='曲' onLoadNewForm={this.handleShowNewForm} />
+          <AdminNewButtonField message={this.state.message} message_type={this.state.message_type} name='広告' onLoadNewForm={this.handleShowNewForm} />
         )}
       </div>
     )
   }
 }
 
-AdminSeasonMelodyNewField.propTypes = {
-  season_id: PropTypes.number.isRequired,
-  handleLoadMelodies: PropTypes.func.isRequired
+AdminMelodyAdvertisementNewField.propTypes = {
+  melody_id: PropTypes.string.isRequired,
+  handleLoadAdvertisements: PropTypes.func.isRequired
 }

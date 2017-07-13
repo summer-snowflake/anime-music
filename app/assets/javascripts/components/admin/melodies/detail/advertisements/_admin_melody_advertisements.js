@@ -2,9 +2,9 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { origin } from './../../../../../origin'
 import AdminAdvertisement from './../../../common/_admin_advertisement'
-import AdminAnimeAdvertisementNewField from './_admin_anime_advertisement_new_field'
+import AdminMelodyAdvertisementNewField from './_admin_melody_advertisement_new_field'
 
-export default class AdminAnimeAdvertisements extends Component {
+export default class AdminMelodyAdvertisements extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -18,7 +18,7 @@ export default class AdminAnimeAdvertisements extends Component {
   }
 
   loadAdvertisementsFromServer() {
-    fetch(origin + 'api/admin/animes/' + this.props.anime_id + '/advertisements', {
+    fetch(origin + 'api/admin/melodies/' + this.props.melody_id + '/advertisements', {
       headers: {'Authorization': 'Token token=' + localStorage.getItem('access_token')}
     })
       .then((res) => res.json())
@@ -32,8 +32,8 @@ export default class AdminAnimeAdvertisements extends Component {
 
   render() {
     return (
-      <div className='adminAnimeAdvertisementsComponent'>
-        <AdminAnimeAdvertisementNewField anime_id={this.props.anime_id} handleLoadAdvertisements={this.loadAdvertisementsFromServer} />
+      <div className='adminMelodyAdvertisementsComponent'>
+        <AdminMelodyAdvertisementNewField melody_id={this.props.melody_id} handleLoadAdvertisements={this.loadAdvertisementsFromServer} />
         <ul className='advertisements'>
           {this.state.advertisements.map((advertisement) => (
             <li key={advertisement.id}>
@@ -46,6 +46,6 @@ export default class AdminAnimeAdvertisements extends Component {
   }
 }
 
-AdminAnimeAdvertisements.propTypes = {
-  anime_id: PropTypes.string.isRequired
+AdminMelodyAdvertisements.propTypes = {
+  melody_id: PropTypes.string.isRequired
 }
