@@ -48,6 +48,51 @@ describe 'GET /api/admin/animes/:anime_id/advertisements', autodoc: true do
   end
 end
 
+describe 'GET /api/admin/melodies/:melody_id/advertisements', autodoc: true do
+  let!(:melody) { create(:melody) }
+  let!(:advertisement1) { create(:advertisement, melody: melody) }
+  let!(:advertisement2) { create(:advertisement, melody: melody) }
+
+  context 'ログインしていない場合' do
+    it '401が返ってくること' do
+      get "/api/admin/melodies/#{melody.id}/advertisements"
+      expect(response.status).to eq 401
+    end
+  end
+
+  context 'ログインしている場合' do
+    let!(:user) { create(:user, :registered) }
+
+    it '200とアニメ一覧が返ってくること' do
+      get "/api/admin/melodies/#{melody.id}/advertisements",
+          headers: login_headers(user)
+      expect(response.status).to eq 200
+
+      json = {
+        advertisements: [
+          {
+            id: advertisement1.id,
+            anime_id: advertisement1.anime_id,
+            season_id: advertisement1.season_id,
+            season_phase: nil,
+            body: advertisement1.body,
+            tag_name: advertisement1.tag_name
+          },
+          {
+            id: advertisement2.id,
+            anime_id: advertisement2.anime_id,
+            season_id: advertisement2.season_id,
+            season_phase: nil,
+            body: advertisement2.body,
+            tag_name: advertisement2.tag_name
+          }
+        ]
+      }
+      expect(response.body).to be_json_as(json)
+    end
+  end
+end
+
 describe 'POST /api/admin/advertisements', autodoc: true do
   context 'ログインしていない場合' do
     it '401が返ってくること' do
