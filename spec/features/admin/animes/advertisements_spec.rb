@@ -59,4 +59,8 @@ feature '管理画面：アニメ詳細：広告', js: true do
       expect(page).to have_content '広告のタグ名'
     end
   end
+
+  after do
+    logout
+  end
 end
