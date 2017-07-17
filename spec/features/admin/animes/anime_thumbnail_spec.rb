@@ -71,4 +71,8 @@ feature '管理画面：アニメ', js: true do
       expect(page).to have_no_css 'img'
     end
   end
+
+  after do
+    logout
+  end
 end
