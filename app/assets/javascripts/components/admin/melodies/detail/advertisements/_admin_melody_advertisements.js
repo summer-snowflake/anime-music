@@ -33,7 +33,7 @@ export default class AdminMelodyAdvertisements extends Component {
   render() {
     return (
       <div className='adminMelodyAdvertisementsComponent'>
-        <AdminMelodyAdvertisementNewField melody_id={this.props.melody_id} handleLoadAdvertisements={this.loadAdvertisementsFromServer} />
+        <AdminMelodyAdvertisementNewField handleLoadAdvertisements={this.loadAdvertisementsFromServer} melody_id={this.props.melody_id} />
         <ul className='advertisements'>
           {this.state.advertisements.map((advertisement) => (
             <li key={advertisement.id}>
