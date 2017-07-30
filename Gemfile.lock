@@ -110,7 +110,7 @@ GEM
       request_store (~> 1.0)
     erubi (1.6.1)
     erubis (2.7.0)
-    eventmachine (1.2.3)
+    eventmachine (1.2.5)
     excon (0.57.1)
     execjs (2.7.0)
     factory_girl (4.8.0)
