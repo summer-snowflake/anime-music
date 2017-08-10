@@ -9,7 +9,8 @@ class CreateTokens < ActiveRecord::Migration[5.0]
       t.datetime    :created_at, null: false
     end
 
-    add_index :tokens, [:tokenizable_type, :tokenizable_id]
+    # add_index :tokens, [:tokenizable_type, :tokenizable_id]
+    change_column_null :tokens, :tokenizable_type, false
     add_index :tokens, :token
     add_index :tokens, :expires_at
     add_index :tokens, [:tokenizable_id, :tokenizable_type, :name], unique: true
