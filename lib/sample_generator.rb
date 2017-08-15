@@ -1,25 +1,47 @@
 # frozen_string_literal: true
 
+require 'csv'
+include ActionDispatch::TestProcess
+
 module SampleGenerator
+  def create_admin_user
+    if Admin.count.zero?
+      user = FactoryGirl.create(:user, :registered, :admin_user)
+      puts "Create Admin User { email: #{user.email}, password: 'password' }"
+    else
+      puts "Already exists Admin User { email: #{Admin.first.user.email} }"
+    end
+  end
+
   def create_anime
-    @anime = FactoryGirl.create(
-      :anime,
-      title: '夏目友人帳', picture: '',
-      wiki_url: 'https://ja.wikipedia.org/wiki/%E5%A4%8F%E7%9B%AE%E5%8F%8B%E4%BA%BA%E5%B8%B3',
-      summary: '両親を亡くした少年・夏目には秘密が。\
-        それは、妖怪が見える事。強い妖力を持っていた祖母・レイコの遺品である\
-        妖怪達の契約書『友人帳』を手にして以来、あやかしから狙われる羽目に。\
-        封印を解き、自分の死後、友人帳を譲る事を約束した用心棒・ニャンコ先生と共に、\
-        妖怪達へ契約した名前を返したりと、忙しい日々を過ごしていて…'
-    )
+    CSV.foreach(Rails.root.join('db', 'data', 'animes.csv').to_s) do |row|
+      attrs = {
+        title: row[0], summary: row[1], wiki_url: row[2],
+        picture: fixture_file_upload('spec/fixtures/cat01.jpg', 'image/jpg')
+      }
+      anime = Anime.find_or_initialize_by(title: attrs[:title])
+      anime.attributes = attrs
+      anime.save! if anime.changed?
+      puts "Create/Update Anime { id: #{anime.id}, title: #{anime.title}}"
+    end
+  end
+
+  def create_seasons_to_first_anime
+    anime = Anime.first
+    CSV.foreach(Rails.root.join('db', 'data', 'seasons.csv').to_s) do |row|
+      attrs = {
+        phase: row[0], previous_name: row[0], behind_name: row[2],
+        start_on: row[3], end_on: row[4], disabled: row[5]
+      }
+      season = anime.seasons.find_or_initialize_by(phase: attrs[:phase])
+      season.attributes = attrs
+    end
   end
 
   def create_melody1
+    @anime = Anime.first
     singer1 = FactoryGirl.create(:singer, name: '喜多修平')
-    season1 = FactoryGirl.create(
-      :season, anime: @anime, behind_name: '',
-               start_on: '2008-07-08', end_on: '2008-09-30'
-    )
+    season1 = @anime.seasons.first
 
     FactoryGirl.create(
       :melody, anime: @anime, season: season1, singer: singer1, kind: :op,
@@ -29,10 +51,9 @@ module SampleGenerator
   end
 
   def create_melody2
+    @anime = Anime.first
     singer2 = FactoryGirl.create(:singer, name: 'Aimer')
-    season5 = FactoryGirl.create(
-      :season, anime: @anime, behind_name: '伍', start_on: '2016-10-04'
-    )
+    season5 = @anime.seasons.fifth
 
     FactoryGirl.create(
       :melody,
@@ -43,6 +64,7 @@ module SampleGenerator
   end
 
   def create_appearances
+    @anime = Anime.first
     actor1 = FactoryGirl.create(:actor)
     actor2 = FactoryGirl.create(:actor)
     FactoryGirl.create(:appearance, anime: @anime, actor: actor1)
@@ -50,6 +72,7 @@ module SampleGenerator
   end
 
   def create_advertisements
+    @anime = Anime.first
     FactoryGirl.create(
       :advertisement,
       anime: @anime, actor: nil, body: '<a href="http://amzn.to/2nzyIRy" />'

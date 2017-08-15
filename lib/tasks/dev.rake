@@ -6,13 +6,13 @@ namespace :db do
     task dev: :environment do
       include SampleGenerator
 
+      create_admin_user
       create_anime
+      create_seasons_to_first_anime
       create_melody1
       create_melody2
       create_appearances
       create_advertisements
-
-      puts "Create Anime { id: #{@anime.id}, title: #{@anime.title}}"
     end
   end
 end
