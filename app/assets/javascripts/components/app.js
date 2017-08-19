@@ -40,6 +40,7 @@ export default class App extends Component {
     })
       .then((res) => {
         if(res.status == '401') {
+          localStorage.removeItem('access_token')
           browserHistory.push('/login')
         } else {
           res.json().then((json) => {
