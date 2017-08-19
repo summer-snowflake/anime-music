@@ -95,6 +95,10 @@ feature '管理画面：シーズン', js: true do
 
       expect(anime1.seasons.find_by(id: season2.id)).to be_nil
     end
+
+    after do
+      logout
+    end
   end
 
   after do
