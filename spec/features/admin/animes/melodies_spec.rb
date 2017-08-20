@@ -143,4 +143,8 @@ feature '管理画面：シーズン', js: true do
       end
     end
   end
+
+  after do
+    logout
+  end
 end
