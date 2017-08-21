@@ -7,8 +7,8 @@ namespace :db do
       include SampleGenerator
 
       create_admin_user
-      create_anime
-      create_seasons_to_first_anime
+      create_animes
+      create_seasons
       create_melody1
       create_melody2
       create_appearances
