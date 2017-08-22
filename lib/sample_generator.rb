@@ -4,6 +4,7 @@ require 'csv'
 include ActionDispatch::TestProcess
 
 module SampleGenerator
+  # 管理者ユーザの登録
   def create_admin_user
     if Admin.count.zero?
       user = FactoryGirl.create(:user, :registered, :admin_user)
@@ -13,41 +14,32 @@ module SampleGenerator
     end
   end
 
+  # アニメの登録
   def create_animes
     CSV.foreach(Rails.root.join('db', 'data', 'animes.csv').to_s) do |row|
       create_anime(row)
     end
   end
 
+  # シーズンの登録
   def create_seasons
     CSV.foreach(Rails.root.join('db', 'data', 'seasons.csv').to_s) do |row|
       create_season(row)
     end
   end
 
-  def create_melody1
-    @anime = Anime.first
-    singer1 = FactoryGirl.create(:singer, name: '喜多修平')
-    season1 = @anime.seasons.first
-
-    FactoryGirl.create(
-      :melody, anime: @anime, season: season1, singer: singer1, kind: :op,
-               title: '一斉の声', lyric_writer: '椎名慶治', composer: 'TAKUYA',
-               adapter: 'TAKUYA, h-wonder', memo: ''
-    )
+  # 歌手の登録
+  def create_singers
+    CSV.foreach(Rails.root.join('db', 'data', 'singers.csv').to_s) do |row|
+      create_singer(row)
+    end
   end
 
-  def create_melody2
-    @anime = Anime.first
-    singer2 = FactoryGirl.create(:singer, name: 'Aimer')
-    season5 = @anime.seasons.fifth
-
-    FactoryGirl.create(
-      :melody,
-      anime: @anime, season: season5, singer: singer2, kind: :ed,
-      title: '茜さす', lyric_writer: 'aimerrhythm', composer: '釣俊輔',
-      adapter: '玉井健二, 釣俊輔', memo: ''
-    )
+  # 曲の登録
+  def create_melodies
+    CSV.foreach(Rails.root.join('db', 'data', 'melodies.csv').to_s) do |row|
+      create_melody(row)
+    end
   end
 
   def create_appearances
@@ -99,5 +91,30 @@ module SampleGenerator
     season.save!
     puts "Create/Update Anime Season \
       { id: #{season.id}, title: #{anime.title}, phase: 第#{season.phase}期}"
+  end
+
+  def create_singer(row)
+    attrs = { name: row[0] }
+    singer = Singer.find_or_initialize_by(name: row[0])
+    singer.attributes = attrs
+    return unless singer.changed?
+
+    singer.save!
+    puts "Create/Update Singer { name: #{singer.name} }"
+  end
+
+  def create_melody(row)
+    anime = Anime.find_or_initialize_by(title: row[0])
+    season = anime.seasons.find_or_initialize_by(phase: row[1])
+    singer = Singer.find_or_create_by(name: row[2])
+
+    attrs = { title: row[3], singer_id: singer.id, kind: row[4],
+              lyric_writer: row[5], composer: row[6], adapter: row[7], memo: row[8] }
+    melody = Melody.find_by(season: season)
+    melody.attributes = attrs
+    return unless melody.changed?
+
+    melody.save!
+    puts "Create/Update Melody { title: #{melody.title} }"
   end
 end

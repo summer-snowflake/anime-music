@@ -9,8 +9,8 @@ namespace :db do
       create_admin_user
       create_animes
       create_seasons
-      create_melody1
-      create_melody2
+      create_singers
+      create_melodies
       create_appearances
       create_advertisements
     end
