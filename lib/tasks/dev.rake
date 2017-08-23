@@ -7,11 +7,10 @@ namespace :db do
       include SampleGenerator
 
       create_admin_user
-      create_animes
-      create_seasons
-      create_singers
-      create_melodies
-      create_advertisements
+      %w[animes seasons singers melodies].each do |target_table|
+        create_from_csv(target_table)
+      end
+      create_actors
     end
   end
 end

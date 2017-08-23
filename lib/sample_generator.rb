@@ -14,54 +14,23 @@ module SampleGenerator
     end
   end
 
-  # アニメの登録
-  def create_animes
-    CSV.foreach(Rails.root.join('db', 'data', 'animes.csv').to_s) do |row|
-      create_anime(row)
-    end
-  end
-
-  # シーズンの登録
-  def create_seasons
-    CSV.foreach(Rails.root.join('db', 'data', 'seasons.csv').to_s) do |row|
-      create_season(row)
-    end
-  end
-
-  # 歌手の登録
-  def create_singers
-    CSV.foreach(Rails.root.join('db', 'data', 'singers.csv').to_s) do |row|
-      create_singer(row)
-    end
-  end
-
-  # 曲の登録
-  def create_melodies
-    CSV.foreach(Rails.root.join('db', 'data', 'melodies.csv').to_s) do |row|
-      create_melody(row)
+  # アニメ、シーズン、歌手、曲の登録
+  def create_from_csv(target_object)
+    file_path = Rails.root.join('db', 'data', "#{target_object}.csv")
+    CSV.foreach(file_path.to_s) do |row|
+      send("create_#{target_object.singularize}", row)
     end
   end
 
   # 声優の登録
   def create_actors
-    anime = Anime.first
-    return if anime.actors.count > 3
+    anime = Anime.first_or_create!(title: 'アニメタイトル')
+    return if Actor.count > 3
 
     3.times do
       actor = FactoryGirl.create!(:actor)
       FactoryGirl.create(:appearance, anime: anime, actor: actor)
       puts "Create/Update Actor { name: #{actor.name}}"
-    end
-  end
-
-  # 広告の登録
-  def create_advertisements
-    anime = Anime.first
-    melody = anime.melodies.first
-
-    3.times do
-      create_anime_advertisement(anime)
-      create_melody_advertisement(melody)
     end
   end
 
@@ -79,7 +48,7 @@ module SampleGenerator
     # NOTE: fixture_file_uploadにより、必ずchanged?はtrueになる
     # return unless anime.changed?
 
-    anime.save!
+    anime.save! && create_advertisement(anime)
     puts "Create/Update Anime { id: #{anime.id}, title: #{anime.title}}"
   end
 
@@ -106,36 +75,32 @@ module SampleGenerator
     puts "Create/Update Singer { name: #{singer.name} }"
   end
 
-  def create_melody(row)
-    anime = Anime.find_or_initialize_by(title: row[0])
-    season = anime.seasons.find_or_initialize_by(phase: row[1])
-    singer = Singer.find_or_create_by(name: row[2])
+  def build_melody(row)
+    anime = Anime.find_or_create_by!(title: row[0])
+    season = anime.seasons.find_or_create_by!(phase: row[1])
+    singer = Singer.find_or_create_by!(name: row[2])
 
     attrs = { title: row[3], singer_id: singer.id, kind: row[4], memo: row[8],
               lyric_writer: row[5], composer: row[6], adapter: row[7] }
-    melody = Melody.find_by(season: season)
+    melody = Melody.find_or_initialize_by(season: season)
     melody.attributes = attrs
+    melody
+  end
+
+  def create_melody(row)
+    melody = build_melody(row)
     return unless melody.changed?
 
-    melody.save!
+    melody.save! && create_advertisement(melody)
     puts "Create/Update Melody { title: #{melody.title} }"
   end
 
-  def create_anime_advertisement(anime)
-    return if anime.advertisements.count > 3
+  def create_advertisement(target)
+    return if target.advertisements.count > 3
 
-    advertisement = anime.advertisements
-                         .create!(body: '<a href="http://amzn.to/2nzyIRy" />')
+    advertisement = target.advertisements
+                          .create!(body: '<a href="http://amzn.to/2nzyIRy" />')
     puts "Create/Update Advertisement \
-      { id: #{advertisement.id}, anime: #{anime.title} }"
-  end
-
-  def create_melody_advertisement(melody)
-    return if melody.advertisements.count > 3
-
-    advertisement = melody.advertisements
-                          .create!(body: '<a href="http://amzn.to/2g2ETyN" />')
-    puts "Create/Update Advertisement \
-      { id: #{advertisement.id}, melody: #{melody.title} }"
+      { id: #{advertisement.id}, class: #{target.class} }"
   end
 end
