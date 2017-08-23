@@ -42,24 +42,27 @@ module SampleGenerator
     end
   end
 
-  def create_appearances
-    @anime = Anime.first
-    actor1 = FactoryGirl.create(:actor)
-    actor2 = FactoryGirl.create(:actor)
-    FactoryGirl.create(:appearance, anime: @anime, actor: actor1)
-    FactoryGirl.create(:appearance, anime: @anime, actor: actor2)
+  # 声優の登録
+  def create_actors
+    anime = Anime.first
+    return if anime.actors.count > 3
+
+    3.times do
+      actor = FactoryGirl.create!(:actor)
+      FactoryGirl.create(:appearance, anime: anime, actor: actor)
+      puts "Create/Update Actor { name: #{actor.name}}"
+    end
   end
 
+  # 広告の登録
   def create_advertisements
-    @anime = Anime.first
-    FactoryGirl.create(
-      :advertisement,
-      anime: @anime, actor: nil, body: '<a href="http://amzn.to/2nzyIRy" />'
-    )
-    FactoryGirl.create(
-      :advertisement,
-      anime: @anime, actor: nil, body: '<a href="http://amzn.to/2nzyIRy" />'
-    )
+    anime = Anime.first
+    melody = anime.melodies.first
+
+    3.times do
+      create_anime_advertisement(anime)
+      create_melody_advertisement(melody)
+    end
   end
 
   private
@@ -108,13 +111,31 @@ module SampleGenerator
     season = anime.seasons.find_or_initialize_by(phase: row[1])
     singer = Singer.find_or_create_by(name: row[2])
 
-    attrs = { title: row[3], singer_id: singer.id, kind: row[4],
-              lyric_writer: row[5], composer: row[6], adapter: row[7], memo: row[8] }
+    attrs = { title: row[3], singer_id: singer.id, kind: row[4], memo: row[8],
+              lyric_writer: row[5], composer: row[6], adapter: row[7] }
     melody = Melody.find_by(season: season)
     melody.attributes = attrs
     return unless melody.changed?
 
     melody.save!
     puts "Create/Update Melody { title: #{melody.title} }"
+  end
+
+  def create_anime_advertisement(anime)
+    return if anime.advertisements.count > 3
+
+    advertisement = anime.advertisements
+                         .create!(body: '<a href="http://amzn.to/2nzyIRy" />')
+    puts "Create/Update Advertisement \
+      { id: #{advertisement.id}, anime: #{anime.title} }"
+  end
+
+  def create_melody_advertisement(melody)
+    return if melody.advertisements.count > 3
+
+    advertisement = melody.advertisements
+                          .create!(body: '<a href="http://amzn.to/2g2ETyN" />')
+    puts "Create/Update Advertisement \
+      { id: #{advertisement.id}, melody: #{melody.title} }"
   end
 end

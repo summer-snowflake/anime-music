@@ -11,7 +11,6 @@ namespace :db do
       create_seasons
       create_singers
       create_melodies
-      create_appearances
       create_advertisements
     end
   end
