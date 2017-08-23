@@ -28,7 +28,7 @@ module SampleGenerator
     return if Actor.count > 3
 
     3.times do
-      actor = FactoryGirl.create!(:actor)
+      actor = FactoryGirl.create(:actor)
       FactoryGirl.create(:appearance, anime: anime, actor: actor)
       puts "Create/Update Actor { name: #{actor.name}}"
     end
