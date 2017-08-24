@@ -82,7 +82,7 @@ module SampleGenerator
 
     attrs = { title: row[3], singer_id: singer.id, kind: row[4], memo: row[8],
               lyric_writer: row[5], composer: row[6], adapter: row[7] }
-    melody = Melody.find_or_initialize_by(season: season)
+    melody = season.melodies.new
     melody.attributes = attrs
     melody
   end
@@ -92,7 +92,7 @@ module SampleGenerator
     return unless melody.changed?
 
     melody.save! && create_advertisement(melody)
-    puts "Create/Update Melody { title: #{melody.title} }"
+    puts "Create/Update Melody { id: #{melody.id}, title: #{melody.title} }"
   end
 
   def create_advertisement(target)
