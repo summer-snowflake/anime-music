@@ -16,11 +16,11 @@ describe 'db:seed:dev' do
     subject.invoke
 
     expect(Anime.count).to eq 1
-    expect(Season.count).to eq 2
+    expect(Season.count).to eq 5
     expect(Singer.count).to eq 2
-    expect(Actor.count).to eq 2
-    expect(Advertisement.count).to eq 2
-    expect(Appearance.count).to eq 2
+    expect(Actor.count).to eq 3
+    expect(Advertisement.count).to eq 3
+    expect(Appearance.count).to eq 3
     expect(Melody.count).to eq 2
   end
 end
