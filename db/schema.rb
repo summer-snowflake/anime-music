@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170907154343) do
+ActiveRecord::Schema.define(version: 20170907172316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,10 +109,19 @@ ActiveRecord::Schema.define(version: 20170907154343) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tags", force: :cascade do |t|
-    t.string "name"
+  create_table "tagged_seasons", force: :cascade do |t|
+    t.integer "season_id", null: false
+    t.integer "tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "type", default: "", null: false
+    t.index ["type"], name: "index_tags_on_type"
   end
 
   create_table "tokens", id: :serial, force: :cascade do |t|
