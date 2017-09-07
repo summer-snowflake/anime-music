@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TaggedSeason < ApplicationRecord
   validates :tag_id, :season_id, presence: true
 
