@@ -31,6 +31,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     render :error401, status: 401 unless current_user
+    Thread.current[:operator] = current_user
   end
 
   def current_user
