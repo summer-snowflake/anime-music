@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Melody < ApplicationRecord
+  include OperatorAccessor
+
   attr_accessor :singer_name
 
   belongs_to :anime
