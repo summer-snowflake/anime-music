@@ -1,4 +1,4 @@
-module OperatorSetter
+module OperatorAccessor
   extend ActiveSupport::Concern
 
   included do
