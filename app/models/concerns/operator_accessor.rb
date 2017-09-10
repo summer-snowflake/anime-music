@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OperatorAccessor
   extend ActiveSupport::Concern
 
@@ -7,11 +9,11 @@ module OperatorAccessor
   end
 
   def creater
-    User.find(self.created_by)
+    User.find(created_by)
   end
 
   def updator
-    User.find(self.updated_by)
+    User.find(updated_by)
   end
 
   private
