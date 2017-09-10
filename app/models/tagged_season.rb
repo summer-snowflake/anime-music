@@ -2,6 +2,7 @@
 
 class TaggedSeason < ApplicationRecord
   include OperatorAccessor
+  has_paper_trail
 
   validates :tag_id, :season_id, presence: true
 

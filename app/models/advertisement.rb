@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Advertisement < ApplicationRecord
+  has_paper_trail
+
   belongs_to :anime, optional: true
   belongs_to :actor, optional: true
   belongs_to :season, optional: true

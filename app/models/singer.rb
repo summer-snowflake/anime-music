@@ -2,6 +2,7 @@
 
 class Singer < ApplicationRecord
   include OperatorAccessor
+  has_paper_trail
 
   has_many :melodies
 

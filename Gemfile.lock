@@ -334,6 +334,9 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    paper_trail (7.1.2)
+      activerecord (>= 4.0, < 5.2)
+      request_store (~> 1.1)
     parallel (1.12.0)
     parser (2.4.0.0)
       ast (~> 2.2)
@@ -541,6 +544,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   meta-tags
+  paper_trail
   pg (~> 0.18)
   phantomjs
   poltergeist
@@ -573,9 +577,8 @@ DEPENDENCIES
   tzinfo-data
   validates_email_format_of
 
-
 RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.1
+   1.15.3

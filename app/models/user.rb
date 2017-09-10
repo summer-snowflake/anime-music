@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  has_paper_trail
+
   has_secure_password
   tokenizable
 
