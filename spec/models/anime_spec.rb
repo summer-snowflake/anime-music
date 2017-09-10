@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Anime, type: :model do
+  it_should_behave_like 'PaperTrail enabled'
+
   it { is_expected.to have_many(:seasons).dependent(:destroy) }
   it { is_expected.to have_many(:melodies).dependent(:destroy) }
   it { is_expected.to have_many(:appearances).dependent(:destroy) }

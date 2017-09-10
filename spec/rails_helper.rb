@@ -14,6 +14,7 @@ require 'capybara-screenshot/rspec'
 require 'rack_session_access/capybara'
 require 'simplecov'
 require 'selenium-webdriver'
+require 'paper_trail/frameworks/rspec'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
@@ -59,6 +60,7 @@ RSpec.configure do |config|
   config.include ActiveJob::TestHelper
   config.include RequestSpecHelper, type: :request
   config.include FeatureSpecHelper, type: :feature
+  config.include ModelSpecHelper, type: :model
 
   config.before :suite do
     I18n.locale = :ja
