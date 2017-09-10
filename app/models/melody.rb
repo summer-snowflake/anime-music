@@ -2,6 +2,7 @@
 
 class Melody < ApplicationRecord
   include OperatorAccessor
+  has_paper_trail
 
   attr_accessor :singer_name
 

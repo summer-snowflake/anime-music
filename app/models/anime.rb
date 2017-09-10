@@ -2,6 +2,7 @@
 
 class Anime < ApplicationRecord
   include OperatorAccessor
+  has_paper_trail
 
   has_many :seasons, dependent: :destroy
   has_many :melodies, dependent: :destroy
