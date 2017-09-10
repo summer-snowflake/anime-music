@@ -3,13 +3,13 @@
 class ChangeLog::Fetcher
   include ActiveModel::Model
 
-  attr_accessor :animes
+  attr_accessor :anime_logs
 
   def initialize
-    animes
+    @anime_logs = anime_logs
   end
 
-  def animes
-    @animes = PaperTrail::Version.where(item_type: 'Anime').reverse[0..30]
+  def anime_logs
+    PaperTrail::Version.where(item_type: 'Anime').reverse[0..30]
   end
 end
