@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Season < ApplicationRecord
+  include OperatorAccessor
+
   belongs_to :anime
   has_many :melodies, dependent: :destroy
   has_many :advertisements, dependent: :destroy
