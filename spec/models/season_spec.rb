@@ -6,6 +6,7 @@ RSpec.describe Season, type: :model do
   it { is_expected.to belong_to(:anime) }
   it { is_expected.to have_many(:melodies).dependent(:destroy) }
   it { is_expected.to have_many(:advertisements).dependent(:destroy) }
+  it { is_expected.to have_many(:tagged_seasons).dependent(:destroy) }
 
   describe 'バリデーション' do
     subject { create(:season) }
