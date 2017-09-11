@@ -3,13 +3,6 @@
 require 'rails_helper'
 
 describe 'GET /api/admin/change_logs', autodoc: true do
-  let!(:anime1) { create(:anime, created_at: 2.minutes.ago) }
-  let!(:anime2) { create(:anime) }
-  let!(:season1) { create(:season, anime: anime1, phase: 1).decorate }
-  let!(:season2) { create(:season, anime: anime1, phase: 2).decorate }
-  let!(:melody1) { create(:melody, :op, season: season1) }
-  let!(:melody2) { create(:melody, :ed, season: season1) }
-
   context 'ログインしていない場合' do
     it '401が返ってくること' do
       get '/api/admin/animes'
@@ -26,41 +19,61 @@ describe 'GET /api/admin/change_logs', autodoc: true do
         expect(response.status).to eq 200
 
         json = {
-          animes: []
+          anime_logs: []
         }
+        expect(response.body).to be_json_as(json)
       end
     end
 
-=begin
+    context '変更履歴がある場合' do
+      before do
+        with_versioning do
+          Timecop.freeze do
+            post '/api/admin/animes/',
+                  params: { title: '新規アニメ' }, headers: login_headers(user)
+            @anime = Anime.last
+            params = { id: @anime.id, title: 'タイトル変更' }
+            patch "/api/admin/animes/#{@anime.id}",
+                  params: params, headers: login_headers(user)
+          end
+        end
+      end
 
-    it '200とアニメ一覧が返ってくること' do
-      get '/api/admin/animes', headers: login_headers(user)
-      expect(response.status).to eq 200
+      it '200と変更情報が返ってくること' do
+        get '/api/admin/change_logs', headers: login_headers(user)
+        expect(response.status).to eq 200
 
-      json = {
-        animes: [
-          {
-            id: anime2.id,
-            title: anime2.title,
-            picture: anime2.picture.url,
-            airing: false,
-            seasons: []
-          },
-          {
-            id: anime1.id,
-            title: anime1.title,
-            picture: anime1.picture.url,
-            airing: true,
-            seasons: [
-              {
-                id: season2.id,
-                anime_title: season2.anime_title,
-                melodies: []
-              },
-              {
-                id: season1.id,
-                anime_title: season1.anime_title,
-                melodies: [
-=end
+        @anime.reload
+        first_log = @anime.versions.first
+        second_log = @anime.versions.last
+
+        json = {
+          anime_logs: [
+            {
+              id: second_log.id,
+              event: 'update',
+              item_title: 'タイトル変更',
+              operator_email: user.email,
+              object_changes: {
+                title: ['新規アニメ', 'タイトル変更']
+              }
+            },
+            {
+              id: first_log.id,
+              event: 'create',
+              item_title: 'タイトル変更',
+              operator_email: user.email,
+              object_changes: {
+                id: [nil, @anime.id],
+                title: [nil, '新規アニメ'],
+                created_by: [nil, user.id],
+                updated_by: [nil, user.id]
+              }
+            }
+          ]
+        }
+        expect(response.body).to be_json_as(json)
+      end
+    end
   end
 end
