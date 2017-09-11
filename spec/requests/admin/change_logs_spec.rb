@@ -30,7 +30,7 @@ describe 'GET /api/admin/change_logs', autodoc: true do
         with_versioning do
           Timecop.freeze do
             post '/api/admin/animes/',
-                  params: { title: '新規アニメ' }, headers: login_headers(user)
+                 params: { title: '新規アニメ' }, headers: login_headers(user)
             @anime = Anime.last
             params = { id: @anime.id, title: 'タイトル変更' }
             patch "/api/admin/animes/#{@anime.id}",
@@ -55,7 +55,7 @@ describe 'GET /api/admin/change_logs', autodoc: true do
               item_title: 'タイトル変更',
               operator_email: user.email,
               object_changes: {
-                title: ['新規アニメ', 'タイトル変更']
+                title: %w[新規アニメ タイトル変更]
               }
             },
             {
