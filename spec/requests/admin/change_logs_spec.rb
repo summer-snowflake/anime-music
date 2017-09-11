@@ -5,7 +5,7 @@ require 'rails_helper'
 describe 'GET /api/admin/change_logs', autodoc: true do
   context 'ログインしていない場合' do
     it '401が返ってくること' do
-      get '/api/admin/animes'
+      get '/api/admin/change_logs'
       expect(response.status).to eq 401
     end
   end
