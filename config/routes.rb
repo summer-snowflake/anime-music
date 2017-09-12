@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'top#index', as: :top
+    resources :change_logs, only: %i(index)
     resources :animes, only: %i(index show)
     resources :actors, only: %i(index show)
     resources :melodies, only: %i(index show)
