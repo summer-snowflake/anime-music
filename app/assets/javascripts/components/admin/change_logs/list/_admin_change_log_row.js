@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import { origin } from './../../../../origin.js'
 
 export default class AdminChangeLogRow extends Component {
   constructor(props) {
