@@ -25,6 +25,7 @@ gem 'carrierwave', '~> 1.1.0'
 gem 'sass-rails'
 gem 'settingslogic'
 gem 'tokens'
+gem 'timecop'
 gem 'validates_email_format_of'
 
 group :development, :test do

@@ -501,6 +501,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    timecop (0.9.1)
     tokens (2.1.1)
     trollop (2.1.2)
     tzinfo (1.2.3)
@@ -573,6 +574,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   terminal-notifier
   terminal-notifier-guard
+  timecop
   tokens
   tzinfo-data
   validates_email_format_of
