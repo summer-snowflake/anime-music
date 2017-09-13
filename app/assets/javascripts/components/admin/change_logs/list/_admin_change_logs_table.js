@@ -30,13 +30,16 @@ export default class AdminChangeLogsTable extends Component {
 
   render() {
     return (
-      <table className='table table-bordered adminChangeLogsTableComponent'>
-        <tbody>
-          {this.state.anime_logs.map((anime_log) =>
-            <AdminChangeLogRow change_log={anime_log} handleLoad={this.loadChangeLogsFromServer} key={anime_log.id} />
-          )}
-        </tbody>
-      </table>
+      <div className='adminChangeLogsTableComponent'>
+        <h5>{'【アニメ】'}</h5>
+        <table className='table table-bordered'>
+          <tbody>
+            {this.state.anime_logs.map((anime_log) =>
+              <AdminChangeLogRow change_log={anime_log} handleLoad={this.loadChangeLogsFromServer} key={anime_log.id} />
+            )}
+          </tbody>
+        </table>
+      </div>
     )
   }
 }
