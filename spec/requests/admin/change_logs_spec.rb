@@ -52,6 +52,7 @@ describe 'GET /api/admin/change_logs', autodoc: true do
             {
               id: second_log.id,
               event: 'update',
+              item_id: @anime.id,
               item_title: 'タイトル変更',
               operator_email: user.email,
               object_changes: {
@@ -61,6 +62,7 @@ describe 'GET /api/admin/change_logs', autodoc: true do
             {
               id: first_log.id,
               event: 'create',
+              item_id: @anime.id,
               item_title: 'タイトル変更',
               operator_email: user.email,
               object_changes: {
