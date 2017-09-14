@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 describe 'GET /api/admin/animes', autodoc: true do
-  let!(:anime1) { create(:anime, created_at: 2.minutes.ago) }
-  let!(:anime2) { create(:anime) }
+  let!(:anime1) { create(:anime, :published, created_at: 2.minutes.ago) }
+  let!(:anime2) { create(:anime, :prepared) }
   let!(:season1) { create(:season, anime: anime1, phase: 1).decorate }
   let!(:season2) { create(:season, anime: anime1, phase: 2).decorate }
   let!(:melody1) { create(:melody, :op, season: season1) }
@@ -28,6 +28,7 @@ describe 'GET /api/admin/animes', autodoc: true do
         animes: [
           {
             id: anime2.id,
+            status_name: '準備中',
             title: anime2.title,
             picture: anime2.picture.url,
             airing: false,
@@ -35,6 +36,7 @@ describe 'GET /api/admin/animes', autodoc: true do
           },
           {
             id: anime1.id,
+            status_name: '公開',
             title: anime1.title,
             picture: anime1.picture.url,
             airing: true,

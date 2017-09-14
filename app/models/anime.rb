@@ -16,6 +16,8 @@ class Anime < ApplicationRecord
   validates :wiki_url,
             length: { maximum: Settings.anime.wiki_url.maximum_length }
 
+  enum status: { unpublished: 0, prepared: 1, published: 2 }
+
   mount_uploader :picture, PictureUploader
 
   def airing?

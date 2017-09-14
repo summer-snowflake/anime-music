@@ -18,6 +18,8 @@ class Season < ApplicationRecord
   validates :previous_name, :behind_name,
             length: { maximum: Settings.season.name.maximum_length }
 
+  enum status: { unpublished: 0, prepared: 1, published: 2 }
+
   def self.airing(date)
     where('seasons.start_on <= ?', date)
       .where('seasons.end_on >= ? or seasons.end_on is null', date)

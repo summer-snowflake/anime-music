@@ -3,6 +3,7 @@
 json.animes do
   json.array! @animes do |anime|
     json.id anime.id
+    json.status_name anime.decorate.human_status_name
     json.title anime.title
     json.picture anime.picture.url
     json.airing anime.airing?
