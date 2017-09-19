@@ -7,6 +7,8 @@ import AnimeDetailPage from './components/welcome/anime/anime_detail_page.js'
 import LoginPage from './components/account/login/login_page.js'
 import Admin from './components/admin/admin.js'
 import AdminTopPage from './components/admin/top/admin_top_page.js'
+import AdminChangeLogsPage from './components/admin/change_logs/admin_change_logs_page.js'
+import AdminChangeLogs from './components/admin/change_logs/list/admin_change_logs.js'
 import AdminAnimesPage from './components/admin/animes/admin_animes_page.js'
 import AdminAnimes from './components/admin/animes/list/admin_animes.js'
 import AdminAnime from './components/admin/animes/detail/admin_anime.js'
@@ -24,6 +26,9 @@ module.exports = (
     <Route component={LoginPage} path='/login' />
     <Route component={Admin} path="/admin">
       <IndexRoute component={AdminTopPage} />
+      <Route component={AdminChangeLogsPage} path="/admin/change_logs">
+        <IndexRoute component={AdminChangeLogs} />
+      </Route>
       <Route component={AdminAnimesPage} path="/admin/animes">
         <IndexRoute component={AdminAnimes} />
         <Route component={AdminAnime} path="/admin/animes/:animeId" />

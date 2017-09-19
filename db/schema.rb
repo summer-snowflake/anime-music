@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170907172316) do
+ActiveRecord::Schema.define(version: 20170910082027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20170907172316) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "created_by"
+    t.integer "updated_by"
   end
 
   create_table "admins", id: :serial, force: :cascade do |t|
@@ -50,6 +52,8 @@ ActiveRecord::Schema.define(version: 20170907172316) do
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "created_by"
+    t.integer "updated_by"
   end
 
   create_table "appearances", id: :serial, force: :cascade do |t|
@@ -57,6 +61,8 @@ ActiveRecord::Schema.define(version: 20170907172316) do
     t.integer "actor_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "created_by"
+    t.integer "updated_by"
     t.index ["actor_id"], name: "index_appearances_on_actor_id"
     t.index ["anime_id"], name: "index_appearances_on_anime_id"
   end
@@ -78,6 +84,8 @@ ActiveRecord::Schema.define(version: 20170907172316) do
     t.datetime "updated_at", null: false
     t.text "youtube"
     t.boolean "draft", default: false, null: false
+    t.integer "created_by"
+    t.integer "updated_by"
     t.index ["anime_id"], name: "index_melodies_on_anime_id"
     t.index ["season_id"], name: "index_melodies_on_season_id"
     t.index ["singer_id"], name: "index_melodies_on_singer_id"
@@ -101,12 +109,16 @@ ActiveRecord::Schema.define(version: 20170907172316) do
     t.integer "phase", default: 0
     t.boolean "disabled", default: false, null: false
     t.string "previous_name"
+    t.integer "created_by"
+    t.integer "updated_by"
   end
 
   create_table "singers", id: :serial, force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "created_by"
+    t.integer "updated_by"
   end
 
   create_table "tagged_seasons", force: :cascade do |t|
@@ -114,6 +126,8 @@ ActiveRecord::Schema.define(version: 20170907172316) do
     t.integer "tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "created_by"
+    t.integer "updated_by"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -121,6 +135,8 @@ ActiveRecord::Schema.define(version: 20170907172316) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "type", default: "", null: false
+    t.integer "created_by"
+    t.integer "updated_by"
     t.index ["type"], name: "index_tags_on_type"
   end
 
@@ -144,6 +160,17 @@ ActiveRecord::Schema.define(version: 20170907172316) do
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "versions", force: :cascade do |t|
+    t.string "item_type", null: false
+    t.integer "item_id", null: false
+    t.string "event", null: false
+    t.string "whodunnit"
+    t.json "object"
+    t.json "object_changes"
+    t.datetime "created_at"
+    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
   add_foreign_key "advertisements", "melodies"

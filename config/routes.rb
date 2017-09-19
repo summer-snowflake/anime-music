@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'top#index', as: :top
+    resources :change_logs, only: %i(index)
     resources :animes, only: %i(index show)
     resources :actors, only: %i(index show)
     resources :melodies, only: %i(index show)
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
     get :welcome, to: 'welcome#show'
 
     namespace :admin do
+      resources :change_logs, only: %i(index)
       resources :advertisements, only: %i(create destroy)
       resources :animes, only: %i(index show create update destroy) do
         resources :advertisements, only: %i(index)
