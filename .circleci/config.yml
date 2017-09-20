@@ -56,11 +56,11 @@ jobs:
       # Run rspec in parallel
       - type: shell
         command: |
-          bundle exec rspec spec/features/animes_spec.rb --out /tmp/test-results/rspec.xml --format documentation
-          #                 --format RspecJunitFormatter \
-          #                 --out /tmp/test-results/rspec.xml \
-          #                 --format progress \
-          #                 $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+          bundle exec rspec \
+            --format RspecJunitFormatter \
+            --out /tmp/test-results/rspec.xml \
+            --format progress \
+            $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
       # Save artifacts
       - type: store_test_results
