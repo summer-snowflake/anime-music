@@ -6,6 +6,7 @@ gem 'rails', '5.1.1'
 
 gem 'bcrypt'
 gem 'bootstrap-sass'
+gem 'chromedriver-helper'
 gem 'draper', '> 3.x'
 gem 'fog'
 gem 'meta-tags'
@@ -41,6 +42,7 @@ group :test do
   gem 'autodoc'
   gem 'rspec-rails'
   gem 'rspec-collection_matchers'
+  gem 'rspec_junit_formatter'
   gem 'shoulda-matchers'
   gem 'rspec-json_matcher', require: false
   gem 'selenium-webdriver'
