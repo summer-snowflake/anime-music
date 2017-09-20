@@ -132,6 +132,9 @@ export default class AdminAnimeDetail extends Component {
     return (
       <div className='adminAnimeDetailComponent'>
         <div className='panel panel-default'>
+          <AdminAnimeNewForm handleLoad={this.loadAnimeFromServer} />
+        </div>
+        <div className='panel panel-default'>
           <div className='panel-body'>
             <AdminAnimeTitle airing={this.state.anime.airing} handleUpdateTitle={this.onSubmit} ref='title' title={this.state.anime.title} />
             <div className="row">
