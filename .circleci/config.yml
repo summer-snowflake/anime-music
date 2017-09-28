@@ -53,6 +53,9 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
+      # Run stylelint
+      - run: npm run stylelint app/assets/stylesheets/*
+
       # Run rubocop
       - run: bundle exec rubocop app/ lib/ spec/
 
