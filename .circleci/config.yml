@@ -56,6 +56,9 @@ jobs:
       # Run stylelint
       - run: npm run stylelint app/assets/stylesheets/*
 
+      # Run ESLint
+      - run: npm run eslint app/assets/javascripts/**/*.js
+
       # Run rubocop
       - run: bundle exec rubocop app/ lib/ spec/
 
