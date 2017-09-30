@@ -19,6 +19,9 @@ jobs:
     steps:
       - checkout
 
+      # Install fonts-magmix
+      - run: sudo apt-get install fonts-migmix
+
       # Restore bundle cache
       - type: cache-restore
         key: anime-music-{{ checksum "Gemfile.lock" }}
