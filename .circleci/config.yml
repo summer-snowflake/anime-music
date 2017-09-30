@@ -77,6 +77,9 @@ jobs:
       # Export Report of test coverage
       - run: ruby ./bin/coverage_report.rb
 
+      # Export Report of brakeman
+      - run: ruby ./bin/brakeman.rb
+
       # Save artifacts
       - store_artifacts:
           path: ./tmp/capybara
@@ -85,6 +88,10 @@ jobs:
       - store_artifacts:
           path: ./coverage
           destination: coverage
+
+      - store_artifacts:
+          path: ./brakeman
+          destination: brakeman
 
       - store_test_results:
           path: /tmp/test-results
