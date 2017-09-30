@@ -340,6 +340,9 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    paper_trail (7.1.2)
+      activerecord (>= 4.0, < 5.2)
+      request_store (~> 1.1)
     parallel (1.12.0)
     parser (2.4.0.0)
       ast (~> 2.2)
@@ -506,6 +509,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    timecop (0.9.1)
     tokens (2.1.1)
     trollop (2.1.2)
     tzinfo (1.2.3)
@@ -550,6 +554,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   meta-tags
+  paper_trail
   pg (~> 0.18)
   phantomjs
   poltergeist
@@ -579,6 +584,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   terminal-notifier
   terminal-notifier-guard
+  timecop
   tokens
   tzinfo-data
   validates_email_format_of

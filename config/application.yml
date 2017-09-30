@@ -26,6 +26,9 @@ defaults: &defaults
       maximum_length: 250
     password:
       maximum_length: 250
+  tag:
+    name:
+      maximum_length: 10
 
 development:
   <<: *defaults

@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
 class Season < ApplicationRecord
+  include OperatorAccessor
+  has_paper_trail
+
   belongs_to :anime
   has_many :melodies, dependent: :destroy
   has_many :advertisements, dependent: :destroy
+  has_many :tagged_seasons, dependent: :destroy
 
   validates :phase,
             presence: true,

@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  it_should_behave_like 'PaperTrail enabled'
+
   it { is_expected.to have_one(:admin) }
 
   describe 'バリデーション' do
