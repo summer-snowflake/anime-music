@@ -83,8 +83,6 @@
   },
   "dependencies": {
     "bootstrap": "~3.3.7",
-    "react": "^15.6.2",
-    "react-bootstrap": "^0.31.0",
-    "react-dom": "~15.5.4"
+    "react-bootstrap": "^0.31.0"
   }
 }
