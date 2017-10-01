@@ -36,6 +36,9 @@ jobs:
         paths:
           - vendor/bundle
 
+      # Upgrade npm
+      - run: npm install npm@latest
+
       # Restore npm cache
       - restore_cache:
           name: Restore npm cache
