@@ -7,7 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "stylelint": "stylelint",
+    "eslint": "eslint"
   },
   "jest": {
     "automock": true,
@@ -66,12 +68,13 @@
     "jest-cli": "~21.1.0",
     "jest-fetch-mock": "~1.2.0",
     "node-sass": "~4.5.3",
-    "react": "~15.6.0",
+    "postcss": "^6.0.12",
+    "react": "^15.6.2",
     "react-addons-test-utils": "~15.6.0",
     "react-dom": "~15.6.0",
     "react-element-to-jsx-string": "~12.0.0",
     "react-router": "~3.0.2",
-    "react-test-renderer": "^15.5.4",
+    "react-test-renderer": "^15.6.2",
     "reactify": "~1.1.1",
     "style-loader": "~0.18.1",
     "stylelint": "^8.0.0",
@@ -81,8 +84,6 @@
   },
   "dependencies": {
     "bootstrap": "~3.3.7",
-    "react": "~15.5.4",
-    "react-bootstrap": "^0.31.0",
-    "react-dom": "~15.5.4"
+    "react-bootstrap": "^0.31.0"
   }
 }
