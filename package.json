@@ -41,8 +41,6 @@
     "enzyme": "~3.0.0",
     "eslint": "^4.5.0",
     "eslint-plugin-react": "^7.1.0",
-    "expect": "^21.2.1",
-    "expect-jsx": "~3.1.0",
     "file-loader": "^1.0.0-rc.0",
     "http-server": "~0.10.0",
     "if-env": "~1.0.0",
