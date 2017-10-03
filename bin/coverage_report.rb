@@ -8,7 +8,7 @@ simplecov_file = File.read('coverage/.last_run.json')
 covered_percent = JSON.parse(simplecov_file)['result']['covered_percent']
 circle_build_num = ENV['CIRCLE_BUILD_NUM']
 artifact_url = "https://#{circle_build_num}-71275953-gh.circle-artifacts.com"
-artifact_file = '/0/home/ubuntu/anime-music/coverage/index.html#_AllFiles'
+artifact_file = '/0/coverage/index.html#_AllFiles'
 api_base_url = 'https://api.github.com'
 sha1 = ENV['CIRCLE_SHA1']
 
