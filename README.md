@@ -51,7 +51,6 @@ CIについて、キーワードは以下です。
   - features(Capybara)
   - requests
   - models
-- jest
 
 ### 環境構築
 
