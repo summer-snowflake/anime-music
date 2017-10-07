@@ -52,6 +52,8 @@ CIについて、キーワードは以下です。
   - requests
   - models
 
+テストのカバレッジは、CI結果通知とともにgithubのPR画面にて確認できます
+
 ### 環境構築
 
 - Comman line toolsをインストール
