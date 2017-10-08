@@ -37,7 +37,7 @@ jobs:
           - vendor/bundle
 
       # Upgrade npm
-      - run: npm install npm@latest
+      - run: npm install npm@5.4.2
 
       # Restore npm cache
       - restore_cache:
