@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/anime-music
     docker:
-      - image: circleci/ruby:2.4.1-node-browsers
+      - image: circleci/ruby:2.4.2-node-browsers
         environment:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:password@localhost:5432/anime-music_test
