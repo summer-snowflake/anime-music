@@ -5,7 +5,7 @@ require 'json'
 class BrakemanReport
   def run
     run_brakeman
-    filename = './../brakeman/output.json'
+    filename = './brakeman/output.json'
     @json = JSON.parse(File.read(filename))
   end
 
@@ -52,7 +52,7 @@ class BrakemanReport
   end
 
   def run_brakeman
-    dir = './../brakeman'
+    dir = './brakeman'
     system('bin/bundle', 'exec', 'brakeman',
            '-o', "#{dir}/output.html",
            '-o', "#{dir}/output.json")

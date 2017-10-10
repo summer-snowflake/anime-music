@@ -45,13 +45,15 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    archive-zip (0.7.0)
+      io-like (~> 0.3.0)
     arel (8.0.0)
     ast (2.3.0)
     autodoc (0.6.2)
       actionpack
       activesupport (>= 3.0.0)
       rspec
-    autoprefixer-rails (7.1.3)
+    autoprefixer-rails (7.1.4.1)
       execjs
     awesome_print (1.8.0)
     bcrypt (3.1.11)
@@ -64,14 +66,14 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
-    brakeman (3.7.2)
+    brakeman (4.0.1)
     browserify-rails (4.2.0)
       addressable (>= 2.4.0)
       railties (>= 4.0.0, < 5.2)
       sprockets (>= 3.6.0)
     builder (3.2.3)
     byebug (9.1.0)
-    capybara (2.15.1)
+    capybara (2.15.3)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (>= 1.3.3)
@@ -88,15 +90,21 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
-    childprocess (0.7.1)
+    childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
+    chromedriver-helper (1.1.0)
+      archive-zip (~> 0.7.0)
+      nokogiri (~> 1.6)
     cliver (0.3.2)
-    coderay (1.1.1)
+    coderay (1.1.2)
     concurrent-ruby (1.0.5)
+    crass (1.0.2)
     database_rewinder (0.8.2)
     debug_inspector (0.0.3)
     diff-lcs (1.3)
     docile (1.1.5)
+    domain_name (0.5.20170404)
+      unf (>= 0.0.5, < 1.0.0)
     dotenv (2.2.1)
     dotenv-rails (2.2.1)
       dotenv (= 2.2.1)
@@ -109,9 +117,9 @@ GEM
       request_store (~> 1.0)
     erubi (1.6.1)
     eventmachine (1.2.5)
-    excon (0.58.0)
+    excon (0.59.0)
     execjs (2.7.0)
-    factory_girl (4.8.0)
+    factory_girl (4.8.1)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
@@ -128,7 +136,7 @@ GEM
     ffi (1.9.18)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
-    fog (1.41.0)
+    fog (1.42.0)
       fog-aliyun (>= 0.1.0)
       fog-atmos
       fog-aws (>= 0.6.0)
@@ -145,6 +153,7 @@ GEM
       fog-json
       fog-local
       fog-openstack
+      fog-ovirt
       fog-powerdns (>= 0.1.1)
       fog-profitbricks
       fog-rackspace
@@ -161,7 +170,7 @@ GEM
       fog-xenserver
       fog-xml (~> 0.1.1)
       ipaddress (~> 0.5)
-      json (>= 1.8, < 2.0)
+      json (~> 2.0)
     fog-aliyun (0.2.0)
       fog-core (~> 1.27)
       fog-json (~> 1.0)
@@ -217,12 +226,17 @@ GEM
     fog-json (1.0.2)
       fog-core (~> 1.0)
       multi_json (~> 1.10)
-    fog-local (0.3.1)
+    fog-local (0.4.0)
       fog-core (~> 1.27)
     fog-openstack (0.1.21)
       fog-core (>= 1.40)
       fog-json (>= 1.0)
       ipaddress (>= 0.8)
+    fog-ovirt (0.1.1)
+      fog-core (~> 1.45)
+      fog-json
+      fog-xml (~> 0.1.1)
+      rbovirt (~> 0.1.4)
     fog-powerdns (0.1.1)
       fog-core (~> 1.27)
       fog-json (~> 1.0)
@@ -264,7 +278,7 @@ GEM
     fog-voxel (0.1.0)
       fog-core
       fog-xml
-    fog-vsphere (1.12.0)
+    fog-vsphere (1.13.1)
       fog-core
       rbvmomi (~> 1.9)
     fog-xenserver (0.3.0)
@@ -274,7 +288,8 @@ GEM
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
     formatador (0.2.5)
-    gimei (0.2.0)
+    gimei (0.3.0)
+      romaji
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     guard (2.14.1)
@@ -294,9 +309,12 @@ GEM
     guard-rubocop (1.3.0)
       guard (~> 2.0)
       rubocop (~> 0.20)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     i18n (0.8.6)
     inflecto (0.0.2)
     interception (0.5)
+    io-like (0.3.0)
     ipaddress (0.8.3)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -305,37 +323,39 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
-    json (1.8.6)
+    json (2.1.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    loofah (2.0.3)
+    loofah (2.1.1)
+      crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.12)
     mail (2.6.6)
       mime-types (>= 1.16, < 4)
     meta-tags (2.6.0)
       actionpack (>= 3.2.0, < 5.3)
-    method_source (0.8.2)
+    method_source (0.9.0)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_mime (0.1.4)
-    mini_portile2 (2.2.0)
+    mini_portile2 (2.3.0)
     minitest (5.10.3)
-    multi_json (1.12.1)
+    multi_json (1.12.2)
     multipart-post (2.0.0)
     nenv (0.3.0)
+    netrc (0.11.0)
     nio4r (2.1.0)
-    nokogiri (1.8.0)
-      mini_portile2 (~> 2.2.0)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    paper_trail (7.1.2)
-      activerecord (>= 4.0, < 5.2)
+    paper_trail (8.0.0)
+      activerecord (>= 4.2, < 5.2)
       request_store (~> 1.1)
     parallel (1.12.0)
     parser (2.4.0.0)
@@ -347,10 +367,9 @@ GEM
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
     powerpack (0.1.1)
-    pry (0.10.4)
+    pry (0.11.1)
       coderay (~> 1.1.0)
-      method_source (~> 0.8.1)
-      slop (~> 3.4)
+      method_source (~> 0.9.0)
     pry-byebug (3.5.0)
       byebug (~> 9.1)
       pry (~> 0.10)
@@ -401,17 +420,26 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.2.2)
       rake
-    rake (12.0.0)
+    rake (12.1.0)
     rake_shared_context (0.3.0)
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    rbovirt (0.1.4)
+      nokogiri
+      rest-client (> 1.7.0)
     rbvmomi (1.11.3)
       builder (~> 3.0)
       json (>= 1.8)
       nokogiri (~> 1.5)
       trollop (~> 2.1)
     request_store (1.3.2)
+    rest-client (2.0.2)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
+    romaji (0.2.3)
+      rake (>= 0.8.0)
     rspec (3.6.0)
       rspec-core (~> 3.6.0)
       rspec-expectations (~> 3.6.0)
@@ -438,6 +466,8 @@ GEM
       rspec-mocks (~> 3.6.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
+    rspec_junit_formatter (0.3.0)
+      rspec-core (>= 2, < 4, != 2.12.0)
     rubocop (0.49.1)
       parallel (~> 1.10)
       parser (>= 2.3.3.1, < 3.0)
@@ -445,9 +475,9 @@ GEM
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
-    ruby-progressbar (1.8.1)
+    ruby-progressbar (1.9.0)
     rubyzip (1.2.1)
-    sass (3.5.1)
+    sass (3.5.2)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -458,14 +488,14 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    selenium-webdriver (3.5.1)
+    selenium-webdriver (3.6.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
     settingslogic (2.0.9)
     shellany (0.0.1)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
-    simplecov (0.15.0)
+    simplecov (0.15.1)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
@@ -478,11 +508,10 @@ GEM
     slim (3.0.8)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 1.3.3, < 2.1)
-    slim-rails (3.1.2)
+    slim-rails (3.1.3)
       actionpack (>= 3.1)
       railties (>= 3.1)
       slim (~> 3.0)
-    slop (3.6.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -506,6 +535,9 @@ GEM
     trollop (2.1.2)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.4)
     unicode-display_width (1.3.0)
     validates_email_format_of (1.6.3)
       i18n
@@ -532,6 +564,7 @@ DEPENDENCIES
   capybara-email
   capybara-screenshot
   carrierwave (~> 1.1.0)
+  chromedriver-helper
   database_rewinder
   dotenv-rails
   draper (> 3.x)
@@ -545,6 +578,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   meta-tags
+  nokogiri (>= 1.8.1)
   paper_trail
   pg (~> 0.18)
   phantomjs
@@ -562,6 +596,7 @@ DEPENDENCIES
   rspec-collection_matchers
   rspec-json_matcher
   rspec-rails
+  rspec_junit_formatter
   rubocop
   sass-rails
   selenium-webdriver
@@ -580,7 +615,7 @@ DEPENDENCIES
   validates_email_format_of
 
 RUBY VERSION
-   ruby 2.4.1p111
+   ruby 2.4.2p198
 
 BUNDLED WITH
-   1.15.3
+   1.16.0.pre.3
