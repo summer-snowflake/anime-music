@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
-ruby '2.4.1'
+ruby '2.4.2'
 
 gem 'rails', '5.1.1'
 
 gem 'bcrypt'
 gem 'bootstrap-sass'
+gem 'chromedriver-helper'
 gem 'draper', '> 3.x'
 gem 'fog'
 gem 'meta-tags'
@@ -43,6 +44,7 @@ group :test do
   gem 'autodoc'
   gem 'rspec-rails'
   gem 'rspec-collection_matchers'
+  gem 'rspec_junit_formatter'
   gem 'shoulda-matchers'
   gem 'rspec-json_matcher', require: false
   gem 'selenium-webdriver'
@@ -75,3 +77,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'nokogiri', '>= 1.8.1'

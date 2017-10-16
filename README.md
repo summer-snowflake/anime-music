@@ -51,7 +51,8 @@ CIについて、キーワードは以下です。
   - features(Capybara)
   - requests
   - models
-- jest
+
+テストのカバレッジは、CI結果通知とともにgithubのPR画面にて確認できます
 
 ### 環境構築
 
