@@ -7,7 +7,7 @@ module SampleGenerator
   # 管理者ユーザの登録
   def create_admin_user
     if Admin.count.zero?
-      user = FactoryGirl.create(:user, :registered, :admin_user)
+      user = FactoryBot.create(:user, :registered, :admin_user)
       puts "Create Admin User { email: #{user.email}, password: 'password' }"
     else
       puts "Already exists Admin User { email: #{Admin.first.user.email} }"
@@ -28,8 +28,8 @@ module SampleGenerator
     return if Actor.count > 3
 
     3.times do
-      actor = FactoryGirl.create(:actor)
-      FactoryGirl.create(:appearance, anime: anime, actor: actor)
+      actor = FactoryBot.create(:actor)
+      FactoryBot.create(:appearance, anime: anime, actor: actor)
       puts "Create/Update Actor { name: #{actor.name}}"
     end
   end

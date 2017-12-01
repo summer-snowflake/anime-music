@@ -34,7 +34,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'pry-byebug'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'gimei'
   gem 'faker'
   gem 'brakeman', require: false
