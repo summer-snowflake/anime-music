@@ -6,5 +6,16 @@ FactoryBot.define do
     sequence(:summary) { |n| "あらすじ#{n}" }
     wiki_url Faker::Internet.url
     picture { fixture_file_upload('spec/fixtures/clover.gif', 'image/gif') }
+    status { Anime.statuses.keys.sample }
+
+    trait :unpublished do
+      status :unpublished
+    end
+    trait :prepared do
+      status :prepared
+    end
+    trait :published do
+      status :published
+    end
   end
 end
