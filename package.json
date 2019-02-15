@@ -38,7 +38,7 @@
     "compression": "~1.7.0",
     "css-loader": "~0.28.1",
     "dotenv": "~4.0.0",
-    "eslint": "^4.5.0",
+    "eslint": "^5.14.0",
     "eslint-plugin-react": "^7.1.0",
     "file-loader": "^1.0.0-rc.0",
     "http-server": "~0.10.0",
